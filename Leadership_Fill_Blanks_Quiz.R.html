@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leadership & Obedience – Fill in the Blanks</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      bottom: 40%;
+      right: 10%;
+      color: rgba(0,0,0,0.1);
+      font-size: 32px;
+      font-style: italic;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. Conformity occurs when a person changes behavior due to ______ pressure, without explicit instruction.<br><span style='color:gray'>الامتثال يحدث عندما يغيّر الشخص سلوكه تحت ضغط ______ دون تعليمات صريحة.</span>", "o": ["peer", "authority", "emotional", "economic"], "a": 0, "e": "Peer influence is key to conformity, unlike obedience.<br><span style='color:gray'>تأثير الأقران هو العنصر الأساسي في الامتثال.</span>"}, {"q": "2. Obedience involves following orders from a recognized ______.<br><span style='color:gray'>الطاعة تعني تنفيذ أوامر من ______ معترف به.</span>", "o": ["friend", "group", "authority", "peer"], "a": 2, "e": "Obedience is directed by authority figures.<br><span style='color:gray'>السلطة مصدر الطاعة وليس ضغط الأصدقاء.</span>"}, {"q": "3. Sherif used the ______ effect to study conformity in ambiguous situations.<br><span style='color:gray'>استخدم شريف تأثير ______ لدراسة الامتثال في مواقف غامضة.</span>", "o": ["halo", "autokinetic", "placebo", "dopamine"], "a": 1, "e": "Autokinetic illusion made participants rely on group estimates.<br><span style='color:gray'>التأثير البصري دفع المشاركين لتقليد المجموعة.</span>"}, {"q": "4. Asch found that people conformed more when the group was ______.<br><span style='color:gray'>وجد آش أن الناس يمتثلون أكثر عندما تكون المجموعة ______.</span>", "o": ["quiet", "unanimous", "small", "diverse"], "a": 1, "e": "Unanimity increases conformity pressure.<br><span style='color:gray'>الاتفاق الكامل يولد ضغطًا قويًا على الفرد.</span>"}, {"q": "5. Giving answers ______ reduced conformity in Asch’s experiment.<br><span style='color:gray'>إعطاء الإجابات بشكل ______ قلل الامتثال في تجربة آش.</span>", "o": ["privately", "loudly", "first", "late"], "a": 0, "e": "Private answers reduce social pressure.<br><span style='color:gray'>الإجابات السرية تقلل من تأثير الجماعة.</span>"}, {"q": "6. Obedience increases when the subject is in an ______ state, deferring responsibility.<br><span style='color:gray'>تزداد الطاعة عندما يكون الشخص في حالة ______ ويتخلى عن المسؤولية.</span>", "o": ["independent", "agentic", "emotional", "passive"], "a": 1, "e": "Agentic state = acting as an agent of authority.<br><span style='color:gray'>الشخص يشعر أنه مجرد أداة تنفيذ للسلطة.</span>"}, {"q": "7. Milgram’s study showed that people obeyed even when asked to ______ others.<br><span style='color:gray'>أظهرت تجربة ميلغرام أن الناس أطاعوا حتى عندما طُلب منهم ______ الآخرين.</span>", "o": ["advise", "lead", "punish", "elect"], "a": 2, "e": "Subjects administered electric shocks under authority.<br><span style='color:gray'>المشاركون نفذوا صدمات كهربائية رغم الألم الظاهر.</span>"}, {"q": "8. A consistent and autonomous ______ can influence the majority.<br><span style='color:gray'>______ المتسقة والمستقلة يمكن أن تؤثر في الأغلبية.</span>", "o": ["peer", "minority", "authority", "leader"], "a": 1, "e": "Minorities gain power through consistency.<br><span style='color:gray'>الثبات في الرأي والاستقلالية تعزز التأثير.</span>"}, {"q": "9. Individuals conform more in ______ cultures compared to nuclear ones.<br><span style='color:gray'>يمتثل الأفراد أكثر في الثقافات ______ مقارنة بالثقافات النووية.</span>", "o": ["collectivist", "urban", "Western", "competitive"], "a": 0, "e": "Collectivist cultures prioritize group harmony.<br><span style='color:gray'>الثقافات الجماعية تفضل الانسجام والامتثال.</span>"}, {"q": "10. A subject is more likely to obey if authority is physically ______.<br><span style='color:gray'>يزداد احتمال الطاعة إذا كانت السلطة ______ جسديًا.</span>", "o": ["remote", "kind", "close", "indirect"], "a": 2, "e": "Physical proximity increases obedience.<br><span style='color:gray'>كلما اقتربت السلطة، زادت قوة الطاعة.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة ⚖️🔥<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurophysiology of Abnormalities in Physiological Drives Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurophysiology of Abnormalities in Physiological Drives Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>Which syndrome is characterized by hyperphagia, hypersexuality, and placidity?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Prader-Willi syndrome</li>
+<li onclick="checkAnswer(this, true)">Klüver-Bucy syndrome</li>
+<li onclick="checkAnswer(this, false)">Turner syndrome</li>
+<li onclick="checkAnswer(this, false)">Cushing's syndrome</li>
+</ul>
+<div class="explanation">Klüver-Bucy syndrome results from bilateral lesions of the medial temporal lobes (including the amygdala), leading to hyperphagia, hypersexuality, docility, and visual agnosia.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>What brain lesion typically causes Klüver-Bucy syndrome?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Prefrontal cortex</li>
+<li onclick="checkAnswer(this, false)">Hippocampus only</li>
+<li onclick="checkAnswer(this, true)">Bilateral amygdala damage</li>
+<li onclick="checkAnswer(this, false)">Basal ganglia</li>
+</ul>
+<div class="explanation">The syndrome arises mainly from damage to the amygdala and surrounding temporal lobe regions, which are critical for emotion, aggression, and feeding behavior.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which genetic disorder is characterized by insatiable appetite and obesity from childhood?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Prader-Willi syndrome</li>
+<li onclick="checkAnswer(this, false)">Angelman syndrome</li>
+<li onclick="checkAnswer(this, false)">Fragile X syndrome</li>
+<li onclick="checkAnswer(this, false)">Williams syndrome</li>
+</ul>
+<div class="explanation">Prader-Willi syndrome, due to paternal deletion on chromosome 15, leads to hypotonia, hyperphagia, developmental delays, and morbid obesity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Which hormone is typically elevated in Prader-Willi syndrome contributing to hyperphagia?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Leptin</li>
+<li onclick="checkAnswer(this, true)">Ghrelin</li>
+<li onclick="checkAnswer(this, false)">Insulin</li>
+<li onclick="checkAnswer(this, false)">Cortisol</li>
+</ul>
+<div class="explanation">Ghrelin, the hunger-stimulating hormone, is elevated in Prader-Willi syndrome, enhancing appetite and contributing to severe obesity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Damage to which hypothalamic area causes hyperphagia and obesity?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Ventromedial hypothalamic nucleus</li>
+<li onclick="checkAnswer(this, false)">Lateral hypothalamic area</li>
+<li onclick="checkAnswer(this, false)">Suprachiasmatic nucleus</li>
+<li onclick="checkAnswer(this, false)">Anterior hypothalamus</li>
+</ul>
+<div class="explanation">The ventromedial hypothalamic nucleus is the 'satiety center,' and lesions here impair satiety signaling, causing hyperphagia and obesity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>Lesion of which hypothalamic area leads to anorexia and weight loss?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Arcuate nucleus</li>
+<li onclick="checkAnswer(this, false)">Ventromedial nucleus</li>
+<li onclick="checkAnswer(this, true)">Lateral hypothalamic area</li>
+<li onclick="checkAnswer(this, false)">Mammillary body</li>
+</ul>
+<div class="explanation">The lateral hypothalamic area is the 'feeding center'; its damage suppresses appetite, leading to reduced food intake and weight loss.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>What is polydipsia?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Excessive eating</li>
+<li onclick="checkAnswer(this, true)">Excessive water drinking</li>
+<li onclick="checkAnswer(this, false)">Excessive sleep</li>
+<li onclick="checkAnswer(this, false)">Excessive exercise</li>
+</ul>
+<div class="explanation">Polydipsia refers to abnormal thirst and excessive water intake, which can be due to hypothalamic dysfunction or psychiatric conditions (psychogenic polydipsia).</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which syndrome may present with compulsive water drinking (psychogenic polydipsia)?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Schizophrenia</li>
+<li onclick="checkAnswer(this, true)">Both A and C</li>
+<li onclick="checkAnswer(this, false)">Bipolar disorder</li>
+<li onclick="checkAnswer(this, false)">Chronic depression</li>
+</ul>
+<div class="explanation">Psychogenic polydipsia is commonly seen in patients with schizophrenia and mood disorders, characterized by excessive water intake unrelated to physiological need.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which hypothalamic lesion may cause hypothermia?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Anterior hypothalamic lesion</li>
+<li onclick="checkAnswer(this, true)">Posterior hypothalamic lesion</li>
+<li onclick="checkAnswer(this, false)">Lateral hypothalamic lesion</li>
+<li onclick="checkAnswer(this, false)">Arcuate nucleus lesion</li>
+</ul>
+<div class="explanation">The posterior hypothalamus is essential for heat conservation. Lesions here impair thermogenesis, causing hypothermia.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>What is adipsia?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Inability to feel full</li>
+<li onclick="checkAnswer(this, true)">Lack of thirst sensation</li>
+<li onclick="checkAnswer(this, false)">Inability to sleep</li>
+<li onclick="checkAnswer(this, false)">Excessive urination</li>
+</ul>
+<div class="explanation">Adipsia is a rare disorder where the normal sensation of thirst is absent, often due to hypothalamic lesions, leading to risk of dehydration.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

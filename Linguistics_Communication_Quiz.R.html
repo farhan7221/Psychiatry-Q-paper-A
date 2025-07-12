@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Linguistics of Communication – Scenario Quiz</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      bottom: 40%;
+      right: 10%;
+      color: rgba(0,0,0,0.1);
+      font-size: 32px;
+      font-style: italic;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. A person uses language to organize their message clearly while writing a report.<br><span style='color:gray'>شخص يستخدم اللغة لتنظيم رسالته بوضوح أثناء كتابة تقرير.</span>", "o": ["Ideational function", "Interpersonal function", "Textual function", "Semantic function"], "a": 2, "e": "Textual function enables structuring and organizing language.<br><span style='color:gray'>الوظيفة النصية تنظّم الرسالة وتُرتبها لغويًا.</span>"}, {"q": "2. A student explains a personal experience to a friend using emotional expressions.<br><span style='color:gray'>طالب يشرح تجربة شخصية لصديقه باستخدام تعابير عاطفية.</span>", "o": ["Phonetics", "Interpersonal function", "Syntax", "Pragmatics"], "a": 1, "e": "Interpersonal function deals with using language in interaction.<br><span style='color:gray'>الوظيفة التفاعلية تُستخدم لنقل الأحاسيس والخبرات.</span>"}, {"q": "3. A professor helps students interpret a historical event using language.<br><span style='color:gray'>أستاذ يساعد الطلاب على فهم حدث تاريخي باستخدام اللغة.</span>", "o": ["Textual function", "Syntax", "Ideational function", "Semiotics"], "a": 2, "e": "Ideational function is about using language for thought and understanding.<br><span style='color:gray'>الوظيفة التصورية تربط بين اللغة والتفكير لفهم العالم.</span>"}, {"q": "4. A linguist studies how sentence structure changes meaning.<br><span style='color:gray'>لغوي يدرس كيف يغيّر تركيب الجملة المعنى.</span>", "o": ["Syntax", "Phonology", "Semantics", "Sociolinguistics"], "a": 0, "e": "Syntax focuses on the structure and rules of sentence formation.<br><span style='color:gray'>السينتاكس يدرس بنية الجملة وتركيبها النحوي.</span>"}, {"q": "5. A child mispronounces words but understands what they mean.<br><span style='color:gray'>طفل يلفظ الكلمات بشكل خاطئ لكنه يفهم معناها.</span>", "o": ["Morphology", "Phonetics", "Pragmatics", "Syntax"], "a": 1, "e": "Phonetics deals with physical sound production and articulation.<br><span style='color:gray'>الفونيتكس يدرس نطق الأصوات وليس معناها.</span>"}, {"q": "6. Two people understand a sentence differently because they focus on context.<br><span style='color:gray'>شخصان يفهمان جملة بطريقة مختلفة بسبب اختلاف السياق.</span>", "o": ["Phonology", "Semantics", "Pragmatics", "Syntax"], "a": 2, "e": "Pragmatics involves interpreting meaning based on context.<br><span style='color:gray'>البراغماتكس يربط بين اللغة والسياق لفهم المعنى.</span>"}, {"q": "7. A linguist studies how cultural background influences language use.<br><span style='color:gray'>لغوي يدرس كيف تؤثر الثقافة على استخدام اللغة.</span>", "o": ["Pragmatics", "Sociolinguistics", "Syntax", "Phonology"], "a": 1, "e": "Sociolinguistics explores language within social and cultural settings.<br><span style='color:gray'>علم اللغة الاجتماعي يربط اللغة بالبيئة الاجتماعية والثقافية.</span>"}, {"q": "8. A researcher believes meanings exist within sentences, regardless of speaker intent.<br><span style='color:gray'>باحث يعتقد أن المعاني موجودة داخل الجملة بغض النظر عن نية المتكلم.</span>", "o": ["Communication-intentionalist", "Semanticist", "Pragmatist", "Phonologist"], "a": 1, "e": "Semanticists argue meanings are fixed in sentence structure.<br><span style='color:gray'>السمانتك يرون أن المعنى متأصل داخل الجملة نفسها.</span>"}, {"q": "9. According to Sapir-Whorf, language shapes how we think and see the world.<br><span style='color:gray'>وفقًا لسابير-وورف، اللغة تشكل طريقة تفكيرنا ورؤيتنا للعالم.</span>", "o": ["Linguistic pragmatism", "Language acquisition", "Linguistic determinism", "Morphological theory"], "a": 2, "e": "This theory suggests language affects cognition (linguistic determinism).<br><span style='color:gray'>يعني أن اللغة تؤثر على الإدراك نفسه وليس فقط التواصل.</span>"}, {"q": "10. Noam Chomsky rejected the idea that language determines thought.<br><span style='color:gray'>رفض نعوم تشومسكي فكرة أن اللغة تحدد التفكير.</span>", "o": ["Agreed with linguistic relativity", "Supported semanticism", "Opposed linguistic determinism", "Denied syntax function"], "a": 2, "e": "Chomsky believes language reflects innate structures, not thought limitation.<br><span style='color:gray'>يرى تشومسكي أن اللغة فطرية ولا تحد من التفكير.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة ✍️🧠<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

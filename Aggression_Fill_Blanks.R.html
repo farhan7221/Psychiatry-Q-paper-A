@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aggression – Fill in the Blanks</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      bottom: 40%;
+      right: 10%;
+      color: rgba(0,0,0,0.1);
+      font-size: 32px;
+      font-style: italic;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 8</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. Hostile aggression is ______ and aimed at hurting someone.<br><span style='color:gray'>العدوان العدائي هو ______ ويهدف لإيذاء شخص.</span>", "o": ["planned", "impulsive", "hidden", "strategic"], "a": 1, "e": "Hostile aggression is emotional and impulsive.<br><span style='color:gray'>العدوان العدائي يكون اندفاعيًا وعاطفيًا.</span>"}, {"q": "2. Instrumental aggression is used as a ______ to an end.<br><span style='color:gray'>العدوان الأداتي يُستخدم كـ ______ لتحقيق هدف.</span>", "o": ["reaction", "goal", "means", "threat"], "a": 2, "e": "Instrumental aggression is goal-directed and deliberate.<br><span style='color:gray'>يُستخدم العدوان الأداتي كوسيلة لتحقيق غرض.</span>"}, {"q": "3. Positive aggression includes self-defense and ______.<br><span style='color:gray'>العدوان الإيجابي يشمل الدفاع عن النفس و ______.</span>", "o": ["retaliation", "combating prejudice", "anger release", "revenge"], "a": 1, "e": "Positive aggression includes socially acceptable goals.<br><span style='color:gray'>العدوان الإيجابي يخدم أهدافًا نبيلة.</span>"}, {"q": "4. Covert aggression includes actions like ______.<br><span style='color:gray'>يشمل العدوان الخفي سلوكيات مثل ______.</span>", "o": ["fighting", "rumors", "defense", "patrolling"], "a": 1, "e": "Spreading rumors or exclusion are examples of covert aggression.<br><span style='color:gray'>الشائعات مثال على العدوان الخفي.</span>"}, {"q": "5. According to Freud, aggression builds up from the ______ instinct.<br><span style='color:gray'>حسب فرويد، العدوان يتراكم من غريزة ______.</span>", "o": ["life", "pain", "hunger", "death"], "a": 3, "e": "Thanatos = death instinct (Freud).<br><span style='color:gray'>تاناتوس: غريزة الموت.</span>"}, {"q": "6. Evolutionary theory says aggression helps in ______ survival.<br><span style='color:gray'>نظرية التطور ترى أن العدوان يساعد في بقاء ______.</span>", "o": ["group", "species", "aggressor’s genes", "society"], "a": 2, "e": "Aggression ensures genes of the fittest are passed on.<br><span style='color:gray'>يضمن العدوان انتقال جينات الأقوى.</span>"}, {"q": "7. Lorenz observed that non-human aggression can be ______.<br><span style='color:gray'>لاحظ لورنتس أن العدوان عند غير البشر يمكن أن يكون ______.</span>", "o": ["constructive", "hostile", "instrumental", "fatal"], "a": 0, "e": "He noted constructive, ritualised aggression in animals.<br><span style='color:gray'>العدوان لدى الحيوانات يمكن أن يكون بنّاءً وطَقْسيًا.</span>"}, {"q": "8. Overt aggression is ______ and observable.<br><span style='color:gray'>العدوان الظاهر يكون ______ ويمكن ملاحظته.</span>", "o": ["subtle", "calculated", "hidden", "open"], "a": 3, "e": "Overt = clear and visible to others.<br><span style='color:gray'>العدوان الظاهر واضح ومُعلن.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة ⚔️💡<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

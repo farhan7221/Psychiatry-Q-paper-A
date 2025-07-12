@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIV-associated Pathology Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>HIV-associated Pathology Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>Which cells are the primary targets for HIV entry into the CNS?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Astrocytes</li>
+<li onclick="checkAnswer(this, false)">Neurons</li>
+<li onclick="checkAnswer(this, true)">CD4+ T cells and monocytes</li>
+<li onclick="checkAnswer(this, false)">Endothelial cells</li>
+</ul>
+<div class="explanation">CD4+ T lymphocytes and monocytes are the main cells involved in HIV entry and CNS invasion, with monocytes playing a crucial role in trafficking the virus across the blood-brain barrier.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>What is the 'Trojan Horse' mechanism of HIV CNS entry?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Free virus entry through endothelial pores</li>
+<li onclick="checkAnswer(this, true)">HIV crosses BBB within infected immune cells</li>
+<li onclick="checkAnswer(this, false)">Migration via CSF circulation</li>
+<li onclick="checkAnswer(this, false)">Infection of neurons directly</li>
+</ul>
+<div class="explanation">The 'Trojan Horse' hypothesis suggests that HIV crosses the blood-brain barrier (BBB) by hitching a ride inside infected monocytes or T cells, which later release the virus into the CNS.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which HIV strain characteristic increases macrophage infection in the brain?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">CCR5 suppression</li>
+<li onclick="checkAnswer(this, true)">gp120 mutation favoring macrophage-tropism</li>
+<li onclick="checkAnswer(this, false)">CD8+ stimulation</li>
+<li onclick="checkAnswer(this, false)">Neuronal binding</li>
+</ul>
+<div class="explanation">Macrophage-tropic strains of HIV arise due to mutations in gp120, enhancing their ability to infect monocytes/macrophages rather than T lymphocytes.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>What are the two main mechanisms of HIV-associated neurodegeneration?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Direct HIV entry and neuronal apoptosis</li>
+<li onclick="checkAnswer(this, false)">Astrocyte infiltration and tauopathy</li>
+<li onclick="checkAnswer(this, false)">Direct infection of neurons and B cell inflammation</li>
+<li onclick="checkAnswer(this, true)">Cytokine release and viral protein neurotoxicity</li>
+</ul>
+<div class="explanation">Neurodegeneration is caused by viral proteins (Tat, gp120) and excessive pro-inflammatory cytokine release by infected microglia and macrophages, leading to synaptic and neuronal damage.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Which of the following is NOT a common histological finding in HIV-related brain pathology?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Microglial nodules</li>
+<li onclick="checkAnswer(this, false)">Multinucleated giant cells</li>
+<li onclick="checkAnswer(this, true)">Lewy bodies</li>
+<li onclick="checkAnswer(this, false)">Astrocytosis</li>
+</ul>
+<div class="explanation">Lewy bodies are not a feature of HIV neuropathology. Instead, microglial nodules, multinucleated giant cells, and reactive astrocytes are commonly seen.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>Which region shows significant neuronal loss in HIV-associated dementia?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Occipital cortex</li>
+<li onclick="checkAnswer(this, true)">Basal ganglia and hippocampus</li>
+<li onclick="checkAnswer(this, false)">Spinal cord</li>
+<li onclick="checkAnswer(this, false)">Cerebellum</li>
+</ul>
+<div class="explanation">Neuronal damage is especially notable in the hippocampus, basal ganglia, and caudate nucleus, contributing to cognitive and motor deficits.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>What is the most common psychiatric presentation in AIDS-related dementia?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Psychosis</li>
+<li onclick="checkAnswer(this, false)">Seizures</li>
+<li onclick="checkAnswer(this, true)">Depression</li>
+<li onclick="checkAnswer(this, false)">Euphoria</li>
+</ul>
+<div class="explanation">Depression is the most common psychiatric symptom in HIV-associated dementia, occurring more frequently than psychosis, which is relatively rare.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which factor contributes to blood-brain barrier disruption in HIV?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Viral capsid degradation</li>
+<li onclick="checkAnswer(this, true)">TNF-alpha and cytokines</li>
+<li onclick="checkAnswer(this, false)">Oligodendrocyte infection</li>
+<li onclick="checkAnswer(this, false)">Neuron loss only</li>
+</ul>
+<div class="explanation">TNF-alpha and other pro-inflammatory cytokines released by infected microglia and macrophages weaken the integrity of the blood-brain barrier, allowing more viral and immune cell entry.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which viral load compartment is less reliable for diagnosing CNS HIV disease?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">CSF viral load</li>
+<li onclick="checkAnswer(this, false)">Plasma viral load</li>
+<li onclick="checkAnswer(this, false)">Tonsillar tissue</li>
+<li onclick="checkAnswer(this, false)">Spleen viral RNA</li>
+</ul>
+<div class="explanation">Although HIV RNA can be detected in CSF, CSF viral load is not a reliable predictor of CNS disease severity or progression.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which biopsy feature is characteristic of advanced HIV encephalopathy?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Amyloid plaques</li>
+<li onclick="checkAnswer(this, false)">Axonal spheroids</li>
+<li onclick="checkAnswer(this, true)">Accumulation of lipid-laden macrophages</li>
+<li onclick="checkAnswer(this, false)">Tau-positive inclusions</li>
+</ul>
+<div class="explanation">In severe HIV encephalopathy, brain tissue often shows lipid-laden macrophages, microglial nodules, and demyelination, especially in white matter.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

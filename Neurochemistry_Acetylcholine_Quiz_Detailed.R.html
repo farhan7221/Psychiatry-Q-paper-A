@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurochemistry of Acetylcholine Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurochemistry of Acetylcholine Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>Which molecule is the precursor for acetylcholine synthesis?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Acetyl-CoA and choline</li>
+<li onclick="checkAnswer(this, false)">Tyrosine</li>
+<li onclick="checkAnswer(this, false)">Tryptophan</li>
+<li onclick="checkAnswer(this, false)">Glutamate</li>
+</ul>
+<div class="explanation">Acetylcholine is synthesized from acetyl-CoA and choline by the enzyme choline acetyltransferase in the presynaptic terminal.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which enzyme catalyzes acetylcholine synthesis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Acetylcholinesterase</li>
+<li onclick="checkAnswer(this, true)">Choline acetyltransferase</li>
+<li onclick="checkAnswer(this, false)">Choline kinase</li>
+<li onclick="checkAnswer(this, false)">Monoamine oxidase</li>
+</ul>
+<div class="explanation">Choline acetyltransferase catalyzes the transfer of an acetyl group from acetyl-CoA to choline, producing acetylcholine.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which enzyme breaks down acetylcholine?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Acetylcholinesterase</li>
+<li onclick="checkAnswer(this, false)">COMT</li>
+<li onclick="checkAnswer(this, false)">MAO-B</li>
+<li onclick="checkAnswer(this, false)">Tyrosine hydroxylase</li>
+</ul>
+<div class="explanation">Acetylcholinesterase hydrolyzes acetylcholine into acetate and choline, terminating its synaptic action.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>What is the main function of acetylcholine in the CNS?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Regulation of heart rate</li>
+<li onclick="checkAnswer(this, true)">Motor coordination and memory</li>
+<li onclick="checkAnswer(this, false)">Visual processing</li>
+<li onclick="checkAnswer(this, false)">Pain modulation</li>
+</ul>
+<div class="explanation">In the CNS, acetylcholine is critical for learning, memory, attention, and motor control, especially in the basal forebrain and brainstem.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Where are the major cholinergic neurons located in the CNS?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Raphe nuclei</li>
+<li onclick="checkAnswer(this, false)">Locus coeruleus</li>
+<li onclick="checkAnswer(this, true)">Nucleus basalis of Meynert</li>
+<li onclick="checkAnswer(this, false)">Substantia nigra</li>
+</ul>
+<div class="explanation">The nucleus basalis of Meynert, in the basal forebrain, is a major source of cholinergic projections to the cortex and hippocampus.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>Loss of cholinergic neurons in which area is linked to Alzheimer’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Locus coeruleus</li>
+<li onclick="checkAnswer(this, false)">Substantia nigra</li>
+<li onclick="checkAnswer(this, true)">Nucleus basalis of Meynert</li>
+<li onclick="checkAnswer(this, false)">Dentate gyrus</li>
+</ul>
+<div class="explanation">In Alzheimer’s disease, degeneration of cholinergic neurons in the nucleus basalis of Meynert correlates with cognitive decline.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which receptor type is a ligand-gated ion channel for acetylcholine?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Muscarinic</li>
+<li onclick="checkAnswer(this, false)">Alpha-adrenergic</li>
+<li onclick="checkAnswer(this, true)">Nicotinic</li>
+<li onclick="checkAnswer(this, false)">Beta-adrenergic</li>
+</ul>
+<div class="explanation">Nicotinic receptors are ligand-gated ion channels, mediating fast synaptic transmission in both the CNS and peripheral nervous system.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which receptor subtype mediates slow, G-protein-coupled responses to acetylcholine?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Nicotinic</li>
+<li onclick="checkAnswer(this, true)">Muscarinic</li>
+<li onclick="checkAnswer(this, false)">Beta-adrenergic</li>
+<li onclick="checkAnswer(this, false)">Dopaminergic</li>
+</ul>
+<div class="explanation">Muscarinic receptors (M1–M5) are G-protein-coupled and mediate slower modulatory responses to acetylcholine.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>What is a major clinical use of acetylcholinesterase inhibitors?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Parkinson’s disease</li>
+<li onclick="checkAnswer(this, true)">Alzheimer’s disease</li>
+<li onclick="checkAnswer(this, false)">Schizophrenia</li>
+<li onclick="checkAnswer(this, false)">Epilepsy</li>
+</ul>
+<div class="explanation">Acetylcholinesterase inhibitors, such as donepezil, are used to treat Alzheimer’s by boosting acetylcholine levels in the brain.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which peripheral nervous system function is mediated by acetylcholine?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Sympathetic postganglionic transmission</li>
+<li onclick="checkAnswer(this, true)">Skeletal muscle activation</li>
+<li onclick="checkAnswer(this, false)">Vasoconstriction</li>
+<li onclick="checkAnswer(this, false)">Beta-adrenergic stimulation</li>
+</ul>
+<div class="explanation">Acetylcholine mediates skeletal muscle contraction via nicotinic receptors at the neuromuscular junction in the somatic nervous system.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

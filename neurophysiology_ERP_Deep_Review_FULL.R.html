@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>neurophysiology – ERP (Deep Clinical Review – Full)</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>neurophysiology – ERP (Deep Clinical Review – Full)</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What does the P300 component of ERP typically reflect?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Sensory detection</li>
+<li onclick="checkAnswer(this, false)">Visual acuity</li>
+<li onclick="checkAnswer(this, true)">Cognitive processing of relevant stimuli</li>
+<li onclick="checkAnswer(this, false)">Motor inhibition</li>
+</ul>
+<div class="explanation">The P300 is a late positive wave occurring roughly 300 milliseconds after a stimulus, often recorded in an 'oddball paradigm' where an infrequent stimulus is presented among frequent ones. Its presence and amplitude reflect the individual's capacity for attentional allocation and cognitive evaluation of task-relevant stimuli. It is most commonly seen at parietal scalp locations and is reduced in disorders such as schizophrenia, dementia, and severe depression. Clinically, P300 is used in evaluating cognitive functions like memory and attention, and its latency tends to increase with age or cognitive decline.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which ERP component is typically reduced in amplitude in patients with schizophrenia during auditory gating tasks?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">P100</li>
+<li onclick="checkAnswer(this, true)">P50</li>
+<li onclick="checkAnswer(this, false)">N100</li>
+<li onclick="checkAnswer(this, false)">CNV</li>
+</ul>
+<div class="explanation">The P50 component appears approximately 50 ms after an auditory stimulus and reflects early pre-attentive sensory processing. It is commonly assessed using paired-click paradigms where two auditory stimuli are presented in close succession. In healthy individuals, the response to the second click is normally suppressed. In schizophrenia, this suppression fails, reflecting deficits in sensory gating. P50 abnormalities are considered a potential biomarker for schizophrenia and are linked to disruptions in hippocampal and prefrontal function.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>What is the significance of the MMN (Mismatch Negativity) in ERP studies?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Indicates REM activity</li>
+<li onclick="checkAnswer(this, false)">Detects hallucinations</li>
+<li onclick="checkAnswer(this, true)">Reflects automatic auditory change detection</li>
+<li onclick="checkAnswer(this, false)">Measures motor delay</li>
+</ul>
+<div class="explanation">MMN is an ERP component that occurs approximately 100–250 ms after the presentation of an unexpected or deviant auditory stimulus. It reflects the brain’s automatic, pre-attentive detection of changes in auditory input, even when the person is not actively paying attention. It is most commonly used to assess auditory processing integrity and has been shown to be reduced in schizophrenia, making it a candidate for translational biomarker development.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Which ERP wave is associated with motor preparation and expectation of a response?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">P300</li>
+<li onclick="checkAnswer(this, false)">N100</li>
+<li onclick="checkAnswer(this, true)">CNV</li>
+<li onclick="checkAnswer(this, false)">P50</li>
+</ul>
+<div class="explanation">The Contingent Negative Variation (CNV) is a slow-building negative shift in the EEG that occurs between a warning stimulus (S1) and an imperative stimulus (S2) in a task requiring a motor response. It reflects anticipatory attention, motor preparation, and timing processes. CNV amplitude increases with task difficulty and mental effort. It is used to study executive functioning and cognitive control, and has applications in ADHD, Parkinson’s disease, and other disorders of executive dysfunction.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Which ERP component is most associated with early sensory processing in the visual pathway?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">N170</li>
+<li onclick="checkAnswer(this, false)">P300</li>
+<li onclick="checkAnswer(this, true)">VEP-P100</li>
+<li onclick="checkAnswer(this, false)">MMN</li>
+</ul>
+<div class="explanation">The P100 (or VEP-P100) is a visually evoked potential occurring about 100 ms after a visual stimulus, typically recorded over the occipital cortex. It reflects early-stage visual sensory input and is relatively stable and unaffected by attention. This makes it a reliable clinical tool in assessing integrity of the visual pathway, particularly in disorders like optic neuritis or multiple sclerosis. Prolongation of P100 latency is a hallmark sign in demyelinating diseases.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>What does the N100 (or N1) ERP component reflect in auditory tasks?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Conscious recognition of sound</li>
+<li onclick="checkAnswer(this, true)">Pre-attentive auditory processing</li>
+<li onclick="checkAnswer(this, false)">Motor readiness</li>
+<li onclick="checkAnswer(this, false)">Visual-spatial discrimination</li>
+</ul>
+<div class="explanation">The N100 (or N1) is a negative-going waveform that peaks approximately 100 milliseconds after an auditory stimulus. It reflects early sensory detection and is typically larger when the stimulus is attended to, though it can also occur pre-attentively. N100 is thought to arise from the primary and secondary auditory cortices and is often used in cognitive neuroscience to study sensory attention and early cortical processing. In clinical research, N100 amplitude reductions have been associated with schizophrenia and cognitive slowing in aging.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which ERP component is used to study face perception and is larger in response to human faces?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">CNV</li>
+<li onclick="checkAnswer(this, true)">N170</li>
+<li onclick="checkAnswer(this, false)">P300</li>
+<li onclick="checkAnswer(this, false)">P50</li>
+</ul>
+<div class="explanation">N170 is a negative ERP component that occurs approximately 170 milliseconds after viewing a visual stimulus, particularly faces. It is maximal over occipitotemporal scalp sites and reflects neural mechanisms dedicated to early face detection. The N170 is typically larger (more negative) when the stimulus is a face compared to other objects, and is used in studies of social cognition and autism spectrum disorder. Abnormal N170 amplitudes or latencies have been reported in individuals with impaired face processing.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>In what way is the P300 used clinically?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">To measure REM sleep</li>
+<li onclick="checkAnswer(this, false)">To evaluate peripheral neuropathy</li>
+<li onclick="checkAnswer(this, true)">To assess cognitive status</li>
+<li onclick="checkAnswer(this, false)">To diagnose epilepsy</li>
+</ul>
+<div class="explanation">The P300 is widely used in both clinical and research settings as a tool to evaluate cognitive processing speed and capacity. Its amplitude reflects attentional resource allocation, and latency reflects stimulus evaluation time. Clinically, it is employed in assessments of mild cognitive impairment (MCI), Alzheimer’s disease, and other conditions where attentional control is impaired. The P300 is often elicited using the 'oddball paradigm' in which the subject must identify infrequent targets among frequent non-targets.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>How is MMN (Mismatch Negativity) elicited in ERP experiments?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">By asking subjects to recall stimuli</li>
+<li onclick="checkAnswer(this, false)">By pairing motor responses</li>
+<li onclick="checkAnswer(this, true)">By using deviant tones within a repetitive sequence</li>
+<li onclick="checkAnswer(this, false)">By monitoring blinking rate</li>
+</ul>
+<div class="explanation">MMN is elicited in passive listening paradigms, typically using a sequence of standard auditory tones occasionally interrupted by a deviant tone that differs in frequency, duration, or intensity. Even without attention, the brain generates a distinct negative waveform, typically maximal over frontocentral scalp areas. It reflects automatic auditory change detection and is useful in examining early perceptual processes and predictive coding. MMN is reduced in various psychiatric disorders including schizophrenia and is used in translational biomarker research.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>What does a prolonged P100 latency suggest in clinical practice?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Visual overactivity</li>
+<li onclick="checkAnswer(this, true)">Optic nerve demyelination</li>
+<li onclick="checkAnswer(this, false)">Motor neuron hyperexcitability</li>
+<li onclick="checkAnswer(this, false)">Parietal lobe lesion</li>
+</ul>
+<div class="explanation">A delayed P100 latency is one of the hallmark findings in visual evoked potential (VEP) studies, particularly in demyelinating diseases like multiple sclerosis. P100 reflects conduction time from retina to visual cortex via the optic nerve. Demyelination slows this conduction, resulting in delayed latencies even in patients with subclinical optic neuropathy. Thus, VEP-P100 is an important non-invasive tool for diagnosing and monitoring neuro-ophthalmological conditions.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

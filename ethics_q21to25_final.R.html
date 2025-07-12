@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethics in Psychiatry - Questions 1–10</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .question-box { background: #fff; padding: 20px; margin: 50px auto; border-radius: 10px; max-width: 750px; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 20px; }
+    .option { background: #eee; padding: 10px; margin: 8px 0; border-radius: 5px; cursor: pointer; }
+    .option.correct { background: #d4edda !important; pointer-events: none; }
+    .option.incorrect { background: #f8d7da !important; pointer-events: none; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 5px solid gold; padding: 10px; display: none; margin-top: 15px; }
+    .next-btn { display: none; margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    .counter { position: fixed; top: 10px; right: 20px; background: white; padding: 5px 10px; border-radius: 10px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px;
+      font-style: italic;
+      color: rgba(128,128,128,0.1);
+      pointer-events: none;
+    }
+    #lastQ { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+<body>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<div class="counter">Total Questions: 10</div>
+<div id="quiz"></div>
+<div id="lastQ"><button onclick="goToLast()">Last Q</button></div>
+<script>
+const questions = [{"q": "Which principle focuses on doing good?", "qt": "أي مبدأ يركز على 'فعل الخير'؟", "options": [["Non-maleficence", "عدم الإضرار"], ["Justice", "العدالة"], ["Beneficence", "الإحسان"], ["Fidelity", "الوفاء"]], "answer": 2, "exp": "Beneficence refers to acting in the best interest of the patient. | الإحسان يعني التصرف بما يخدم مصلحة المريض."}, {"q": "What is therapeutic privilege?", "qt": "ما هو امتياز العلاج (Therapeutic privilege)؟", "options": [["Doctor’s financial rights", "حقوق الطبيب المالية"], ["Right to avoid treatment", "الحق في رفض العلاج"], ["Withholding info if harm expected", "حجب المعلومات إذا كان يتوقع حدوث ضرر"], ["Freedom to prescribe anything", "حرية وصف أي علاج"]], "answer": 2, "exp": "Therapeutic privilege allows doctors to withhold information if disclosure may harm the patient. | يُسمح للطبيب بحجب المعلومات إذا كان الكشف عنها قد يسبب ضررًا نفسيًا أو جسديًا للمريض."}, {"q": "What ethical concern is raised with placebo use?", "qt": "ما هو القلق الأخلاقي المرتبط باستخدام الدواء الوهمي؟", "options": [["Cost", "التكلفة"], ["Deception", "الخداع"], ["Addiction", "الإدمان"], ["Access", "الوصول"]], "answer": 1, "exp": "Placebos may involve deceiving the patient, which conflicts with autonomy and informed consent. | استخدام الدواء الوهمي قد يتضمن خداع المريض، مما يتعارض مع الاستقلالية والموافقة المستنيرة."}, {"q": "What is surrogate decision-making?", "qt": "ما المقصود باتخاذ القرار بالنيابة؟", "options": [["AI deciding", "قرار الذكاء الاصطناعي"], ["Doctor override", "قرار الطبيب المتفوق"], ["Guardian or proxy decides", "الوصي أو الممثل يتخذ القرار"], ["Legal punishment", "عقوبة قانونية"]], "answer": 2, "exp": "Surrogate decision-making is when a proxy makes decisions for an incapacitated patient. | اتخاذ القرار بالنيابة يحدث عندما يتخذ شخص آخر القرار بالنيابة عن مريض غير قادر على اتخاذ القرار."}, {"q": "What ethical tension exists in emergency care?", "qt": "ما التوتر الأخلاقي الموجود في الرعاية الطارئة؟", "options": [["Too much consent", "الكثير من الموافقة"], ["No time for consent", "لا وقت للموافقة"], ["Over-documentation", "الوثائق الزائدة"], ["Non-medical staff", "موظفون غير طبيين"]], "answer": 1, "exp": "In emergencies, immediate action may be needed without time for consent, creating ethical conflict. | في الحالات الطارئة، قد يلزم التدخل الفوري دون وقت للحصول على موافقة، مما يخلق توترًا أخلاقيًا."}];
+
+let current = 0, score = 0;
+const quiz = document.getElementById("quiz");
+
+function loadQ() {
+  const q = questions[current];
+  let html = `<div class='question-box' id='qbox'>
+    <div class='question'>Q${current + 1}. ${q.q}</div>
+    <div class='translation'>${q.qt}</div>`;
+  q.options.forEach((opt, i) => {
+    html += `<div class='option' data-index='${i}' onclick='selectAnswer(this, ${i}, ${q.answer})'>${opt[0]}<br><small>${opt[1]}</small></div>`;
+  });
+  html += `<div class='explanation'><b>Explanation:</b> ${q.exp}</div>
+    <button class='next-btn' onclick='nextQ()'>Next</button>
+  </div>`;
+  quiz.innerHTML = html;
+}
+
+function selectAnswer(el, selected, correct) {
+  const opts = document.querySelectorAll('.option');
+  opts.forEach((opt, i) => {
+    opt.style.pointerEvents = 'none';
+    if (i === correct) opt.classList.add('correct');
+    else if (i === selected) opt.classList.add('incorrect');
+  });
+  if (selected === correct) score++;
+  document.querySelector('.explanation').style.display = 'block';
+  document.querySelector('.next-btn').style.display = 'inline-block';
+}
+
+function nextQ() {
+  current++;
+  if (current < questions.length) loadQ();
+  else {
+    quiz.innerHTML = `<div class='question-box'><div class='question'>انتهت الأسئلة</div><div class='question'>Your score: <span style='color:green'>${score}</span> / <span style='color:red'>${questions.length}</span></div></div>`;
+  }
+}
+
+function goToLast() {
+  current = questions.length - 1;
+  loadQ();
+}
+
+loadQ();
+</script>
+</body>
+</html>

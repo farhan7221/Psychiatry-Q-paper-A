@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Health Advocacy – Fill in the Blanks</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      bottom: 40%;
+      right: 10%;
+      color: rgba(0,0,0,0.08);
+      font-size: 32px;
+      font-style: italic;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 7</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. Health advocacy means supporting patients to access ______ and express their views.<br><span style='color:gray'>المناصرة الصحية تعني دعم المرضى للوصول إلى ______ والتعبير عن آرائهم.</span>", "o": ["money", "care", "visits", "doctors"], "a": 1, "e": "Advocacy focuses on ensuring access to care and empowering patients.<br><span style='color:gray'>الهدف من المناصرة هو تمكين المريض من الحصول على الرعاية والتعبير.</span>"}, {"q": "2. Dual loyalty occurs when the physician has obligations to both the patient and ______.<br><span style='color:gray'>يحدث تضارب الولاء عندما يكون للطبيب التزام تجاه المريض و______.</span>", "o": ["family", "public", "external party", "insurance"], "a": 2, "e": "Dual loyalty arises from external influences beyond patient care.<br><span style='color:gray'>الولاء المزدوج ينتج عن ارتباط الطبيب بطرف خارجي غير المريض.</span>"}, {"q": "3. In the ______ model, the patient can choose services based on ability to pay.<br><span style='color:gray'>في النموذج ______، يمكن للمريض اختيار الخدمات بناءً على قدرته المالية.</span>", "o": ["Utilitarian", "Libertarian", "Egalitarian", "Restorative"], "a": 1, "e": "Libertarian model allows access through personal freedom and payment.<br><span style='color:gray'>النموذج الليبرالي يعطي الحرية للمريض حسب قدرته على الدفع.</span>"}, {"q": "4. The utilitarian approach distributes resources to maximize total ______.<br><span style='color:gray'>النهج النفعي يوزع الموارد لتعظيم ______ الإجمالية.</span>", "o": ["justice", "satisfaction", "benefit", "efficiency"], "a": 2, "e": "Utilitarianism seeks the greatest good for the greatest number.<br><span style='color:gray'>المنفعة القصوى هي هدف التوزيع النفعي.</span>"}, {"q": "5. Giving priority to marginalized or disadvantaged groups is a form of ______ justice.<br><span style='color:gray'>إعطاء الأولوية للفئات المحرومة يُعد نوعًا من العدالة ______.</span>", "o": ["liberal", "restorative", "social", "deliberative"], "a": 1, "e": "Restorative justice aims to correct historical or systemic disadvantages.<br><span style='color:gray'>العدالة التعويضية تسعى لإصلاح الفوارق التاريخية أو البنيوية.</span>"}, {"q": "6. Equal distribution of services to all individuals is aligned with the ______ model.<br><span style='color:gray'>التوزيع المتساوي للخدمات يتماشى مع النموذج ______.</span>", "o": ["Utilitarian", "Egalitarian", "Restorative", "Capitalist"], "a": 1, "e": "Egalitarianism promotes equal access, regardless of outcomes.<br><span style='color:gray'>النهج التساوي يركز على التوزيع العادل بالتساوي.</span>"}, {"q": "7. Speaking up on behalf of a vulnerable patient reflects the doctor's role as an ______.<br><span style='color:gray'>الدفاع عن مريض ضعيف يُظهر دور الطبيب كـ ______.</span>", "o": ["advocate", "agent", "educator", "assessor"], "a": 0, "e": "An advocate helps patients who can't voice their own needs.<br><span style='color:gray'>المُناصر هو من يتحدث بالنيابة عن المريض غير القادر على التعبير.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة ✅<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

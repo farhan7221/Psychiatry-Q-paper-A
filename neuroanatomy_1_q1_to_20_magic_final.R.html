@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neuroanatomy 1 - Q1 to Q5</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f2f2f2; }
+    .question-card { display: none; padding: 30px 20px; background: #fff; max-width: 800px; margin: 50px auto; border-radius: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.2); position: relative; }
+    .question-number { font-weight: bold; font-size: 20px; margin-bottom: 15px; }
+    .question-text, .question-text-ar { font-size: 20px; margin-bottom: 10px; }
+    .question-text-ar { color: #666; }
+    .option-btn {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 14px 18px;
+      font-size: 17px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      background: #fff;
+      cursor: pointer;
+      text-align: left;
+    }
+    .option-btn.correct { background-color: #c8e6c9; border-color: #4CAF50; }
+    .option-btn.incorrect { background-color: #ffcdd2; border-color: #f44336; }
+    .explanation {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: rgba(255, 255, 0, 0.3);
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    .next-btn {
+      display: none;
+      margin-top: 25px;
+      padding: 12px 25px;
+      font-size: 18px;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      opacity: 0.15;
+      font-size: 26px;
+      pointer-events: none;
+    }
+    .top-count {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .final-message {
+      display: none;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="question-card" id="q1">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q1:</div>
+    <div class="question-text">Which lobe of the brain contains the primary motor cortex?</div>
+    <div class="question-text-ar">أي فص من الدماغ يحتوي على القشرة الحركية الأساسية؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Parietal<br><small>الفص الجداري</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Temporal<br><small>الفص الصدغي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Frontal<br><small>الفص الجبهي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Occipital<br><small>الفص القذالي</small>
+      </button>
+    </div>
+    <div class="explanation">The primary motor cortex is located in the precentral gyrus of the frontal lobe.<br>القشرة الحركية الأساسية تقع في التلفيف قبل المركزي في الفص الجبهي.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q2">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q2:</div>
+    <div class="question-text">What sulcus separates the frontal and parietal lobes?</div>
+    <div class="question-text-ar">ما هو التلم الذي يفصل بين الفص الجبهي والفص الجداري؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Lateral sulcus<br><small>التلم الجانبي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Central sulcus<br><small>التلم المركزي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Calcarine sulcus<br><small>التلم المهمازي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Parieto-occipital sulcus<br><small>التلم الجداري القذالي</small>
+      </button>
+    </div>
+    <div class="explanation">The central sulcus separates the frontal lobe from the parietal lobe.<br>التلم المركزي يفصل بين الفص الجبهي والفص الجداري.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q3">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q3:</div>
+    <div class="question-text">Which structure is referred to as the 'fifth lobe' of the brain?</div>
+    <div class="question-text-ar">ما هو التركيب الذي يُشار إليه باسم 'الفص الخامس' في الدماغ؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Insula<br><small>الجزيرة الدماغية</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Thalamus<br><small>المهاد</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Amygdala<br><small>اللوزة الدماغية</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Hippocampus<br><small>الحُصين</small>
+      </button>
+    </div>
+    <div class="explanation">The insula is sometimes called the fifth lobe due to its unique location.<br>تُعرف الجزيرة أحيانًا بالفص الخامس بسبب موقعها الفريد داخل شق سيلفيوس.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q4">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q4:</div>
+    <div class="question-text">Which cortex is responsible for taste perception?</div>
+    <div class="question-text-ar">أي قشرة مسؤولة عن إدراك التذوق؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Auditory cortex<br><small>القشرة السمعية</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Somatosensory cortex<br><small>القشرة الحسية الجسدية</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Gustatory cortex<br><small>القشرة الذوقية</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Visual cortex<br><small>القشرة البصرية</small>
+      </button>
+    </div>
+    <div class="explanation">The gustatory cortex is responsible for processing taste information.<br>القشرة الذوقية مسؤولة عن معالجة معلومات التذوق.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q5">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q5:</div>
+    <div class="question-text">Which gyrus is involved in voluntary movement?</div>
+    <div class="question-text-ar">أي تلفيف يشارك في الحركة الإرادية؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Postcentral gyrus<br><small>التلفيف ما بعد المركزي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Precentral gyrus<br><small>التلفيف ما قبل المركزي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Cingulate gyrus<br><small>التلفيف الحزامي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Angular gyrus<br><small>التلفيف الزاوي</small>
+      </button>
+    </div>
+    <div class="explanation">The precentral gyrus contains the primary motor cortex for voluntary movement.<br>يحتوي التلفيف ما قبل المركزي على القشرة الحركية المسؤولة عن الحركة الإرادية.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q6">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q6:</div>
+    <div class="question-text">Which structure connects the left and right cerebral hemispheres?</div>
+    <div class="question-text-ar">ما هو التركيب الذي يربط بين نصفي الكرة المخية الأيسر والأيمن؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Corpus callosum<br><small>الجسم الثفني</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Internal capsule<br><small>الكبسولة الداخلية</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Fornix<br><small>القوس</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Septum pellucidum<br><small>الحاجز الشفاف</small>
+      </button>
+    </div>
+    <div class="explanation">The corpus callosum is a large bundle of nerve fibers connecting the two cerebral hemispheres.<br>الجسم الثفني هو حزمة كبيرة من الألياف العصبية التي تربط بين نصفي الكرة المخية.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q7">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q7:</div>
+    <div class="question-text">Which part of the brain is responsible for coordination and balance?</div>
+    <div class="question-text-ar">أي جزء من الدماغ مسؤول عن التناسق والتوازن؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Cerebellum<br><small>المخيخ</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Pons<br><small>الجسر</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Thalamus<br><small>المهاد</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Basal ganglia<br><small>العقد القاعدية</small>
+      </button>
+    </div>
+    <div class="explanation">The cerebellum coordinates voluntary movements and helps maintain posture and balance.<br>المخيخ ينظم الحركات الإرادية ويساعد في الحفاظ على التوازن والوضعية.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q8">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q8:</div>
+    <div class="question-text">Which structure forms the floor of the lateral ventricles?</div>
+    <div class="question-text-ar">أي تركيب يشكل أرضية البطينين الجانبيين؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Thalamus<br><small>المهاد</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Caudate nucleus<br><small>النواة المذنبة</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Hippocampus<br><small>الحُصين</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Globus pallidus<br><small>الكرة الشاحبة</small>
+      </button>
+    </div>
+    <div class="explanation">The hippocampus forms the floor of the inferior horn of the lateral ventricles.<br>الحُصين يشكل أرضية القرن السفلي للبطينين الجانبيين.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q9">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q9:</div>
+    <div class="question-text">What is the main function of the thalamus?</div>
+    <div class="question-text-ar">ما هي الوظيفة الرئيسية للمهاد؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Motor coordination<br><small>تنسيق الحركة</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Emotional regulation<br><small>تنظيم المشاعر</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Sensory relay<br><small>نقل الحواس</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Memory encoding<br><small>ترميز الذاكرة</small>
+      </button>
+    </div>
+    <div class="explanation">The thalamus acts as a relay station for sensory information to the cerebral cortex.<br>يعمل المهاد كمحطة ترحيل للمعلومات الحسية إلى القشرة المخية.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q10">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q10:</div>
+    <div class="question-text">Which gyrus is associated with somatosensory processing?</div>
+    <div class="question-text-ar">أي تلفيف يرتبط بمعالجة المعلومات الحسية الجسدية؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Precentral gyrus<br><small>التلفيف ما قبل المركزي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Postcentral gyrus<br><small>التلفيف ما بعد المركزي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Superior temporal gyrus<br><small>التلفيف الصدغي العلوي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Cingulate gyrus<br><small>التلفيف الحزامي</small>
+      </button>
+    </div>
+    <div class="explanation">The postcentral gyrus contains the primary somatosensory cortex.<br>يحتوي التلفيف ما بعد المركزي على القشرة الحسية الجسدية الأساسية.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q11">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q11:</div>
+    <div class="question-text">Which of the following structures is part of the limbic system?</div>
+    <div class="question-text-ar">أي من التراكيب التالية يعتبر جزءاً من الجهاز الحوفي؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Putamen<br><small>النواة المتصلة</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Hippocampus<br><small>الحُصين</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Globus pallidus<br><small>الكرة الشاحبة</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Substantia nigra<br><small>المادة السوداء</small>
+      </button>
+    </div>
+    <div class="explanation">The hippocampus is a crucial component of the limbic system involved in memory.<br>الحُصين هو جزء مهم من الجهاز الحوفي وله دور كبير في الذاكرة.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q12">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q12:</div>
+    <div class="question-text">What structure connects the third and fourth ventricles?</div>
+    <div class="question-text-ar">ما هو التركيب الذي يربط بين البطين الثالث والرابع؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Foramen of Monro<br><small>ثقبة مونرو</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Central canal<br><small>القناة المركزية</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Cerebral aqueduct<br><small>القناة الدماغية</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Interventricular foramen<br><small>الثقبة بين البطينية</small>
+      </button>
+    </div>
+    <div class="explanation">The cerebral aqueduct connects the third and fourth ventricles.<br>القناة الدماغية (أكويدكت) تربط بين البطين الثالث والرابع.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q13">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q13:</div>
+    <div class="question-text">Which artery supplies the medial surface of the frontal lobe?</div>
+    <div class="question-text-ar">أي شريان يغذي السطح الإنسي للفص الجبهي؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Middle cerebral artery<br><small>الشريان المخي الأوسط</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Anterior cerebral artery<br><small>الشريان المخي الأمامي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Posterior cerebral artery<br><small>الشريان المخي الخلفي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Basilar artery<br><small>الشريان القاعدي</small>
+      </button>
+    </div>
+    <div class="explanation">The anterior cerebral artery supplies the medial part of the frontal lobe.<br>الشريان المخي الأمامي يغذي السطح الإنسي للفص الجبهي.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q14">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q14:</div>
+    <div class="question-text">Which of the following is part of the basal ganglia?</div>
+    <div class="question-text-ar">أي من التالي يُعد جزءًا من العقد القاعدية؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Thalamus<br><small>المهاد</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Cerebellum<br><small>المخيخ</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Caudate nucleus<br><small>النواة المذنبة</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Hippocampus<br><small>الحُصين</small>
+      </button>
+    </div>
+    <div class="explanation">The caudate nucleus is one of the structures comprising the basal ganglia.<br>النواة المذنبة تُعد من مكونات العقد القاعدية.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q15">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q15:</div>
+    <div class="question-text">Which structure is located in the diencephalon?</div>
+    <div class="question-text-ar">أي تركيب يقع في الدماغ البيني؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Pons<br><small>الجسر</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Cerebellum<br><small>المخيخ</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Thalamus<br><small>المهاد</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Midbrain<br><small>الدماغ المتوسط</small>
+      </button>
+    </div>
+    <div class="explanation">The thalamus is a prominent structure in the diencephalon.<br>المهاد هو أحد التراكيب الرئيسية في الدماغ البيني.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q16">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q16:</div>
+    <div class="question-text">Which ventricle is located in the midbrain?</div>
+    <div class="question-text-ar">أي بطين يوجد في الدماغ المتوسط؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Third ventricle<br><small>البطين الثالث</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Fourth ventricle<br><small>البطين الرابع</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Lateral ventricles<br><small>البطينان الجانبيان</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Cerebral aqueduct<br><small>القناة الدماغية</small>
+      </button>
+    </div>
+    <div class="explanation">The cerebral aqueduct runs through the midbrain and connects the third and fourth ventricles.<br>تمر القناة الدماغية خلال الدماغ المتوسط وتربط بين البطينين الثالث والرابع.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q17">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q17:</div>
+    <div class="question-text">Which artery is a branch of the internal carotid artery?</div>
+    <div class="question-text-ar">أي شريان هو فرع من الشريان السباتي الداخلي؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Basilar artery<br><small>الشريان القاعدي</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Vertebral artery<br><small>الشريان الفقري</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Middle cerebral artery<br><small>الشريان المخي الأوسط</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Posterior cerebral artery<br><small>الشريان المخي الخلفي</small>
+      </button>
+    </div>
+    <div class="explanation">The middle cerebral artery is one of the major branches of the internal carotid artery.<br>الشريان المخي الأوسط هو أحد الفروع الرئيسية للشريان السباتي الداخلي.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q18">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q18:</div>
+    <div class="question-text">Which structure forms the roof of the fourth ventricle?</div>
+    <div class="question-text-ar">أي تركيب يشكل سقف البطين الرابع؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Cerebellum<br><small>المخيخ</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Pons<br><small>الجسر</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Medulla<br><small>النخاع المستطيل</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Corpus callosum<br><small>الجسم الثفني</small>
+      </button>
+    </div>
+    <div class="explanation">The cerebellum forms the roof of the fourth ventricle.<br>يشكل المخيخ سقف البطين الرابع.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q19">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q19:</div>
+    <div class="question-text">Which part of the brainstem contains the pyramidal tracts?</div>
+    <div class="question-text-ar">أي جزء من جذع الدماغ يحتوي على الحُزَم الهرمية؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Midbrain<br><small>الدماغ المتوسط</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Pons<br><small>الجسر</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Medulla<br><small>النخاع المستطيل</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Thalamus<br><small>المهاد</small>
+      </button>
+    </div>
+    <div class="explanation">The pyramids of the medulla contain descending motor tracts called pyramidal tracts.<br>تحتوي أهرامات النخاع المستطيل على الحُزَم الهرمية الحركية الهابطة.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+
+  <div class="question-card" id="q20">
+    <div class="top-count">Total Questions: 20</div>
+    <div class="question-number">Q20:</div>
+    <div class="question-text">Which of the following structures is part of the brainstem?</div>
+    <div class="question-text-ar">أي من التراكيب التالية هو جزء من جذع الدماغ؟</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Thalamus<br><small>المهاد</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Hippocampus<br><small>الحُصين</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, true)" data-correct="true">
+        Pons<br><small>الجسر</small>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(this, false)" data-correct="false">
+        Basal ganglia<br><small>العقد القاعدية</small>
+      </button>
+    </div>
+    <div class="explanation">The brainstem includes the midbrain, pons, and medulla.<br>يتكون جذع الدماغ من الدماغ المتوسط والجسر والنخاع المستطيل.</div>
+    <button class="next-btn" onclick="nextQuestion()">التالي →</button>
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  </div>
+<div class="final-message">انتهت الأسئلة</div>
+</div>
+<script>
+  let current = 0;
+  const total = document.querySelectorAll('.question-card').length;
+  function showQuestion(index) {
+    document.querySelectorAll('.question-card').forEach((card, i) => {
+      card.style.display = i === index ? 'block' : 'none';
+    });
+  }
+  function selectAnswer(btn, correct) {
+    const container = btn.closest('.question-card');
+    const options = container.querySelectorAll('.option-btn');
+    options.forEach(b => b.disabled = true);
+    btn.classList.add(correct ? "correct" : "incorrect");
+    if (!correct) {
+      const correctBtn = [...options].find(b => b.dataset.correct === "true");
+      correctBtn.classList.add("correct");
+    }
+    container.querySelector(".explanation").style.display = "block";
+    container.querySelector(".next-btn").style.display = "inline-block";
+  }
+  function nextQuestion() {
+    current++;
+    if (current < total) {
+      showQuestion(current);
+    } else {
+      document.querySelector('.container').innerHTML = '<div class="final-message">انتهت الأسئلة</div>';
+    }
+  }
+  document.addEventListener("DOMContentLoaded", () => showQuestion(current));
+</script>
+</body>
+</html>

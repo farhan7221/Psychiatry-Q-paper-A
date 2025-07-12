@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frontotemporal Dementia Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Frontotemporal Dementia Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>Which two lobes are primarily affected in Frontotemporal Dementia?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Parietal and occipital</li>
+<li onclick="checkAnswer(this, true)">Frontal and temporal</li>
+<li onclick="checkAnswer(this, false)">Temporal and occipital</li>
+<li onclick="checkAnswer(this, false)">Parietal and frontal</li>
+</ul>
+<div class="explanation">Frontotemporal Dementia is characterized by selective and often asymmetric atrophy of the frontal and temporal lobes. This degeneration leads to profound alterations in behavior, executive functioning, and language, depending on the dominant region involved. Memory is relatively spared early in the disease.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>What is the hallmark histopathological finding in Pick’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques</li>
+<li onclick="checkAnswer(this, false)">Neurofibrillary tangles</li>
+<li onclick="checkAnswer(this, true)">Pick bodies</li>
+<li onclick="checkAnswer(this, false)">Hirano bodies</li>
+</ul>
+<div class="explanation">Pick’s disease, a subtype of FTD, is histologically distinguished by the presence of Pick bodies—rounded, cytoplasmic inclusions found within swollen neurons. These structures disrupt normal cell function and are a signature pathological finding.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Pick bodies are composed primarily of which protein?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Alpha-synuclein</li>
+<li onclick="checkAnswer(this, false)">Ubiquitin</li>
+<li onclick="checkAnswer(this, false)">TDP-43</li>
+<li onclick="checkAnswer(this, true)">Tau</li>
+</ul>
+<div class="explanation">Pick bodies are composed of hyperphosphorylated tau protein and are argyrophilic. Their presence signifies a tauopathy and distinguishes Pick’s disease from other forms of FTD and neurodegenerative dementias.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>What is the typical cortical pattern of atrophy in Pick’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Occipital sparing</li>
+<li onclick="checkAnswer(this, true)">Frontal and temporal lobes</li>
+<li onclick="checkAnswer(this, false)">Diffuse cortical atrophy</li>
+<li onclick="checkAnswer(this, false)">Parietal lobe emphasis</li>
+</ul>
+<div class="explanation">The atrophy seen in Pick’s disease is most pronounced in the frontal and temporal lobes, often giving a knife-edge appearance on gross pathology. This correlates with clinical features such as disinhibition, apathy, and language dysfunction.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Which FTD variant shows spongiosis in layers III and V of cortex?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Pick’s disease</li>
+<li onclick="checkAnswer(this, false)">FTD with motor neuron disease</li>
+<li onclick="checkAnswer(this, true)">Frontal lobe degeneration type</li>
+<li onclick="checkAnswer(this, false)">Vascular dementia</li>
+</ul>
+<div class="explanation">In frontal lobe degeneration-type FTD, the cortex often shows microvacuolation or spongiform degeneration, particularly in layers III and V. This microscopic finding reflects neuronal loss and gliosis without the classic Pick bodies.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>What clinical syndrome is associated with tau-positive FTD pathology?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Semantic variant</li>
+<li onclick="checkAnswer(this, false)">Logopenic variant</li>
+<li onclick="checkAnswer(this, true)">Progressive non-fluent aphasia</li>
+<li onclick="checkAnswer(this, false)">Amnestic syndrome</li>
+</ul>
+<div class="explanation">Progressive non-fluent aphasia is a language variant of FTD associated with tau-positive inclusions. It presents with effortful, grammatically impaired speech and is linked pathologically to tauopathies such as Pick’s disease.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which protein is typically found in inclusions in FTD-MND variant?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Alpha-synuclein</li>
+<li onclick="checkAnswer(this, false)">Ubiquitin</li>
+<li onclick="checkAnswer(this, false)">Tau</li>
+<li onclick="checkAnswer(this, true)">TDP-43</li>
+</ul>
+<div class="explanation">In the FTD-MND variant, pathological inclusions stain positive for TDP-43, a nuclear protein involved in RNA processing. This variant overlaps clinically and pathologically with amyotrophic lateral sclerosis (ALS).</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>What is the difference in cortical layers between Alzheimer’s and Pick’s?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Alzheimer’s affects layer IV; Pick’s layers III and V</li>
+<li onclick="checkAnswer(this, false)">Both affect layer I</li>
+<li onclick="checkAnswer(this, false)">Pick’s targets deep white matter</li>
+<li onclick="checkAnswer(this, false)">No layer-specific involvement</li>
+</ul>
+<div class="explanation">Whereas Alzheimer’s tends to affect cortical layer IV, FTD, particularly Pick’s disease, prominently affects layers III and V. These laminar differences help pathologists distinguish between these major forms of dementia.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which type of glial pathology may be seen in FTD?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Rosenthal fibers</li>
+<li onclick="checkAnswer(this, false)">Astrocytic plaques</li>
+<li onclick="checkAnswer(this, true)">Glial tau inclusions</li>
+<li onclick="checkAnswer(this, false)">Lewy neurites</li>
+</ul>
+<div class="explanation">In tau-positive FTD variants, tau aggregates can also be found in astrocytes and oligodendrocytes, forming glial inclusions. These contribute to the pathology and may be seen on immunohistochemical staining.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which FTD subtype is most commonly associated with ALS-like symptoms?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Semantic dementia</li>
+<li onclick="checkAnswer(this, false)">Pick’s disease</li>
+<li onclick="checkAnswer(this, true)">FTD-MND</li>
+<li onclick="checkAnswer(this, false)">Vascular dementia</li>
+</ul>
+<div class="explanation">FTD-MND is a distinct subtype of FTD with overlapping motor neuron disease symptoms, including weakness, fasciculations, and upper motor neuron signs. It is pathologically associated with TDP-43 inclusions in both cortical and spinal motor neurons.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

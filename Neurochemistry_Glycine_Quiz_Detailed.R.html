@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurochemistry of Glycine Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurochemistry of Glycine Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What is the primary role of glycine in the CNS?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Excitatory neurotransmitter</li>
+<li onclick="checkAnswer(this, true)">Inhibitory neurotransmitter</li>
+<li onclick="checkAnswer(this, false)">Neuromodulator only</li>
+<li onclick="checkAnswer(this, false)">Hormone</li>
+</ul>
+<div class="explanation">Glycine acts as the main inhibitory neurotransmitter in the spinal cord and brainstem, enhancing chloride influx via glycine receptors.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Where is glycine most abundant as an inhibitory neurotransmitter?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Cortex</li>
+<li onclick="checkAnswer(this, true)">Spinal cord and brainstem</li>
+<li onclick="checkAnswer(this, false)">Cerebellum</li>
+<li onclick="checkAnswer(this, false)">Hippocampus</li>
+</ul>
+<div class="explanation">Glycine is concentrated in the spinal cord and brainstem, playing a crucial role in motor and sensory signal modulation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which receptor type does glycine bind to?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">GABA-A receptor</li>
+<li onclick="checkAnswer(this, true)">Glycine receptor (GlyR)</li>
+<li onclick="checkAnswer(this, false)">NMDA receptor only</li>
+<li onclick="checkAnswer(this, false)">AMPA receptor</li>
+</ul>
+<div class="explanation">Glycine receptors (GlyR) are ligand-gated chloride channels that mediate inhibitory neurotransmission in the CNS.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Which co-agonist role does glycine have at the NMDA receptor?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Inhibitory</li>
+<li onclick="checkAnswer(this, false)">No role</li>
+<li onclick="checkAnswer(this, true)">Co-agonist enhancing glutamate action</li>
+<li onclick="checkAnswer(this, false)">Blocks glutamate binding</li>
+</ul>
+<div class="explanation">Glycine binds to an allosteric site on the NMDA receptor and is essential for its activation alongside glutamate.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>What ion channel is associated with glycine receptor activation?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Potassium</li>
+<li onclick="checkAnswer(this, true)">Chloride</li>
+<li onclick="checkAnswer(this, false)">Calcium</li>
+<li onclick="checkAnswer(this, false)">Sodium</li>
+</ul>
+<div class="explanation">Activation of glycine receptors opens chloride channels, hyperpolarizing the neuron and inhibiting action potentials.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>What clinical condition is linked to glycine receptor dysfunction?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Myasthenia gravis</li>
+<li onclick="checkAnswer(this, false)">Huntington’s disease</li>
+<li onclick="checkAnswer(this, true)">Hyperekplexia (startle disease)</li>
+<li onclick="checkAnswer(this, false)">Parkinson’s disease</li>
+</ul>
+<div class="explanation">Hyperekplexia is a rare genetic disorder caused by mutations in glycine receptor subunits, leading to exaggerated startle responses.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which enzyme is crucial for glycine synthesis?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Serine hydroxymethyltransferase</li>
+<li onclick="checkAnswer(this, false)">Tyrosine hydroxylase</li>
+<li onclick="checkAnswer(this, false)">Glutamate decarboxylase</li>
+<li onclick="checkAnswer(this, false)">DOPA decarboxylase</li>
+</ul>
+<div class="explanation">Glycine is synthesized from serine via serine hydroxymethyltransferase, linking amino acid metabolism to neurotransmitter pools.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which transporter is responsible for glycine reuptake?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">EAAT</li>
+<li onclick="checkAnswer(this, true)">GlyT1/GlyT2</li>
+<li onclick="checkAnswer(this, false)">VGLUT</li>
+<li onclick="checkAnswer(this, false)">DAT</li>
+</ul>
+<div class="explanation">GlyT1 and GlyT2 are glycine transporters responsible for clearing glycine from the synaptic cleft and regulating its availability.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which substance acts as a glycine receptor antagonist and can cause convulsions?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Strychnine</li>
+<li onclick="checkAnswer(this, false)">Bicuculline</li>
+<li onclick="checkAnswer(this, false)">Picrotoxin</li>
+<li onclick="checkAnswer(this, false)">Ketamine</li>
+</ul>
+<div class="explanation">Strychnine is a potent antagonist of glycine receptors and can induce convulsions by blocking inhibitory neurotransmission.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>What is a secondary role of glycine in metabolism?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Protein synthesis and as a cofactor for catecholamines</li>
+<li onclick="checkAnswer(this, false)">Only neurotransmission</li>
+<li onclick="checkAnswer(this, false)">Mitochondrial ATP synthesis</li>
+<li onclick="checkAnswer(this, false)">Regulation of calcium channels</li>
+</ul>
+<div class="explanation">Besides its neurotransmitter role, glycine is essential in protein synthesis, heme synthesis, and as a precursor for creatine and purines.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

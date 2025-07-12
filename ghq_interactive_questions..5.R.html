@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethics in Psychiatry - Questions 1–10</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .question-box { background: #fff; padding: 20px; margin: 50px auto; border-radius: 10px; max-width: 750px; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 20px; }
+    .option { background: #eee; padding: 10px; margin: 8px 0; border-radius: 5px; cursor: pointer; }
+    .option.correct { background: #d4edda !important; pointer-events: none; }
+    .option.incorrect { background: #f8d7da !important; pointer-events: none; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 5px solid gold; padding: 10px; display: none; margin-top: 15px; }
+    .next-btn { display: none; margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    .counter { position: fixed; top: 10px; right: 20px; background: white; padding: 5px 10px; border-radius: 10px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px;
+      font-style: italic;
+      color: rgba(128,128,128,0.35); text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+    #lastQ { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+<body>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<div class="counter">Total Questions: 10</div>
+<div id="quiz"></div>
+<div id="lastQ"><button onclick="goToLast()">Last Q</button></div>
+<script>
+const questions = [
+  {
+    "q": "What is the main clinical use of the General Health Questionnaire (GHQ)?",
+    "qt": "ما هو الاستخدام السريري الأساسي لاستبيان الصحة العامة (GHQ)؟",
+    "options": [
+      [
+        "Diagnose specific psychiatric conditions",
+        "تشخيص الاضطرابات النفسية المحددة"
+      ],
+      [
+        "Screen for individuals at risk of psychiatric disorders",
+        "الكشف عن الأفراد المعرضين لخطر الاضطرابات النفسية"
+      ],
+      [
+        "Measure treatment outcomes",
+        "قياس نتائج العلاج"
+      ],
+      [
+        "Predict future episodes",
+        "التنبؤ بالنوبات المستقبلية"
+      ]
+    ],
+    "answer": 1,
+    "exp": "GHQ is primarily used as a screening tool to detect those likely to develop psychiatric disorders.<br>يُستخدم GHQ بشكل أساسي كأداة فحص للكشف عن الأفراد المعرضين لتطور اضطرابات نفسية."
+  },
+  {
+    "q": "Which version of GHQ is most commonly used in clinical practice?",
+    "qt": "أي نسخة من GHQ تُستخدم بشكل أكثر شيوعًا في الممارسة السريرية؟",
+    "options": [
+      [
+        "12-item version",
+        "نسخة 12 بندًا"
+      ],
+      [
+        "30-item version",
+        "نسخة 30 بندًا"
+      ],
+      [
+        "60-item version",
+        "نسخة 60 بندًا"
+      ],
+      [
+        "28-item version",
+        "نسخة 28 بندًا"
+      ]
+    ],
+    "answer": 3,
+    "exp": "Among the multiple versions of GHQ, the 28-item version is most widely used.<br>من بين النسخ المختلفة، تُعد نسخة 28 بندًا هي الأكثر استخدامًا."
+  },
+  {
+    "q": "How are items typically scored in the 28-item GHQ version using the Likert method?",
+    "qt": "كيف يتم عادةً تصنيف البنود في نسخة GHQ ذات الـ 28 بندًا باستخدام طريقة ليكرت؟",
+    "options": [
+      [
+        "0 to 1",
+        "من 0 إلى 1"
+      ],
+      [
+        "1 to 4",
+        "من 1 إلى 4"
+      ],
+      [
+        "0 to 3",
+        "من 0 إلى 3"
+      ],
+      [
+        "1 to 5",
+        "من 1 إلى 5"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Each item in the 28-item GHQ is scored from 0 to 3 using a 4-point Likert scale.<br>يتم تصنيف كل بند من 0 إلى 3 باستخدام مقياس ليكرت رباعي النقاط."
+  },
+  {
+    "q": "What is the threshold score for ‘psychiatric caseness’ in the 12-item GHQ version using binary scoring?",
+    "qt": "ما هي الدرجة الفاصلة لاعتبار وجود حالة نفسية في نسخة GHQ ذات 12 بندًا باستخدام التقييم الثنائي؟",
+    "options": [
+      [
+        "2",
+        "2"
+      ],
+      [
+        "3",
+        "3"
+      ],
+      [
+        "4",
+        "4"
+      ],
+      [
+        "5",
+        "5"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The threshold score for psychiatric caseness is 3 in the 12-item GHQ version when using binary scoring.<br>الدرجة الفاصلة في نسخة GHQ ذات 12 بندًا عند استخدام التقييم الثنائي هي 3."
+  },
+  {
+    "q": "What range of reliability coefficients has been reported for GHQ across various studies?",
+    "qt": "ما هو نطاق معاملات الثبات (الموثوقية) الذي تم الإبلاغ عنه لـ GHQ في دراسات مختلفة؟",
+    "options": [
+      [
+        "0.50 – 0.70",
+        "من 0.50 إلى 0.70"
+      ],
+      [
+        "0.60 – 0.85",
+        "من 0.60 إلى 0.85"
+      ],
+      [
+        "0.78 – 0.95",
+        "من 0.78 إلى 0.95"
+      ],
+      [
+        "0.80 – 1.00",
+        "من 0.80 إلى 1.00"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Studies report GHQ reliability ranging from 0.78 to 0.95.<br>أظهرت الدراسات أن معاملات الثبات لـ GHQ تتراوح بين 0.78 و0.95."
+  }
+];
+
+let current = 0, score = 0;
+const quiz = document.getElementById("quiz");
+
+function loadQ() {
+  const q = questions[current];
+  let html = `<div class='question-box' id='qbox'>
+    <div class='question'>Q${current + 1}. ${q.q}</div>
+    <div class='translation'>${q.qt}</div>`;
+  q.options.forEach((opt, i) => {
+    html += `<div class='option' data-index='${i}' onclick='selectAnswer(this, ${i}, ${q.answer})'>${opt[0]}<br><small>${opt[1]}</small></div>`;
+  });
+  html += `<div class='explanation'><b>Explanation:</b> ${q.exp}</div>
+    <button class='next-btn' onclick='nextQ()'>Next</button>
+  </div>`;
+  quiz.innerHTML = html;
+}
+
+function selectAnswer(el, selected, correct) {
+  const opts = document.querySelectorAll('.option');
+  opts.forEach((opt, i) => {
+    opt.style.pointerEvents = 'none';
+    if (i === correct) opt.classList.add('correct');
+    else if (i === selected) opt.classList.add('incorrect');
+  });
+  if (selected === correct) score++;
+  document.querySelector('.explanation').style.display = 'block';
+  document.querySelector('.next-btn').style.display = 'inline-block';
+}
+
+function nextQ() {
+  current++;
+  if (current < questions.length) loadQ();
+  else {
+    quiz.innerHTML = `<div class='question-box'><div class='question'>انتهت الأسئلة</div><div class='question'>Your score: <span style='color:green'>${score}</span> / <span style='color:red'>${questions.length}</span></div></div>`;
+  }
+}
+
+function goToLast() {
+  current = questions.length - 1;
+  loadQ();
+}
+
+loadQ();
+</script>
+</body>
+</html>

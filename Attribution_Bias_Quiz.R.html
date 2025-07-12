@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attribution Bias Quiz</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); color: rgba(0,0,0,0.07); font-size: 24px; font-style: italic; }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. Sara sees a classmate fail a test and thinks, “He’s lazy and not intelligent.”<br><span style='color:gray'>سارة ترى زميلًا رسب وتظنه كسولًا وغبيًا.</span>", "o": ["Actor-observer bias", "Self-serving bias", "Fundamental attribution error", "Pygmalion effect"], "a": 2, "e": "She overestimates personal flaws → fundamental attribution error.<br><span style='color:gray'>نسبت الفشل لصفات داخلية وأهملت الظروف.</span>"}, {"q": "2. Omar fails an exam and says, “The questions were unfair.”<br><span style='color:gray'>عمر يرسب ويقول: الأسئلة ظالمة.</span>", "o": ["Just-world hypothesis", "Self-serving bias", "Barnum effect", "Fundamental attribution error"], "a": 1, "e": "Blaming external factors to protect self-image = self-serving bias.<br><span style='color:gray'>يلوم الظروف لحماية تقديره لذاته.</span>"}, {"q": "3. A teacher blames Ahmed for disrupting class but blames noise when she interrupts.<br><span style='color:gray'>المعلمة تلوم أحمد لكنها تعذر نفسها.</span>", "o": ["Actor-observer bias", "Self-serving bias", "Recency effect", "Group homogeneity"], "a": 0, "e": "Actors blame situations, observers blame people → actor-observer bias.<br><span style='color:gray'>الفاعل يبرر، والمراقب يلوم.</span>"}, {"q": "4. A person says, “Only bad people get robbed.”<br><span style='color:gray'>شخص يظن أن من يُسرق يستحق ذلك.</span>", "o": ["Just-world hypothesis", "False consensus", "Depression attribution", "Primacy effect"], "a": 0, "e": "Belief that bad outcomes are deserved = just world bias.<br><span style='color:gray'>الاعتقاد بأن كل شخص ينال ما يستحقه.</span>"}, {"q": "5. A depressed patient says, “Everything bad is my fault.”<br><span style='color:gray'>مريض مكتئب يلوم نفسه على كل شيء.</span>", "o": ["Actor-observer bias", "Self-serving bias", "Just-world belief", "Halo effect"], "a": 1, "e": "In depression, self-serving bias is reversed → excessive self-blame.<br><span style='color:gray'>الاكتئاب يقلب الانحياز ليصبح لومًا للذات.</span>"}, {"q": "6. A teacher expects a student to fail, and later, he does.<br><span style='color:gray'>معلم يتوقع فشل طالب ثم يفشل فعلًا.</span>", "o": ["Barnum effect", "Halo effect", "Pygmalion effect", "Attribution error"], "a": 2, "e": "Expectations influence performance → Pygmalion effect.<br><span style='color:gray'>توقعات المعلم تتحقق لأنها تؤثر على الطالب.</span>"}, {"q": "7. You think someone is kind and smart because they’re attractive.<br><span style='color:gray'>تظن أن شخصًا لطيف وذكي لأنه جميل الشكل.</span>", "o": ["Devil effect", "False consensus", "Actor-observer", "Halo effect"], "a": 3, "e": "One positive trait influences full judgment = halo effect.<br><span style='color:gray'>سمة إيجابية تؤثر على التقييم الكامل للشخص.</span>"}, {"q": "8. A police officer thinks someone is guilty because they look like a known criminal.<br><span style='color:gray'>شرطي يتهم شخصًا فقط لأنه يشبه مجرمًا معروفًا.</span>", "o": ["Association fallacy", "False consensus", "Primacy effect", "Self-serving bias"], "a": 0, "e": "Judging guilt by similarity = association fallacy.<br><span style='color:gray'>ربط المظهر بالذنب دون دليل حقيقي.</span>"}, {"q": "9. You believe most people share your opinion.<br><span style='color:gray'>تظن أن معظم الناس يوافقونك الرأي.</span>", "o": ["False consensus", "Group homogeneity", "Actor-observer", "Barnum effect"], "a": 0, "e": "Overestimating agreement with others = false consensus.<br><span style='color:gray'>المبالغة في الاعتقاد أن الآخرين يفكرون مثلك.</span>"}, {"q": "10. You read a vague horoscope and feel it describes you well.<br><span style='color:gray'>تقرأ برجك وتشعر أنه يصفك بدقة رغم أنه غامض.</span>", "o": ["Halo effect", "Barnum effect", "Hawthorne effect", "Recency effect"], "a": 1, "e": "Believing general traits are personal = Barnum effect.<br><span style='color:gray'>تصديق وصف عام كأنه موجه لك شخصيًا.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

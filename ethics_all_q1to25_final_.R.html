@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethics in Psychiatry - Questions 1–10</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .question-box { background: #fff; padding: 20px; margin: 50px auto; border-radius: 10px; max-width: 750px; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 20px; }
+    .option { background: #eee; padding: 10px; margin: 8px 0; border-radius: 5px; cursor: pointer; }
+    .option.correct { background: #d4edda !important; pointer-events: none; }
+    .option.incorrect { background: #f8d7da !important; pointer-events: none; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 5px solid gold; padding: 10px; display: none; margin-top: 15px; }
+    .next-btn { display: none; margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    .counter { position: fixed; top: 10px; right: 20px; background: white; padding: 5px 10px; border-radius: 10px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px;
+      font-style: italic;
+      color: rgba(128,128,128,0.3); text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      pointer-events: none;
+    }
+    #lastQ { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+<body>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<div class="counter">Total Questions: 25</div>
+<div id="quiz"></div>
+<div id="lastQ"><button onclick="goToLast()">Last Q</button></div>
+<script>
+const questions = [{"q": "Which model sees the doctor as a dispenser of information?", "qt": "أي نموذج يرى الطبيب كموزعًا للمعلومات؟", "options": [["Informative model", "النموذج الإعلامي"], ["Interpretive model", "النموذج التفسيري"], ["Deliberative model", "النموذج التداولي"], ["Directive model", "النموذج التوجيهي"]], "answer": 0, "exp": "The Informative model treats the doctor as a dispenser of information where the choice is left to the patient. | النموذج الإعلامي يعتبر الطبيب مصدرًا للمعلومات ويُترك القرار للمريض."}, {"q": "What ethical code was established after WWII for human experimentation?", "qt": "ما هو القانون الأخلاقي الذي تم وضعه بعد الحرب العالمية الثانية للتجارب البشرية؟", "options": [["Declaration of Helsinki", "إعلان هلسنكي"], ["Belmont Report", "تقرير بيلمونت"], ["Nuremberg Code", "مدونة نورمبرغ"], ["Willowbrook Code", "مدونة ويلو بروك"]], "answer": 2, "exp": "The Nuremberg Code focused on voluntary consent and minimizing harm. | مدونة نورمبرغ ركزت على الموافقة الطوعية وتقليل الضرر."}, {"q": "Which model emphasizes beneficence and doctor-knows-best?", "qt": "أي نموذج يركز على الإحسان وافتراض أن الطبيب يعرف الأفضل؟", "options": [["Informative model", "النموذج الإعلامي"], ["Interpretive model", "النموذج التفسيري"], ["Deliberative model", "النموذج التداولي"], ["Paternalistic model", "النموذج الأبوي"]], "answer": 3, "exp": "The paternalistic model emphasizes beneficence where the doctor decides what’s best. | النموذج الأبوي يُفترض فيه أن الطبيب يختار ما هو أفضل للمريض."}, {"q": "Which ethical theory focuses on outcomes and consequences?", "qt": "أي نظرية أخلاقية تركز على النتائج والعواقب؟", "options": [["Deontology", "الواجبية"], ["Virtue ethics", "أخلاق الفضيلة"], ["Utilitarianism", "النفعية"], ["Teleology", "الغاية"]], "answer": 2, "exp": "Utilitarianism seeks the greatest good for the greatest number. | تسعى النفعية لتحقيق أكبر قدر من الخير لأكبر عدد من الناس."}, {"q": "According to the Belmont Report, which is one key principle?", "qt": "وفقًا لتقرير بيلمونت، ما هو أحد المبادئ الأساسية؟", "options": [["Privacy", "الخصوصية"], ["Justice", "العدالة"], ["Confidentiality", "السرية"], ["Risk minimization", "تقليل المخاطر"]], "answer": 1, "exp": "Justice ensures fairness in the distribution of benefits and burdens. | العدالة تضمن التوزيع العادل للفوائد والأعباء."}, {"q": "Which principle means 'do no harm'?", "qt": "أي مبدأ يعني 'عدم الإضرار'؟", "options": [["Beneficence", "الإحسان"], ["Autonomy", "الاستقلالية"], ["Justice", "العدالة"], ["Non-maleficence", "عدم الإضرار"]], "answer": 3, "exp": "Non-maleficence is the obligation to avoid causing harm. | عدم الإضرار هو الالتزام بعدم إحداث ضرر للمريض."}, {"q": "What is the main focus of the deliberative model?", "qt": "ما هو التركيز الأساسي في النموذج التداولي؟", "options": [["Doctor decides alone", "الطبيب يقرر بمفرده"], ["Patient decides alone", "المريض يقرر بمفرده"], ["Shared moral discussion", "نقاش أخلاقي مشترك"], ["Data presentation only", "عرض البيانات فقط"]], "answer": 2, "exp": "The deliberative model includes moral dialogue to reach best decision. | يشمل النموذج التداولي حوارًا أخلاقيًا للوصول لأفضل قرار."}, {"q": "Which model is most autonomy-respecting?", "qt": "أي نموذج هو الأكثر احترامًا للاستقلالية؟", "options": [["Paternalistic", "الأبوي"], ["Deliberative", "التداولي"], ["Informative", "الإعلامي"], ["Interpretive", "التفسيري"]], "answer": 2, "exp": "The informative model respects patient’s autonomy to make decisions. | النموذج الإعلامي يحترم استقلالية المريض لاتخاذ قراراته."}, {"q": "What is the difference between confidentiality and privacy?", "qt": "ما الفرق بين السرية والخصوصية؟", "options": [["Same thing", "نفس الشيء"], ["Confidentiality = info, Privacy = space", "السرية = المعلومات، الخصوصية = المساحة"], ["Confidentiality = room, Privacy = law", "السرية = الغرفة، الخصوصية = القانون"], ["No difference", "لا يوجد فرق"]], "answer": 1, "exp": "Confidentiality protects info; privacy refers to person’s space and control. | السرية تحمي المعلومات، والخصوصية تتعلق بمساحة الشخص والتحكم."}, {"q": "What principle supports full patient information?", "qt": "أي مبدأ يدعم توفير المعلومات الكاملة للمريض؟", "options": [["Justice", "العدالة"], ["Autonomy", "الاستقلالية"], ["Beneficence", "الإحسان"], ["Non-maleficence", "عدم الإضرار"]], "answer": 1, "exp": "Autonomy includes the right to full information to make informed decisions. | الاستقلالية تعني حق المريض في المعرفة الكاملة لاتخاذ القرار."}, {"q": "Which report introduced 'respect for persons' as an ethical principle?", "qt": "أي تقرير قدّم مبدأ 'احترام الأشخاص' كمبدأ أخلاقي؟", "options": [["Nuremberg Code", "مدونة نورمبرغ"], ["Belmont Report", "تقرير بيلمونت"], ["Declaration of Geneva", "إعلان جنيف"], ["Helsinki Declaration", "إعلان هلسنكي"]], "answer": 1, "exp": "The Belmont Report introduced 'respect for persons', emphasizing autonomy and protection for vulnerable groups. | قدم تقرير بيلمونت مبدأ احترام الأشخاص، مشددًا على الاستقلالية وحماية الفئات الضعيفة."}, {"q": "Which of the following is NOT part of Beauchamp and Childress's four principles?", "qt": "أي من الآتي ليس من المبادئ الأربعة لـ Beauchamp و Childress؟", "options": [["Autonomy", "الاستقلالية"], ["Justice", "العدالة"], ["Veracity", "الصدق"], ["Beneficence", "الإحسان"]], "answer": 2, "exp": "Veracity is important but not one of the core four principles (autonomy, beneficence, non-maleficence, justice). | الصدق مبدأ مهم لكنه ليس من المبادئ الأربعة الأساسية."}, {"q": "Which model promotes shared moral reasoning between patient and doctor?", "qt": "أي نموذج يعزز النقاش الأخلاقي المشترك بين الطبيب والمريض؟", "options": [["Interpretive", "التفسيري"], ["Deliberative", "التداولي"], ["Informative", "الإعلامي"], ["Paternalistic", "الأبوي"]], "answer": 1, "exp": "The deliberative model encourages the doctor to help patients explore and refine values before making decisions. | النموذج التداولي يساعد المريض على استكشاف قيمه الأخلاقية قبل اتخاذ القرار."}, {"q": "What is informed consent?", "qt": "ما المقصود بالموافقة المستنيرة؟", "options": [["Agreement after explanation", "الموافقة بعد الشرح"], ["Forced decision", "قرار إجباري"], ["Verbal contract", "عقد شفهي"], ["Hospital policy", "سياسة المستشفى"]], "answer": 0, "exp": "Informed consent is a voluntary agreement made by a patient after receiving adequate information. | الموافقة المستنيرة هي اتفاق طوعي بعد شرح وافٍ للمريض."}, {"q": "Which principle requires equitable distribution of benefits and burdens?", "qt": "أي مبدأ يتطلب التوزيع العادل للفوائد والأعباء؟", "options": [["Justice", "العدالة"], ["Autonomy", "الاستقلالية"], ["Beneficence", "الإحسان"], ["Fidelity", "الأمانة"]], "answer": 0, "exp": "Justice ensures fairness and equity, particularly in research and access to healthcare. | العدالة تعني الإنصاف والمساواة، خاصة في البحوث وتوزيع الموارد الصحية."}, {"q": "What ethical violation occurred in the Tuskegee syphilis study?", "qt": "ما الانتهاك الأخلاقي الذي حدث في دراسة الزهري في توسكيجي؟", "options": [["Excessive payment", "دفع مبالغ زائدة"], ["Informed consent missing", "غياب الموافقة المستنيرة"], ["Lack of placebo", "غياب الدواء الوهمي"], ["Over-treatment", "العلاج الزائد"]], "answer": 1, "exp": "Participants were not informed of their diagnosis nor given the option to opt out. | لم يتم إخبار المشاركين بتشخيصهم ولا منحهم فرصة الانسحاب."}, {"q": "What is the difference between assent and consent?", "qt": "ما الفرق بين الموافقة والاسترضاء (assent)؟", "options": [["Consent is legal, assent is verbal", "الموافقة قانونية، الاسترضاء شفهي"], ["Consent = adult, Assent = child", "الموافقة = البالغ، الاسترضاء = الطفل"], ["Same thing", "نفس الشيء"], ["Assent means refusal", "الاسترضاء يعني الرفض"]], "answer": 1, "exp": "Assent is agreement by a minor who cannot legally consent; true consent must come from guardian. | الاسترضاء يُستخدم عند الأطفال، بينما الموافقة تأتي من الوصي القانوني."}, {"q": "Which principle allows patients to refuse treatment?", "qt": "أي مبدأ يسمح للمريض برفض العلاج؟", "options": [["Justice", "العدالة"], ["Autonomy", "الاستقلالية"], ["Beneficence", "الإحسان"], ["Fidelity", "الأمانة"]], "answer": 1, "exp": "Autonomy includes the right to make one’s own healthcare decisions—even to refuse. | الاستقلالية تعني حق المريض في رفض العلاج."}, {"q": "When is it legal to breach confidentiality?", "qt": "متى يُسمح قانونيًا بخرق السرية؟", "options": [["Never allowed", "غير مسموح مطلقًا"], ["At doctor's discretion", "حسب تقدير الطبيب"], ["If patient requests", "بطلب من المريض"], ["If risk to self or others", "عند وجود خطر على النفس أو الآخرين"]], "answer": 3, "exp": "Confidentiality can be broken to prevent serious harm, such as suicide or violence. | يمكن خرق السرية لحماية المريض أو الآخرين من الأذى الجسيم."}, {"q": "Which theory focuses on duties and rules regardless of consequences?", "qt": "أي نظرية تركز على الواجبات والقواعد بغض النظر عن النتائج؟", "options": [["Utilitarianism", "النفعية"], ["Virtue ethics", "أخلاق الفضيلة"], ["Deontology", "الواجبية"], ["Care ethics", "أخلاقيات الرعاية"]], "answer": 2, "exp": "Deontology judges actions based on adherence to rules, not outcomes. | الواجبية تقيم الفعل بناءً على الالتزام بالقواعد، بغض النظر عن النتائج."}, {"q": "Which principle focuses on doing good?", "qt": "أي مبدأ يركز على 'فعل الخير'؟", "options": [["Non-maleficence", "عدم الإضرار"], ["Justice", "العدالة"], ["Beneficence", "الإحسان"], ["Fidelity", "الوفاء"]], "answer": 2, "exp": "Beneficence refers to acting in the best interest of the patient. | الإحسان يعني التصرف بما يخدم مصلحة المريض."}, {"q": "What is therapeutic privilege?", "qt": "ما هو امتياز العلاج (Therapeutic privilege)؟", "options": [["Doctor’s financial rights", "حقوق الطبيب المالية"], ["Right to avoid treatment", "الحق في رفض العلاج"], ["Withholding info if harm expected", "حجب المعلومات إذا كان يتوقع حدوث ضرر"], ["Freedom to prescribe anything", "حرية وصف أي علاج"]], "answer": 2, "exp": "Therapeutic privilege allows doctors to withhold information if disclosure may harm the patient. | يُسمح للطبيب بحجب المعلومات إذا كان الكشف عنها قد يسبب ضررًا نفسيًا أو جسديًا للمريض."}, {"q": "What ethical concern is raised with placebo use?", "qt": "ما هو القلق الأخلاقي المرتبط باستخدام الدواء الوهمي؟", "options": [["Cost", "التكلفة"], ["Deception", "الخداع"], ["Addiction", "الإدمان"], ["Access", "الوصول"]], "answer": 1, "exp": "Placebos may involve deceiving the patient, which conflicts with autonomy and informed consent. | استخدام الدواء الوهمي قد يتضمن خداع المريض، مما يتعارض مع الاستقلالية والموافقة المستنيرة."}, {"q": "What is surrogate decision-making?", "qt": "ما المقصود باتخاذ القرار بالنيابة؟", "options": [["AI deciding", "قرار الذكاء الاصطناعي"], ["Doctor override", "قرار الطبيب المتفوق"], ["Guardian or proxy decides", "الوصي أو الممثل يتخذ القرار"], ["Legal punishment", "عقوبة قانونية"]], "answer": 2, "exp": "Surrogate decision-making is when a proxy makes decisions for an incapacitated patient. | اتخاذ القرار بالنيابة يحدث عندما يتخذ شخص آخر القرار بالنيابة عن مريض غير قادر على اتخاذ القرار."}, {"q": "What ethical tension exists in emergency care?", "qt": "ما التوتر الأخلاقي الموجود في الرعاية الطارئة؟", "options": [["Too much consent", "الكثير من الموافقة"], ["No time for consent", "لا وقت للموافقة"], ["Over-documentation", "الوثائق الزائدة"], ["Non-medical staff", "موظفون غير طبيين"]], "answer": 1, "exp": "In emergencies, immediate action may be needed without time for consent, creating ethical conflict. | في الحالات الطارئة، قد يلزم التدخل الفوري دون وقت للحصول على موافقة، مما يخلق توترًا أخلاقيًا."}];
+
+let current = 0, score = 0;
+const quiz = document.getElementById("quiz");
+
+function loadQ() {
+  const q = questions[current];
+  let html = `<div class='question-box' id='qbox'>
+    <div class='question'>Q${current + 1}. ${q.q}</div>
+    <div class='translation'>${q.qt}</div>`;
+  q.options.forEach((opt, i) => {
+    html += `<div class='option' data-index='${i}' onclick='selectAnswer(this, ${i}, ${q.answer})'>${opt[0]}<br><small>${opt[1]}</small></div>`;
+  });
+  html += `<div class='explanation'><b>Explanation:</b> ${q.exp}</div>
+    <button class='next-btn' onclick='nextQ()'>Next</button>
+  </div>`;
+  quiz.innerHTML = html;
+}
+
+function selectAnswer(el, selected, correct) {
+  const opts = document.querySelectorAll('.option');
+  opts.forEach((opt, i) => {
+    opt.style.pointerEvents = 'none';
+    if (i === correct) opt.classList.add('correct');
+    else if (i === selected) opt.classList.add('incorrect');
+  });
+  if (selected === correct) score++;
+  document.querySelector('.explanation').style.display = 'block';
+  document.querySelector('.next-btn').style.display = 'inline-block';
+}
+
+function nextQ() {
+  current++;
+  if (current < questions.length) loadQ();
+  else {
+    quiz.innerHTML = `<div class='question-box'><div class='question'>انتهت الأسئلة</div><div class='question'>Your score: <span style='color:green'>${score}</span> / <span style='color:red'>${questions.length}</span></div></div>`;
+  }
+}
+
+function goToLast() {
+  current = questions.length - 1;
+  loadQ();
+}
+
+loadQ();
+</script>
+</body>
+</html>

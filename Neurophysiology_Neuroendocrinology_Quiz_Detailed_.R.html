@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurophysiology of Neuroendocrinology Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurophysiology of Neuroendocrinology Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 20</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>Which hormone is secreted by the posterior pituitary and regulates water balance?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Oxytocin</li>
+<li onclick="checkAnswer(this, true)">Vasopressin (ADH)</li>
+<li onclick="checkAnswer(this, false)">Prolactin</li>
+<li onclick="checkAnswer(this, false)">Growth hormone</li>
+</ul>
+<div class="explanation">Vasopressin, also called antidiuretic hormone (ADH), promotes water reabsorption in the kidneys and maintains fluid balance.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which hormone stimulates milk ejection during lactation?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Oxytocin</li>
+<li onclick="checkAnswer(this, false)">Prolactin</li>
+<li onclick="checkAnswer(this, false)">LH</li>
+<li onclick="checkAnswer(this, false)">FSH</li>
+</ul>
+<div class="explanation">Oxytocin causes contraction of myoepithelial cells in the mammary glands, facilitating milk letdown during breastfeeding.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>What is the primary regulator of prolactin secretion?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">TRH</li>
+<li onclick="checkAnswer(this, true)">Dopamine (PIF)</li>
+<li onclick="checkAnswer(this, false)">Oxytocin</li>
+<li onclick="checkAnswer(this, false)">GnRH</li>
+</ul>
+<div class="explanation">Dopamine from the hypothalamus inhibits prolactin secretion; blocking dopamine receptors (e.g., with antipsychotics) increases prolactin.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Excess of growth hormone in adults causes which condition?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Gigantism</li>
+<li onclick="checkAnswer(this, true)">Acromegaly</li>
+<li onclick="checkAnswer(this, false)">Cushing’s syndrome</li>
+<li onclick="checkAnswer(this, false)">Hyperthyroidism</li>
+</ul>
+<div class="explanation">In adults, GH excess after epiphyseal closure leads to acromegaly (enlarged hands, feet, and facial features).</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Which hormone stimulates TSH release from the pituitary?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">CRH</li>
+<li onclick="checkAnswer(this, false)">GnRH</li>
+<li onclick="checkAnswer(this, true)">TRH (thyrotropin-releasing hormone)</li>
+<li onclick="checkAnswer(this, false)">GHRH</li>
+</ul>
+<div class="explanation">TRH from the hypothalamus stimulates the anterior pituitary to secrete TSH, which in turn stimulates the thyroid gland.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>What is the biologically active form of thyroid hormone?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">TSH</li>
+<li onclick="checkAnswer(this, false)">T4</li>
+<li onclick="checkAnswer(this, true)">T3 (triiodothyronine)</li>
+<li onclick="checkAnswer(this, false)">rT3</li>
+</ul>
+<div class="explanation">Although T4 is the main circulating form, T3 is more biologically active and is generated by peripheral conversion of T4.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which condition is associated with tachycardia, heat intolerance, and anxiety?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Hypothyroidism</li>
+<li onclick="checkAnswer(this, true)">Hyperthyroidism</li>
+<li onclick="checkAnswer(this, false)">Addison’s disease</li>
+<li onclick="checkAnswer(this, false)">Cushing’s syndrome</li>
+</ul>
+<div class="explanation">Hyperthyroidism increases metabolic rate and sympathetic activity, leading to classic signs like palpitations and nervousness.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which mental symptom is common in hypothyroidism?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Mania</li>
+<li onclick="checkAnswer(this, true)">Depression</li>
+<li onclick="checkAnswer(this, false)">Psychosis</li>
+<li onclick="checkAnswer(this, false)">Panic attacks</li>
+</ul>
+<div class="explanation">Hypothyroidism often presents with depression, psychomotor slowing, and cognitive difficulties.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which axis regulates the stress response?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">HPG axis</li>
+<li onclick="checkAnswer(this, false)">HPT axis</li>
+<li onclick="checkAnswer(this, true)">HPA axis</li>
+<li onclick="checkAnswer(this, false)">RAAS</li>
+</ul>
+<div class="explanation">The hypothalamic-pituitary-adrenal (HPA) axis mediates the stress response via CRH → ACTH → cortisol.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which hormone provides negative feedback to both CRH and ACTH?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Aldosterone</li>
+<li onclick="checkAnswer(this, true)">Cortisol</li>
+<li onclick="checkAnswer(this, false)">DHEA</li>
+<li onclick="checkAnswer(this, false)">Epinephrine</li>
+</ul>
+<div class="explanation">Cortisol inhibits its own production by suppressing CRH (hypothalamus) and ACTH (pituitary).</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q11">
+<h2>Question 11</h2>
+<p>What is the main effect of chronic elevated cortisol on the hippocampus?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Hypertrophy</li>
+<li onclick="checkAnswer(this, true)">Atrophy and impaired memory</li>
+<li onclick="checkAnswer(this, false)">No effect</li>
+<li onclick="checkAnswer(this, false)">Increased neurogenesis</li>
+</ul>
+<div class="explanation">Prolonged cortisol exposure leads to hippocampal atrophy, impairing learning and memory.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q12">
+<h2>Question 12</h2>
+<p>Which test assesses the integrity of the HPA axis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Glucose tolerance test</li>
+<li onclick="checkAnswer(this, true)">Dexamethasone suppression test (DST)</li>
+<li onclick="checkAnswer(this, false)">ACTH stimulation test</li>
+<li onclick="checkAnswer(this, false)">Tilt table test</li>
+</ul>
+<div class="explanation">DST measures feedback suppression of cortisol by administering dexamethasone; failure of suppression suggests HPA axis dysfunction.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q13">
+<h2>Question 13</h2>
+<p>In which disorder is DST non-suppression classically seen?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Hypothyroidism</li>
+<li onclick="checkAnswer(this, false)">Major depression (melancholic type)</li>
+<li onclick="checkAnswer(this, true)">Cushing’s syndrome</li>
+<li onclick="checkAnswer(this, false)">Diabetes mellitus</li>
+</ul>
+<div class="explanation">DST non-suppression is a hallmark of Cushing’s syndrome but can also occur in certain psychiatric conditions.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q14">
+<h2>Question 14</h2>
+<p>What is a key feature of Addison’s disease (primary adrenal insufficiency)?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Weight gain</li>
+<li onclick="checkAnswer(this, true)">Fatigue, hypotension, and hyperpigmentation</li>
+<li onclick="checkAnswer(this, false)">Tachycardia</li>
+<li onclick="checkAnswer(this, false)">Increased cortisol</li>
+</ul>
+<div class="explanation">Addison’s involves low cortisol and aldosterone, causing fatigue, low blood pressure, and darkened skin.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q15">
+<h2>Question 15</h2>
+<p>What gland secretes melatonin?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Hypothalamus</li>
+<li onclick="checkAnswer(this, false)">Pituitary</li>
+<li onclick="checkAnswer(this, false)">Adrenal cortex</li>
+<li onclick="checkAnswer(this, true)">Pineal gland</li>
+</ul>
+<div class="explanation">The pineal gland secretes melatonin, regulating circadian rhythms and sleep cycles.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q16">
+<h2>Question 16</h2>
+<p>What is the main regulator of melatonin synthesis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Body temperature</li>
+<li onclick="checkAnswer(this, false)">Blood glucose</li>
+<li onclick="checkAnswer(this, true)">Light-dark cycle</li>
+<li onclick="checkAnswer(this, false)">Cortisol</li>
+</ul>
+<div class="explanation">Melatonin secretion is stimulated by darkness and inhibited by light, allowing adaptation to environmental lighting.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q17">
+<h2>Question 17</h2>
+<p>Which neurotransmitter is the precursor for melatonin?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Dopamine</li>
+<li onclick="checkAnswer(this, false)">GABA</li>
+<li onclick="checkAnswer(this, true)">Serotonin</li>
+<li onclick="checkAnswer(this, false)">Acetylcholine</li>
+</ul>
+<div class="explanation">Serotonin is converted to melatonin in the pineal gland via enzymatic steps involving serotonin-N-acetyltransferase.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q18">
+<h2>Question 18</h2>
+<p>What is a common calcified structure seen in the pineal gland with age?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Pineocytoma</li>
+<li onclick="checkAnswer(this, false)">Amyloid plaque</li>
+<li onclick="checkAnswer(this, true)">Corpora arenacea (brain sand)</li>
+<li onclick="checkAnswer(this, false)">Pituicytes</li>
+</ul>
+<div class="explanation">The pineal gland accumulates calcium deposits known as corpora arenacea (brain sand), especially with aging.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q19">
+<h2>Question 19</h2>
+<p>Which pituitary hormone increases during early morning sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">GH</li>
+<li onclick="checkAnswer(this, true)">Prolactin</li>
+<li onclick="checkAnswer(this, false)">TSH</li>
+<li onclick="checkAnswer(this, false)">ACTH</li>
+</ul>
+<div class="explanation">Prolactin secretion peaks during sleep, especially in early morning hours, supporting reproductive functions.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q20">
+<h2>Question 20</h2>
+<p>Which two hormones rise during slow-wave sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">ACTH and TSH</li>
+<li onclick="checkAnswer(this, true)">Growth hormone (GH) and somatostatin (SST)</li>
+<li onclick="checkAnswer(this, false)">Cortisol and aldosterone</li>
+<li onclick="checkAnswer(this, false)">LH and FSH</li>
+</ul>
+<div class="explanation">GH release surges during deep (slow-wave) sleep, accompanied by increased SST, supporting growth and repair.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

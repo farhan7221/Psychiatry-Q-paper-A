@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Frontal Lobe Lesions – Full Test (14 Questions)</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: sans-serif; }
+    .container { max-width: 800px; margin: auto; padding: 20px; background: white; margin-top: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1 { text-align: center; font-size: 24px; color: #222; }
+    .question-box { margin-bottom: 20px; }
+    .question-text { font-size: 18px; font-weight: bold; }
+    .question-arabic { margin-bottom: 10px; font-size: 15px; color: #555; }
+    .option {
+      background: #f8f9fa; padding: 10px; border-radius: 5px; margin-bottom: 8px;
+      cursor: pointer; border: 1px solid #ccc;
+    }
+    .option.correct { background-color: #28a745 !important; color: white; }
+    .option.wrong { background-color: #dc3545 !important; color: white; }
+    .explanation {
+      margin-top: 10px; background: rgba(255, 255, 0, 0.2);
+      border-left: 5px solid #ffc107; padding: 10px; display: none;
+    }
+    .next-btn, .last-btn {
+      margin-top: 15px; padding: 10px 20px; border: none;
+      border-radius: 5px; color: white; font-size: 16px; cursor: pointer;
+    }
+    .next-btn { background-color: #007bff; }
+    .last-btn { background-color: #28a745; float: right; }
+    .watermark {
+      position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px; color: rgba(0,0,0,0.05); pointer-events: none;
+    }
+    .counter {
+      text-align: right; font-size: 14px; color: #666;
+    }
+    .result { text-align: center; font-size: 18px; margin-top: 30px; }
+    .green { color: green; font-weight: bold; }
+    .red { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  <div class="container">
+    <h1>Frontal Lobe Lesions – Full Test (14 Questions)</h1>
+    <div class="counter">Total Questions: 14</div>
+    <div id="quiz"></div>
+    <button class="next-btn" onclick="nextQuestion()" style="display:none;">التالي</button>
+    <button class="last-btn" onclick="goLast()" style="display:none;">Last Q</button>
+  </div>
+  <script>
+    const questions = [{"q": "Which motor symptom is typically seen with unilateral frontal lobe damage?", "qt": "ما العَرض الحركي الذي يظهر عادة مع تلف الفص الجبهي الأحادي؟", "options": [["Spastic hemiplegia", "شلل نصفي تشنجي"], ["Hypotonia", "انخفاض التوتر العضلي"], ["Ataxia", "ترنح"], ["Rigidity", "الصلابة"]], "answer": 0, "exp": "Unilateral frontal lesions cause spastic hemiplegia on the contralateral side.<br>تؤدي آفات الفص الجبهي الأحادية إلى شلل نصفي تشنجي في الجهة المقابلة."}, {"q": "What term describes inappropriate joking and elevated mood due to right frontal damage?", "qt": "ما المصطلح الذي يصف المزاح غير اللائق والمزاج المرتفع الناتج عن تلف الفص الجبهي الأيمن؟", "options": [["Witzelsucht", "ويتزلزخت"], ["Euphoria", "الابتهاج"], ["Abulia", "قلة الدافع"], ["Apathy", "اللامبالاة"]], "answer": 0, "exp": "Witzelsucht involves inappropriate joking and occurs with right frontal disinhibition.<br>ويتزلزخت تعني المزاح غير المناسب وتظهر مع انفلات الفص الجبهي الأيمن."}, {"q": "Which language-related deficit is linked with left frontal lobe damage?", "qt": "أي اضطراب لغوي يرتبط غالبًا بتلف الفص الجبهي الأيسر؟", "options": [["Fluent aphasia", "حبسة طليقة"], ["Auditory agnosia", "عمه سمعي"], ["Motor speech disorder with agraphia", "اضطراب النطق الحركي مع فقدان الكتابة"], ["Anomia", "صعوبة تسمية"]], "answer": 2, "exp": "Left frontal damage affects Broca’s area, causing speech and writing issues.<br>تلف الفص الجبهي الأيسر يؤثر على منطقة بروكا ويسبب اضطرابات في النطق والكتابة."}, {"q": "What behavior indicates difficulty in mental shifting due to frontal damage?", "qt": "ما السلوك الذي يشير إلى صعوبة في تبديل المهام الذهنية نتيجة تلف الفص الجبهي؟", "options": [["Echolalia", "التكرار التلقائي"], ["Hyperactivity", "فرط النشاط"], ["Hallucination", "هلوسة"], ["Perseveration", "التكرار اللاإرادي"]], "answer": 3, "exp": "Perseveration reflects dysexecutive dysfunction and impaired cognitive flexibility.<br>يشير التكرار اللاإرادي إلى خلل تنفيذي وصعوبة في التبديل الذهني."}, {"q": "Frontal release signs like grasp reflex reappear due to damage in which area?", "qt": "تعود علامات الانعكاس الجبهي مثل منعكس القبض عند تلف أي منطقة؟", "options": [["Cerebellum", "المخيخ"], ["Occipital lobe", "الفص القذالي"], ["Parietal lobe", "الفص الجداري"], ["Frontal lobe", "الفص الجبهي"]], "answer": 3, "exp": "Frontal release signs reappear when frontal lobe inhibition is lost.<br>تظهر الانعكاسات الطفولية مجددًا عند تلف الفص الجبهي وفقدان السيطرة."}, {"q": "Loss of verbal fluency is typically associated with which lobe?", "qt": "فقدان الطلاقة اللفظية يرتبط عادة بأي فص؟", "options": [["Temporal lobe", "الفص الصدغي"], ["Parietal lobe", "الفص الجداري"], ["Occipital lobe", "الفص القذالي"], ["Frontal lobe", "الفص الجبهي"]], "answer": 3, "exp": "Verbal fluency is governed by the dorsolateral prefrontal cortex.<br>تنظم الطلاقة اللفظية بواسطة القشرة الجبهية الظهرية الجانبية."}, {"q": "Which symptom is most characteristic of bilateral frontal lobe damage?", "qt": "أي عرض يُعد أكثر تميزًا لتلف الفص الجبهي الثنائي؟", "options": [["Aphasia", "الحبسة"], ["Delusions", "الضلالات"], ["Vertigo", "الدوار"], ["Abulia", "قلة الدافع"]], "answer": 3, "exp": "Abulia results from bilateral medial frontal damage and causes lack of motivation.<br>قلة الدافع تظهر نتيجة تلف جبهي ثنائي وغياب الإرادة."}, {"q": "What is pseudo-bulbar palsy associated with?", "qt": "بماذا يرتبط الشلل الكاذب البصلي؟", "options": [["Bilateral frontal lobe lesions", "آفات الفص الجبهي الثنائية"], ["Temporal lobe epilepsy", "صرع الفص الصدغي"], ["Brainstem hemorrhage", "نزيف جذع الدماغ"], ["Parietal infarct", "احتشاء في الفص الجداري"]], "answer": 0, "exp": "Pseudo-bulbar palsy results from bilateral corticobulbar damage, usually in frontal lobes.<br>الشلل الكاذب البصلي ينتج عن تلف ثنائي في المسارات الجبهية-البصلية."}, {"q": "Which symptom reflects impaired bladder control from bilateral frontal damage?", "qt": "أي عرض يعكس ضعف السيطرة على المثانة بسبب تلف الفص الجبهي الثنائي؟", "options": [["Nystagmus", "رأرأة العين"], ["Sphincter incontinence", "سلس المصرة"], ["Dysphagia", "صعوبة البلع"], ["Bradykinesia", "بطء الحركة"]], "answer": 1, "exp": "Frontal lobe damage can disrupt voluntary bladder control, leading to incontinence.<br>تلف الفص الجبهي قد يؤدي إلى فقدان التحكم الإرادي بالمثانة."}, {"q": "What is utilization behavior a sign of?", "qt": "سلوك الاستخدام التلقائي يدل على ماذا؟", "options": [["Visual neglect", "الإهمال البصري"], ["Frontal lobe lesion", "آفة في الفص الجبهي"], ["Temporal lobe epilepsy", "صرع الفص الصدغي"], ["Parietal damage", "تلف في الفص الجداري"]], "answer": 1, "exp": "Utilization behavior reflects frontal disinhibition, especially in orbital regions.<br>يعكس سلوك الاستخدام التلقائي فقدان السيطرة الجبهية على السلوك."}, {"q": "Which frontal syndrome resembles depression without sadness?", "qt": "أي متلازمة جبهية تشبه الاكتئاب ولكن بدون حزن؟", "options": [["Pseudo-depressive", "الاكتئاب الكاذب"], ["Pseudo-psychopathic", "السيكوباتية الكاذبة"], ["Dysexecutive syndrome", "المتلازمة التنفيذية"], ["Witzelsucht", "ويتزلزخت"]], "answer": 0, "exp": "Pseudo-depressive syndrome includes apathy and withdrawal without sadness.<br>تتميز المتلازمة الاكتئابية الكاذبة باللامبالاة والعزلة دون مشاعر حزن."}, {"q": "How is pseudo-psychopathic syndrome different from dysexecutive syndrome?", "qt": "كيف تختلف المتلازمة السيكوباتية الكاذبة عن المتلازمة التنفيذية؟", "options": [["Social withdrawal vs speech loss", "الانعزال مقابل فقدان النطق"], ["Disinhibition vs planning deficit", "انفلات سلوكي مقابل ضعف التخطيط"], ["Memory loss vs hallucination", "فقدان الذاكرة مقابل الهلوسة"], ["Aphasia vs impulsivity", "الحبسة مقابل الاندفاع"]], "answer": 1, "exp": "The former is marked by disinhibition, the latter by poor planning and organization.<br>تتميز الأولى بالاندفاع، بينما الثانية بضعف التخطيط والتنفيذ."}, {"q": "What is the hallmark of a gelastic seizure?", "qt": "ما السمة الرئيسية لنوبة الضحك الجيلاتسية؟", "options": [["Visual aura", "هالة بصرية"], ["Sudden inappropriate laughter", "ضحك مفاجئ غير مناسب"], ["Euphoric mood", "مزاج مبتهج"], ["Crying spells", "نوبات بكاء"]], "answer": 1, "exp": "Gelastic seizures manifest as laughter without emotional context.<br>تُعرف نوبات الضحك الجيلاتسية بالضحك غير المرتبط بالحالة الشعورية."}, {"q": "Where do gelastic seizures commonly originate?", "qt": "من أين تنشأ عادةً نوبات الضحك الجيلاتسية؟", "options": [["Temporal lobe", "الفص الصدغي"], ["Parietal lobe", "الفص الجداري"], ["Left prefrontal cortex", "القشرة الجبهية الأمامية اليسرى"], ["Amygdala", "اللوزة الدماغية"]], "answer": 2, "exp": "In adults, gelastic seizures often arise from the left prefrontal cortex.<br>في البالغين، تنشأ نوبات الضحك الجيلاتسية غالبًا من الفص الجبهي الأيسر."}];
+    let current = 0;
+    let score = 0;
+    let answered = false;
+
+    function renderQuestion(i) {
+      const q = questions[i];
+      const container = document.getElementById('quiz');
+      let html = `<div class='question-box'>
+        <div class='question-text'>Q${i+1}. ${q.q}</div>
+        <div class='question-arabic'>${q.qt}</div>`;
+      q.options.forEach((opt, index) => {
+        html += `<div class='option' onclick='checkAnswer(this, ${i}, ${index})'>${opt[0]} - ${opt[1]}</div>`;
+      });
+      html += `<div class='explanation'>${q.exp}</div></div>`;
+      container.innerHTML = html;
+      document.querySelector(".next-btn").style.display = "none";
+      document.querySelector(".last-btn").style.display = i < questions.length - 1 ? "inline-block" : "none";
+      answered = false;
+    }
+
+    function checkAnswer(elem, qIndex, optIndex) {
+      if (answered) return;
+      answered = true;
+      const correct = questions[qIndex].answer;
+      const options = document.querySelectorAll(".option");
+      options.forEach((el, i) => {
+        el.onclick = null;
+        if (i === correct) el.classList.add("correct");
+        else if (i === optIndex) el.classList.add("wrong");
+      });
+      if (optIndex === correct) score++;
+      document.querySelector(".explanation").style.display = "block";
+      document.querySelector(".next-btn").style.display = "inline-block";
+    }
+
+    function nextQuestion() {
+      current++;
+      if (current >= questions.length) {
+        showResult();
+      } else {
+        renderQuestion(current);
+      }
+    }
+
+    function goLast() {
+      current = questions.length - 1;
+      renderQuestion(current);
+    }
+
+    function showResult() {
+      const container = document.getElementById('quiz');
+      container.innerHTML = `<div class='result'>
+        <h3>انتهت الأسئلة</h3>
+        <p><span class='green'>${score}</span> / <span class='red'>14</span></p>
+        <p><span class='green'>درجة الامتحان</span>: <span class='green'>${score}</span> من <span class='red'>14</span></p>
+      </div>`;
+      document.querySelector(".next-btn").style.display = "none";
+      document.querySelector(".last-btn").style.display = "none";
+    }
+
+    renderQuestion(current);
+  </script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family & Expressed Emotion</title>
+<style>
+  body { background: #f0f2f5; font-family: sans-serif; padding: 0; margin: 0; }
+  .container { max-width: 800px; margin: auto; padding: 20px; }
+  .question-box { background: #fff; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 0 10px #ccc; position: relative; }
+  .question-number { font-weight: bold; margin-bottom: 10px; }
+  .question-text { font-size: 20px; font-weight: bold; }
+  .translation { font-size: 16px; color: #666; margin-bottom: 15px; }
+  ul { list-style: none; padding: 0; }
+  li { background: #eee; padding: 10px; margin-bottom: 8px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+  li:hover { background: #ddd; }
+  li.correct { background: #c8f7c5 !important; }
+  li.incorrect { background: #f7c5c5 !important; }
+  .explanation { margin-top: 10px; border-left: 4px solid #e0b200; background: #fff9c4; padding: 10px; display: none; }
+  .next-btn, .last-btn { margin-top: 15px; padding: 10px 20px; background: #007bff; color: #fff; border: none; border-radius: 8px; cursor: pointer; display: none; }
+  .last-btn { position: fixed; bottom: 20px; right: 20px; background: #28a745; }
+  .watermark {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 24px;
+    color: rgba(128,128,128,0.15);
+    font-style: italic;
+    pointer-events: none;
+  }
+  .counter { position: fixed; top: 10px; right: 10px; font-weight: bold; }
+  .end-box { background: white; text-align: center; padding: 40px; font-size: 24px; border-radius: 12px; display: none; }
+</style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="container">
+  
+  <div class="question-box" id="q0">
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+    <div class="question-number">Question 1</div>
+    <div class="question-text">In a family, one parent is dominant while the other is submissive. The child perceives the relationship as stable. What is this pattern called?</div>
+    <ul>
+      
+      <li onclick="checkAnswer(this, 0, 1, True)">Marital schism</li>
+      
+      <li onclick="checkAnswer(this, 1, 1, True)">Marital skew</li>
+      
+      <li onclick="checkAnswer(this, 2, 1, True)">Pseudo-mutuality</li>
+      
+      <li onclick="checkAnswer(this, 3, 1, True)">Double-bind</li>
+      
+    </ul>
+    <div class="explanation" id="exp0">Marital skew is a situation where the family appears stable, but the balance is distorted due to dominance of one partner. <br><span style='color:gray'>الخَلل في العلاقة الزوجية يظهر كاستقرار ظاهري لكنه غير صحي.</span></div>
+    <button class="next-btn" onclick="goToNext(0)">Next</button>
+  </div>
+  
+  <div class="question-box" id="q1">
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+    <div class="question-number">Question 2</div>
+    <div class="question-text">A child is constantly exposed to conflicting verbal and non-verbal messages. They are confused and unsure how to react. This describes:</div>
+    <ul>
+      
+      <li onclick="checkAnswer(this, 0, 1, True)">Pseudo-mutuality</li>
+      
+      <li onclick="checkAnswer(this, 1, 1, True)">Double-bind</li>
+      
+      <li onclick="checkAnswer(this, 2, 1, True)">Expressed emotion</li>
+      
+      <li onclick="checkAnswer(this, 3, 1, True)">Parental fusion</li>
+      
+    </ul>
+    <div class="explanation" id="exp1">Double-bind involves contradictory communication that may increase risk of psychosis. <br><span style='color:gray'>التضارب في الرسائل يُربك الطفل ويزيد خطر الفُصام.</span></div>
+    <button class="next-btn" onclick="goToNext(1)">Next</button>
+  </div>
+  
+  <div class="question-box" id="q2">
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+    <div class="question-number">Question 3</div>
+    <div class="question-text">What term describes a family system where children are forced to maintain outward harmony despite underlying hostility?</div>
+    <ul>
+      
+      <li onclick="checkAnswer(this, 0, 0, True)">Pseudo-mutuality</li>
+      
+      <li onclick="checkAnswer(this, 1, 0, True)">Emotional warmth</li>
+      
+      <li onclick="checkAnswer(this, 2, 0, True)">Parental bonding</li>
+      
+      <li onclick="checkAnswer(this, 3, 0, True)">Secure attachment</li>
+      
+    </ul>
+    <div class="explanation" id="exp2">Pseudo-mutuality is when families suppress conflict for the appearance of harmony. <br><span style='color:gray'>التظاهُر بالانسجام يخفي العلاقات المضطربة في الأسرة.</span></div>
+    <button class="next-btn" onclick="goToNext(2)">Next</button>
+  </div>
+  
+  <div class="question-box" id="q3">
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+    <div class="question-number">Question 4</div>
+    <div class="question-text">According to Vaughn & Leff, which of the following is **not** part of Expressed Emotion (EE)?</div>
+    <ul>
+      
+      <li onclick="checkAnswer(this, 0, 3, True)">Critical comments</li>
+      
+      <li onclick="checkAnswer(this, 1, 3, True)">Emotional warmth</li>
+      
+      <li onclick="checkAnswer(this, 2, 3, True)">Hostility</li>
+      
+      <li onclick="checkAnswer(this, 3, 3, True)">Cognitive distortions</li>
+      
+    </ul>
+    <div class="explanation" id="exp3">Cognitive distortions are not part of EE; the components include criticism, hostility, and emotional over-involvement. <br><span style='color:gray'>التشوهات المعرفية ليست ضمن مقاييس EE.</span></div>
+    <button class="next-btn" onclick="goToNext(3)">Next</button>
+  </div>
+  
+  <div class="question-box" id="q4">
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+    <div class="question-number">Question 5</div>
+    <div class="question-text">High expressed emotion in a family is most predictive of:</div>
+    <ul>
+      
+      <li onclick="checkAnswer(this, 0, 1, True)">Development of ADHD</li>
+      
+      <li onclick="checkAnswer(this, 1, 1, True)">Relapse in schizophrenia</li>
+      
+      <li onclick="checkAnswer(this, 2, 1, True)">Social withdrawal</li>
+      
+      <li onclick="checkAnswer(this, 3, 1, True)">Improved coping</li>
+      
+    </ul>
+    <div class="explanation" id="exp4">High EE is strongly linked to relapse in schizophrenia. <br><span style='color:gray'>ارتفاع EE يرتبط بزيادة خطر الانتكاسة في مرض الفُصام.</span></div>
+    <button class="next-btn" onclick="goToNext(4)">Next</button>
+  </div>
+  
+  <div class="question-box" id="q5">
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+    <div class="question-number">Question 6</div>
+    <div class="question-text">What interview is considered the gold standard for measuring expressed emotion in families?</div>
+    <ul>
+      
+      <li onclick="checkAnswer(this, 0, 1, True)">Mini-Mental State</li>
+      
+      <li onclick="checkAnswer(this, 1, 1, True)">Camberwell Family Interview (CFI)</li>
+      
+      <li onclick="checkAnswer(this, 2, 1, True)">Beck Inventory</li>
+      
+      <li onclick="checkAnswer(this, 3, 1, True)">FACES scale</li>
+      
+    </ul>
+    <div class="explanation" id="exp5">Camberwell Family Interview (CFI) is the standard method for assessing EE. <br><span style='color:gray'>مقابلة كامبرويل تُستخدم لقياس مستوى الانفعال الأسري.</span></div>
+    <button class="next-btn" onclick="goToNext(5)">Next</button>
+  </div>
+  
+  <div class="question-box" id="q6">
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+    <div class="question-number">Question 7</div>
+    <div class="question-text">In schizophrenia, which EE element is most predictive of relapse?</div>
+    <ul>
+      
+      <li onclick="checkAnswer(this, 0, 2, True)">Emotional warmth</li>
+      
+      <li onclick="checkAnswer(this, 1, 2, True)">Positive reinforcement</li>
+      
+      <li onclick="checkAnswer(this, 2, 2, True)">Critical comments</li>
+      
+      <li onclick="checkAnswer(this, 3, 2, True)">Secure attachment</li>
+      
+    </ul>
+    <div class="explanation" id="exp6">Critical comments and hostility are the strongest predictors of relapse in EE. <br><span style='color:gray'>الانتقادات الحادة ترتبط بزيادة خطر الانتكاس.</span></div>
+    <button class="next-btn" onclick="goToNext(6)">Next</button>
+  </div>
+  
+  <div class="question-box" id="q7">
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+    <div class="question-number">Question 8</div>
+    <div class="question-text">Which country showed **lowest rates** of high EE in schizophrenia carers, as per global data?</div>
+    <ul>
+      
+      <li onclick="checkAnswer(this, 0, 1, True)">USA</li>
+      
+      <li onclick="checkAnswer(this, 1, 1, True)">India</li>
+      
+      <li onclick="checkAnswer(this, 2, 1, True)">UK</li>
+      
+      <li onclick="checkAnswer(this, 3, 1, True)">Pakistan</li>
+      
+    </ul>
+    <div class="explanation" id="exp7">India showed the lowest EE levels, possibly due to cultural buffering. <br><span style='color:gray'>الهند تُظهر معدلات EE منخفضة مقارنة بالدول الأخرى.</span></div>
+    <button class="next-btn" onclick="goToNext(7)">Next</button>
+  </div>
+  
+  <div class="question-box" id="q8">
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+    <div class="question-number">Question 9</div>
+    <div class="question-text">Spending more than 35 hours per week with a high EE relative increases:</div>
+    <ul>
+      
+      <li onclick="checkAnswer(this, 0, 1, True)">Insight</li>
+      
+      <li onclick="checkAnswer(this, 1, 1, True)">Risk of relapse</li>
+      
+      <li onclick="checkAnswer(this, 2, 1, True)">Treatment adherence</li>
+      
+      <li onclick="checkAnswer(this, 3, 1, True)">Expressive vocabulary</li>
+      
+    </ul>
+    <div class="explanation" id="exp8">Extended high-contact with a high EE relative significantly raises relapse risk. <br><span style='color:gray'>الاتصال الطويل مع شخص عالي EE يزيد خطر الانتكاس.</span></div>
+    <button class="next-btn" onclick="goToNext(8)">Next</button>
+  </div>
+  
+  <div class="question-box" id="q9">
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+    <div class="question-number">Question 10</div>
+    <div class="question-text">What is the relapse rate in schizophrenia patients with **high** expressed emotion?</div>
+    <ul>
+      
+      <li onclick="checkAnswer(this, 0, 2, True)">21%</li>
+      
+      <li onclick="checkAnswer(this, 1, 2, True)">35%</li>
+      
+      <li onclick="checkAnswer(this, 2, 2, True)">50%</li>
+      
+      <li onclick="checkAnswer(this, 3, 2, True)">70%</li>
+      
+    </ul>
+    <div class="explanation" id="exp9">The relapse rate is 50% in high EE settings. <br><span style='color:gray'>معدل الانتكاسة يصل إلى 50٪ لدى من يعيشون في أُسر عالية EE.</span></div>
+    <button class="next-btn" onclick="goToNext(9)">Next</button>
+  </div>
+  
+  <div class="end-box" id="end">
+    انتهت الأسئلة<br><br>
+    Your score: <span id="score" style="color:green"></span> / <span style="color:red">10</span>
+  </div>
+</div>
+<button class="last-btn" onclick="goToLast()">Last Q</button>
+
+<script>
+let current = 0;
+let score = 0;
+const total = 10;
+document.querySelectorAll(".question-box").forEach((box, i) => {
+  if (i !== 0) box.style.display = "none";
+});
+function checkAnswer(el, qid, correctIndex, isCorrect) {
+  const box = document.getElementById("q" + qid);
+  if (box.classList.contains("answered")) return;
+  box.classList.add("answered");
+  const options = box.querySelectorAll("li");
+  options.forEach((opt, idx) => {
+    if (idx == correctIndex) opt.classList.add("correct");
+    else if (opt == el) opt.classList.add("incorrect");
+    opt.style.pointerEvents = "none";
+  });
+  document.getElementById("exp" + qid).style.display = "block";
+  box.querySelector(".next-btn").style.display = "inline-block";
+  if (isCorrect) score++;
+  if (qid === total - 1) {
+    document.querySelector(".last-btn").style.display = "none";
+  }
+}
+function goToNext(id) {
+  document.getElementById("q" + id).style.display = "none";
+  if (id + 1 < total) document.getElementById("q" + (id + 1)).style.display = "block";
+  else {
+    document.getElementById("end").style.display = "block";
+    document.getElementById("score").innerText = score;
+  }
+}
+function goToLast() {
+  document.querySelectorAll(".question-box").forEach((box, i) => {
+    box.style.display = "none";
+  });
+  document.getElementById("q" + (total - 1)).style.display = "block";
+}
+</script>
+</body>
+</html>

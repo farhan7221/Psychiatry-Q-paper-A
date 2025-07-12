@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurophysiology of Neuronal Activity Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurophysiology of Neuronal Activity Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>At what membrane potential do sodium (Na⁺) channels open to initiate an action potential?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">-40 mV</li>
+<li onclick="checkAnswer(this, true)">-55 mV</li>
+<li onclick="checkAnswer(this, false)">+30 mV</li>
+<li onclick="checkAnswer(this, false)">0 mV</li>
+</ul>
+<div class="explanation">The threshold for action potential initiation is typically around -55 mV. When the resting membrane potential depolarizes from -70 mV to -55 mV, voltage-gated sodium channels at the axon hillock open, allowing a rapid influx of Na⁺, which initiates the action potential.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>What is the peak membrane potential reached during an action potential?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">0 mV</li>
+<li onclick="checkAnswer(this, false)">+20 mV</li>
+<li onclick="checkAnswer(this, true)">+40 mV</li>
+<li onclick="checkAnswer(this, false)">+70 mV</li>
+</ul>
+<div class="explanation">During the depolarization phase, continued Na⁺ influx reverses the membrane potential up to +40 mV. This is the peak before repolarization begins, marking the full reversal of the neuron’s resting potential.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which channels open during the repolarization phase of an action potential?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Calcium channels</li>
+<li onclick="checkAnswer(this, false)">Sodium channels</li>
+<li onclick="checkAnswer(this, true)">Potassium channels</li>
+<li onclick="checkAnswer(this, false)">Chloride channels</li>
+</ul>
+<div class="explanation">After the peak of the action potential, voltage-gated potassium (K⁺) channels open, allowing K⁺ to exit the neuron. This outflow repolarizes the membrane back toward the resting potential.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Where is an action potential typically initiated?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Soma</li>
+<li onclick="checkAnswer(this, false)">Dendrites</li>
+<li onclick="checkAnswer(this, true)">Axon hillock</li>
+<li onclick="checkAnswer(this, false)">Synaptic cleft</li>
+</ul>
+<div class="explanation">The axon hillock, also known as the initial segment, has the highest density of voltage-gated sodium channels. This makes it the ideal site for the summation of excitatory inputs and initiation of action potentials.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>What is the main distinction between chemical and electrical synapses?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Electrical synapses release neurotransmitters</li>
+<li onclick="checkAnswer(this, false)">Chemical synapses allow direct ion flow</li>
+<li onclick="checkAnswer(this, true)">Chemical synapses use neurotransmitters; electrical synapses use gap junctions</li>
+<li onclick="checkAnswer(this, false)">Chemical synapses are faster</li>
+</ul>
+<div class="explanation">Chemical synapses involve neurotransmitter release across a synaptic cleft, while electrical synapses involve direct ionic current flow via gap junctions, allowing cells to synchronize their activity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>Which type of synapse is typically faster: chemical or electrical?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Electrical synapse</li>
+<li onclick="checkAnswer(this, false)">Chemical synapse</li>
+<li onclick="checkAnswer(this, false)">Both equal</li>
+<li onclick="checkAnswer(this, false)">Depends on neurotransmitter</li>
+</ul>
+<div class="explanation">Electrical synapses transmit signals almost instantaneously through gap junctions, making them faster than chemical synapses, which involve multiple steps like vesicle release and receptor binding.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>What is the term for enhanced postsynaptic potential due to multiple excitatory synapses firing at once?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Temporal summation</li>
+<li onclick="checkAnswer(this, true)">Spatial summation</li>
+<li onclick="checkAnswer(this, false)">Facilitation</li>
+<li onclick="checkAnswer(this, false)">Inhibition</li>
+</ul>
+<div class="explanation">Spatial summation occurs when multiple presynaptic neurons release neurotransmitters at different synapses simultaneously, causing a combined effect that can trigger an action potential in the postsynaptic neuron.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>What is facilitation in synaptic transmission?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Reduction of response</li>
+<li onclick="checkAnswer(this, false)">Blocking of synaptic vesicles</li>
+<li onclick="checkAnswer(this, true)">Enhancement of synaptic strength due to prior activity</li>
+<li onclick="checkAnswer(this, false)">Closure of ion channels</li>
+</ul>
+<div class="explanation">Facilitation is a form of short-term synaptic plasticity where repeated stimulation enhances neurotransmitter release, usually due to residual calcium buildup in the presynaptic terminal.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which synapse type has both electrical and chemical properties?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Electrical synapse</li>
+<li onclick="checkAnswer(this, false)">Chemical synapse</li>
+<li onclick="checkAnswer(this, true)">Conjoint synapse</li>
+<li onclick="checkAnswer(this, false)">Axo-axonic synapse</li>
+</ul>
+<div class="explanation">Conjoint synapses have characteristics of both electrical and chemical synapses, allowing them to modulate signal transmission with both direct ionic flow and neurotransmitter release.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>What is the primary ion responsible for depolarization during an action potential?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Calcium (Ca²⁺)</li>
+<li onclick="checkAnswer(this, false)">Potassium (K⁺)</li>
+<li onclick="checkAnswer(this, true)">Sodium (Na⁺)</li>
+<li onclick="checkAnswer(this, false)">Chloride (Cl⁻)</li>
+</ul>
+<div class="explanation">Sodium ions are key to depolarization. When voltage-gated Na⁺ channels open, Na⁺ rapidly enters the neuron, making the inside more positive and initiating the rising phase of the action potential.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

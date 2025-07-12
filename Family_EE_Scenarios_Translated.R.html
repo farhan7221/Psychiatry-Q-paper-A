@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Family EE – Scenarios</title>
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: 'Cairo', Tahoma, sans-serif;
+      margin: 0; padding: 0;
+      display: flex; flex-direction: column;
+      align-items: center;
+    }
+    .question-box {
+      background: #fff;
+      padding: 30px;
+      margin: 40px auto;
+      border-radius: 12px;
+      width: 92%;
+      max-width: 800px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+    .question-number {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #444;
+    }
+    .question {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .translation {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .option {
+      background: #eee;
+      padding: 14px;
+      margin: 12px 0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 18px;
+    }
+    .option:hover { background: #ddd; }
+    .option.correct { background: #28a745 !important; color: white; }
+    .option.incorrect { background: #dc3545 !important; color: white; }
+    .explanation {
+      margin-top: 25px;
+      background: rgba(255,255,0,0.2);
+      border-right: 4px solid #ffc107;
+      padding: 15px;
+      display: none;
+      text-align: right;
+      font-size: 16px;
+    }
+    .next-btn {
+      margin-top: 25px;
+      padding: 12px 30px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      display: none;
+    }
+    .counter {
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      font-weight: bold;
+      z-index: 1000;
+      background: #f0f2f5;
+      padding: 6px 12px;
+      border-radius: 10px;
+    }
+    .watermark {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 32px;
+      color: rgba(128,128,128,0.08);
+      font-style: italic;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<div id="quiz-container"></div>
+<script>
+const questions = [{'q': "In a family, one parent is dominant while the other is submissive. The child perceives the relationship as stable.<br><span style='color:gray'>في أسرة، أحد الوالدين يهيمن بينما الآخر خاضع. يرى الطفل العلاقة على أنها مستقرة.</span>", 'o': ['Marital schism', 'Marital skew', 'Pseudo-mutuality', 'Double-bind'], 'a': 1, 'e': "Marital skew appears stable but hides a power imbalance. <br><span style='color:gray'>الخلل الزوجي يبدو مستقرًا لكنه يخفي اختلالًا في السلطة.</span>"}, {'q': "A child is constantly exposed to conflicting verbal and non-verbal messages. They are confused and unsure how to react.<br><span style='color:gray'>يتعرض الطفل باستمرار لرسائل لفظية وغير لفظية متضاربة، مما يجعله مرتبكًا وغير متأكد من كيفية التصرف.</span>", 'o': ['Pseudo-mutuality', 'Double-bind', 'Expressed emotion', 'Parental fusion'], 'a': 1, 'e': "Double-bind involves contradictory communication that may increase risk of psychosis. <br><span style='color:gray'>التواصل المزدوج يحتوي على رسائل متناقضة قد تزيد من خطر الذهان.</span>"}, {'q': "What term describes a family system where children are forced to maintain outward harmony despite underlying hostility?<br><span style='color:gray'>ما المصطلح الذي يصف أسرة يُجبر فيها الأطفال على الحفاظ على انسجام خارجي رغم وجود عداء داخلي؟</span>", 'o': ['Pseudo-mutuality', 'Emotional warmth', 'Parental bonding', 'Secure attachment'], 'a': 0, 'e': "Pseudo-mutuality masks real conflict under a surface of fake closeness. <br><span style='color:gray'>العلاقات الزائفة تُخفي الصراع الحقيقي خلف قناع من التقارب الكاذب.</span>"}, {'q': "According to Vaughn & Leff, which of the following is NOT part of Expressed Emotion (EE)?<br><span style='color:gray'>وفقًا لـ Vaughn وLeff، أي من التالي لا يُعد جزءًا من الانفعالات المُعبَّر عنها؟</span>", 'o': ['Critical comments', 'Emotional warmth', 'Hostility', 'Cognitive distortions'], 'a': 3, 'e': "Cognitive distortions are not part of EE; the components include criticism, hostility, and emotional over-involvement. <br><span style='color:gray'>التشوهات المعرفية ليست جزءًا من EE؛ تشمل المكونات الانتقاد والعداء والانخراط المفرط.</span>"}, {'q': "High expressed emotion in a family is most predictive of:<br><span style='color:gray'>الانفعالات المُعبَّر عنها المرتفعة في الأسرة ترتبط بشكل أكبر بـ:</span>", 'o': ['Development of ADHD', 'Relapse in schizophrenia', 'Social withdrawal', 'Improved coping'], 'a': 1, 'e': "High EE is strongly linked to relapse in schizophrenia. <br><span style='color:gray'>EE المرتفع يرتبط بشكل قوي بانتكاس مرضى الفصام.</span>"}, {'q': "What interview is considered the gold standard for measuring expressed emotion in families?<br><span style='color:gray'>ما الأداة المعيارية الذهبية لقياس الانفعالات المُعبَّر عنها في الأسر؟</span>", 'o': ['Mini-Mental State', 'Camberwell Family Interview (CFI)', 'Beck Inventory', 'FACES scale'], 'a': 1, 'e': "Camberwell Family Interview (CFI) is the standard method for assessing EE. <br><span style='color:gray'>CFI هي الطريقة المعيارية لتقييم EE.</span>"}, {'q': "In schizophrenia, which EE element is most predictive of relapse?<br><span style='color:gray'>في الفصام، أي عنصر من EE هو الأكثر ارتباطًا بالانتكاس؟</span>", 'o': ['Emotional warmth', 'Positive reinforcement', 'Critical comments', 'Secure attachment'], 'a': 2, 'e': "Critical comments and hostility are the strongest predictors of relapse in EE. <br><span style='color:gray'>الانتقادات الحادة والعداء هي أقوى مؤشرات الانتكاس في EE.</span>"}, {'q': "Which country showed the lowest rates of high EE in schizophrenia carers?<br><span style='color:gray'>أي دولة أظهرت أقل معدلات EE المرتفعة بين مقدمي الرعاية لمرضى الفصام؟</span>", 'o': ['USA', 'India', 'UK', 'Pakistan'], 'a': 1, 'e': "India showed the lowest EE levels, possibly due to cultural buffering. <br><span style='color:gray'>الهند أظهرت أقل معدلات EE، ربما بسبب العوامل الثقافية الواقية.</span>"}, {'q': "Spending more than 35 hours per week with a high EE relative increases:<br><span style='color:gray'>قضاء أكثر من 35 ساعة أسبوعيًا مع قريب عالي EE يؤدي إلى:</span>", 'o': ['Insight', 'Risk of relapse', 'Treatment adherence', 'Expressive vocabulary'], 'a': 1, 'e': "Extended high-contact with a high EE relative significantly raises relapse risk. <br><span style='color:gray'>الاحتكاك المطول مع شخص عالي EE يزيد خطر الانتكاس بشكل كبير.</span>"}, {'q': "What is the relapse rate in schizophrenia patients with high expressed emotion?<br><span style='color:gray'>ما معدل الانتكاس في مرضى الفصام الذين يعيشون في بيئة EE مرتفعة؟</span>", 'o': ['21%', '35%', '50%', '70%'], 'a': 2, 'e': "The relapse rate is 50% in high EE settings. <br><span style='color:gray'>معدل الانتكاس في بيئات EE المرتفعة يصل إلى 50%.</span>"}];
+let current = 0;
+let score = 0;
+const container = document.getElementById("quiz-container");
+
+function extractArabic(text) {
+  const match = text.match(/<span style='color:gray'>(.*?)<\/span>/);
+  return match ? match[1] : '';
+}
+
+function removeArabic(text) {
+  return text.replace(/<span style='color:gray'>.*?<\/span>/, '').trim();
+}
+
+function loadQuestion() {
+  container.innerHTML = "";
+  const q = questions[current];
+  const box = document.createElement("div");
+  box.className = "question-box";
+
+  const number = document.createElement("div");
+  number.className = "question-number";
+  number.innerText = "Question " + (current + 1);
+  box.appendChild(number);
+
+  const qText = document.createElement("div");
+  qText.className = "question";
+  qText.innerHTML = removeArabic(q.q);
+  box.appendChild(qText);
+
+  const translation = document.createElement("div");
+  translation.className = "translation";
+  translation.innerHTML = extractArabic(q.q);
+  box.appendChild(translation);
+
+  q.o.forEach((opt, idx) => {
+    const btn = document.createElement("div");
+    btn.className = "option";
+    btn.textContent = opt;
+    btn.onclick = () => {
+      if (idx === q.a) {
+        btn.classList.add("correct");
+        score++;
+      } else {
+        btn.classList.add("incorrect");
+        box.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      box.querySelectorAll(".option").forEach(b => b.onclick = null);
+      explanation.style.display = "block";
+      nextBtn.style.display = "inline-block";
+    };
+    box.appendChild(btn);
+  });
+
+  const explanation = document.createElement("div");
+  explanation.className = "explanation";
+  explanation.innerHTML = q.e;
+  box.appendChild(explanation);
+
+  const nextBtn = document.createElement("button");
+  nextBtn.className = "next-btn";
+  nextBtn.textContent = "التالي";
+  nextBtn.onclick = () => {
+    current++;
+    if (current < questions.length) loadQuestion();
+    else container.innerHTML = `<div class='question-box'>انتهت الأسئلة ✅<br><br>درجتك: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  };
+  box.appendChild(nextBtn);
+
+  container.appendChild(box);
+}
+loadQuestion();
+</script>
+</body>
+</html>

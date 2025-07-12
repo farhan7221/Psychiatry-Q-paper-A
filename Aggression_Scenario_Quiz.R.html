@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aggression – Scenario Quiz</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      bottom: 40%;
+      right: 10%;
+      color: rgba(0,0,0,0.1);
+      font-size: 32px;
+      font-style: italic;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 8</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. A man punches another in anger during a heated argument, aiming to hurt him.<br><span style='color:gray'>رجل يلكم آخر بغضب أثناء مشادة بهدف الإيذاء فقط.</span>", "o": ["Instrumental aggression", "Covert aggression", "Hostile aggression", "Positive aggression"], "a": 2, "e": "Hostile aggression is reactive, emotional, and intended to harm.<br><span style='color:gray'>العدوان العدائي يتم بدافع الغضب وبهدف الإيذاء.</span>"}, {"q": "2. A soldier attacks to protect his country from an invading army.<br><span style='color:gray'>جندي يهاجم لحماية بلاده من غزو خارجي.</span>", "o": ["Pathological aggression", "Positive aggression", "Overt aggression", "Covert aggression"], "a": 1, "e": "Positive aggression is defensive or meant to combat injustice.<br><span style='color:gray'>العدوان الإيجابي يكون دفاعيًا أو لمقاومة الظلم.</span>"}, {"q": "3. A student spreads false rumors to socially isolate a classmate.<br><span style='color:gray'>طالب ينشر شائعات كاذبة لعزل زميل عن باقي الزملاء.</span>", "o": ["Hostile aggression", "Covert aggression", "Instrumental aggression", "Overt aggression"], "a": 1, "e": "Covert aggression is hidden, like gossip and exclusion.<br><span style='color:gray'>العدوان الخفي يكون بالكلام أو العزل الاجتماعي.</span>"}, {"q": "4. A kidnapper assaults a victim to demand ransom money.<br><span style='color:gray'>خاطف يعتدي على ضحية للحصول على فدية.</span>", "o": ["Pathological aggression", "Hostile aggression", "Instrumental aggression", "Covert aggression"], "a": 2, "e": "Instrumental aggression is goal-directed and planned.<br><span style='color:gray'>العدوان الأداتي يُستخدم كوسيلة لتحقيق هدف.</span>"}, {"q": "5. A child with no provocation suddenly hits others and enjoys it.<br><span style='color:gray'>طفل يضرب الآخرين دون استفزاز ويستمتع بذلك.</span>", "o": ["Instrumental aggression", "Positive aggression", "Pathological aggression", "Covert aggression"], "a": 2, "e": "Pathological aggression may indicate a disturbed personality.<br><span style='color:gray'>العدوان المرضي يُمارَس فقط من أجل العنف.</span>"}, {"q": "6. Two animals engage in ritualized display fights without real harm.<br><span style='color:gray'>حيوانان يؤديان طقوس قتال رمزية دون إيذاء فعلي.</span>", "o": ["Hostile aggression", "Covert aggression", "Constructive aggression", "Thanatos-based aggression"], "a": 2, "e": "Lorenz described this ritualisation in animals as constructive.<br><span style='color:gray'>لورنتس وصف العدوان الطقوسي بالبناء والرمزي.</span>"}, {"q": "7. A girl kicks another child on the playground in front of everyone.<br><span style='color:gray'>طفلة تركل طفلة أخرى في ساحة المدرسة أمام الجميع.</span>", "o": ["Covert aggression", "Overt aggression", "Instrumental aggression", "Positive aggression"], "a": 1, "e": "Overt aggression is clearly observable and open.<br><span style='color:gray'>العدوان الظاهر يمكن ملاحظته بوضوح.</span>"}, {"q": "8. A person feels aggression rising slowly inside until it bursts one day.<br><span style='color:gray'>شخص يشعر بأن العدوان يتراكم بداخله تدريجيًا حتى ينفجر فجأة.</span>", "o": ["Evolutionary Theory", "Psychoanalysis Theory", "Constructive aggression", "Overt aggression"], "a": 1, "e": "Freud’s psychoanalytic theory suggests aggression builds up from Thanatos (death instinct).<br><span style='color:gray'>نظرية التحليل النفسي تفسر العدوان بأنه غريزة تتراكم وتنفجر.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة ⚔️🔥<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

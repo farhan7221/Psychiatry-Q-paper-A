@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Applied Neuroscience - Parietal Lobe Full Test</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: sans-serif; margin: 0; padding: 0; }
+    .container { max-width: 800px; margin: auto; padding: 20px; background: white; margin-top: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1 { text-align: center; font-size: 24px; color: #222; }
+    .question-box { margin-bottom: 20px; }
+    .question-text { font-size: 18px; font-weight: bold; }
+    .question-arabic { margin-bottom: 10px; font-size: 15px; color: #555; }
+    .option {
+      background: #f8f9fa; padding: 10px; border-radius: 5px; margin-bottom: 8px;
+      cursor: pointer; border: 1px solid #ccc;
+    }
+    .option.correct { background-color: #28a745 !important; color: white; }
+    .option.wrong { background-color: #dc3545 !important; color: white; }
+    .explanation {
+      margin-top: 10px; background: rgba(255, 255, 0, 0.2);
+      border-left: 5px solid #ffc107; padding: 10px; display: none;
+    }
+    .next-btn, .last-btn {
+      margin-top: 15px; padding: 10px 20px; border: none;
+      border-radius: 5px; color: white; font-size: 16px; cursor: pointer;
+    }
+    .next-btn { background-color: #007bff; }
+    .last-btn { background-color: #28a745; float: right; }
+    .watermark {
+      position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px; color: rgba(0,0,0,0.05); pointer-events: none;
+    }
+    .result { text-align: center; font-size: 18px; margin-top: 30px; }
+    .green { color: green; font-weight: bold; }
+    .red { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  <div class="container">
+    <h1>Applied Neuroscience – Parietal Lobe Full Test</h1>
+    <div class='counter' style='text-align:right; font-size:14px; color:#888;'>Total Questions: 10</div>
+    <div id="quiz"></div>
+    <button class="next-btn" onclick="nextQuestion()" style="display:none;">التالي</button>
+    <button class="last-btn" onclick="goLast()" style="display:none;">Last Q</button>
+  </div>
+  <script>
+    const questions = [{"q": "Which test evaluates the ability to recognize objects by touch without visual input?", "qt": "أي اختبار يُقيّم القدرة على التعرف على الأشياء عن طريق اللمس دون استخدام البصر؟", "options": [["Visual inattention", "الإهمال البصري"], ["Stereognosis", "تمييز الأشياء باللمس"], ["Graphesthesia", "الإدراك الحسي للكتابة"], ["Finger tapping", "نقر الأصابع"]], "answer": 1, "exp": "Stereognosis involves using touch alone to identify objects, relying on bilateral parietal somatosensory cortices.<br>يعتمد تمييز الأشياء باللمس (Stereognosis) على الإحساس دون النظر، ويتطلب سلامة الفص الجداري الثنائي الحسي."}, {"q": "Damage to which area is most likely to cause finger agnosia?", "qt": "تلف أي منطقة غالبًا ما يسبب عمه الأصابع؟", "options": [["Bilateral frontal lobe", "الفص الجبهي الثنائي"], ["Dominant parietal lobe", "الفص الجداري المسيطر"], ["Temporal lobe", "الفص الصدغي"], ["Nondominant occipital lobe", "الفص القذالي غير المسيطر"]], "answer": 1, "exp": "Finger agnosia is part of Gerstmann syndrome and typically results from dominant parietal damage.<br>يُعد عمه الأصابع جزءًا من متلازمة غيرستمان، ويرتبط غالبًا بتلف الفص الجداري المسيطر."}, {"q": "Which of the following tests is used to detect hemineglect?", "qt": "أي من الاختبارات التالية يُستخدم للكشف عن الإهمال النصفي؟", "options": [["Finger opposition", "تقابل الأصابع"], ["Cancellation tasks", "مهام الإلغاء"], ["Clock drawing", "رسم الساعة"], ["Digit span", "مدى الأرقام"]], "answer": 1, "exp": "Cancellation tasks like line bisection or letter cancellation help detect visual inattention or hemineglect.<br>تساعد مهام الإلغاء مثل تقسيم الخط أو إلغاء الحروف على اكتشاف الإهمال البصري (Hemineglect)."}, {"q": "Graphesthesia assesses the ability to:", "qt": "يقيس اختبار الإدراك الحسي للكتابة (Graphesthesia) القدرة على:", "options": [["Trace shapes with eyes closed", "رسم أشكال والعينان مغمضتان"], ["Identify numbers written on skin", "تمييز الأرقام المكتوبة على الجلد"], ["Discriminate touch direction", "تمييز اتجاه اللمس"], ["Identify objects by smell", "تمييز الأشياء عبر الرائحة"]], "answer": 1, "exp": "Graphesthesia is the ability to recognize numbers or letters traced on the skin without visual input.<br>يقيس هذا الاختبار القدرة على التعرف على رموز مرسومة على الجلد دون الاعتماد على النظر."}, {"q": "Which test reflects bilateral parietal somatosensory cortical function?", "qt": "أي اختبار يعكس وظيفة القشرة الحسية الثنائية للفص الجداري؟", "options": [["Graphesthesia", "الإدراك الحسي للكتابة"], ["Two-point discrimination", "تمييز النقطتين"], ["Word repetition", "تكرار الكلمات"], ["Mirror drawing", "رسم المرآة"]], "answer": 1, "exp": "Two-point discrimination evaluates fine cortical sensation and involves both somatosensory cortices.<br>يقيس اختبار تمييز النقطتين الإحساس الدقيق ويتطلب سلامة القشرة الحسية في كلا الفصين الجداريين."}, {"q": "What is the purpose of the 'Copying shapes' test in parietal assessment?", "qt": "ما الهدف من اختبار 'نسخ الأشكال' في تقييم الفص الجداري؟", "options": [["To assess visuoconstructive abilities", "لتقييم القدرات البصرية الإنشائية"], ["To test emotional processing", "لاختبار المعالجة الانفعالية"], ["To measure memory encoding", "لقياس ترميز الذاكرة"], ["To evaluate auditory discrimination", "لتقييم التمييز السمعي"]], "answer": 0, "exp": "Copying geometrical shapes helps evaluate visuoconstructive skills, often impaired in nondominant parietal lesions.<br>يساعد نسخ الأشكال الهندسية في تقييم المهارات الإنشائية البصرية، التي تتأثر في إصابات الفص الجداري غير المسيطر."}, {"q": "Which task helps detect right-left disorientation from dominant parietal damage?", "qt": "أي اختبار يساعد في كشف اضطراب الاتجاه يمين-يسار الناتج عن تلف الفص الجداري المسيطر؟", "options": [["Matching objects by color", "مطابقة الأشياء حسب اللون"], ["Touching right earlobe with left index finger", "لمس شحمة الأذن اليمنى بالإصبع السبابة اليسرى"], ["Repeating three words", "تكرار ثلاث كلمات"], ["Drawing a clock", "رسم الساعة"]], "answer": 1, "exp": "The ability to follow cross-body commands like ear touching tests right-left orientation affected in Gerstmann syndrome.<br>القدرة على تنفيذ أوامر تعبر الجانبين مثل لمس الأذن تشير إلى سلامة التوجه يمين-يسار، والذي يتأثر في متلازمة غيرستمان."}, {"q": "Graphesthesia primarily tests which neurological function?", "qt": "ما الوظيفة العصبية الأساسية التي يُقيسها اختبار الإدراك الحسي للكتابة؟", "options": [["Cerebellar coordination", "تنسيق المخيخ"], ["Somatosensory cortical function", "وظيفة القشرة الحسية الجسدية"], ["Auditory discrimination", "تمييز السمع"], ["Olfactory processing", "معالجة الشم"]], "answer": 1, "exp": "Graphesthesia tests the ability to process tactile stimuli in the cortex, requiring intact parietal sensory integration.<br>يقيس هذا الاختبار قدرة القشرة الحسية على تحليل اللمسات الدقيقة ويتطلب تكاملًا سليماً في الفص الجداري."}, {"q": "In parietal lobe assessment, which test involves recognizing touched fingers?", "qt": "في تقييم الفص الجداري، أي اختبار يتضمن التعرف على الأصابع التي تم لمسها؟", "options": [["Identifying fingers", "تمييز الأصابع"], ["Line bisection", "تقسيم الخط"], ["Digit repetition", "تكرار الأرقام"], ["Naming objects", "تسمية الأشياء"]], "answer": 0, "exp": "The identifying fingers task evaluates tactile proprioception and is part of Gerstmann-related tests.<br>اختبار التعرف على الأصابع يقيّم الإحساس الموضعي وهو جزء من اختبارات متلازمة غيرستمان."}, {"q": "Which of the following best describes stereognosis?", "qt": "أي من التالي يصف بشكل أدق اختبار Stereognosis؟", "options": [["Touching alternate fingers", "لمس الأصابع بالتناوب"], ["Repeating words aloud", "تكرار الكلمات بصوت عالٍ"], ["Recognizing objects through touch alone", "تمييز الأشياء باللمس فقط"], ["Copying shapes by sight", "نسخ الأشكال باستخدام النظر"]], "answer": 2, "exp": "Stereognosis is the ability to identify objects via palpation, without visual input.<br>يعني Stereognosis القدرة على التعرف على الأشياء عن طريق اللمس دون الاعتماد على البصر."}];
+    let current = 0;
+    let score = 0;
+    let answered = false;
+
+    function renderQuestion(i) {
+      const q = questions[i];
+      const container = document.getElementById('quiz');
+      let html = `<div class='question-box'>
+        <div class='question-text'>Q${i+1}. ${q.q}</div>
+        <div class='question-arabic'>${q.qt}</div>`;
+      q.options.forEach((opt, index) => {
+        html += `<div class='option' onclick='checkAnswer(this, ${i}, ${index})'>${opt[0]} - ${opt[1]}</div>`;
+      });
+      html += `<div class='explanation'>${q.exp}</div></div>`;
+      container.innerHTML = html;
+      document.querySelector(".next-btn").style.display = "none";
+      document.querySelector(".last-btn").style.display = i < questions.length - 1 ? "inline-block" : "none";
+      answered = false;
+    }
+
+    function checkAnswer(elem, qIndex, optIndex) {
+      if (answered) return;
+      answered = true;
+      const correct = questions[qIndex].answer;
+      const options = document.querySelectorAll(".option");
+      options.forEach((el, i) => {
+        el.onclick = null;
+        if (i === correct) el.classList.add("correct");
+        else if (i === optIndex) el.classList.add("wrong");
+      });
+      if (optIndex === correct) score++;
+      document.querySelector(".explanation").style.display = "block";
+      document.querySelector(".next-btn").style.display = "inline-block";
+    }
+
+    function nextQuestion() {
+      current++;
+      if (current >= questions.length) {
+        showResult();
+      } else {
+        renderQuestion(current);
+      }
+    }
+
+    function goLast() {
+      current = questions.length - 1;
+      renderQuestion(current);
+    }
+
+    function showResult() {
+      const container = document.getElementById('quiz');
+      container.innerHTML = `<div class='result'>
+        <h3>انتهت الأسئلة</h3>
+        <p><span class='green'>${score}</span> / <span class='red'>10</span></p>
+        <p><span class='green'>درجة الامتحان</span>: <span class='green'>${score}</span> من <span class='red'>10</span></p>
+      </div>`;
+      document.querySelector(".next-btn").style.display = "none";
+      document.querySelector(".last-btn").style.display = "none";
+    }
+
+    renderQuestion(current);
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethics in Psychiatry - Questions 1–10</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .question-box { background: #fff; padding: 20px; margin: 50px auto; border-radius: 10px; max-width: 750px; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 20px; }
+    .option { background: #eee; padding: 10px; margin: 8px 0; border-radius: 5px; cursor: pointer; }
+    .option.correct { background: #d4edda !important; pointer-events: none; }
+    .option.incorrect { background: #f8d7da !important; pointer-events: none; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 5px solid gold; padding: 10px; display: none; margin-top: 15px; }
+    .next-btn { display: none; margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    .counter { position: fixed; top: 10px; right: 20px; background: white; padding: 5px 10px; border-radius: 10px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px;
+      font-style: italic;
+      color: rgba(128,128,128,0.35); text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+    #lastQ { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+<body>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<div class="counter">Total Questions: 10</div>
+<div id="quiz"></div>
+<div id="lastQ"><button onclick="goToLast()">Last Q</button></div>
+<script>
+const questions = [{"q": "A patient refuses all medications due to religious beliefs. The family demands forced treatment. What is the ethical priority?", "qt": "يرفض مريض جميع الأدوية بسبب معتقداته الدينية، بينما تطالب العائلة بعلاجه بالإجبار. ما الأولوية الأخلاقية؟", "options": [["Respect autonomy", "احترام الاستقلالية"], ["Refer ethically", "الإحالة الأخلاقية"], ["Maintain neutrality", "الحفاظ على الحياد"], ["Report abuse", "الإبلاغ عن الإساءة"]], "answer": 1, "exp": "Respecting deeply held beliefs is critical. Unless there's immediate risk, coercion may violate religious autonomy. | احترام المعتقدات الدينية من المبادئ الأساسية. ما لم يوجد خطر وشيك، فإن الإجبار قد ينتهك استقلالية المعتقد."}, {"q": "A refugee patient with trauma refuses male clinicians. No female is available on staff. What is the ethical path?", "qt": "مريض لاجئ يعاني من صدمة يرفض التعامل مع أطباء ذكور، ولا توجد طبيبة متاحة. ما هو الخيار الأخلاقي؟", "options": [["Refer ethically", "الإحالة الأخلاقية"], ["Maintain neutrality", "الحفاظ على الحياد"], ["Report abuse", "الإبلاغ عن الإساءة"], ["Preserve dignity", "الحفاظ على الكرامة"]], "answer": 1, "exp": "Trauma-informed and culturally sensitive care demands flexible solutions like telehealth or rescheduling. | الرعاية الحساسة للصدمة والثقافة تتطلب حلولًا مرنة مثل الرعاية عن بعد أو إعادة الجدولة."}, {"q": "A psychiatric patient asks for medical marijuana. The psychiatrist is personally opposed. What should guide the response?", "qt": "مريض نفسي يطلب الحشيش الطبي، لكن الطبيب يعارضه شخصيًا. ما الذي يجب أن يوجه القرار؟", "options": [["Maintain neutrality", "الحفاظ على الحياد"], ["Report abuse", "الإبلاغ عن الإساءة"], ["Preserve dignity", "الحفاظ على الكرامة"], ["Uphold justice", "دعم العدالة"]], "answer": 2, "exp": "Evidence-based care and legal frameworks—not personal opinion—must guide clinical decision-making. | الرعاية المبنية على الأدلة والأطر القانونية هي ما يجب أن يوجه القرار، وليس الرأي الشخصي."}, {"q": "A patient wants to change their gender marker in hospital records. Staff express discomfort. What's the ethical obligation?", "qt": "يريد مريض تغيير جنسه في السجلات الطبية، والطاقم يعبر عن انزعاجه. ما الواجب الأخلاقي؟", "options": [["Report abuse", "الإبلاغ عن الإساءة"], ["Preserve dignity", "الحفاظ على الكرامة"], ["Uphold justice", "دعم العدالة"], ["Challenge discrimination", "مواجهة التمييز"]], "answer": 3, "exp": "Respect for identity and dignity mandates honoring such requests. Staff should receive inclusion training. | احترام الهوية والكرامة يقتضي تلبية هذا الطلب. يجب تدريب الطاقم على الشمولية."}, {"q": "A patient discloses they have access to a weapon and are having dark thoughts. What is the ethical next step?", "qt": "يكشف مريض عن امتلاكه سلاحًا ويعاني من أفكار مظلمة. ما الخطوة الأخلاقية التالية؟", "options": [["Preserve dignity", "الحفاظ على الكرامة"], ["Uphold justice", "دعم العدالة"], ["Challenge discrimination", "مواجهة التمييز"], ["Protect rights", "حماية الحقوق"]], "answer": 1, "exp": "Immediate safety planning and possible breach of confidentiality are ethically justified to prevent harm. | وضع خطة فورية للسلامة وخرق السرية قد يكونان مبررين أخلاقيًا لمنع الضرر."}];
+
+let current = 0, score = 0;
+const quiz = document.getElementById("quiz");
+
+function loadQ() {
+  const q = questions[current];
+  let html = `<div class='question-box' id='qbox'>
+    <div class='question'>Q${current + 1}. ${q.q}</div>
+    <div class='translation'>${q.qt}</div>`;
+  q.options.forEach((opt, i) => {
+    html += `<div class='option' data-index='${i}' onclick='selectAnswer(this, ${i}, ${q.answer})'>${opt[0]}<br><small>${opt[1]}</small></div>`;
+  });
+  html += `<div class='explanation'><b>Explanation:</b> ${q.exp}</div>
+    <button class='next-btn' onclick='nextQ()'>Next</button>
+  </div>`;
+  quiz.innerHTML = html;
+}
+
+function selectAnswer(el, selected, correct) {
+  const opts = document.querySelectorAll('.option');
+  opts.forEach((opt, i) => {
+    opt.style.pointerEvents = 'none';
+    if (i === correct) opt.classList.add('correct');
+    else if (i === selected) opt.classList.add('incorrect');
+  });
+  if (selected === correct) score++;
+  document.querySelector('.explanation').style.display = 'block';
+  document.querySelector('.next-btn').style.display = 'inline-block';
+}
+
+function nextQ() {
+  current++;
+  if (current < questions.length) loadQ();
+  else {
+    quiz.innerHTML = `<div class='question-box'><div class='question'>انتهت الأسئلة</div><div class='question'>Your score: <span style='color:green'>${score}</span> / <span style='color:red'>${questions.length}</span></div></div>`;
+  }
+}
+
+function goToLast() {
+  current = questions.length - 1;
+  loadQ();
+}
+
+loadQ();
+</script>
+</body>
+</html>

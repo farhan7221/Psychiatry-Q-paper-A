@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Altruism – Fill in the Blanks</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      bottom: 40%;
+      right: 10%;
+      color: rgba(0,0,0,0.1);
+      font-size: 32px;
+      font-style: italic;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 8</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. Altruism is defined as helping others with no expectation of ______.<br><span style='color:gray'>الإيثار هو مساعدة الآخرين دون توقع ______.</span>", "o": ["praise", "reward", "recognition", "punishment"], "a": 1, "e": "Altruism is selfless help, expecting no reward.<br><span style='color:gray'>الإيثار يعني المساعدة دون انتظار مقابل.</span>"}, {"q": "2. Bystander apathy occurs when individuals fail to help due to presence of a ______.<br><span style='color:gray'>يحدث خمول المتفرج عندما لا يساعد الأفراد بسبب وجود ______.</span>", "o": ["leader", "victim", "group", "camera"], "a": 2, "e": "The larger the group, the less likely one helps.<br><span style='color:gray'>كلما كبر الجمهور، قل تدخل الفرد.</span>"}, {"q": "3. Pluralistic ignorance occurs when people wrongly believe a situation is ______.<br><span style='color:gray'>يحدث الجهل الجماعي عندما يظن الناس خطأً أن الوضع ______.</span>", "o": ["dangerous", "funny", "safe", "chaotic"], "a": 2, "e": "Everyone looks calm, so others think it's not serious.<br><span style='color:gray'>يظن الجميع أن الوضع آمن لأن لا أحد يتصرف.</span>"}, {"q": "4. The arousal/cost-reward model explains helping by combining emotion and ______.<br><span style='color:gray'>نموذج الاستثارة/المكافأة يشرح المساعدة من خلال الدمج بين العاطفة و______.</span>", "o": ["logic", "planning", "cost-benefit analysis", "competition"], "a": 2, "e": "Helping depends on emotional arousal and cost assessment.<br><span style='color:gray'>يرتبط قرار المساعدة بالعاطفة وتحليل الفوائد.</span>"}, {"q": "5. Diffusion of responsibility means that the responsibility is shared and therefore ______.<br><span style='color:gray'>يعني تشتت المسؤولية أن المسؤولية موزعة وبالتالي تصبح ______.</span>", "o": ["stronger", "weaker", "rewarded", "punished"], "a": 1, "e": "Shared responsibility weakens personal motivation to act.<br><span style='color:gray'>المسؤولية الجماعية تُضعف الدافع الفردي للتصرف.</span>"}, {"q": "6. Social loafing refers to decreased individual effort in a ______.<br><span style='color:gray'>يشير الكسل الاجتماعي إلى انخفاض الجهد الفردي داخل ______.</span>", "o": ["solo task", "group setting", "dangerous place", "public speech"], "a": 1, "e": "People exert less effort in larger groups.<br><span style='color:gray'>يبذل الأفراد جهدًا أقل في المجموعات الكبيرة.</span>"}, {"q": "7. According to research, males show more ______ help while females show more empathy.<br><span style='color:gray'>تشير الأبحاث إلى أن الذكور يظهرون مساعدة ______ أكثر، والإناث يظهرن تعاطفًا أكبر.</span>", "o": ["silent", "agentic", "emotional", "reluctant"], "a": 1, "e": "Agentic help = direct, action-based assistance.<br><span style='color:gray'>المساعدة العملية المباشرة تُرى غالبًا عند الذكور.</span>"}, {"q": "8. Dissolution of responsibility occurs when one assumes ______.<br><span style='color:gray'>يحدث الذوبان في المسؤولية عندما يفترض الشخص أن ______.</span>", "o": ["he is the only one responsible", "others already helped", "no one is watching", "the victim is guilty"], "a": 1, "e": "The person rationalizes inaction by assuming others acted.<br><span style='color:gray'>يبرر الشخص عدم تدخله بافتراض أن غيره تصرف.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة 💚🌍<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

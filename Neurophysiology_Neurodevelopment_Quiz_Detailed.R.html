@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurophysiology of Neurodevelopment Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurophysiology of Neurodevelopment Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What is neurogenesis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Formation of synapses</li>
+<li onclick="checkAnswer(this, true)">Generation of new neurons from progenitor cells</li>
+<li onclick="checkAnswer(this, false)">Death of neurons</li>
+<li onclick="checkAnswer(this, false)">Axon myelination</li>
+</ul>
+<div class="explanation">Neurogenesis refers to the birth of new neurons, particularly prominent during embryonic development and, to a lesser extent, in adult regions like the hippocampus.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>During which gestational weeks is peak neurogenesis observed in humans?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">2–6 weeks</li>
+<li onclick="checkAnswer(this, true)">8–20 weeks</li>
+<li onclick="checkAnswer(this, false)">25–35 weeks</li>
+<li onclick="checkAnswer(this, false)">After birth</li>
+</ul>
+<div class="explanation">Peak neurogenesis occurs between weeks 8 and 20 of gestation, laying down the foundation for the developing brain's architecture.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>What is radial migration in neurodevelopment?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Neurons moving along axons</li>
+<li onclick="checkAnswer(this, true)">Neurons migrating along radial glial fibers from ventricular zone to cortex</li>
+<li onclick="checkAnswer(this, false)">Synaptic pruning</li>
+<li onclick="checkAnswer(this, false)">Myelination of axons</li>
+</ul>
+<div class="explanation">Radial migration is the process by which immature neurons travel outward along radial glial scaffolding to reach their cortical destinations.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>What is tangential migration?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Movement of axons toward targets</li>
+<li onclick="checkAnswer(this, true)">Neuronal migration parallel to the brain surface</li>
+<li onclick="checkAnswer(this, false)">Radial movement along glial fibers</li>
+<li onclick="checkAnswer(this, false)">Glial cell proliferation</li>
+</ul>
+<div class="explanation">Tangential migration allows neurons, especially interneurons, to move parallel to the pial surface, enabling proper cortical layering.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>What is synaptogenesis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Formation of new neurons</li>
+<li onclick="checkAnswer(this, true)">Formation of synaptic connections between neurons</li>
+<li onclick="checkAnswer(this, false)">Death of synapses</li>
+<li onclick="checkAnswer(this, false)">Disassembly of neural circuits</li>
+</ul>
+<div class="explanation">Synaptogenesis is the process of forming new synapses, critical for building neural networks and refining brain function during development.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>When does peak synaptogenesis occur in the human brain?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Prenatal period</li>
+<li onclick="checkAnswer(this, true)">First 2 years after birth</li>
+<li onclick="checkAnswer(this, false)">Teenage years</li>
+<li onclick="checkAnswer(this, false)">After age 30</li>
+</ul>
+<div class="explanation">Synaptic density rapidly increases in early postnatal life, peaking in the first 2 years, especially in the cortex, facilitating learning and sensory processing.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>What is synaptic pruning?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Formation of myelin</li>
+<li onclick="checkAnswer(this, true)">Elimination of excess synapses</li>
+<li onclick="checkAnswer(this, false)">Generation of new neurons</li>
+<li onclick="checkAnswer(this, false)">Degeneration of axons</li>
+</ul>
+<div class="explanation">Synaptic pruning is a refinement process where excess or weak synapses are removed, optimizing neural circuitry for efficient function.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>In which brain region does adult neurogenesis predominantly occur?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Prefrontal cortex</li>
+<li onclick="checkAnswer(this, true)">Hippocampus (dentate gyrus)</li>
+<li onclick="checkAnswer(this, false)">Basal ganglia</li>
+<li onclick="checkAnswer(this, false)">Cerebellum</li>
+</ul>
+<div class="explanation">Adult neurogenesis is well-documented in the subgranular zone of the dentate gyrus of the hippocampus, linked to learning and memory.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which molecular signal is crucial for neuronal survival and synaptogenesis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">GABA</li>
+<li onclick="checkAnswer(this, true)">Brain-derived neurotrophic factor (BDNF)</li>
+<li onclick="checkAnswer(this, false)">Dopamine</li>
+<li onclick="checkAnswer(this, false)">Glutamate</li>
+</ul>
+<div class="explanation">BDNF promotes neuronal survival, synaptic formation, and plasticity, playing a central role in neurodevelopment and adaptation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which disorder is associated with disrupted synaptic pruning in adolescence?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Parkinson’s disease</li>
+<li onclick="checkAnswer(this, true)">Schizophrenia</li>
+<li onclick="checkAnswer(this, false)">Alzheimer’s disease</li>
+<li onclick="checkAnswer(this, false)">Huntington’s disease</li>
+</ul>
+<div class="explanation">Schizophrenia has been linked to excessive synaptic pruning during adolescence, potentially contributing to the loss of grey matter and functional deficits.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

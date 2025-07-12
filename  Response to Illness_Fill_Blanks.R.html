@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Response & TTM – Fill in the Blanks</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      bottom: 40%;
+      right: 10%;
+      color: rgba(0,0,0,0.08);
+      font-size: 32px;
+      font-style: italic;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. Handicap refers to the ______ resulting from a disability.<br><span style='color:gray'>يشير مفهوم 'الإعاقة الاجتماعية' إلى ______ الناتجة عن الإعاقة.</span>", "o": ["emotional instability", "physical breakdown", "social disadvantage", "economic hardship"], "a": 2, "e": "Handicap is defined as the social disadvantage caused by disability.<br><span style='color:gray'>الإعاقة الاجتماعية هي الضرر الاجتماعي الناتج عن الإعاقة.</span>"}, {"q": "2. According to the Health Beliefs Model, belief about disease severity, cost, and ______ affect treatment.<br><span style='color:gray'>وفقًا لنموذج المعتقدات الصحية، فإن شدة المرض، وتكلفة العلاج، و______ تؤثر على التزام المريض بالعلاج.</span>", "o": ["pain threshold", "environmental cues", "hospital availability", "past experiences"], "a": 1, "e": "Cues to action (like advice or reminders) affect treatment adherence.<br><span style='color:gray'>المحفزات البيئية والاجتماعية تُؤثر على التزام المريض بالعلاج.</span>"}, {"q": "3. Impairment refers to interference with ______ or psychological functions.<br><span style='color:gray'>تشير الإعاقة إلى اضطراب في الوظائف ______ أو النفسية.</span>", "o": ["social", "spiritual", "structural", "financial"], "a": 2, "e": "Impairment is structural or psychological limitation.<br><span style='color:gray'>الإعاقة تعني اضطرابًا بنيويًا أو نفسيًا.</span>"}, {"q": "4. A patient delaying response due to work pressure is affected by ______ demands.<br><span style='color:gray'>مريض يؤخر استجابته للأعراض بسبب ضغط العمل يتأثر بعوامل ______.</span>", "o": ["internal", "family", "competing social", "physiological"], "a": 2, "e": "Social demands can lead to symptom postponement.<br><span style='color:gray'>المطالب الاجتماعية المتنافسة قد تؤخر التعامل مع الأعراض.</span>"}, {"q": "5. The ICIDH classification includes impairment, disability, and ______.<br><span style='color:gray'>تشمل تصنيفات ICIDH: الإعاقة العضوية، الإعاقة الوظيفية، و______.</span>", "o": ["dependency", "poverty", "handicap", "addiction"], "a": 2, "e": "The triad: Impairment - Disability - Handicap.<br><span style='color:gray'>التصنيف الثلاثي يتضمن: الإعاقة، العجز، والضرر الاجتماعي.</span>"}, {"q": "6. In TTM, not considering change and denying the problem is the ______ stage.<br><span style='color:gray'>في نموذج المراحل، عدم التفكير في التغيير وإنكار المشكلة يندرج تحت مرحلة ______.</span>", "o": ["contemplation", "preparation", "action", "precontemplation"], "a": 3, "e": "Precontemplation is denial or lack of awareness.<br><span style='color:gray'>مرحلة ما قبل التأمل تعني الإنكار أو عدم الإدراك.</span>"}, {"q": "7. When a person is actively applying their change plan, they are in the ______ stage.<br><span style='color:gray'>عندما يطبق الشخص خطة التغيير بنشاط، يكون في مرحلة ______.</span>", "o": ["maintenance", "action", "relapse", "decision"], "a": 1, "e": "Action involves active behavioral implementation.<br><span style='color:gray'>مرحلة الفعل تشمل التطبيق الفعلي للسلوك الجديد.</span>"}, {"q": "8. Consciousness raising helps the patient gather ______ about the problem.<br><span style='color:gray'>يساعد رفع الوعي المريض على جمع ______ حول المشكلة.</span>", "o": ["treatment", "rewards", "information", "money"], "a": 2, "e": "Consciousness raising = information gathering.<br><span style='color:gray'>رفع الوعي يعني جمع المعلومات حول المشكلة والسلوك.</span>"}, {"q": "9. Avoiding triggers linked to old habits is called ______ control.<br><span style='color:gray'>تجنب المحفزات المرتبطة بالعادات القديمة يُعرف باسم التحكم ______.</span>", "o": ["conscious", "stimulus", "external", "peer"], "a": 1, "e": "Stimulus control = avoiding cues that trigger problem behavior.<br><span style='color:gray'>السيطرة على المنبهات تعني تجنب المحفزات المرتبطة بالسلوك الضار.</span>"}, {"q": "10. The model's stages are not fixed but can move back and forth, meaning they are ______.<br><span style='color:gray'>مراحل هذا النموذج ليست ثابتة بل يمكن التنقل بينها، أي أنها ______.</span>", "o": ["reversible", "linear", "temporary", "emotional"], "a": 0, "e": "Stages are cyclical and reversible in the TTM model.<br><span style='color:gray'>المراحل في هذا النموذج دائرية وقابلة للعكس.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة ✅<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

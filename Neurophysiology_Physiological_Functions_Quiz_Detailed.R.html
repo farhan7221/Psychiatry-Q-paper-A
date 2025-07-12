@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurophysiology of Physiological Functions Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurophysiology of Physiological Functions Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>Which hypothalamic nucleus is primarily involved in hunger signaling?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Suprachiasmatic nucleus</li>
+<li onclick="checkAnswer(this, true)">Lateral hypothalamic area</li>
+<li onclick="checkAnswer(this, false)">Paraventricular nucleus</li>
+<li onclick="checkAnswer(this, false)">Ventromedial hypothalamic nucleus</li>
+</ul>
+<div class="explanation">The lateral hypothalamic area is known as the 'feeding center.' Its activation stimulates hunger and food-seeking behavior; lesions here cause anorexia.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which hypothalamic nucleus is known as the 'satiety center'?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Lateral hypothalamic area</li>
+<li onclick="checkAnswer(this, true)">Ventromedial hypothalamic nucleus</li>
+<li onclick="checkAnswer(this, false)">Arcuate nucleus</li>
+<li onclick="checkAnswer(this, false)">Mammillary body</li>
+</ul>
+<div class="explanation">The ventromedial hypothalamic nucleus inhibits hunger when activated, and lesions in this area cause hyperphagia and obesity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which brain structure is the master regulator of circadian rhythms?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Pineal gland</li>
+<li onclick="checkAnswer(this, true)">Suprachiasmatic nucleus (SCN)</li>
+<li onclick="checkAnswer(this, false)">Hippocampus</li>
+<li onclick="checkAnswer(this, false)">Amygdala</li>
+</ul>
+<div class="explanation">The SCN of the hypothalamus receives light input via the retina and orchestrates daily biological rhythms, including sleep-wake cycles.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Which nucleus regulates thirst?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Arcuate nucleus</li>
+<li onclick="checkAnswer(this, true)">Organum vasculosum of the lamina terminalis (OVLT)</li>
+<li onclick="checkAnswer(this, false)">Mammillary body</li>
+<li onclick="checkAnswer(this, false)">Subthalamic nucleus</li>
+</ul>
+<div class="explanation">The OVLT and surrounding structures detect osmotic pressure changes and signal thirst, coordinating water intake.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Which neurotransmitter is most involved in pain modulation in the descending pathway?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Serotonin</li>
+<li onclick="checkAnswer(this, false)">Acetylcholine</li>
+<li onclick="checkAnswer(this, false)">Histamine</li>
+<li onclick="checkAnswer(this, false)">GABA</li>
+</ul>
+<div class="explanation">Serotonin, released from the raphe nuclei, plays a key role in descending inhibition of pain by modulating spinal nociceptive neurons.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>Which hypothalamic nucleus is key for thermoregulation and heat dissipation?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Posterior hypothalamus</li>
+<li onclick="checkAnswer(this, true)">Anterior hypothalamus</li>
+<li onclick="checkAnswer(this, false)">Mammillary body</li>
+<li onclick="checkAnswer(this, false)">Dorsomedial nucleus</li>
+</ul>
+<div class="explanation">The anterior hypothalamus controls heat dissipation mechanisms (like sweating). Lesions here can cause hyperthermia.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which hypothalamic area is crucial for initiating shivering and conserving heat?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Posterior hypothalamus</li>
+<li onclick="checkAnswer(this, false)">Preoptic area</li>
+<li onclick="checkAnswer(this, false)">Paraventricular nucleus</li>
+<li onclick="checkAnswer(this, false)">Lateral hypothalamus</li>
+</ul>
+<div class="explanation">The posterior hypothalamus activates thermogenesis and conserves body heat. Damage here can lead to hypothermia.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which peptide hormone stimulates appetite and is secreted by the stomach?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Leptin</li>
+<li onclick="checkAnswer(this, true)">Ghrelin</li>
+<li onclick="checkAnswer(this, false)">Orexin</li>
+<li onclick="checkAnswer(this, false)">Neuropeptide Y</li>
+</ul>
+<div class="explanation">Ghrelin is produced by the stomach and signals the hypothalamus to stimulate hunger, rising before meals and falling after eating.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which hormone, secreted by adipocytes, signals satiety?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Leptin</li>
+<li onclick="checkAnswer(this, false)">Ghrelin</li>
+<li onclick="checkAnswer(this, false)">Insulin</li>
+<li onclick="checkAnswer(this, false)">Cholecystokinin</li>
+</ul>
+<div class="explanation">Leptin is released by adipose tissue and suppresses hunger by acting on hypothalamic receptors to promote satiety and regulate energy balance.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which brainstem nucleus integrates visceral sensory input, including gut distension?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Raphe nuclei</li>
+<li onclick="checkAnswer(this, false)">Red nucleus</li>
+<li onclick="checkAnswer(this, true)">Nucleus tractus solitarius (NTS)</li>
+<li onclick="checkAnswer(this, false)">Edinger-Westphal nucleus</li>
+</ul>
+<div class="explanation">The NTS, located in the medulla, receives afferent input from cranial nerves IX and X and plays a vital role in autonomic reflexes like digestion.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

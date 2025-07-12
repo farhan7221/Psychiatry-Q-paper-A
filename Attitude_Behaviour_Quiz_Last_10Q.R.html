@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Psychology - Attitude Behaviour Correlation</title>
+<style>
+body { background-color: #f0f2f5; margin: 0; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; }
+.question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+.question { font-size: 18px; font-weight: bold; }
+.options { margin-top: 15px; display: flex; flex-direction: column; gap: 10px; }
+.option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; }
+.option.correct { background-color: #28a745; color: white; }
+.option.incorrect { background-color: #dc3545; color: white; }
+.explanation { margin-top: 15px; background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; display: none; }
+.next-btn { margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; display: none; cursor: pointer; }
+.counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+.watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); color: rgba(0,0,0,0.07); font-size: 24px; font-style: italic; pointer-events: none; user-select: none; }
+</style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options" class="options"></div>
+  <div id="explanation" class="explanation"></div>
+  
+<button id="next-btn" class="next-btn">التالي</button>
+<div style="text-align: right; margin-top: 10px;">
+  <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+</div>
+
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+let current = 0;
+let score = 0;
+const questions = [
+  {q:"1. Attitudes are __________ correlated with behaviours.<br><span style='color:gray'>المواقف ________ مرتبطة بالسلوكيات.</span>", o:["always directly","not linearly","usually negatively","perfectly positively"], a:1, e:"Attitudes and behaviours are not correlated in simple linear fashion.<br><span style='color:gray'>المواقف والسلوكيات لا ترتبط بطريقة خطية بسيطة.</span>"},
+  {q:"2. Attitudes act primarily as ____________.<br><span style='color:gray'>المواقف تعمل في الأساس كـــ ___________.</span>", o:["behaviours","predispositions","consequences","actions"], a:1, e:"Attitudes are only predispositions.<br><span style='color:gray'>المواقف ليست سوى استعدادات.</span>"},
+  {q:"3. Actual behaviours depend on all except:<br><span style='color:gray'>السلوكيات الفعلية تعتمد على جميع ما يلي باستثناء:</span>", o:["Perceived consequences","Social desirability","Habitual behaviours","Attitude strength only"], a:3, e:"Behaviours depend on multiple situational and internal factors.<br><span style='color:gray'>السلوك يعتمد على عوامل موقفية وداخلية متعددة.</span>"},
+  {q:"4. Single instances of behaviours are ____________.<br><span style='color:gray'>حالات السلوك الفردية ___________.</span>", o:["Reliable","Unreliable","Always predictable","Definitive measures"], a:1, e:"Single instances are unreliable for generalization.<br><span style='color:gray'>لا يمكن الاعتماد على الحالات الفردية في التعميم.</span>"},
+  {q:"5. What improves the accuracy of attitude measurement?<br><span style='color:gray'>ما الذي يحسن دقة قياس المواقف؟</span>", o:["Clear target and context","Ignoring the time element","General measurement","Avoiding specifics"], a:0, e:"Including target, action, context, and time improves precision.<br><span style='color:gray'>يشمل التحديد الدقيق الهدف والفعل والسياق والزمن مما يحسن الدقة.</span>"},
+  {q:"6. Asking general questions about abortion attitudes is considered ___________.<br><span style='color:gray'>طرح أسئلة عامة حول المواقف من الإجهاض يُعتبر ___________.</span>", o:["very precise","always appropriate","possibly inappropriate","always accurate"], a:2, e:"General questions may not match personal scenarios.<br><span style='color:gray'>الأسئلة العامة قد لا تعكس السيناريوهات الشخصية.</span>"},
+  {q:"7. Attitudes' influence on behaviour depends on _________.<br><span style='color:gray'>تأثير المواقف على السلوك يعتمد على ________.</span>", o:["Attitude strength","Attitude visibility","Number of people","Cultural impact"], a:0, e:"Stronger attitudes tend to influence behaviour more.<br><span style='color:gray'>كلما كانت المواقف أقوى، زاد تأثيرها على السلوك.</span>"},
+  {q:"8. Attitudes alone directly predict behaviour.<br><span style='color:gray'>المواقف وحدها تتنبأ مباشرة بالسلوك.</span>", o:["True","False"], a:1, e:"Behaviours are influenced by more than attitudes.<br><span style='color:gray'>السلوك يتأثر بأكثر من مجرد المواقف.</span>"},
+  {q:"9. Habitual behaviours indicate that _________.<br><span style='color:gray'>السلوكيات المعتادة تشير إلى أن ________.</span>", o:["Behaviour is random","Always deliberate","Influenced by routine","Never changes"], a:2, e:"Habits shape how attitudes are expressed.<br><span style='color:gray'>الروتين يشكل كيفية التعبير عن المواقف.</span>"},
+  {q:"10. Situational factors mean that behaviour can ____________.<br><span style='color:gray'>العوامل الموقفية تعني أن السلوك يمكن ____________.</span>", o:["Be consistent","Vary by context","Be independent","Match all attitudes"], a:1, e:"Situations affect whether and how attitudes show in behaviour.<br><span style='color:gray'>السياقات تؤثر في ظهور المواقف في السلوك.</span>"}
+];
+function load(){
+  let q=questions[current];
+  document.getElementById("question").innerHTML=q.q;
+  document.getElementById("options").innerHTML="";
+  q.o.forEach((t,i)=>{
+    let btn=document.createElement("div");
+    btn.className="option";
+    btn.innerHTML=t;
+    btn.onclick=()=>{
+      document.querySelectorAll('.option').forEach(b=>b.onclick=null);
+      if(i==q.a){btn.classList.add("correct"); score++;}
+      else {
+btn.classList.add("incorrect");
+document.querySelectorAll('.option')[q.a].classList.add("correct");
+}
+      document.getElementById("explanation").innerHTML=q.e;
+      document.getElementById("explanation").style.display="block";
+      document.getElementById("next-btn").style.display="inline-block";
+    }
+    document.getElementById("options").appendChild(btn);
+  });
+}
+document.getElementById("next-btn").onclick=()=>{
+  current++;
+  if(current<questions.length){
+    document.getElementById("explanation").style.display="none";
+    document.getElementById("next-btn").style.display="none";
+    load();
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+};
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+load();
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+};
+</script>
+</body>
+</html>

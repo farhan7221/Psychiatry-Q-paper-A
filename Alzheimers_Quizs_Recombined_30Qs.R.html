@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alzheimer’s Quizs - Combined 30 Questions</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Alzheimer’s Quizs</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 30</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What is a gross change seen in Alzheimer’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Hemorrhagic infarct</li>
+<li onclick="checkAnswer(this, false)">Normal brain volume</li>
+<li onclick="checkAnswer(this, true)">Diffuse atrophy</li>
+<li onclick="checkAnswer(this, false)">Hypertrophy of cortex</li>
+</ul>
+<div class="explanation">Alzheimer’s disease is marked by diffuse cerebral atrophy seen grossly on brain imaging and autopsy. This involves widening of cortical sulci and compensatory enlargement of ventricles (hydrocephalus ex vacuo). Atrophy is most pronounced in the temporal, parietal, and frontal lobes, correlating with the areas responsible for memory, cognition, and executive function.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Senile plaques are deposits of which peptide?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Tau protein</li>
+<li onclick="checkAnswer(this, true)">Aβ (beta A4) peptide</li>
+<li onclick="checkAnswer(this, false)">Ubiquitin</li>
+<li onclick="checkAnswer(this, false)">Synuclein</li>
+</ul>
+<div class="explanation">Senile plaques are a core neuropathological feature of Alzheimer’s. These plaques consist of extracellular deposits of beta-amyloid (Aβ), which is derived from the amyloid precursor protein (APP) via abnormal proteolytic cleavage. Their accumulation disrupts synaptic transmission and initiates chronic inflammation, leading to neuronal death.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Neurofibrillary tangles in Alzheimer’s are composed of?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Synuclein</li>
+<li onclick="checkAnswer(this, false)">TDP-43</li>
+<li onclick="checkAnswer(this, false)">Ubiquitin</li>
+<li onclick="checkAnswer(this, true)">Hyperphosphorylated Tau</li>
+</ul>
+<div class="explanation">Neurofibrillary tangles (NFTs) are intracellular inclusions composed of hyperphosphorylated tau protein. Normally, tau stabilizes microtubules within axons. In Alzheimer’s, tau becomes abnormally phosphorylated, detaches from microtubules, and aggregates into paired helical filaments, impairing axonal transport and contributing to cell death.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Which brain lobe is most affected early in Alzheimer’s?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Occipital</li>
+<li onclick="checkAnswer(this, true)">Temporal</li>
+<li onclick="checkAnswer(this, false)">Parietal</li>
+<li onclick="checkAnswer(this, false)">Frontal</li>
+</ul>
+<div class="explanation">The temporal lobe, particularly the hippocampus, is the earliest and most severely affected region in Alzheimer’s disease. This explains why memory impairment—especially short-term memory loss—is typically the first symptom noticed. As the disease progresses, involvement of other lobes leads to broader cognitive decline.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Main neurotransmitter deficit in Alzheimer’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Serotonin</li>
+<li onclick="checkAnswer(this, false)">Dopamine</li>
+<li onclick="checkAnswer(this, true)">Acetylcholine</li>
+<li onclick="checkAnswer(this, false)">Glutamate</li>
+</ul>
+<div class="explanation">Acetylcholine is the neurotransmitter most notably deficient in Alzheimer’s. There is a loss of cholinergic neurons in the basal forebrain (especially in the nucleus basalis of Meynert), which correlates with impaired learning and memory. This underlies the therapeutic rationale for cholinesterase inhibitors in treatment.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>ApoE4 allele is associated with what risk?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Decreased risk of Alzheimer’s</li>
+<li onclick="checkAnswer(this, false)">No effect</li>
+<li onclick="checkAnswer(this, true)">Increased risk of Alzheimer’s</li>
+<li onclick="checkAnswer(this, false)">Associated with Parkinson’s only</li>
+</ul>
+<div class="explanation">Apolipoprotein E4 (ApoE4) is a genetic variant that increases Alzheimer’s risk by impairing clearance of Aβ amyloid and promoting its aggregation. Individuals carrying one copy of ApoE4 have a 3–4 fold risk increase; two copies amplify the risk up to 12-fold. This allele is a major factor in sporadic late-onset Alzheimer’s.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Alzheimer’s typically shows atrophy of?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Spinal cord</li>
+<li onclick="checkAnswer(this, true)">Hippocampus</li>
+<li onclick="checkAnswer(this, false)">Cerebellum</li>
+<li onclick="checkAnswer(this, false)">Medulla oblongata</li>
+</ul>
+<div class="explanation">The hippocampus, essential for consolidating new memories, is one of the first areas to atrophy in Alzheimer’s. Hippocampal atrophy correlates with severity of anterograde amnesia and can be visualized on MRI, serving as a biomarker of disease progression.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which stain is used to highlight amyloid plaques?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">H&E</li>
+<li onclick="checkAnswer(this, false)">PAS</li>
+<li onclick="checkAnswer(this, true)">Congo red</li>
+<li onclick="checkAnswer(this, false)">Masson's trichrome</li>
+</ul>
+<div class="explanation">Congo red stain is used to identify amyloid deposits in tissue. Under polarized light, amyloid stained with Congo red exhibits apple-green birefringence, which is a diagnostic hallmark. This method is pivotal in both Alzheimer’s and systemic amyloidosis diagnosis.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which of the following is a clinical feature of Alzheimer’s?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Tremor</li>
+<li onclick="checkAnswer(this, false)">Visual hallucinations</li>
+<li onclick="checkAnswer(this, true)">Progressive memory loss</li>
+<li onclick="checkAnswer(this, false)">Spastic paralysis</li>
+</ul>
+<div class="explanation">Early Alzheimer’s typically presents with insidious and progressive memory loss. Over time, patients develop additional cognitive deficits, such as language problems (aphasia), impaired visuospatial skills, and executive dysfunction. Behavioral changes and mood disturbances may also occur as the disease advances.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which protein is NOT typically involved in Alzheimer’s pathology?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Amyloid-beta</li>
+<li onclick="checkAnswer(this, false)">Tau</li>
+<li onclick="checkAnswer(this, true)">Huntingtin</li>
+<li onclick="checkAnswer(this, false)">ApoE</li>
+</ul>
+<div class="explanation">Huntingtin is the protein implicated in Huntington’s disease, a neurodegenerative disorder distinct from Alzheimer’s. Alzheimer’s involves Aβ, tau, and ApoE proteins, each contributing to plaque formation, tangle development, and lipid transport, respectively. Huntington’s, by contrast, is characterized by polyglutamine expansion in the huntingtin gene.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q11">
+<h2>Question 11</h2>
+<p>Which gene is most commonly mutated in early-onset familial Alzheimer’s?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">PSEN1</li>
+<li onclick="checkAnswer(this, false)">APP</li>
+<li onclick="checkAnswer(this, false)">PSEN2</li>
+<li onclick="checkAnswer(this, true)">All of the above</li>
+</ul>
+<div class="explanation">Mutations in PSEN1, PSEN2, and APP are well-established causes of early-onset familial Alzheimer’s disease. PSEN1 mutations are the most common and usually present before age 65. These mutations promote abnormal processing of APP, increasing the production of the neurotoxic Aβ42 peptide.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q12">
+<h2>Question 12</h2>
+<p>Which neurotransmitter is involved in excitotoxicity in Alzheimer’s?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Acetylcholine</li>
+<li onclick="checkAnswer(this, true)">Glutamate</li>
+<li onclick="checkAnswer(this, false)">Serotonin</li>
+<li onclick="checkAnswer(this, false)">Dopamine</li>
+</ul>
+<div class="explanation">Glutamate plays a crucial role in excitotoxicity, a process where excessive stimulation of NMDA receptors leads to high intracellular calcium, triggering pathways that result in neuronal injury and apoptosis. This mechanism exacerbates neurodegeneration in Alzheimer’s.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q13">
+<h2>Question 13</h2>
+<p>Which of the following is a risk factor for sporadic Alzheimer’s?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Early-life infection</li>
+<li onclick="checkAnswer(this, false)">Hypertension</li>
+<li onclick="checkAnswer(this, true)">Advanced age</li>
+<li onclick="checkAnswer(this, false)">Brain trauma only</li>
+</ul>
+<div class="explanation">Advanced age is the primary risk factor for sporadic Alzheimer’s disease. The incidence doubles approximately every five years after age 65. While other factors like hypertension, diabetes, and lifestyle contribute, aging is non-modifiable and central to disease pathogenesis.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q14">
+<h2>Question 14</h2>
+<p>What type of amyloid is seen in Alzheimer’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">AL amyloid</li>
+<li onclick="checkAnswer(this, false)">AA amyloid</li>
+<li onclick="checkAnswer(this, true)">Aβ amyloid</li>
+<li onclick="checkAnswer(this, false)">ATTR amyloid</li>
+</ul>
+<div class="explanation">Alzheimer’s is characterized by Aβ amyloid deposition, specifically the Aβ40 and Aβ42 subtypes. These peptides aggregate to form oligomers and plaques, which disrupt synaptic integrity and activate microglia, leading to chronic inflammation and neuronal death.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q15">
+<h2>Question 15</h2>
+<p>Which brain region is typically spared until late in Alzheimer’s?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Temporal lobe</li>
+<li onclick="checkAnswer(this, false)">Frontal cortex</li>
+<li onclick="checkAnswer(this, true)">Occipital lobe</li>
+<li onclick="checkAnswer(this, false)">Hippocampus</li>
+</ul>
+<div class="explanation">The occipital lobe, responsible for visual processing, is typically spared until the late stages of Alzheimer’s. Early in the disease, memory and language areas (temporal and parietal lobes) are more prominently affected, explaining the characteristic cognitive deficits.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q16">
+<h2>Question 16</h2>
+<p>What is the typical age of onset for sporadic Alzheimer’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">30–40 years</li>
+<li onclick="checkAnswer(this, false)">40–50 years</li>
+<li onclick="checkAnswer(this, false)">50–60 years</li>
+<li onclick="checkAnswer(this, true)">>65 years</li>
+</ul>
+<div class="explanation">MRI imaging of Alzheimer’s patients reveals prominent atrophy of the medial temporal lobe structures, especially the hippocampus and entorhinal cortex. These changes correlate strongly with memory impairment and disease severity, making MRI a valuable diagnostic tool.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q17">
+<h2>Question 17</h2>
+<p>Which of the following is a non-modifiable risk factor for Alzheimer’s?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Smoking</li>
+<li onclick="checkAnswer(this, false)">Physical inactivity</li>
+<li onclick="checkAnswer(this, false)">Diabetes</li>
+<li onclick="checkAnswer(this, true)">Family history</li>
+</ul>
+<div class="explanation">Anterograde amnesia—the inability to form new memories—is a cardinal feature of early Alzheimer’s. It results from dysfunction of the hippocampus and related medial temporal lobe structures, which are essential for memory encoding and consolidation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q18">
+<h2>Question 18</h2>
+<p>In Alzheimer’s, which histological stain highlights neurofibrillary tangles?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Congo red</li>
+<li onclick="checkAnswer(this, true)">Silver stain</li>
+<li onclick="checkAnswer(this, false)">PAS</li>
+<li onclick="checkAnswer(this, false)">Oil Red O</li>
+</ul>
+<div class="explanation">Beta-secretase (BACE1) and gamma-secretase work sequentially to cleave APP into the pathogenic Aβ peptide. In contrast, alpha-secretase cleavage within the Aβ sequence prevents amyloid formation, highlighting therapeutic targets aimed at modulating secretase activity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q19">
+<h2>Question 19</h2>
+<p>Which part of the brain is involved in language impairment seen in Alzheimer’s?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Occipital lobe</li>
+<li onclick="checkAnswer(this, true)">Temporal lobe (Wernicke’s area)</li>
+<li onclick="checkAnswer(this, false)">Brainstem</li>
+<li onclick="checkAnswer(this, false)">Cerebellum</li>
+</ul>
+<div class="explanation">Tau protein’s normal role is to stabilize microtubules within neuronal axons, facilitating transport of nutrients and organelles. In Alzheimer’s, hyperphosphorylated tau detaches from microtubules and aggregates, forming tangles that impair neuronal function and survival.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q20">
+<h2>Question 20</h2>
+<p>Which of the following is used as a cognitive screening tool for Alzheimer’s?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">MRI</li>
+<li onclick="checkAnswer(this, false)">EEG</li>
+<li onclick="checkAnswer(this, true)">Mini-Mental State Examination (MMSE)</li>
+<li onclick="checkAnswer(this, false)">CT scan</li>
+</ul>
+<div class="explanation">Alzheimer’s follows a chronic and progressive course, typically developing insidiously over years. Initial subtle memory lapses evolve into profound cognitive decline, language impairment, and eventually loss of independence, distinguishing it from reversible or acute dementias.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q21">
+<h2>Question 21</h2>
+<p>What is the primary site of beta-amyloid precursor protein (APP) cleavage in the amyloidogenic pathway?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Cytoplasm</li>
+<li onclick="checkAnswer(this, true)">Endosomes</li>
+<li onclick="checkAnswer(this, false)">Golgi apparatus</li>
+<li onclick="checkAnswer(this, false)">Mitochondria</li>
+</ul>
+<div class="explanation">APP is primarily cleaved in endosomes by beta- and gamma-secretase enzymes during the amyloidogenic pathway, generating Aβ peptides. Endosomal dysfunction can enhance this cleavage, contributing to Aβ accumulation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q22">
+<h2>Question 22</h2>
+<p>What is the role of microglia in Alzheimer’s disease pathology?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Forming neurofibrillary tangles</li>
+<li onclick="checkAnswer(this, true)">Mediating neuroinflammation and plaque clearance</li>
+<li onclick="checkAnswer(this, false)">Enhancing synaptic plasticity</li>
+<li onclick="checkAnswer(this, false)">Transporting tau protein</li>
+</ul>
+<div class="explanation">Microglia act as immune cells in the brain. In Alzheimer’s, they surround amyloid plaques, releasing inflammatory cytokines that exacerbate neurodegeneration while also attempting to phagocytose Aβ aggregates.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q23">
+<h2>Question 23</h2>
+<p>Which of the following is an FDA-approved treatment for Alzheimer’s that targets amyloid?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Donepezil</li>
+<li onclick="checkAnswer(this, false)">Galantamine</li>
+<li onclick="checkAnswer(this, true)">Aducanumab</li>
+<li onclick="checkAnswer(this, false)">Rivastigmine</li>
+</ul>
+<div class="explanation">Aducanumab is a monoclonal antibody that selectively binds aggregated Aβ, aiming to reduce plaque burden. It was controversially approved by the FDA despite limited clinical benefit.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q24">
+<h2>Question 24</h2>
+<p>What cognitive domain is most affected early in Alzheimer’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Attention</li>
+<li onclick="checkAnswer(this, true)">Episodic memory</li>
+<li onclick="checkAnswer(this, false)">Executive function</li>
+<li onclick="checkAnswer(this, false)">Visuospatial skills</li>
+</ul>
+<div class="explanation">Episodic memory, the ability to recall personal experiences and events, is predominantly impaired early due to hippocampal involvement.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q25">
+<h2>Question 25</h2>
+<p>Which imaging modality is most specific for amyloid detection in the living brain?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">CT</li>
+<li onclick="checkAnswer(this, true)">PET scan with Pittsburgh compound B (PiB)</li>
+<li onclick="checkAnswer(this, false)">MRI</li>
+<li onclick="checkAnswer(this, false)">SPECT</li>
+</ul>
+<div class="explanation">PiB-PET imaging uses a radioactive tracer that binds to Aβ plaques, allowing visualization of amyloid deposition in vivo.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q26">
+<h2>Question 26</h2>
+<p>What chromosome houses the APP gene associated with Alzheimer’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Chromosome 1</li>
+<li onclick="checkAnswer(this, false)">Chromosome 14</li>
+<li onclick="checkAnswer(this, true)">Chromosome 21</li>
+<li onclick="checkAnswer(this, false)">Chromosome X</li>
+</ul>
+<div class="explanation">The APP gene is located on chromosome 21, which explains why individuals with Down syndrome have a higher risk of early-onset Alzheimer’s.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q27">
+<h2>Question 27</h2>
+<p>Which of the following sleep-related issues has been implicated in Alzheimer’s progression?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Sleep deprivation reducing glymphatic clearance</li>
+<li onclick="checkAnswer(this, false)">Excessive REM sleep</li>
+<li onclick="checkAnswer(this, false)">Daytime hypersomnia</li>
+<li onclick="checkAnswer(this, false)">Increased circadian rhythm amplitude</li>
+</ul>
+<div class="explanation">Sleep deprivation impairs the glymphatic system, a brain-wide pathway that clears waste (including Aβ) during deep sleep.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q28">
+<h2>Question 28</h2>
+<p>Alzheimer’s disease often coexists with which other neurodegenerative condition in the elderly?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Lewy body dementia</li>
+<li onclick="checkAnswer(this, false)">ALS</li>
+<li onclick="checkAnswer(this, false)">Huntington’s disease</li>
+<li onclick="checkAnswer(this, false)">Multiple sclerosis</li>
+</ul>
+<div class="explanation">Mixed pathology is common in aged brains. Many Alzheimer’s patients also have alpha-synuclein inclusions, characteristic of Lewy body dementia.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q29">
+<h2>Question 29</h2>
+<p>Which isoform of ApoE confers a protective effect against Alzheimer’s?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">ApoE2</li>
+<li onclick="checkAnswer(this, false)">ApoE2</li>
+<li onclick="checkAnswer(this, false)">ApoE3</li>
+<li onclick="checkAnswer(this, false)">ApoE4</li>
+</ul>
+<div class="explanation">ApoE2 is considered protective, reducing the risk and delaying onset. In contrast, ApoE4 increases risk, while ApoE3 is neutral.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<section class="question-block" id="q30">
+<h2>Question 30</h2>
+<p>What is the term for impaired awareness of memory loss in Alzheimer’s patients?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Prosopagnosia</li>
+<li onclick="checkAnswer(this, false)">Agraphia</li>
+<li onclick="checkAnswer(this, true)">Anosognosia</li>
+<li onclick="checkAnswer(this, false)">Apraxia</li>
+</ul>
+<div class="explanation">Anosognosia refers to a lack of insight into one’s deficits. In Alzheimer’s, patients may be unaware of their memory problems.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1;
+  show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

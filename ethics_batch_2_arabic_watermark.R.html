@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethics in Psychiatry - Questions 1–10</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .question-box { background: #fff; padding: 20px; margin: 50px auto; border-radius: 10px; max-width: 750px; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 20px; }
+    .option { background: #eee; padding: 10px; margin: 8px 0; border-radius: 5px; cursor: pointer; }
+    .option.correct { background: #d4edda !important; pointer-events: none; }
+    .option.incorrect { background: #f8d7da !important; pointer-events: none; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 5px solid gold; padding: 10px; display: none; margin-top: 15px; }
+    .next-btn { display: none; margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    .counter { position: fixed; top: 10px; right: 20px; background: white; padding: 5px 10px; border-radius: 10px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px;
+      font-style: italic;
+      color: rgba(128,128,128,0.35); text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+    #lastQ { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+<body>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<div class="counter">Total Questions: 10</div>
+<div id="quiz"></div>
+<div id="lastQ"><button onclick="goToLast()">Last Q</button></div>
+<script>
+const questions = [{"q": "An elderly patient with early dementia refuses to create an advance directive. Family requests the psychiatrist to proceed anyway. What’s the ethical stance?", "qt": "مريض مسن مصاب بخرف مبكر يرفض عمل وصية مسبقة. العائلة تطلب من الطبيب النفسي المتابعة رغمًا عنه. ما هو الموقف الأخلاقي؟", "options": [["Respect refusal", "احترام الرفض"], ["Coerce legally", "الإجبار القانوني"], ["Ignore", "تجاهل"], ["Delay care", "تأجيل الرعاية"]], "answer": 0, "exp": "Advance directives require voluntary, informed consent. Forcing them may violate autonomy. Instead, capacity assessment and further dialogue are ethically preferable. | الوصايا المسبقة تتطلب موافقة طوعية ومستبصرة. فرضها يُعد انتهاكًا للاستقلالية. الأفضل تقييم الأهلية وتقديم حوار توعوي إضافي."}, {"q": "A prisoner on hunger strike is brought to psychiatry for forced feeding. He is alert and consistent in refusal. Should the psychiatrist comply?", "qt": "سجين مضرب عن الطعام يُحال إلى الطب النفسي لإجباره على الأكل. وهو متيقظ وثابت على قراره. هل يجب على الطبيب النفسي الامتثال؟", "options": [["Document properly", "توثيق بشكل مهني"], ["Apologize", "الاعتذار"], ["Deny", "الإنكار"], ["Delete records", "حذف السجلات"]], "answer": 0, "exp": "Force-feeding competent adults may breach autonomy and human rights. Psychiatrist should assess capacity but respect political protest where insight is intact. | إجبار شخص مؤهل عقليًا على الأكل يُعد انتهاكًا لاستقلاليته وحقوقه. يجب تقييم الأهلية، ولكن احترام الاحتجاج السياسي في حال وجود بصيرة."}, {"q": "A psychiatrist is asked to assess a political dissident for 'mental instability'. The referral seems politically motivated. What is the ethical response?", "qt": "طُلب من طبيب نفسي تقييم معارض سياسي لعدم الاستقرار النفسي، ويبدو أن الإحالة ذات دافع سياسي. ما هو الرد الأخلاقي؟", "options": [["Refer ethically", "الإحالة الأخلاقية"], ["Support claim", "دعم الطلب"], ["Ignore guidelines", "تجاهل الإرشادات"], ["Write false info", "تقرير كاذب"]], "answer": 0, "exp": "Psychiatrists must refuse to be instruments of political abuse. Ethics demand independence and avoidance of coercive misuse. | يجب على الطبيب رفض أن يكون أداة في إساءة الاستخدام السياسي. الأخلاق الطبية تفرض الاستقلالية ورفض الانتهاك القسري."}, {"q": "A patient reports side effects from medication but the psychiatrist insists it's the best option. The patient wants to stop. What takes priority?", "qt": "مريض يعاني من آثار جانبية للدواء، لكن الطبيب يصر على أنه الخيار الأفضل. المريض يريد التوقف. ما الذي يأخذ الأولوية؟", "options": [["Disclose with consent", "الإفصاح بموافقة"], ["Hide details", "إخفاء التفاصيل"], ["Consult supervisor", "استشارة المشرف"], ["Ignore", "تجاهل"]], "answer": 0, "exp": "Respecting autonomy and shared decision-making is essential. If side effects outweigh benefits in patient’s view, alternatives should be considered. | احترام الاستقلالية واتخاذ القرار المشترك أمر أساسي. إذا كانت الآثار الجانبية تفوق الفائدة بالنسبة للمريض، يجب التفكير في بدائل."}, {"q": "A patient under guardianship asks to vote in upcoming elections. The family says he is not competent. What is the ethical stance?", "qt": "مريض خاضع للوصاية يطلب التصويت في الانتخابات القادمة، بينما تقول عائلته إنه غير مؤهل. ما الموقف الأخلاقي؟", "options": [["Preserve boundaries", "الحفاظ على الحدود"], ["Accept gift", "قبول الهدية"], ["Praise patient", "مدح المريض"], ["Post online", "نشر عبر الإنترنت"]], "answer": 0, "exp": "Voting is a civil right. Unless legally removed, it should not be restricted by psychiatric status alone. Capacity must be specifically assessed. | التصويت حق مدني لا يُسلب إلا بحكم قانوني. لا يجوز حرمان المريض بناءً على حالته النفسية فقط. يجب تقييم الأهلية تحديدًا لهذا الغرض."}, {"q": "A patient threatens to sue the psychiatrist after being involuntarily admitted. He denies all symptoms. How to proceed ethically?", "qt": "مريض يهدد بمقاضاة الطبيب بعد إدخاله القسري للمستشفى، وينكر جميع الأعراض. كيف يتعامل الطبيب أخلاقيًا؟", "options": [["Maintain neutrality", "الحفاظ على الحياد"], ["Attend court", "حضور المحكمة"], ["Support emotionally", "دعم نفسي"], ["Withdraw", "الانسحاب"]], "answer": 0, "exp": "Ethical action involves documenting risk assessment, respecting due process, and offering explanation and appeal mechanisms to the patient. | التصرف الأخلاقي يشمل توثيق تقييم الخطورة، احترام الإجراءات القانونية، وشرح الحق في الاعتراض للمريض."}, {"q": "A psychiatrist is asked to write a false letter to help a patient get housing. The patient is truly homeless. Should the doctor comply?", "qt": "طُلب من طبيب نفسي كتابة تقرير غير صحيح ليساعد مريضًا بلا مأوى في الحصول على سكن. هل يجب الموافقة؟", "options": [["Respect belief", "احترام المعتقد"], ["Challenge religion", "تحدي الدين"], ["Ignore request", "رفض الطلب"], ["Delay care", "تأخير الرعاية"]], "answer": 0, "exp": "Even with good intentions, falsifying documentation undermines integrity. Alternative ethical advocacy routes should be explored. | رغم النية الحسنة، تزوير التقارير يُعد إخلالًا بالأمانة. يجب البحث عن طرق بديلة للمناصرة الأخلاقية."}, {"q": "A psychiatrist learns a colleague is overprescribing sedatives inappropriately. Should they report it?", "qt": "طبيب نفسي يكتشف أن زميلًا له يصف مهدئات بجرعات مفرطة وبشكل غير مناسب. هل يجب الإبلاغ؟", "options": [["Assess case-by-case", "تقييم كل حالة"], ["Generalize", "تعميم"], ["Refuse access", "رفض الوصول"], ["Give false hope", "إعطاء أمل كاذب"]], "answer": 0, "exp": "Professionals have an ethical duty to report unsafe practices. Patient safety and integrity of care outweigh collegial loyalty. | يُعد الإبلاغ عن ممارسات خطيرة واجبًا مهنيًا وأخلاقيًا. سلامة المرضى تسبق الزمالة."}, {"q": "A suicidal patient declines hospitalization. The psychiatrist believes outpatient care is unsafe. Should involuntary admission be pursued?", "qt": "مريض انتحاري يرفض الدخول للمستشفى. والطبيب يرى أن الرعاية الخارجية غير آمنة. هل يتم إدخاله قسريًا؟", "options": [["Protect rights", "حماية الحقوق"], ["Rely on guardian", "الاعتماد على الوصي"], ["Ignore", "تجاهل"], ["Refuse vote", "رفض التصويت"]], "answer": 0, "exp": "If risk is imminent and the patient lacks insight, involuntary admission may be ethically justifiable to preserve life. | إذا كان الخطر وشيكًا والبصيرة ضعيفة، فيجوز إدخاله قسريًا لأسباب أخلاقية تتعلق بالحفاظ على الحياة."}, {"q": "A medical student sits in on a session without the patient's consent. The consultant proceeds anyway. Is this ethical?", "qt": "طالب طب يحضر جلسة دون موافقة المريض، والطبيب الاستشاري لا يعترض. هل هذا تصرف أخلاقي؟", "options": [["Challenge discrimination", "مواجهة التمييز"], ["Accept bias", "قبول الانحياز"], ["Remain silent", "الصمت"], ["Transfer case", "نقل الحالة"]], "answer": 0, "exp": "Informed consent is essential. The presence of trainees requires prior explanation and patient agreement. | الحصول على موافقة مسبقة أمر ضروري. يجب توضيح دور المتدرب والحصول على موافقة المريض مسبقًا."}];
+
+let current = 0, score = 0;
+const quiz = document.getElementById("quiz");
+
+function loadQ() {
+  const q = questions[current];
+  let html = `<div class='question-box' id='qbox'>
+    <div class='question'>Q${current + 1}. ${q.q}</div>
+    <div class='translation'>${q.qt}</div>`;
+  q.options.forEach((opt, i) => {
+    html += `<div class='option' data-index='${i}' onclick='selectAnswer(this, ${i}, ${q.answer})'>${opt[0]}<br><small>${opt[1]}</small></div>`;
+  });
+  html += `<div class='explanation'><b>Explanation:</b> ${q.exp}</div>
+    <button class='next-btn' onclick='nextQ()'>Next</button>
+  </div>`;
+  quiz.innerHTML = html;
+}
+
+function selectAnswer(el, selected, correct) {
+  const opts = document.querySelectorAll('.option');
+  opts.forEach((opt, i) => {
+    opt.style.pointerEvents = 'none';
+    if (i === correct) opt.classList.add('correct');
+    else if (i === selected) opt.classList.add('incorrect');
+  });
+  if (selected === correct) score++;
+  document.querySelector('.explanation').style.display = 'block';
+  document.querySelector('.next-btn').style.display = 'inline-block';
+}
+
+function nextQ() {
+  current++;
+  if (current < questions.length) loadQ();
+  else {
+    quiz.innerHTML = `<div class='question-box'><div class='question'>انتهت الأسئلة</div><div class='question'>Your score: <span style='color:green'>${score}</span> / <span style='color:red'>${questions.length}</span></div></div>`;
+  }
+}
+
+function goToLast() {
+  current = questions.length - 1;
+  loadQ();
+}
+
+loadQ();
+</script>
+</body>
+</html>

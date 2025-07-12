@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intergroup Behaviour & Prejudice – Scenario Quiz</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      bottom: 40%;
+      right: 10%;
+      color: rgba(0,0,0,0.1);
+      font-size: 32px;
+      font-style: italic;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. A student avoids sitting next to another student from a minority group without reason.<br><span style='color:gray'>طالب يتجنب الجلوس بجانب طالب من أقلية بدون سبب واضح.</span>", "o": ["Identification", "Avoidance (Prejudice)", "Internalisation", "Groupthink"], "a": 1, "e": "Avoidance is part of behavioral prejudice according to Allport.<br><span style='color:gray'>التجنب أحد مظاهر التحيز السلوكي كما وصفه Allport.</span>"}, {"q": "2. A person feels aggressive towards a minority group during times of personal failure.<br><span style='color:gray'>شخص يشعر بعدائية تجاه أقلية خلال فترة فشله الشخصي.</span>", "o": ["Scapegoating Theory", "Realistic Conflict", "Social Identity", "Compliance"], "a": 0, "e": "Scapegoating shifts frustration to a weaker group.<br><span style='color:gray'>نظرية كبش الفداء: تحويل الإحباط إلى طرف أضعف.</span>"}, {"q": "3. Two unrelated groups are placed in a camp and begin to fight when competition is introduced.<br><span style='color:gray'>تم وضع مجموعتين غير مرتبطتين في معسكر وبدأتا بالتنازع عند وجود تنافس.</span>", "o": ["Social Identity Theory", "Authoritarian Personality", "Relative Deprivation", "Realistic Conflict Theory"], "a": 3, "e": "Realistic Conflict: mere suggestion of competition triggers conflict.<br><span style='color:gray'>الصراع الواقعي: التنافس وحده يُشعل النزاع.</span>"}, {"q": "4. A child who was mistreated for having blue eyes later shows empathy when he treats others.<br><span style='color:gray'>طفل تعرض للتمييز بسبب لون عينيه، ثم أظهر تعاطفًا لاحقًا.</span>", "o": ["Blue Eyes/Brown Eyes Experiment", "Contact Hypothesis", "Frustration-Aggression", "Compliance"], "a": 0, "e": "The experiment showed prejudice decreases with personal experience.<br><span style='color:gray'>التجربة أثبتت أن من يشعر بالتمييز يقلّ تحيزه لاحقًا.</span>"}, {"q": "5. A group starts seeing all outsiders as the same and inferior.<br><span style='color:gray'>مجموعة تبدأ برؤية جميع الغرباء كأنهم متماثلون وأقل شأنًا.</span>", "o": ["Contact Hypothesis", "Illusion of Out-group Homogeneity", "Discrimination", "Identification"], "a": 1, "e": "This is stereotyping where all out-group members seem alike.<br><span style='color:gray'>وهم تجانس المجموعة الخارجية: جميع الغرباء يُنظر لهم بنفس الصورة.</span>"}, {"q": "6. A person judges others based on stereotypes and believes their group is superior.<br><span style='color:gray'>شخص يُصدر أحكامًا مبنية على الصور النمطية ويظن أن مجموعته أفضل.</span>", "o": ["Social Identity Theory", "Relative Deprivation", "Scapegoating", "Authoritarian Personality"], "a": 0, "e": "Social identity theory links prejudice to group pride.<br><span style='color:gray'>نظرية الهوية الاجتماعية: الاعتزاز بالجماعة يقود للتحيز ضد الآخرين.</span>"}, {"q": "7. A society blames migrants for job losses during economic crisis.<br><span style='color:gray'>مجتمع يلوم المهاجرين على فقدان الوظائف أثناء أزمة اقتصادية.</span>", "o": ["Realistic Conflict", "Scapegoating", "Contact Hypothesis", "Blue Eyes Experiment"], "a": 1, "e": "Frustration is redirected toward a socially weaker group.<br><span style='color:gray'>تحويل الإحباط إلى المهاجرين نموذج لكبش الفداء.</span>"}, {"q": "8. A person changes hostile attitude after meeting others from the out-group as equals.<br><span style='color:gray'>شخص يغير مواقفه العدائية بعد لقاء متكافئ مع أفراد من خارج مجموعته.</span>", "o": ["Authoritarian Personality", "Identification", "Contact Hypothesis", "Avoidance"], "a": 2, "e": "Equal-status contact helps reduce prejudice.<br><span style='color:gray'>الاتصال المتكافئ يُخفف التحيز.</span>"}, {"q": "9. An individual raised under strict rules tends to show rigid thinking and prejudice.<br><span style='color:gray'>شخص نشأ في بيئة صارمة يظهر تحيزًا وتفكيرًا جامدًا.</span>", "o": ["Relative Deprivation", "Authoritarian Personality", "Compliance", "Scapegoating"], "a": 1, "e": "Authoritarian upbringing may lead to prejudice.<br><span style='color:gray'>الشخصية الاستبدادية تنشأ من التربية المتشددة.</span>"}, {"q": "10. Sudden economic inequality between expectations and actual outcomes causes unrest.<br><span style='color:gray'>اختلال مفاجئ بين التوقعات والواقع الاقتصادي يسبب اضطرابات.</span>", "o": ["Scapegoating", "Social Identity", "Relative Deprivation", "Realistic Conflict"], "a": 2, "e": "Relative deprivation triggers protest when gap is felt.<br><span style='color:gray'>الحرمان النسبي: الفرق بين ما يُتوقع وما يتحقق يولد الغضب.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة 👥⚔️<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

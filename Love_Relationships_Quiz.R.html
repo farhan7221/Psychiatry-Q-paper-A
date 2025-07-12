@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love & Relationships – Scenario Quiz</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); color: rgba(0,0,0,0.07); font-size: 24px; font-style: italic; }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. Two people work in the same office and gradually become friends without planning to.<br><span style='color:gray'>شخصان يعملان في نفس المكتب وأصبحا صديقين تدريجيًا دون تخطيط.</span>", "o": ["Complementarity", "Exposure", "Compatibility", "Reciprocal liking"], "a": 1, "e": "Repeated exposure increases chances of relationship forming.<br><span style='color:gray'>التكرار والاحتكاك المستمر يزيد من احتمالية تطور العلاقة.</span>"}, {"q": "2. A couple share many hobbies, beliefs, and interests.<br><span style='color:gray'>زوجان يشتركان في كثير من الهوايات والمعتقدات.</span>", "o": ["Similarity", "Complementarity", "Proximity", "Commitment"], "a": 0, "e": "Similarity builds validation and self-esteem in relationships.<br><span style='color:gray'>التشابه يساهم في التقدير المتبادل ويقوي العلاقة.</span>"}, {"q": "3. Two very different people are initially incompatible, but over time they grow closer and their differences balance each other.<br><span style='color:gray'>شخصان مختلفان تمامًا، لكن بمرور الوقت أصبحت اختلافاتهما مكملة لبعض.</span>", "o": ["Similarity", "Reciprocity", "Complementarity", "Exposure"], "a": 2, "e": "Complementarity becomes more important as long-term bonds form.<br><span style='color:gray'>الاختلافات تصبح مكملة ومفيدة مع استمرار العلاقة.</span>"}, {"q": "4. A man loves a woman deeply and romantically, but avoids committing to anything long-term.<br><span style='color:gray'>رجل يحب امرأة بعاطفة قوية، لكنه يرفض الالتزام.</span>", "o": ["Consummate love", "Fatuous love", "Companionate love", "Passionate love"], "a": 3, "e": "Passionate love involves intense emotions with low commitment.<br><span style='color:gray'>الحب العاطفي مليء بالمشاعر لكنه يفتقر للالتزام الجاد.</span>"}, {"q": "5. A couple have been married for years. They are emotionally close and loyal, but the excitement is gone.<br><span style='color:gray'>زوجان متزوجان منذ سنوات، بينهما قرب عاطفي ووفاء لكن بدون شغف.</span>", "o": ["Fatuous love", "Passionate love", "Consummate love", "Companionate love"], "a": 3, "e": "Companionate love has intimacy and commitment, but low passion.<br><span style='color:gray'>الحب الرفاقي يشمل العاطفة والالتزام، لكن الشغف منخفض.</span>"}, {"q": "6. A quick relationship starts with intense passion and a sudden decision to marry, but the partners barely know each other.<br><span style='color:gray'>علاقة سريعة تبدأ بشغف وتؤدي إلى زواج فجائي، رغم قلة المعرفة المتبادلة.</span>", "o": ["Passionate love", "Companionate love", "Fatuous love", "Consummate love"], "a": 2, "e": "Fatuous love = passion + commitment, without intimacy.<br><span style='color:gray'>حب متسرع مبني على الشغف والالتزام، دون تعارف أو قرب عاطفي.</span>"}, {"q": "7. A relationship combines deep emotional connection, physical attraction, and long-term loyalty.<br><span style='color:gray'>علاقة تشمل قربًا عاطفيًا، وانجذابًا جسديًا، ووفاءً طويل الأمد.</span>", "o": ["Consummate love", "Passionate love", "Companionate love", "Fatuous love"], "a": 0, "e": "Consummate love includes intimacy, passion, and commitment.<br><span style='color:gray'>الحب الكامل يشمل العاطفة، الشغف، والالتزام معًا.</span>"}, {"q": "8. According to SVR theory, relationships move from stimulus to ______ to roles.<br><span style='color:gray'>وفقًا لنظرية SVR، تتدرج العلاقات من التحفيز إلى ______ ثم إلى الأدوار.</span>", "o": ["intimacy", "values", "commitment", "personality"], "a": 1, "e": "SVR = Stimulus → Values → Roles.<br><span style='color:gray'>نظرية SVR تشرح تطور العلاقة من الانجذاب إلى الانسجام القيمي ثم توزيع الأدوار.</span>"}, {"q": "9. Two strangers open up about their secrets during a long night talk. This is an example of:<br><span style='color:gray'>شخصان غريبان يتبادلان أسرارًا في جلسة مطولة.</span>", "o": ["Exposure", "Similarity", "Reciprocal disclosure", "Complementarity"], "a": 2, "e": "Mutual sharing deepens emotional connection.<br><span style='color:gray'>الإفصاح المتبادل يعزز التقارب العاطفي ويقوي العلاقة.</span>"}, {"q": "10. Two people are highly compatible due to shared values and mutual understanding. This reflects:<br><span style='color:gray'>شخصان منسجمان بسبب تشابه القيم والفهم المتبادل.</span>", "o": ["Proximity", "Compatibility", "Passion", "Exposure"], "a": 1, "e": "Compatibility arises from both similarity and complementarity.<br><span style='color:gray'>الانسجام يأتي من التشابه والتكامل معًا.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة ❤️🔥<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

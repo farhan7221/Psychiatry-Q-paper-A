@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creutzfeldt-Jakob Disease (CJD) Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Creutzfeldt-Jakob Disease (CJD) Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What is the most common form of Creutzfeldt-Jakob Disease (CJD)?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Familial CJD</li>
+<li onclick="checkAnswer(this, true)">Sporadic CJD</li>
+<li onclick="checkAnswer(this, false)">Variant CJD</li>
+<li onclick="checkAnswer(this, false)">Iatrogenic CJD</li>
+</ul>
+<div class="explanation">Sporadic CJD is the most frequent form, accounting for about 85% of all cases. It arises without known risk factors or inheritance patterns.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which microscopic pattern is seen in CJD brain tissue?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Lewy body formation</li>
+<li onclick="checkAnswer(this, true)">Spongiform encephalopathy</li>
+<li onclick="checkAnswer(this, false)">Tauopathy</li>
+<li onclick="checkAnswer(this, false)">Neurofibrillary tangles</li>
+</ul>
+<div class="explanation">Spongiform encephalopathy is the hallmark of CJD and is characterized by vacuolization in the neuropil of cortical gray matter.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>What is the genetic mutation associated with CJD?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">APP gene on chromosome 21</li>
+<li onclick="checkAnswer(this, true)">Prion protein gene (PrP) on chromosome 20</li>
+<li onclick="checkAnswer(this, false)">Tau gene on chromosome 17</li>
+<li onclick="checkAnswer(this, false)">Synuclein gene on chromosome 4</li>
+</ul>
+<div class="explanation">CJD is linked to mutations in the PRNP gene on chromosome 20, which encodes the normal cellular prion protein PrPᶜ.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>What is the disease-causing form of prion protein?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">PrPᶜ</li>
+<li onclick="checkAnswer(this, false)">PrPᴺ</li>
+<li onclick="checkAnswer(this, true)">PrPˢᶜ</li>
+<li onclick="checkAnswer(this, false)">PrPβ</li>
+</ul>
+<div class="explanation">The pathogenic form is PrPˢᶜ, a misfolded, protease-resistant variant of the normal PrPᶜ protein that accumulates and causes neurodegeneration.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>What MRI sign is characteristic of variant CJD?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Butterfly sign</li>
+<li onclick="checkAnswer(this, false)">Hot cross bun sign</li>
+<li onclick="checkAnswer(this, true)">Pulvinar sign</li>
+<li onclick="checkAnswer(this, false)">Hummingbird sign</li>
+</ul>
+<div class="explanation">The pulvinar sign refers to bilateral hyperintensity in the posterior thalamus on MRI and is highly specific for variant CJD.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>Which EEG finding is typical of classic CJD but not variant CJD?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Alpha suppression</li>
+<li onclick="checkAnswer(this, true)">Triphasic sharp waves</li>
+<li onclick="checkAnswer(this, false)">Generalized spikes</li>
+<li onclick="checkAnswer(this, false)">Delta rhythm only</li>
+</ul>
+<div class="explanation">Triphasic sharp wave complexes are commonly seen in EEGs of patients with sporadic CJD, but rarely in variant forms.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which protein may be absent in CSF in variant CJD but present in sporadic CJD?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">14-3-3 protein</li>
+<li onclick="checkAnswer(this, false)">Tau</li>
+<li onclick="checkAnswer(this, false)">TDP-43</li>
+<li onclick="checkAnswer(this, false)">Huntingtin</li>
+</ul>
+<div class="explanation">14-3-3 protein is often detected in sporadic CJD but is typically absent in variant forms.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which codon polymorphism in the PrP gene affects susceptibility to CJD?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Codon 105</li>
+<li onclick="checkAnswer(this, true)">Codon 129</li>
+<li onclick="checkAnswer(this, false)">Codon 200</li>
+<li onclick="checkAnswer(this, false)">Codon 17</li>
+</ul>
+<div class="explanation">Polymorphisms at codon 129 (methionine or valine) of the PRNP gene influence susceptibility. Homozygous M/M is more common in sporadic and variant CJD.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which tissue carries prion agent in variant CJD but not in classic CJD?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Liver</li>
+<li onclick="checkAnswer(this, false)">Brainstem</li>
+<li onclick="checkAnswer(this, true)">Tonsils</li>
+<li onclick="checkAnswer(this, false)">Adrenal glands</li>
+</ul>
+<div class="explanation">Tonsillar tissue can harbor prion protein in variant CJD, making it a potential biopsy site for diagnosis.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>What is a typical gross finding in brains of CJD patients who survive longer?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Hippocampal sclerosis</li>
+<li onclick="checkAnswer(this, true)">Cerebral atrophy</li>
+<li onclick="checkAnswer(this, false)">Hydrocephalus</li>
+<li onclick="checkAnswer(this, false)">Pachygyria</li>
+</ul>
+<div class="explanation">Although brains may appear normal early in the disease, patients surviving for months often show generalized cerebral atrophy.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

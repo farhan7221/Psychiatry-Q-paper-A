@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethics in Psychiatry - Questions 1–10</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .question-box { background: #fff; padding: 20px; margin: 50px auto; border-radius: 10px; max-width: 750px; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 20px; }
+    .option { background: #eee; padding: 10px; margin: 8px 0; border-radius: 5px; cursor: pointer; }
+    .option.correct { background: #d4edda !important; pointer-events: none; }
+    .option.incorrect { background: #f8d7da !important; pointer-events: none; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 5px solid gold; padding: 10px; display: none; margin-top: 15px; }
+    .next-btn { display: none; margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    .counter { position: fixed; top: 10px; right: 20px; background: white; padding: 5px 10px; border-radius: 10px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px;
+      font-style: italic;
+      color: rgba(128,128,128,0.35); text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+    #lastQ { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+<body>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<div class="counter">Total Questions: 10</div>
+<div id="quiz"></div>
+<div id="lastQ"><button onclick="goToLast()">Last Q</button></div>
+<script>
+const questions = [{"q": "A 17-year-old girl with depression refuses treatment. Her parents insist on admitting her. Should the psychiatrist respect her autonomy or prioritize parental consent?", "qt": "مراهقة تبلغ 17 عامًا وتعاني من الاكتئاب ترفض العلاج، بينما يصر والداها على إدخالها إلى المستشفى. هل يجب على الطبيب احترام استقلاليتها أم أولوية موافقة الوالدين؟", "options": [["Respect autonomy", "احترام الاستقلالية"], ["Override refusal", "تجاوز الرفض"], ["Inform family", "إبلاغ العائلة"], ["Refer legally", "إحالة قانونية"]], "answer": 0, "exp": "Ethically, adolescents have evolving capacity. If she's assessed to have decision-making competence, her autonomy should be respected. However, psychiatrists must also assess risk and legal frameworks for minors. | أخلاقيًا، يتمتع المراهقون بقدرات متزايدة على اتخاذ القرار. إذا كانت الفتاة مؤهلة لذلك، فيجب احترام استقلاليتها. لكن يجب على الطبيب تقييم مستوى الخطر والإطار القانوني الخاص بالقُصّر."}, {"q": "A patient with schizophrenia insists on stopping medication that stabilized him. He denies being ill. Can the psychiatrist override his refusal?", "qt": "مريض فصام يصر على إيقاف الدواء الذي استقر عليه، وينكر كونه مريضًا. هل يمكن للطبيب النفسي تجاوز رفضه؟", "options": [["Override refusal", "تجاوز الرفض"], ["Respect autonomy", "احترام الاستقلالية"], ["Delay treatment", "تأجيل العلاج"], ["Discharge", "الخروج الطبي"]], "answer": 0, "exp": "This raises conflict between autonomy and beneficence. If the patient lacks insight and poses risk, temporary treatment without consent may be justified under mental health laws. | هذا يثير تعارضًا بين الاستقلالية والعمل لمصلحة المريض. إذا كان يفتقر للبصيرة ويشكّل خطرًا، فقد يكون من المبرر علاجه مؤقتًا دون موافقته حسب قوانين الصحة النفسية."}, {"q": "A patient confesses homicidal thoughts toward a named person. Should confidentiality be breached?", "qt": "يعترف مريض بأفكار عدوانية لقتل شخص معروف بالاسم. هل يجب خرق السرية؟", "options": [["Maintain confidentiality", "الحفاظ على السرية"], ["Breach confidentiality", "خرق السرية"], ["Ignore threat", "تجاهل التهديد"], ["Tell police", "إبلاغ الشرطة"]], "answer": 1, "exp": "Confidentiality is essential, but exceptions exist when there's imminent risk to others. The psychiatrist may have a duty to warn or protect the third party (e.g., Tarasoff rule). | السرية مبدأ أساسي، لكن هناك استثناءات عند وجود خطر وشيك على الآخرين. قد يكون على الطبيب واجب التحذير أو حماية الشخص المُهدد (كما في قاعدة تاراسوف)."}, {"q": "A psychiatric resident posts a photo with a patient (with consent) on social media. Is this ethical?", "qt": "يقوم طبيب نفسي متدرب بنشر صورة له مع مريض (بموافقته) على وسائل التواصل. هل هذا أخلاقي؟", "options": [["Share with consent", "بموافقة المريض"], ["Maintain dignity", "الحفاظ على الكرامة"], ["Highlight case", "عرض الحالة"], ["Tag patient", "وضع وسم"]], "answer": 1, "exp": "Even with consent, social media may violate dignity and privacy. Ethical practice advises against using patient content online, due to power dynamics and risk of exploitation. | حتى بموافقة المريض، فإن النشر في وسائل التواصل قد يخرق كرامته وخصوصيته. الممارسة الأخلاقية توصي بتجنب ذلك بسبب عدم التوازن في السلطة واحتمال الاستغلال."}, {"q": "A refugee with PTSD refuses male interpreters due to past trauma. No female interpreters are available. What should be done?", "qt": "لاجئة تعاني من اضطراب ما بعد الصدمة ترفض وجود مترجمين ذكور بسبب صدمة سابقة، ولا تتوفر مترجمات نساء. ما الحل؟", "options": [["Use male interpreter", "استخدام مترجم ذكر"], ["Decline treatment", "رفض العلاج"], ["Trauma-informed care", "رعاية تراعي الصدمة"], ["Reschedule", "إعادة الجدولة"]], "answer": 2, "exp": "Respecting trauma-informed care is key. Alternatives like remote female interpreters, postponing non-urgent sessions, or using trusted support staff may be more ethical than forcing the interaction. | الاستجابة للحالات المتأثرة بالصدمة تتطلب حساسية عالية. من الأفضل اللجوء لحلول مثل مترجمات عن بعد أو تأجيل الجلسة غير الطارئة بدلاً من فرض وجود مترجم ذكر."}, {"q": "An elderly patient with early dementia refuses to create an advance directive. Family requests the psychiatrist to proceed anyway. What’s the ethical stance?", "qt": "مريض مسن مصاب بخرف مبكر يرفض عمل وصية مسبقة. العائلة تطلب من الطبيب النفسي المتابعة رغمًا عنه. ما هو الموقف الأخلاقي؟", "options": [["Respect refusal", "احترام الرفض"], ["Seek consent from family", "أخذ موافقة العائلة"], ["Coerce legally", "الإجبار القانوني"], ["Call ethics board", "الاتصال بلجنة أخلاقيات"]], "answer": 0, "exp": "Advance directives require voluntary, informed consent. Forcing them may violate autonomy. Instead, capacity assessment and further dialogue are ethically preferable. | الوصايا المسبقة تتطلب موافقة طوعية ومستبصرة. فرضها يُعد انتهاكًا للاستقلالية. الأفضل تقييم الأهلية وتقديم حوار توعوي إضافي."}, {"q": "A prisoner on hunger strike is brought to psychiatry for forced feeding. He is alert and consistent in refusal. Should the psychiatrist comply?", "qt": "سجين مضرب عن الطعام يُحال إلى الطب النفسي لإجباره على الأكل. وهو متيقظ وثابت على قراره. هل يجب على الطبيب النفسي الامتثال؟", "options": [["Allow protest", "السماح بالاحتجاج"], ["Force feed", "إجبار على التغذية"], ["Transfer to hospital", "نقل للمستشفى"], ["Call prison director", "إبلاغ السجن"]], "answer": 0, "exp": "Force-feeding competent adults may breach autonomy and human rights. Psychiatrist should assess capacity but respect political protest where insight is intact. | إجبار شخص مؤهل عقليًا على الأكل يُعد انتهاكًا لاستقلاليته وحقوقه. يجب تقييم الأهلية، ولكن احترام الاحتجاج السياسي في حال وجود بصيرة."}, {"q": "A teenage patient reveals she’s in a secret sexual relationship. Her parents are unaware. Should this be disclosed?", "qt": "مراهقة تخبر طبيبها بعلاقة جنسية سرية. والداها لا يعلمان بذلك. هل يجب إبلاغهم؟", "options": [["Preserve confidentiality", "الحفاظ على السرية"], ["Tell parents", "إبلاغ الأهل"], ["Consult team", "استشارة الفريق"], ["Break trust", "كسر الثقة"]], "answer": 0, "exp": "Confidentiality is key, unless the patient is at risk or lacks capacity. If there's no coercion or harm, confidentiality should be maintained. | السرية مبدأ أساسي إلا في حالة وجود خطر أو عدم أهلية. إن لم يكن هناك ضرر أو إكراه، فيجب احترام الخصوصية."}, {"q": "A transgender patient requests hormone therapy, but the psychiatrist is personally opposed. What should guide care?", "qt": "مريض متحوّل جنسياً يطلب علاجًا هرمونيًا، لكن الطبيب النفسي يعارض الفكرة شخصيًا. ما الذي يجب أن يوجه الرعاية؟", "options": [["Respect autonomy", "احترام الاستقلالية"], ["Refer elsewhere", "الإحالة لطبيب آخر"], ["Non-discrimination", "عدم التمييز"], ["Delay care", "تأجيل الرعاية"]], "answer": 2, "exp": "Personal beliefs must not interfere with evidence-based care. Respecting identity, autonomy, and non-discrimination are essential ethical duties. | لا يجوز أن تؤثر المعتقدات الشخصية على الرعاية المبنية على الأدلة. احترام الهوية والاستقلالية وعدم التمييز هي واجبات أخلاقية."}, {"q": "A psychiatric nurse learns that her patient is being abused at home but the patient begs her not to tell. What should be done?", "qt": "ممرضة نفسية تكتشف أن مريضتها تتعرض للإساءة المنزلية، لكن المريضة تتوسل بعدم الإبلاغ. ما التصرف الأخلاقي؟", "options": [["Report abuse", "الإبلاغ عن الإساءة"], ["Ignore", "تجاهل"], ["Delay reporting", "تأخير الإبلاغ"], ["Seek more evidence", "طلب دليل إضافي"]], "answer": 0, "exp": "Protecting from harm may override confidentiality. If abuse is ongoing and serious, reporting may be ethically and legally required. | حماية المريض من الأذى قد تتقدم على السرية. إذا كانت الإساءة مستمرة وخطيرة، فقد يكون الإبلاغ واجبًا قانونيًا وأخلاقيًا."}];
+
+let current = 0, score = 0;
+const quiz = document.getElementById("quiz");
+
+function loadQ() {
+  const q = questions[current];
+  let html = `<div class='question-box' id='qbox'>
+    <div class='question'>Q${current + 1}. ${q.q}</div>
+    <div class='translation'>${q.qt}</div>`;
+  q.options.forEach((opt, i) => {
+    html += `<div class='option' data-index='${i}' onclick='selectAnswer(this, ${i}, ${q.answer})'>${opt[0]}<br><small>${opt[1]}</small></div>`;
+  });
+  html += `<div class='explanation'><b>Explanation:</b> ${q.exp}</div>
+    <button class='next-btn' onclick='nextQ()'>Next</button>
+  </div>`;
+  quiz.innerHTML = html;
+}
+
+function selectAnswer(el, selected, correct) {
+  const opts = document.querySelectorAll('.option');
+  opts.forEach((opt, i) => {
+    opt.style.pointerEvents = 'none';
+    if (i === correct) opt.classList.add('correct');
+    else if (i === selected) opt.classList.add('incorrect');
+  });
+  if (selected === correct) score++;
+  document.querySelector('.explanation').style.display = 'block';
+  document.querySelector('.next-btn').style.display = 'inline-block';
+}
+
+function nextQ() {
+  current++;
+  if (current < questions.length) loadQ();
+  else {
+    quiz.innerHTML = `<div class='question-box'><div class='question'>انتهت الأسئلة</div><div class='question'>Your score: <span style='color:green'>${score}</span> / <span style='color:red'>${questions.length}</span></div></div>`;
+  }
+}
+
+function goToLast() {
+  current = questions.length - 1;
+  loadQ();
+}
+
+loadQ();
+</script>
+</body>
+</html>

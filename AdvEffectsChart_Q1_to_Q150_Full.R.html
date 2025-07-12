@@ -1,0 +1,1858 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdvEffectsChart - Q1 to Q150 Full</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f9f9f9; }
+.question-block { display: none; padding: 20px; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: #fff3cd; padding: 10px; margin-top: 15px; border-left: 5px solid #ffeeba; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="total-counter">Total Questions: 150</div>
+
+<section class="question-block" id="q1">
+  <h2>Question 1</h2>
+  <p>What are the main receptors used by HIV-1 to enter cells?<br><small>ما هي المستقبلات الرئيسية التي يستخدمها HIV-1 لدخول الخلايا؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">CD4 and CD8<br><small>CD4 و CD8</small></li>
+<li onclick="checkAnswer(this, false)">CXCL9 and CXCL10<br><small>CXCL9 و CXCL10</small></li>
+<li onclick="checkAnswer(this, false)">MHC-I and MHC-II<br><small>MHC-I و MHC-II</small></li>
+<li onclick="checkAnswer(this, false)">TLR3 and TLR7<br><small>TLR3 و TLR7</small></li>
+</ul>
+  <div class="explanation">HIV-1 uses CD4 and co-receptors for entry. / يستخدم HIV-1 مستقبلات CD4 و CD8 للدخول.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+  <h2>Question 2</h2>
+  <p>HIV-1 shows a tropism in the brain that primarily infects:<br><small>يُظهر HIV-1 اتجاهًا انتقائيًا في الدماغ ليصيب بشكل رئيسي:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Macrophages and microglia<br><small>الضامة والخلايا الدبقية الصغيرة</small></li>
+<li onclick="checkAnswer(this, false)">Neurons only<br><small>الخلايا العصبية فقط</small></li>
+<li onclick="checkAnswer(this, false)">Astrocytes only<br><small>الخلايا النجمية فقط</small></li>
+<li onclick="checkAnswer(this, false)">Oligodendrocytes only<br><small>الخلايا قليلة التغصن فقط</small></li>
+</ul>
+  <div class="explanation">HIV-1 infects mainly macrophages and microglia. / يصيب HIV-1 بشكل رئيسي الضامة والخلايا الدبقية الصغيرة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+  <h2>Question 3</h2>
+  <p>What is the name of the hypothesis that describes HIV entry into the brain via infected monocytes?<br><small>ما هو اسم الفرضية التي تصف دخول HIV إلى الدماغ عبر الخلايا الوحيدة المصابة؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Trojan Horse hypothesis<br><small>فرضية الحصان الطروادة</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid Cascade hypothesis<br><small>فرضية شلال الأميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Excitotoxicity hypothesis<br><small>فرضية السمية الاستثارية</small></li>
+<li onclick="checkAnswer(this, false)">Microglial Activation hypothesis<br><small>فرضية تنشيط الدبقية الصغيرة</small></li>
+</ul>
+  <div class="explanation">It is called the Trojan Horse hypothesis. / تُسمى فرضية الحصان الطروادة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+  <h2>Question 4</h2>
+  <p>Which of the following is NOT typically seen in HIV brain biopsy?<br><small>أي مما يلي لا يُرى عادةً في خزعة الدماغ في HIV؟</small></p>
+  <ul><li onclick="checkAnswer(this, false)">Astrocyte activation<br><small>تنشيط الخلايا النجمية</small></li>
+<li onclick="checkAnswer(this, false)">Microglial nodules<br><small>عُقيدات الخلايا الدبقية الصغيرة</small></li>
+<li onclick="checkAnswer(this, false)">Multinucleated giant cells<br><small>الخلايا العملاقة متعددة الأنوية</small></li>
+<li onclick="checkAnswer(this, true)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+</ul>
+  <div class="explanation">Beta-amyloid plaques are not typical in HIV. / لويحات بيتا أميلويد ليست نموذجية في HIV.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+  <h2>Question 5</h2>
+  <p>Which brain regions are most affected in HIV-associated dementia?<br><small>ما هي المناطق الدماغية الأكثر تأثرًا في الخرف المرتبط بـ HIV؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Hippocampus, basal ganglia, caudate nucleus<br><small>الحُصين والعقد القاعدية والنواة المذنبة</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem only<br><small>جذع الدماغ فقط</small></li>
+</ul>
+  <div class="explanation">Hippocampus & basal ganglia are highly affected. / الحُصين والعقد القاعدية يتأثران بشكل كبير.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+  <h2>Question 6</h2>
+  <p>What structural brain change is commonly seen in schizophrenia?<br><small>ما هو التغير البنيوي الشائع في الدماغ في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Enlargement of lateral ventricles<br><small>توسع البطينين الجانبيين</small></li>
+<li onclick="checkAnswer(this, false)">Thickening of cortical gray matter<br><small>زيادة سمك المادة الرمادية القشرية</small></li>
+<li onclick="checkAnswer(this, false)">Increased hippocampal volume<br><small>زيادة حجم الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellar hypertrophy<br><small>تضخم المخيخ</small></li>
+</ul>
+  <div class="explanation">Schizophrenia is associated with enlarged lateral ventricles. / يرتبط الفصام بتوسع البطينين الجانبيين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+  <h2>Question 7</h2>
+  <p>Which region shows white matter reductions in schizophrenia?<br><small>أي منطقة تظهر بها انخفاضات المادة البيضاء في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Parahippocampal gyrus<br><small>التلفيف المجاور للحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem<br><small>جذع الدماغ</small></li>
+</ul>
+  <div class="explanation">White-matter reductions are seen in the parahippocampal region. / تظهر انخفاضات المادة البيضاء في التلفيف المجاور للحُصين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+  <h2>Question 8</h2>
+  <p>Which of the following is typically absent in schizophrenia?<br><small>أي مما يلي يكون غائبًا عادة في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Astrogliosis<br><small>تليف الخلايا النجمية</small></li>
+<li onclick="checkAnswer(this, false)">Neuronal density changes<br><small>تغيرات كثافة الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia volume changes<br><small>تغيرات حجم العقد القاعدية</small></li>
+<li onclick="checkAnswer(this, false)">Synaptic marker deficits<br><small>نقص علامات التشابك العصبي</small></li>
+</ul>
+  <div class="explanation">No astrogliosis is seen in schizophrenia. / لا يوجد تليف خلايا نجمية في الفصام.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+  <h2>Question 9</h2>
+  <p>Which structure is highly involved in language processing and shows asymmetry in schizophrenia?<br><small>أي بنية تشارك بقوة في معالجة اللغة وتظهر عدم تناسق في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Planum temporale<br><small>المستوى الصدغي</small></li>
+<li onclick="checkAnswer(this, false)">Amygdala<br><small>اللوزة</small></li>
+<li onclick="checkAnswer(this, false)">Caudate nucleus<br><small>النواة المذنبة</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+</ul>
+  <div class="explanation">The planum temporale is involved in language and shows asymmetry. / المستوى الصدغي يشارك في اللغة ويظهر عدم تناسق.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+  <h2>Question 10</h2>
+  <p>Which neuronal feature is reduced in schizophrenia?<br><small>أي خاصية عصبية تنخفض في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Dendritic arborization<br><small>تشعبات التغصنات</small></li>
+<li onclick="checkAnswer(this, false)">Axonal length<br><small>طول المحور العصبي</small></li>
+<li onclick="checkAnswer(this, false)">Neurogenesis<br><small>تكوين الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Myelination<br><small>تغليف المايلين</small></li>
+</ul>
+  <div class="explanation">Reduced dendritic arborization is noted. / يُلاحظ انخفاض تشعبات التغصنات.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q11">
+  <h2>Question 11</h2>
+  <p>Which brain region is most affected in major depressive disorder?<br><small>أي منطقة دماغية تتأثر أكثر في الاضطراب الاكتئابي الكبير؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Subgenual anterior cingulate cortex<br><small>قشرة الحزام الأمامية تحت الركبية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+</ul>
+  <div class="explanation">Subgenual anterior cingulate cortex is most affected. / أكثر المناطق تأثرًا هي قشرة الحزام الأمامية تحت الركبية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q12">
+  <h2>Question 12</h2>
+  <p>What is a common finding in bipolar disorder brains?<br><small>ما هو الاكتشاف الشائع في أدمغة المصابين بالاضطراب ثنائي القطب؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Enlarged ventricles<br><small>توسع البطينين</small></li>
+<li onclick="checkAnswer(this, false)">Cortical hypertrophy<br><small>تضخم القشرة</small></li>
+<li onclick="checkAnswer(this, false)">No detectable changes<br><small>لا تغييرات يمكن اكتشافها</small></li>
+<li onclick="checkAnswer(this, false)">Glioblastoma formation<br><small>تكوّن الورم الأرومي الدبقي</small></li>
+</ul>
+  <div class="explanation">Enlarged ventricles are seen in bipolar disorder. / يُلاحظ توسع البطينين في الاضطراب ثنائي القطب.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q13">
+  <h2>Question 13</h2>
+  <p>Which vitamin deficiency is most associated with Wernicke-Korsakoff syndrome?<br><small>أي نقص فيتامين يرتبط أكثر بمتلازمة فيرنيك كورساكوف؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Thiamine (B1)<br><small>الثيامين (B1)</small></li>
+<li onclick="checkAnswer(this, false)">Niacin (B3)<br><small>النياسين (B3)</small></li>
+<li onclick="checkAnswer(this, false)">Folate (B9)<br><small>حمض الفوليك (B9)</small></li>
+<li onclick="checkAnswer(this, false)">Cobalamin (B12)<br><small>كوبالامين (B12)</small></li>
+</ul>
+  <div class="explanation">Thiamine deficiency is key. / نقص الثيامين هو السبب الرئيسي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q14">
+  <h2>Question 14</h2>
+  <p>Which brain structure is classically damaged in Wernicke’s encephalopathy?<br><small>أي بنية دماغية تتضرر بشكل كلاسيكي في اعتلال دماغي فيرنيك؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Mammillary bodies<br><small>الأجسام الحلمية</small></li>
+<li onclick="checkAnswer(this, false)">Corpus callosum<br><small>الجسم الثفني</small></li>
+<li onclick="checkAnswer(this, false)">Occipital lobes<br><small>الفصوص القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+</ul>
+  <div class="explanation">Mammillary bodies are classically damaged. / تتضرر الأجسام الحلمية بشكل كلاسيكي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q15">
+  <h2>Question 15</h2>
+  <p>Central pontine myelinolysis is typically associated with:<br><small>يُرتبط إزالة الميالين المركزية للجسر عادةً بـ:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Rapid correction of hyponatremia<br><small>التصحيح السريع لنقص صوديوم الدم</small></li>
+<li onclick="checkAnswer(this, false)">Thiamine deficiency<br><small>نقص الثيامين</small></li>
+<li onclick="checkAnswer(this, false)">Alcohol withdrawal<br><small>انسحاب الكحول</small></li>
+<li onclick="checkAnswer(this, false)">Overdose of antidepressants<br><small>جرعة زائدة من مضادات الاكتئاب</small></li>
+</ul>
+  <div class="explanation">Rapid correction of hyponatremia is the main cause. / السبب الرئيسي هو التصحيح السريع لنقص صوديوم الدم.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q16">
+  <h2>Question 16</h2>
+  <p>Autism spectrum disorder (ASD) is most strongly associated with which type of abnormalities?<br><small>يرتبط اضطراب طيف التوحد (ASD) بشكل أقوى بأي نوع من الشذوذات؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Synaptic connectivity abnormalities<br><small>اضطرابات الاتصال التشابكي</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Tau tangles<br><small>تشابكات تاو</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+</ul>
+  <div class="explanation">ASD is linked to synaptic abnormalities. / ASD يرتبط باضطرابات الاتصال التشابكي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q17">
+  <h2>Question 17</h2>
+  <p>Which brain region is often found to be enlarged in young children with ASD?<br><small>أي منطقة دماغية غالبًا ما تكون متضخمة لدى الأطفال الصغار المصابين بالتوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Amygdala<br><small>اللوزة الدماغية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Medulla oblongata<br><small>النخاع المستطيل</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+</ul>
+  <div class="explanation">Amygdala enlargement is seen in ASD. / يُلاحظ تضخم اللوزة الدماغية في ASD.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q18">
+  <h2>Question 18</h2>
+  <p>Which gene is strongly linked to autism spectrum disorder?<br><small>أي جين يرتبط بقوة باضطراب طيف التوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">MECP2<br><small>MECP2</small></li>
+<li onclick="checkAnswer(this, false)">APP<br><small>APP</small></li>
+<li onclick="checkAnswer(this, false)">PSEN1<br><small>PSEN1</small></li>
+<li onclick="checkAnswer(this, false)">SNCA<br><small>SNCA</small></li>
+</ul>
+  <div class="explanation">MECP2 gene is linked to ASD. / جين MECP2 مرتبط بالتوحد.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q19">
+  <h2>Question 19</h2>
+  <p>Which histopathological finding is sometimes seen in autism?<br><small>أي مظهر نسيجي يُرى أحيانًا في التوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Increased number of neurons in prefrontal cortex<br><small>زيادة عدد الخلايا العصبية في القشرة الجبهية الأمامية</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Lewy neurites<br><small>نُبيبات ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Spongiform changes<br><small>تغيرات إسفنجية</small></li>
+</ul>
+  <div class="explanation">Increased neurons in prefrontal cortex. / زيادة الخلايا العصبية في القشرة الجبهية الأمامية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q20">
+  <h2>Question 20</h2>
+  <p>In autism, Purkinje cell loss is often reported in which brain structure?<br><small>في التوحد، غالبًا ما يُبلّغ عن فقدان خلايا بوركنجي في أي جزء دماغي؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+<li onclick="checkAnswer(this, false)">Thalamus<br><small>المهاد</small></li>
+</ul>
+  <div class="explanation">Purkinje cell loss is seen in cerebellum. / فقدان خلايا بوركنجي يظهر في المخيخ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q21">
+  <h2>Question 21</h2>
+  <p>Which protein is implicated in Creutzfeldt-Jakob disease?<br><small>أي بروتين متورط في مرض كروتزفيلد جاكوب؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Prion protein (PrP)<br><small>بروتين البريون (PrP)</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid<br><small>بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Alpha-synuclein<br><small>ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Tau<br><small>تاو</small></li>
+</ul>
+  <div class="explanation">CJD involves prion protein. / مرض CJD يتضمن بروتين البريون.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q22">
+  <h2>Question 22</h2>
+  <p>Which type of dementia is most commonly associated with visual hallucinations?<br><small>أي نوع من الخرف يرتبط غالبًا بالهلوسة البصرية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Lewy body dementia<br><small>خرف أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Alzheimer’s disease<br><small>مرض الزهايمر</small></li>
+<li onclick="checkAnswer(this, false)">Vascular dementia<br><small>الخرف الوعائي</small></li>
+<li onclick="checkAnswer(this, false)">Frontotemporal dementia<br><small>الخرف الجبهي الصدغي</small></li>
+</ul>
+  <div class="explanation">DLB is strongly associated with visual hallucinations. / خرف أجسام ليوي يرتبط بالهلوسة البصرية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q23">
+  <h2>Question 23</h2>
+  <p>Which is a key feature of synucleinopathies?<br><small>ما هي السمة الأساسية للاعتلالات السينوكلينية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Alpha-synuclein deposits<br><small>ترسيب ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Tau tangles<br><small>تشابكات تاو</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Hirano bodies<br><small>أجسام هيرانو</small></li>
+</ul>
+  <div class="explanation">Synucleinopathies have alpha-synuclein deposits. / تحتوي الاعتلالات السينوكلينية على ترسيب ألفا-سينوكلين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q24">
+  <h2>Question 24</h2>
+  <p>In Alzheimer’s disease, which type of plaques are counted in neuropathological tests?<br><small>في مرض الزهايمر، أي نوع من اللويحات يتم عده في الاختبارات النسيجية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Neuritic plaques<br><small>اللويحات العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Diffuse plaques<br><small>اللويحات المنتشرة</small></li>
+<li onclick="checkAnswer(this, false)">Senile plaques<br><small>اللويحات الشيخوخية</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid angiopathy<br><small>الاعتلال الأميلويدي الوعائي</small></li>
+</ul>
+  <div class="explanation">Neuritic plaques are counted. / يتم عد اللويحات العصبية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q25">
+  <h2>Question 25</h2>
+  <p>Which region is involved early in Alzheimer’s disease?<br><small>أي منطقة تتأثر مبكرًا في مرض الزهايمر؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Entorhinal cortex<br><small>القشرة الشمية الداخلية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem<br><small>جذع الدماغ</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+</ul>
+  <div class="explanation">The entorhinal cortex is involved early. / القشرة الشمية الداخلية تتأثر مبكرًا.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q26">
+  <h2>Question 26</h2>
+  <p>What is the main pathological change in Huntington’s dementia?<br><small>ما هو التغير المرضي الرئيسي في خرف هنتنغتون؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Severe neuronal loss in caudate and putamen<br><small>فقدان شديد للخلايا العصبية في النواة المذنبة والبطامة</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Alpha-synuclein deposits<br><small>ترسيب ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Ubiquitin-positive inclusions<br><small>شذوذات موجبة لأوبيكويتين</small></li>
+</ul>
+  <div class="explanation">Huntington’s shows caudate/putamen loss. / يظهر هنتنغتون فقدان في النواة المذنبة والبطامة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q27">
+  <h2>Question 27</h2>
+  <p>Which infection is strongly associated with multinucleated giant cells in the brain?<br><small>أي عدوى ترتبط بشدة بوجود خلايا عملاقة متعددة الأنوية في الدماغ؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">HIV<br><small>فيروس نقص المناعة البشرية (HIV)</small></li>
+<li onclick="checkAnswer(this, false)">CMV<br><small>فيروس CMV</small></li>
+<li onclick="checkAnswer(this, false)">HSV<br><small>فيروس الهربس</small></li>
+<li onclick="checkAnswer(this, false)">TB<br><small>السل</small></li>
+</ul>
+  <div class="explanation">HIV shows multinucleated giant cells. / فيروس HIV يُظهر خلايا عملاقة متعددة الأنوية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q28">
+  <h2>Question 28</h2>
+  <p>Which abnormality is typically found in schizophrenia brains?<br><small>ما هو الشذوذ الشائع في أدمغة مرضى الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Reduced dendritic arborization<br><small>انخفاض تشعبات التغصنات</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Spongiform change<br><small>تغيرات إسفنجية</small></li>
+</ul>
+  <div class="explanation">Dendritic arborization is reduced. / تشعبات التغصنات منخفضة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q29">
+  <h2>Question 29</h2>
+  <p>The “Trojan Horse” mechanism describes:<br><small>آلية “الحصان الطروادة” تصف:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Entry of HIV into brain via monocytes<br><small>دخول فيروس HIV إلى الدماغ عبر الخلايا الوحيدة</small></li>
+<li onclick="checkAnswer(this, false)">Tau propagation between neurons<br><small>انتقال تاو بين الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Prion spread via contaminated instruments<br><small>انتقال البريون عبر الأدوات الملوثة</small></li>
+<li onclick="checkAnswer(this, false)">Synaptic pruning in schizophrenia<br><small>تشذيب التشابكات في الفصام</small></li>
+</ul>
+  <div class="explanation">It describes HIV entry into brain. / تصف دخول HIV إلى الدماغ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q30">
+  <h2>Question 30</h2>
+  <p>What is the pathological hallmark of Progressive Supranuclear Palsy (PSP)?<br><small>ما هو العلامة المرضية المميزة للشلل فوق النووي التدريجي (PSP)؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Tau-positive globose tangles<br><small>تشابكات كروية موجبة تاو</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Prion protein<br><small>بروتين البريون</small></li>
+</ul>
+  <div class="explanation">PSP has tau-positive tangles. / PSP يتميز بتشابكات كروية موجبة تاو.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q31">
+  <h2>Question 31</h2>
+  <p>What are the main receptors used by HIV-1 to enter cells?<br><small>ما هي المستقبلات الرئيسية التي يستخدمها HIV-1 لدخول الخلايا؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">CD4 and CD8<br><small>CD4 و CD8</small></li>
+<li onclick="checkAnswer(this, false)">CXCL9 and CXCL10<br><small>CXCL9 و CXCL10</small></li>
+<li onclick="checkAnswer(this, false)">MHC-I and MHC-II<br><small>MHC-I و MHC-II</small></li>
+<li onclick="checkAnswer(this, false)">TLR3 and TLR7<br><small>TLR3 و TLR7</small></li>
+</ul>
+  <div class="explanation">HIV-1 uses CD4 and co-receptors for entry. / يستخدم HIV-1 مستقبلات CD4 و CD8 للدخول.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q32">
+  <h2>Question 32</h2>
+  <p>HIV-1 shows a tropism in the brain that primarily infects:<br><small>يُظهر HIV-1 اتجاهًا انتقائيًا في الدماغ ليصيب بشكل رئيسي:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Macrophages and microglia<br><small>الضامة والخلايا الدبقية الصغيرة</small></li>
+<li onclick="checkAnswer(this, false)">Neurons only<br><small>الخلايا العصبية فقط</small></li>
+<li onclick="checkAnswer(this, false)">Astrocytes only<br><small>الخلايا النجمية فقط</small></li>
+<li onclick="checkAnswer(this, false)">Oligodendrocytes only<br><small>الخلايا قليلة التغصن فقط</small></li>
+</ul>
+  <div class="explanation">HIV-1 infects mainly macrophages and microglia. / يصيب HIV-1 بشكل رئيسي الضامة والخلايا الدبقية الصغيرة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q33">
+  <h2>Question 33</h2>
+  <p>What is the name of the hypothesis that describes HIV entry into the brain via infected monocytes?<br><small>ما هو اسم الفرضية التي تصف دخول HIV إلى الدماغ عبر الخلايا الوحيدة المصابة؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Trojan Horse hypothesis<br><small>فرضية الحصان الطروادة</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid Cascade hypothesis<br><small>فرضية شلال الأميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Excitotoxicity hypothesis<br><small>فرضية السمية الاستثارية</small></li>
+<li onclick="checkAnswer(this, false)">Microglial Activation hypothesis<br><small>فرضية تنشيط الدبقية الصغيرة</small></li>
+</ul>
+  <div class="explanation">It is called the Trojan Horse hypothesis. / تُسمى فرضية الحصان الطروادة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q34">
+  <h2>Question 34</h2>
+  <p>Which of the following is NOT typically seen in HIV brain biopsy?<br><small>أي مما يلي لا يُرى عادةً في خزعة الدماغ في HIV؟</small></p>
+  <ul><li onclick="checkAnswer(this, false)">Astrocyte activation<br><small>تنشيط الخلايا النجمية</small></li>
+<li onclick="checkAnswer(this, false)">Microglial nodules<br><small>عُقيدات الخلايا الدبقية الصغيرة</small></li>
+<li onclick="checkAnswer(this, false)">Multinucleated giant cells<br><small>الخلايا العملاقة متعددة الأنوية</small></li>
+<li onclick="checkAnswer(this, true)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+</ul>
+  <div class="explanation">Beta-amyloid plaques are not typical in HIV. / لويحات بيتا أميلويد ليست نموذجية في HIV.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q35">
+  <h2>Question 35</h2>
+  <p>Which brain regions are most affected in HIV-associated dementia?<br><small>ما هي المناطق الدماغية الأكثر تأثرًا في الخرف المرتبط بـ HIV؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Hippocampus, basal ganglia, caudate nucleus<br><small>الحُصين والعقد القاعدية والنواة المذنبة</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem only<br><small>جذع الدماغ فقط</small></li>
+</ul>
+  <div class="explanation">Hippocampus & basal ganglia are highly affected. / الحُصين والعقد القاعدية يتأثران بشكل كبير.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q36">
+  <h2>Question 36</h2>
+  <p>What structural brain change is commonly seen in schizophrenia?<br><small>ما هو التغير البنيوي الشائع في الدماغ في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Enlargement of lateral ventricles<br><small>توسع البطينين الجانبيين</small></li>
+<li onclick="checkAnswer(this, false)">Thickening of cortical gray matter<br><small>زيادة سمك المادة الرمادية القشرية</small></li>
+<li onclick="checkAnswer(this, false)">Increased hippocampal volume<br><small>زيادة حجم الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellar hypertrophy<br><small>تضخم المخيخ</small></li>
+</ul>
+  <div class="explanation">Schizophrenia is associated with enlarged lateral ventricles. / يرتبط الفصام بتوسع البطينين الجانبيين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q37">
+  <h2>Question 37</h2>
+  <p>Which region shows white matter reductions in schizophrenia?<br><small>أي منطقة تظهر بها انخفاضات المادة البيضاء في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Parahippocampal gyrus<br><small>التلفيف المجاور للحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem<br><small>جذع الدماغ</small></li>
+</ul>
+  <div class="explanation">White-matter reductions are seen in the parahippocampal region. / تظهر انخفاضات المادة البيضاء في التلفيف المجاور للحُصين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q38">
+  <h2>Question 38</h2>
+  <p>Which of the following is typically absent in schizophrenia?<br><small>أي مما يلي يكون غائبًا عادة في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Astrogliosis<br><small>تليف الخلايا النجمية</small></li>
+<li onclick="checkAnswer(this, false)">Neuronal density changes<br><small>تغيرات كثافة الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia volume changes<br><small>تغيرات حجم العقد القاعدية</small></li>
+<li onclick="checkAnswer(this, false)">Synaptic marker deficits<br><small>نقص علامات التشابك العصبي</small></li>
+</ul>
+  <div class="explanation">No astrogliosis is seen in schizophrenia. / لا يوجد تليف خلايا نجمية في الفصام.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q39">
+  <h2>Question 39</h2>
+  <p>Which structure is highly involved in language processing and shows asymmetry in schizophrenia?<br><small>أي بنية تشارك بقوة في معالجة اللغة وتظهر عدم تناسق في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Planum temporale<br><small>المستوى الصدغي</small></li>
+<li onclick="checkAnswer(this, false)">Amygdala<br><small>اللوزة</small></li>
+<li onclick="checkAnswer(this, false)">Caudate nucleus<br><small>النواة المذنبة</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+</ul>
+  <div class="explanation">The planum temporale is involved in language and shows asymmetry. / المستوى الصدغي يشارك في اللغة ويظهر عدم تناسق.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q40">
+  <h2>Question 40</h2>
+  <p>Which neuronal feature is reduced in schizophrenia?<br><small>أي خاصية عصبية تنخفض في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Dendritic arborization<br><small>تشعبات التغصنات</small></li>
+<li onclick="checkAnswer(this, false)">Axonal length<br><small>طول المحور العصبي</small></li>
+<li onclick="checkAnswer(this, false)">Neurogenesis<br><small>تكوين الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Myelination<br><small>تغليف المايلين</small></li>
+</ul>
+  <div class="explanation">Reduced dendritic arborization is noted. / يُلاحظ انخفاض تشعبات التغصنات.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q41">
+  <h2>Question 41</h2>
+  <p>Which brain region is most affected in major depressive disorder?<br><small>أي منطقة دماغية تتأثر أكثر في الاضطراب الاكتئابي الكبير؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Subgenual anterior cingulate cortex<br><small>قشرة الحزام الأمامية تحت الركبية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+</ul>
+  <div class="explanation">Subgenual anterior cingulate cortex is most affected. / أكثر المناطق تأثرًا هي قشرة الحزام الأمامية تحت الركبية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q42">
+  <h2>Question 42</h2>
+  <p>What is a common finding in bipolar disorder brains?<br><small>ما هو الاكتشاف الشائع في أدمغة المصابين بالاضطراب ثنائي القطب؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Enlarged ventricles<br><small>توسع البطينين</small></li>
+<li onclick="checkAnswer(this, false)">Cortical hypertrophy<br><small>تضخم القشرة</small></li>
+<li onclick="checkAnswer(this, false)">No detectable changes<br><small>لا تغييرات يمكن اكتشافها</small></li>
+<li onclick="checkAnswer(this, false)">Glioblastoma formation<br><small>تكوّن الورم الأرومي الدبقي</small></li>
+</ul>
+  <div class="explanation">Enlarged ventricles are seen in bipolar disorder. / يُلاحظ توسع البطينين في الاضطراب ثنائي القطب.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q43">
+  <h2>Question 43</h2>
+  <p>Which vitamin deficiency is most associated with Wernicke-Korsakoff syndrome?<br><small>أي نقص فيتامين يرتبط أكثر بمتلازمة فيرنيك كورساكوف؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Thiamine (B1)<br><small>الثيامين (B1)</small></li>
+<li onclick="checkAnswer(this, false)">Niacin (B3)<br><small>النياسين (B3)</small></li>
+<li onclick="checkAnswer(this, false)">Folate (B9)<br><small>حمض الفوليك (B9)</small></li>
+<li onclick="checkAnswer(this, false)">Cobalamin (B12)<br><small>كوبالامين (B12)</small></li>
+</ul>
+  <div class="explanation">Thiamine deficiency is key. / نقص الثيامين هو السبب الرئيسي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q44">
+  <h2>Question 44</h2>
+  <p>Which brain structure is classically damaged in Wernicke’s encephalopathy?<br><small>أي بنية دماغية تتضرر بشكل كلاسيكي في اعتلال دماغي فيرنيك؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Mammillary bodies<br><small>الأجسام الحلمية</small></li>
+<li onclick="checkAnswer(this, false)">Corpus callosum<br><small>الجسم الثفني</small></li>
+<li onclick="checkAnswer(this, false)">Occipital lobes<br><small>الفصوص القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+</ul>
+  <div class="explanation">Mammillary bodies are classically damaged. / تتضرر الأجسام الحلمية بشكل كلاسيكي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q45">
+  <h2>Question 45</h2>
+  <p>Central pontine myelinolysis is typically associated with:<br><small>يُرتبط إزالة الميالين المركزية للجسر عادةً بـ:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Rapid correction of hyponatremia<br><small>التصحيح السريع لنقص صوديوم الدم</small></li>
+<li onclick="checkAnswer(this, false)">Thiamine deficiency<br><small>نقص الثيامين</small></li>
+<li onclick="checkAnswer(this, false)">Alcohol withdrawal<br><small>انسحاب الكحول</small></li>
+<li onclick="checkAnswer(this, false)">Overdose of antidepressants<br><small>جرعة زائدة من مضادات الاكتئاب</small></li>
+</ul>
+  <div class="explanation">Rapid correction of hyponatremia is the main cause. / السبب الرئيسي هو التصحيح السريع لنقص صوديوم الدم.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q46">
+  <h2>Question 46</h2>
+  <p>Autism spectrum disorder (ASD) is most strongly associated with which type of abnormalities?<br><small>يرتبط اضطراب طيف التوحد (ASD) بشكل أقوى بأي نوع من الشذوذات؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Synaptic connectivity abnormalities<br><small>اضطرابات الاتصال التشابكي</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Tau tangles<br><small>تشابكات تاو</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+</ul>
+  <div class="explanation">ASD is linked to synaptic abnormalities. / ASD يرتبط باضطرابات الاتصال التشابكي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q47">
+  <h2>Question 47</h2>
+  <p>Which brain region is often found to be enlarged in young children with ASD?<br><small>أي منطقة دماغية غالبًا ما تكون متضخمة لدى الأطفال الصغار المصابين بالتوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Amygdala<br><small>اللوزة الدماغية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Medulla oblongata<br><small>النخاع المستطيل</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+</ul>
+  <div class="explanation">Amygdala enlargement is seen in ASD. / يُلاحظ تضخم اللوزة الدماغية في ASD.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q48">
+  <h2>Question 48</h2>
+  <p>Which gene is strongly linked to autism spectrum disorder?<br><small>أي جين يرتبط بقوة باضطراب طيف التوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">MECP2<br><small>MECP2</small></li>
+<li onclick="checkAnswer(this, false)">APP<br><small>APP</small></li>
+<li onclick="checkAnswer(this, false)">PSEN1<br><small>PSEN1</small></li>
+<li onclick="checkAnswer(this, false)">SNCA<br><small>SNCA</small></li>
+</ul>
+  <div class="explanation">MECP2 gene is linked to ASD. / جين MECP2 مرتبط بالتوحد.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q49">
+  <h2>Question 49</h2>
+  <p>Which histopathological finding is sometimes seen in autism?<br><small>أي مظهر نسيجي يُرى أحيانًا في التوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Increased number of neurons in prefrontal cortex<br><small>زيادة عدد الخلايا العصبية في القشرة الجبهية الأمامية</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Lewy neurites<br><small>نُبيبات ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Spongiform changes<br><small>تغيرات إسفنجية</small></li>
+</ul>
+  <div class="explanation">Increased neurons in prefrontal cortex. / زيادة الخلايا العصبية في القشرة الجبهية الأمامية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q50">
+  <h2>Question 50</h2>
+  <p>In autism, Purkinje cell loss is often reported in which brain structure?<br><small>في التوحد، غالبًا ما يُبلّغ عن فقدان خلايا بوركنجي في أي جزء دماغي؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+<li onclick="checkAnswer(this, false)">Thalamus<br><small>المهاد</small></li>
+</ul>
+  <div class="explanation">Purkinje cell loss is seen in cerebellum. / فقدان خلايا بوركنجي يظهر في المخيخ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q51">
+  <h2>Question 51</h2>
+  <p>Which protein is implicated in Creutzfeldt-Jakob disease?<br><small>أي بروتين متورط في مرض كروتزفيلد جاكوب؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Prion protein (PrP)<br><small>بروتين البريون (PrP)</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid<br><small>بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Alpha-synuclein<br><small>ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Tau<br><small>تاو</small></li>
+</ul>
+  <div class="explanation">CJD involves prion protein. / مرض CJD يتضمن بروتين البريون.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q52">
+  <h2>Question 52</h2>
+  <p>Which type of dementia is most commonly associated with visual hallucinations?<br><small>أي نوع من الخرف يرتبط غالبًا بالهلوسة البصرية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Lewy body dementia<br><small>خرف أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Alzheimer’s disease<br><small>مرض الزهايمر</small></li>
+<li onclick="checkAnswer(this, false)">Vascular dementia<br><small>الخرف الوعائي</small></li>
+<li onclick="checkAnswer(this, false)">Frontotemporal dementia<br><small>الخرف الجبهي الصدغي</small></li>
+</ul>
+  <div class="explanation">DLB is strongly associated with visual hallucinations. / خرف أجسام ليوي يرتبط بالهلوسة البصرية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q53">
+  <h2>Question 53</h2>
+  <p>Which is a key feature of synucleinopathies?<br><small>ما هي السمة الأساسية للاعتلالات السينوكلينية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Alpha-synuclein deposits<br><small>ترسيب ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Tau tangles<br><small>تشابكات تاو</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Hirano bodies<br><small>أجسام هيرانو</small></li>
+</ul>
+  <div class="explanation">Synucleinopathies have alpha-synuclein deposits. / تحتوي الاعتلالات السينوكلينية على ترسيب ألفا-سينوكلين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q54">
+  <h2>Question 54</h2>
+  <p>In Alzheimer’s disease, which type of plaques are counted in neuropathological tests?<br><small>في مرض الزهايمر، أي نوع من اللويحات يتم عده في الاختبارات النسيجية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Neuritic plaques<br><small>اللويحات العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Diffuse plaques<br><small>اللويحات المنتشرة</small></li>
+<li onclick="checkAnswer(this, false)">Senile plaques<br><small>اللويحات الشيخوخية</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid angiopathy<br><small>الاعتلال الأميلويدي الوعائي</small></li>
+</ul>
+  <div class="explanation">Neuritic plaques are counted. / يتم عد اللويحات العصبية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q55">
+  <h2>Question 55</h2>
+  <p>Which region is involved early in Alzheimer’s disease?<br><small>أي منطقة تتأثر مبكرًا في مرض الزهايمر؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Entorhinal cortex<br><small>القشرة الشمية الداخلية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem<br><small>جذع الدماغ</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+</ul>
+  <div class="explanation">The entorhinal cortex is involved early. / القشرة الشمية الداخلية تتأثر مبكرًا.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q56">
+  <h2>Question 56</h2>
+  <p>What is the main pathological change in Huntington’s dementia?<br><small>ما هو التغير المرضي الرئيسي في خرف هنتنغتون؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Severe neuronal loss in caudate and putamen<br><small>فقدان شديد للخلايا العصبية في النواة المذنبة والبطامة</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Alpha-synuclein deposits<br><small>ترسيب ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Ubiquitin-positive inclusions<br><small>شذوذات موجبة لأوبيكويتين</small></li>
+</ul>
+  <div class="explanation">Huntington’s shows caudate/putamen loss. / يظهر هنتنغتون فقدان في النواة المذنبة والبطامة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q57">
+  <h2>Question 57</h2>
+  <p>Which infection is strongly associated with multinucleated giant cells in the brain?<br><small>أي عدوى ترتبط بشدة بوجود خلايا عملاقة متعددة الأنوية في الدماغ؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">HIV<br><small>فيروس نقص المناعة البشرية (HIV)</small></li>
+<li onclick="checkAnswer(this, false)">CMV<br><small>فيروس CMV</small></li>
+<li onclick="checkAnswer(this, false)">HSV<br><small>فيروس الهربس</small></li>
+<li onclick="checkAnswer(this, false)">TB<br><small>السل</small></li>
+</ul>
+  <div class="explanation">HIV shows multinucleated giant cells. / فيروس HIV يُظهر خلايا عملاقة متعددة الأنوية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q58">
+  <h2>Question 58</h2>
+  <p>Which abnormality is typically found in schizophrenia brains?<br><small>ما هو الشذوذ الشائع في أدمغة مرضى الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Reduced dendritic arborization<br><small>انخفاض تشعبات التغصنات</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Spongiform change<br><small>تغيرات إسفنجية</small></li>
+</ul>
+  <div class="explanation">Dendritic arborization is reduced. / تشعبات التغصنات منخفضة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q59">
+  <h2>Question 59</h2>
+  <p>The “Trojan Horse” mechanism describes:<br><small>آلية “الحصان الطروادة” تصف:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Entry of HIV into brain via monocytes<br><small>دخول فيروس HIV إلى الدماغ عبر الخلايا الوحيدة</small></li>
+<li onclick="checkAnswer(this, false)">Tau propagation between neurons<br><small>انتقال تاو بين الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Prion spread via contaminated instruments<br><small>انتقال البريون عبر الأدوات الملوثة</small></li>
+<li onclick="checkAnswer(this, false)">Synaptic pruning in schizophrenia<br><small>تشذيب التشابكات في الفصام</small></li>
+</ul>
+  <div class="explanation">It describes HIV entry into brain. / تصف دخول HIV إلى الدماغ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q60">
+  <h2>Question 60</h2>
+  <p>What is the pathological hallmark of Progressive Supranuclear Palsy (PSP)?<br><small>ما هو العلامة المرضية المميزة للشلل فوق النووي التدريجي (PSP)؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Tau-positive globose tangles<br><small>تشابكات كروية موجبة تاو</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Prion protein<br><small>بروتين البريون</small></li>
+</ul>
+  <div class="explanation">PSP has tau-positive tangles. / PSP يتميز بتشابكات كروية موجبة تاو.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q61">
+  <h2>Question 61</h2>
+  <p>What are the main receptors used by HIV-1 to enter cells?<br><small>ما هي المستقبلات الرئيسية التي يستخدمها HIV-1 لدخول الخلايا؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">CD4 and CD8<br><small>CD4 و CD8</small></li>
+<li onclick="checkAnswer(this, false)">CXCL9 and CXCL10<br><small>CXCL9 و CXCL10</small></li>
+<li onclick="checkAnswer(this, false)">MHC-I and MHC-II<br><small>MHC-I و MHC-II</small></li>
+<li onclick="checkAnswer(this, false)">TLR3 and TLR7<br><small>TLR3 و TLR7</small></li>
+</ul>
+  <div class="explanation">HIV-1 uses CD4 and co-receptors for entry. / يستخدم HIV-1 مستقبلات CD4 و CD8 للدخول.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q62">
+  <h2>Question 62</h2>
+  <p>HIV-1 shows a tropism in the brain that primarily infects:<br><small>يُظهر HIV-1 اتجاهًا انتقائيًا في الدماغ ليصيب بشكل رئيسي:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Macrophages and microglia<br><small>الضامة والخلايا الدبقية الصغيرة</small></li>
+<li onclick="checkAnswer(this, false)">Neurons only<br><small>الخلايا العصبية فقط</small></li>
+<li onclick="checkAnswer(this, false)">Astrocytes only<br><small>الخلايا النجمية فقط</small></li>
+<li onclick="checkAnswer(this, false)">Oligodendrocytes only<br><small>الخلايا قليلة التغصن فقط</small></li>
+</ul>
+  <div class="explanation">HIV-1 infects mainly macrophages and microglia. / يصيب HIV-1 بشكل رئيسي الضامة والخلايا الدبقية الصغيرة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q63">
+  <h2>Question 63</h2>
+  <p>What is the name of the hypothesis that describes HIV entry into the brain via infected monocytes?<br><small>ما هو اسم الفرضية التي تصف دخول HIV إلى الدماغ عبر الخلايا الوحيدة المصابة؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Trojan Horse hypothesis<br><small>فرضية الحصان الطروادة</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid Cascade hypothesis<br><small>فرضية شلال الأميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Excitotoxicity hypothesis<br><small>فرضية السمية الاستثارية</small></li>
+<li onclick="checkAnswer(this, false)">Microglial Activation hypothesis<br><small>فرضية تنشيط الدبقية الصغيرة</small></li>
+</ul>
+  <div class="explanation">It is called the Trojan Horse hypothesis. / تُسمى فرضية الحصان الطروادة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q64">
+  <h2>Question 64</h2>
+  <p>Which of the following is NOT typically seen in HIV brain biopsy?<br><small>أي مما يلي لا يُرى عادةً في خزعة الدماغ في HIV؟</small></p>
+  <ul><li onclick="checkAnswer(this, false)">Astrocyte activation<br><small>تنشيط الخلايا النجمية</small></li>
+<li onclick="checkAnswer(this, false)">Microglial nodules<br><small>عُقيدات الخلايا الدبقية الصغيرة</small></li>
+<li onclick="checkAnswer(this, false)">Multinucleated giant cells<br><small>الخلايا العملاقة متعددة الأنوية</small></li>
+<li onclick="checkAnswer(this, true)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+</ul>
+  <div class="explanation">Beta-amyloid plaques are not typical in HIV. / لويحات بيتا أميلويد ليست نموذجية في HIV.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q65">
+  <h2>Question 65</h2>
+  <p>Which brain regions are most affected in HIV-associated dementia?<br><small>ما هي المناطق الدماغية الأكثر تأثرًا في الخرف المرتبط بـ HIV؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Hippocampus, basal ganglia, caudate nucleus<br><small>الحُصين والعقد القاعدية والنواة المذنبة</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem only<br><small>جذع الدماغ فقط</small></li>
+</ul>
+  <div class="explanation">Hippocampus & basal ganglia are highly affected. / الحُصين والعقد القاعدية يتأثران بشكل كبير.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q66">
+  <h2>Question 66</h2>
+  <p>What structural brain change is commonly seen in schizophrenia?<br><small>ما هو التغير البنيوي الشائع في الدماغ في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Enlargement of lateral ventricles<br><small>توسع البطينين الجانبيين</small></li>
+<li onclick="checkAnswer(this, false)">Thickening of cortical gray matter<br><small>زيادة سمك المادة الرمادية القشرية</small></li>
+<li onclick="checkAnswer(this, false)">Increased hippocampal volume<br><small>زيادة حجم الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellar hypertrophy<br><small>تضخم المخيخ</small></li>
+</ul>
+  <div class="explanation">Schizophrenia is associated with enlarged lateral ventricles. / يرتبط الفصام بتوسع البطينين الجانبيين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q67">
+  <h2>Question 67</h2>
+  <p>Which region shows white matter reductions in schizophrenia?<br><small>أي منطقة تظهر بها انخفاضات المادة البيضاء في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Parahippocampal gyrus<br><small>التلفيف المجاور للحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem<br><small>جذع الدماغ</small></li>
+</ul>
+  <div class="explanation">White-matter reductions are seen in the parahippocampal region. / تظهر انخفاضات المادة البيضاء في التلفيف المجاور للحُصين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q68">
+  <h2>Question 68</h2>
+  <p>Which of the following is typically absent in schizophrenia?<br><small>أي مما يلي يكون غائبًا عادة في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Astrogliosis<br><small>تليف الخلايا النجمية</small></li>
+<li onclick="checkAnswer(this, false)">Neuronal density changes<br><small>تغيرات كثافة الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia volume changes<br><small>تغيرات حجم العقد القاعدية</small></li>
+<li onclick="checkAnswer(this, false)">Synaptic marker deficits<br><small>نقص علامات التشابك العصبي</small></li>
+</ul>
+  <div class="explanation">No astrogliosis is seen in schizophrenia. / لا يوجد تليف خلايا نجمية في الفصام.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q69">
+  <h2>Question 69</h2>
+  <p>Which structure is highly involved in language processing and shows asymmetry in schizophrenia?<br><small>أي بنية تشارك بقوة في معالجة اللغة وتظهر عدم تناسق في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Planum temporale<br><small>المستوى الصدغي</small></li>
+<li onclick="checkAnswer(this, false)">Amygdala<br><small>اللوزة</small></li>
+<li onclick="checkAnswer(this, false)">Caudate nucleus<br><small>النواة المذنبة</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+</ul>
+  <div class="explanation">The planum temporale is involved in language and shows asymmetry. / المستوى الصدغي يشارك في اللغة ويظهر عدم تناسق.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q70">
+  <h2>Question 70</h2>
+  <p>Which neuronal feature is reduced in schizophrenia?<br><small>أي خاصية عصبية تنخفض في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Dendritic arborization<br><small>تشعبات التغصنات</small></li>
+<li onclick="checkAnswer(this, false)">Axonal length<br><small>طول المحور العصبي</small></li>
+<li onclick="checkAnswer(this, false)">Neurogenesis<br><small>تكوين الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Myelination<br><small>تغليف المايلين</small></li>
+</ul>
+  <div class="explanation">Reduced dendritic arborization is noted. / يُلاحظ انخفاض تشعبات التغصنات.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q71">
+  <h2>Question 71</h2>
+  <p>Which brain region is most affected in major depressive disorder?<br><small>أي منطقة دماغية تتأثر أكثر في الاضطراب الاكتئابي الكبير؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Subgenual anterior cingulate cortex<br><small>قشرة الحزام الأمامية تحت الركبية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+</ul>
+  <div class="explanation">Subgenual anterior cingulate cortex is most affected. / أكثر المناطق تأثرًا هي قشرة الحزام الأمامية تحت الركبية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q72">
+  <h2>Question 72</h2>
+  <p>What is a common finding in bipolar disorder brains?<br><small>ما هو الاكتشاف الشائع في أدمغة المصابين بالاضطراب ثنائي القطب؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Enlarged ventricles<br><small>توسع البطينين</small></li>
+<li onclick="checkAnswer(this, false)">Cortical hypertrophy<br><small>تضخم القشرة</small></li>
+<li onclick="checkAnswer(this, false)">No detectable changes<br><small>لا تغييرات يمكن اكتشافها</small></li>
+<li onclick="checkAnswer(this, false)">Glioblastoma formation<br><small>تكوّن الورم الأرومي الدبقي</small></li>
+</ul>
+  <div class="explanation">Enlarged ventricles are seen in bipolar disorder. / يُلاحظ توسع البطينين في الاضطراب ثنائي القطب.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q73">
+  <h2>Question 73</h2>
+  <p>Which vitamin deficiency is most associated with Wernicke-Korsakoff syndrome?<br><small>أي نقص فيتامين يرتبط أكثر بمتلازمة فيرنيك كورساكوف؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Thiamine (B1)<br><small>الثيامين (B1)</small></li>
+<li onclick="checkAnswer(this, false)">Niacin (B3)<br><small>النياسين (B3)</small></li>
+<li onclick="checkAnswer(this, false)">Folate (B9)<br><small>حمض الفوليك (B9)</small></li>
+<li onclick="checkAnswer(this, false)">Cobalamin (B12)<br><small>كوبالامين (B12)</small></li>
+</ul>
+  <div class="explanation">Thiamine deficiency is key. / نقص الثيامين هو السبب الرئيسي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q74">
+  <h2>Question 74</h2>
+  <p>Which brain structure is classically damaged in Wernicke’s encephalopathy?<br><small>أي بنية دماغية تتضرر بشكل كلاسيكي في اعتلال دماغي فيرنيك؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Mammillary bodies<br><small>الأجسام الحلمية</small></li>
+<li onclick="checkAnswer(this, false)">Corpus callosum<br><small>الجسم الثفني</small></li>
+<li onclick="checkAnswer(this, false)">Occipital lobes<br><small>الفصوص القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+</ul>
+  <div class="explanation">Mammillary bodies are classically damaged. / تتضرر الأجسام الحلمية بشكل كلاسيكي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q75">
+  <h2>Question 75</h2>
+  <p>Central pontine myelinolysis is typically associated with:<br><small>يُرتبط إزالة الميالين المركزية للجسر عادةً بـ:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Rapid correction of hyponatremia<br><small>التصحيح السريع لنقص صوديوم الدم</small></li>
+<li onclick="checkAnswer(this, false)">Thiamine deficiency<br><small>نقص الثيامين</small></li>
+<li onclick="checkAnswer(this, false)">Alcohol withdrawal<br><small>انسحاب الكحول</small></li>
+<li onclick="checkAnswer(this, false)">Overdose of antidepressants<br><small>جرعة زائدة من مضادات الاكتئاب</small></li>
+</ul>
+  <div class="explanation">Rapid correction of hyponatremia is the main cause. / السبب الرئيسي هو التصحيح السريع لنقص صوديوم الدم.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q76">
+  <h2>Question 76</h2>
+  <p>Autism spectrum disorder (ASD) is most strongly associated with which type of abnormalities?<br><small>يرتبط اضطراب طيف التوحد (ASD) بشكل أقوى بأي نوع من الشذوذات؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Synaptic connectivity abnormalities<br><small>اضطرابات الاتصال التشابكي</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Tau tangles<br><small>تشابكات تاو</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+</ul>
+  <div class="explanation">ASD is linked to synaptic abnormalities. / ASD يرتبط باضطرابات الاتصال التشابكي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q77">
+  <h2>Question 77</h2>
+  <p>Which brain region is often found to be enlarged in young children with ASD?<br><small>أي منطقة دماغية غالبًا ما تكون متضخمة لدى الأطفال الصغار المصابين بالتوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Amygdala<br><small>اللوزة الدماغية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Medulla oblongata<br><small>النخاع المستطيل</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+</ul>
+  <div class="explanation">Amygdala enlargement is seen in ASD. / يُلاحظ تضخم اللوزة الدماغية في ASD.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q78">
+  <h2>Question 78</h2>
+  <p>Which gene is strongly linked to autism spectrum disorder?<br><small>أي جين يرتبط بقوة باضطراب طيف التوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">MECP2<br><small>MECP2</small></li>
+<li onclick="checkAnswer(this, false)">APP<br><small>APP</small></li>
+<li onclick="checkAnswer(this, false)">PSEN1<br><small>PSEN1</small></li>
+<li onclick="checkAnswer(this, false)">SNCA<br><small>SNCA</small></li>
+</ul>
+  <div class="explanation">MECP2 gene is linked to ASD. / جين MECP2 مرتبط بالتوحد.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q79">
+  <h2>Question 79</h2>
+  <p>Which histopathological finding is sometimes seen in autism?<br><small>أي مظهر نسيجي يُرى أحيانًا في التوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Increased number of neurons in prefrontal cortex<br><small>زيادة عدد الخلايا العصبية في القشرة الجبهية الأمامية</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Lewy neurites<br><small>نُبيبات ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Spongiform changes<br><small>تغيرات إسفنجية</small></li>
+</ul>
+  <div class="explanation">Increased neurons in prefrontal cortex. / زيادة الخلايا العصبية في القشرة الجبهية الأمامية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q80">
+  <h2>Question 80</h2>
+  <p>In autism, Purkinje cell loss is often reported in which brain structure?<br><small>في التوحد، غالبًا ما يُبلّغ عن فقدان خلايا بوركنجي في أي جزء دماغي؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+<li onclick="checkAnswer(this, false)">Thalamus<br><small>المهاد</small></li>
+</ul>
+  <div class="explanation">Purkinje cell loss is seen in cerebellum. / فقدان خلايا بوركنجي يظهر في المخيخ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q81">
+  <h2>Question 81</h2>
+  <p>Which protein is implicated in Creutzfeldt-Jakob disease?<br><small>أي بروتين متورط في مرض كروتزفيلد جاكوب؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Prion protein (PrP)<br><small>بروتين البريون (PrP)</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid<br><small>بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Alpha-synuclein<br><small>ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Tau<br><small>تاو</small></li>
+</ul>
+  <div class="explanation">CJD involves prion protein. / مرض CJD يتضمن بروتين البريون.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q82">
+  <h2>Question 82</h2>
+  <p>Which type of dementia is most commonly associated with visual hallucinations?<br><small>أي نوع من الخرف يرتبط غالبًا بالهلوسة البصرية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Lewy body dementia<br><small>خرف أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Alzheimer’s disease<br><small>مرض الزهايمر</small></li>
+<li onclick="checkAnswer(this, false)">Vascular dementia<br><small>الخرف الوعائي</small></li>
+<li onclick="checkAnswer(this, false)">Frontotemporal dementia<br><small>الخرف الجبهي الصدغي</small></li>
+</ul>
+  <div class="explanation">DLB is strongly associated with visual hallucinations. / خرف أجسام ليوي يرتبط بالهلوسة البصرية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q83">
+  <h2>Question 83</h2>
+  <p>Which is a key feature of synucleinopathies?<br><small>ما هي السمة الأساسية للاعتلالات السينوكلينية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Alpha-synuclein deposits<br><small>ترسيب ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Tau tangles<br><small>تشابكات تاو</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Hirano bodies<br><small>أجسام هيرانو</small></li>
+</ul>
+  <div class="explanation">Synucleinopathies have alpha-synuclein deposits. / تحتوي الاعتلالات السينوكلينية على ترسيب ألفا-سينوكلين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q84">
+  <h2>Question 84</h2>
+  <p>In Alzheimer’s disease, which type of plaques are counted in neuropathological tests?<br><small>في مرض الزهايمر، أي نوع من اللويحات يتم عده في الاختبارات النسيجية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Neuritic plaques<br><small>اللويحات العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Diffuse plaques<br><small>اللويحات المنتشرة</small></li>
+<li onclick="checkAnswer(this, false)">Senile plaques<br><small>اللويحات الشيخوخية</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid angiopathy<br><small>الاعتلال الأميلويدي الوعائي</small></li>
+</ul>
+  <div class="explanation">Neuritic plaques are counted. / يتم عد اللويحات العصبية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q85">
+  <h2>Question 85</h2>
+  <p>Which region is involved early in Alzheimer’s disease?<br><small>أي منطقة تتأثر مبكرًا في مرض الزهايمر؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Entorhinal cortex<br><small>القشرة الشمية الداخلية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem<br><small>جذع الدماغ</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+</ul>
+  <div class="explanation">The entorhinal cortex is involved early. / القشرة الشمية الداخلية تتأثر مبكرًا.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q86">
+  <h2>Question 86</h2>
+  <p>What is the main pathological change in Huntington’s dementia?<br><small>ما هو التغير المرضي الرئيسي في خرف هنتنغتون؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Severe neuronal loss in caudate and putamen<br><small>فقدان شديد للخلايا العصبية في النواة المذنبة والبطامة</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Alpha-synuclein deposits<br><small>ترسيب ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Ubiquitin-positive inclusions<br><small>شذوذات موجبة لأوبيكويتين</small></li>
+</ul>
+  <div class="explanation">Huntington’s shows caudate/putamen loss. / يظهر هنتنغتون فقدان في النواة المذنبة والبطامة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q87">
+  <h2>Question 87</h2>
+  <p>Which infection is strongly associated with multinucleated giant cells in the brain?<br><small>أي عدوى ترتبط بشدة بوجود خلايا عملاقة متعددة الأنوية في الدماغ؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">HIV<br><small>فيروس نقص المناعة البشرية (HIV)</small></li>
+<li onclick="checkAnswer(this, false)">CMV<br><small>فيروس CMV</small></li>
+<li onclick="checkAnswer(this, false)">HSV<br><small>فيروس الهربس</small></li>
+<li onclick="checkAnswer(this, false)">TB<br><small>السل</small></li>
+</ul>
+  <div class="explanation">HIV shows multinucleated giant cells. / فيروس HIV يُظهر خلايا عملاقة متعددة الأنوية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q88">
+  <h2>Question 88</h2>
+  <p>Which abnormality is typically found in schizophrenia brains?<br><small>ما هو الشذوذ الشائع في أدمغة مرضى الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Reduced dendritic arborization<br><small>انخفاض تشعبات التغصنات</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Spongiform change<br><small>تغيرات إسفنجية</small></li>
+</ul>
+  <div class="explanation">Dendritic arborization is reduced. / تشعبات التغصنات منخفضة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q89">
+  <h2>Question 89</h2>
+  <p>The “Trojan Horse” mechanism describes:<br><small>آلية “الحصان الطروادة” تصف:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Entry of HIV into brain via monocytes<br><small>دخول فيروس HIV إلى الدماغ عبر الخلايا الوحيدة</small></li>
+<li onclick="checkAnswer(this, false)">Tau propagation between neurons<br><small>انتقال تاو بين الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Prion spread via contaminated instruments<br><small>انتقال البريون عبر الأدوات الملوثة</small></li>
+<li onclick="checkAnswer(this, false)">Synaptic pruning in schizophrenia<br><small>تشذيب التشابكات في الفصام</small></li>
+</ul>
+  <div class="explanation">It describes HIV entry into brain. / تصف دخول HIV إلى الدماغ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q90">
+  <h2>Question 90</h2>
+  <p>What is the pathological hallmark of Progressive Supranuclear Palsy (PSP)?<br><small>ما هو العلامة المرضية المميزة للشلل فوق النووي التدريجي (PSP)؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Tau-positive globose tangles<br><small>تشابكات كروية موجبة تاو</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Prion protein<br><small>بروتين البريون</small></li>
+</ul>
+  <div class="explanation">PSP has tau-positive tangles. / PSP يتميز بتشابكات كروية موجبة تاو.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q91">
+  <h2>Question 91</h2>
+  <p>What are the main receptors used by HIV-1 to enter cells?<br><small>ما هي المستقبلات الرئيسية التي يستخدمها HIV-1 لدخول الخلايا؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">CD4 and CD8<br><small>CD4 و CD8</small></li>
+<li onclick="checkAnswer(this, false)">CXCL9 and CXCL10<br><small>CXCL9 و CXCL10</small></li>
+<li onclick="checkAnswer(this, false)">MHC-I and MHC-II<br><small>MHC-I و MHC-II</small></li>
+<li onclick="checkAnswer(this, false)">TLR3 and TLR7<br><small>TLR3 و TLR7</small></li>
+</ul>
+  <div class="explanation">HIV-1 uses CD4 and co-receptors for entry. / يستخدم HIV-1 مستقبلات CD4 و CD8 للدخول.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q92">
+  <h2>Question 92</h2>
+  <p>HIV-1 shows a tropism in the brain that primarily infects:<br><small>يُظهر HIV-1 اتجاهًا انتقائيًا في الدماغ ليصيب بشكل رئيسي:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Macrophages and microglia<br><small>الضامة والخلايا الدبقية الصغيرة</small></li>
+<li onclick="checkAnswer(this, false)">Neurons only<br><small>الخلايا العصبية فقط</small></li>
+<li onclick="checkAnswer(this, false)">Astrocytes only<br><small>الخلايا النجمية فقط</small></li>
+<li onclick="checkAnswer(this, false)">Oligodendrocytes only<br><small>الخلايا قليلة التغصن فقط</small></li>
+</ul>
+  <div class="explanation">HIV-1 infects mainly macrophages and microglia. / يصيب HIV-1 بشكل رئيسي الضامة والخلايا الدبقية الصغيرة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q93">
+  <h2>Question 93</h2>
+  <p>What is the name of the hypothesis that describes HIV entry into the brain via infected monocytes?<br><small>ما هو اسم الفرضية التي تصف دخول HIV إلى الدماغ عبر الخلايا الوحيدة المصابة؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Trojan Horse hypothesis<br><small>فرضية الحصان الطروادة</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid Cascade hypothesis<br><small>فرضية شلال الأميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Excitotoxicity hypothesis<br><small>فرضية السمية الاستثارية</small></li>
+<li onclick="checkAnswer(this, false)">Microglial Activation hypothesis<br><small>فرضية تنشيط الدبقية الصغيرة</small></li>
+</ul>
+  <div class="explanation">It is called the Trojan Horse hypothesis. / تُسمى فرضية الحصان الطروادة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q94">
+  <h2>Question 94</h2>
+  <p>Which of the following is NOT typically seen in HIV brain biopsy?<br><small>أي مما يلي لا يُرى عادةً في خزعة الدماغ في HIV؟</small></p>
+  <ul><li onclick="checkAnswer(this, false)">Astrocyte activation<br><small>تنشيط الخلايا النجمية</small></li>
+<li onclick="checkAnswer(this, false)">Microglial nodules<br><small>عُقيدات الخلايا الدبقية الصغيرة</small></li>
+<li onclick="checkAnswer(this, false)">Multinucleated giant cells<br><small>الخلايا العملاقة متعددة الأنوية</small></li>
+<li onclick="checkAnswer(this, true)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+</ul>
+  <div class="explanation">Beta-amyloid plaques are not typical in HIV. / لويحات بيتا أميلويد ليست نموذجية في HIV.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q95">
+  <h2>Question 95</h2>
+  <p>Which brain regions are most affected in HIV-associated dementia?<br><small>ما هي المناطق الدماغية الأكثر تأثرًا في الخرف المرتبط بـ HIV؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Hippocampus, basal ganglia, caudate nucleus<br><small>الحُصين والعقد القاعدية والنواة المذنبة</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem only<br><small>جذع الدماغ فقط</small></li>
+</ul>
+  <div class="explanation">Hippocampus & basal ganglia are highly affected. / الحُصين والعقد القاعدية يتأثران بشكل كبير.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q96">
+  <h2>Question 96</h2>
+  <p>What structural brain change is commonly seen in schizophrenia?<br><small>ما هو التغير البنيوي الشائع في الدماغ في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Enlargement of lateral ventricles<br><small>توسع البطينين الجانبيين</small></li>
+<li onclick="checkAnswer(this, false)">Thickening of cortical gray matter<br><small>زيادة سمك المادة الرمادية القشرية</small></li>
+<li onclick="checkAnswer(this, false)">Increased hippocampal volume<br><small>زيادة حجم الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellar hypertrophy<br><small>تضخم المخيخ</small></li>
+</ul>
+  <div class="explanation">Schizophrenia is associated with enlarged lateral ventricles. / يرتبط الفصام بتوسع البطينين الجانبيين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q97">
+  <h2>Question 97</h2>
+  <p>Which region shows white matter reductions in schizophrenia?<br><small>أي منطقة تظهر بها انخفاضات المادة البيضاء في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Parahippocampal gyrus<br><small>التلفيف المجاور للحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem<br><small>جذع الدماغ</small></li>
+</ul>
+  <div class="explanation">White-matter reductions are seen in the parahippocampal region. / تظهر انخفاضات المادة البيضاء في التلفيف المجاور للحُصين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q98">
+  <h2>Question 98</h2>
+  <p>Which of the following is typically absent in schizophrenia?<br><small>أي مما يلي يكون غائبًا عادة في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Astrogliosis<br><small>تليف الخلايا النجمية</small></li>
+<li onclick="checkAnswer(this, false)">Neuronal density changes<br><small>تغيرات كثافة الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia volume changes<br><small>تغيرات حجم العقد القاعدية</small></li>
+<li onclick="checkAnswer(this, false)">Synaptic marker deficits<br><small>نقص علامات التشابك العصبي</small></li>
+</ul>
+  <div class="explanation">No astrogliosis is seen in schizophrenia. / لا يوجد تليف خلايا نجمية في الفصام.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q99">
+  <h2>Question 99</h2>
+  <p>Which structure is highly involved in language processing and shows asymmetry in schizophrenia?<br><small>أي بنية تشارك بقوة في معالجة اللغة وتظهر عدم تناسق في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Planum temporale<br><small>المستوى الصدغي</small></li>
+<li onclick="checkAnswer(this, false)">Amygdala<br><small>اللوزة</small></li>
+<li onclick="checkAnswer(this, false)">Caudate nucleus<br><small>النواة المذنبة</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+</ul>
+  <div class="explanation">The planum temporale is involved in language and shows asymmetry. / المستوى الصدغي يشارك في اللغة ويظهر عدم تناسق.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q100">
+  <h2>Question 100</h2>
+  <p>Which neuronal feature is reduced in schizophrenia?<br><small>أي خاصية عصبية تنخفض في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Dendritic arborization<br><small>تشعبات التغصنات</small></li>
+<li onclick="checkAnswer(this, false)">Axonal length<br><small>طول المحور العصبي</small></li>
+<li onclick="checkAnswer(this, false)">Neurogenesis<br><small>تكوين الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Myelination<br><small>تغليف المايلين</small></li>
+</ul>
+  <div class="explanation">Reduced dendritic arborization is noted. / يُلاحظ انخفاض تشعبات التغصنات.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q101">
+  <h2>Question 101</h2>
+  <p>Which brain region is most affected in major depressive disorder?<br><small>أي منطقة دماغية تتأثر أكثر في الاضطراب الاكتئابي الكبير؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Subgenual anterior cingulate cortex<br><small>قشرة الحزام الأمامية تحت الركبية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+</ul>
+  <div class="explanation">Subgenual anterior cingulate cortex is most affected. / أكثر المناطق تأثرًا هي قشرة الحزام الأمامية تحت الركبية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q102">
+  <h2>Question 102</h2>
+  <p>What is a common finding in bipolar disorder brains?<br><small>ما هو الاكتشاف الشائع في أدمغة المصابين بالاضطراب ثنائي القطب؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Enlarged ventricles<br><small>توسع البطينين</small></li>
+<li onclick="checkAnswer(this, false)">Cortical hypertrophy<br><small>تضخم القشرة</small></li>
+<li onclick="checkAnswer(this, false)">No detectable changes<br><small>لا تغييرات يمكن اكتشافها</small></li>
+<li onclick="checkAnswer(this, false)">Glioblastoma formation<br><small>تكوّن الورم الأرومي الدبقي</small></li>
+</ul>
+  <div class="explanation">Enlarged ventricles are seen in bipolar disorder. / يُلاحظ توسع البطينين في الاضطراب ثنائي القطب.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q103">
+  <h2>Question 103</h2>
+  <p>Which vitamin deficiency is most associated with Wernicke-Korsakoff syndrome?<br><small>أي نقص فيتامين يرتبط أكثر بمتلازمة فيرنيك كورساكوف؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Thiamine (B1)<br><small>الثيامين (B1)</small></li>
+<li onclick="checkAnswer(this, false)">Niacin (B3)<br><small>النياسين (B3)</small></li>
+<li onclick="checkAnswer(this, false)">Folate (B9)<br><small>حمض الفوليك (B9)</small></li>
+<li onclick="checkAnswer(this, false)">Cobalamin (B12)<br><small>كوبالامين (B12)</small></li>
+</ul>
+  <div class="explanation">Thiamine deficiency is key. / نقص الثيامين هو السبب الرئيسي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q104">
+  <h2>Question 104</h2>
+  <p>Which brain structure is classically damaged in Wernicke’s encephalopathy?<br><small>أي بنية دماغية تتضرر بشكل كلاسيكي في اعتلال دماغي فيرنيك؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Mammillary bodies<br><small>الأجسام الحلمية</small></li>
+<li onclick="checkAnswer(this, false)">Corpus callosum<br><small>الجسم الثفني</small></li>
+<li onclick="checkAnswer(this, false)">Occipital lobes<br><small>الفصوص القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+</ul>
+  <div class="explanation">Mammillary bodies are classically damaged. / تتضرر الأجسام الحلمية بشكل كلاسيكي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q105">
+  <h2>Question 105</h2>
+  <p>Central pontine myelinolysis is typically associated with:<br><small>يُرتبط إزالة الميالين المركزية للجسر عادةً بـ:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Rapid correction of hyponatremia<br><small>التصحيح السريع لنقص صوديوم الدم</small></li>
+<li onclick="checkAnswer(this, false)">Thiamine deficiency<br><small>نقص الثيامين</small></li>
+<li onclick="checkAnswer(this, false)">Alcohol withdrawal<br><small>انسحاب الكحول</small></li>
+<li onclick="checkAnswer(this, false)">Overdose of antidepressants<br><small>جرعة زائدة من مضادات الاكتئاب</small></li>
+</ul>
+  <div class="explanation">Rapid correction of hyponatremia is the main cause. / السبب الرئيسي هو التصحيح السريع لنقص صوديوم الدم.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q106">
+  <h2>Question 106</h2>
+  <p>Autism spectrum disorder (ASD) is most strongly associated with which type of abnormalities?<br><small>يرتبط اضطراب طيف التوحد (ASD) بشكل أقوى بأي نوع من الشذوذات؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Synaptic connectivity abnormalities<br><small>اضطرابات الاتصال التشابكي</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Tau tangles<br><small>تشابكات تاو</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+</ul>
+  <div class="explanation">ASD is linked to synaptic abnormalities. / ASD يرتبط باضطرابات الاتصال التشابكي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q107">
+  <h2>Question 107</h2>
+  <p>Which brain region is often found to be enlarged in young children with ASD?<br><small>أي منطقة دماغية غالبًا ما تكون متضخمة لدى الأطفال الصغار المصابين بالتوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Amygdala<br><small>اللوزة الدماغية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Medulla oblongata<br><small>النخاع المستطيل</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+</ul>
+  <div class="explanation">Amygdala enlargement is seen in ASD. / يُلاحظ تضخم اللوزة الدماغية في ASD.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q108">
+  <h2>Question 108</h2>
+  <p>Which gene is strongly linked to autism spectrum disorder?<br><small>أي جين يرتبط بقوة باضطراب طيف التوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">MECP2<br><small>MECP2</small></li>
+<li onclick="checkAnswer(this, false)">APP<br><small>APP</small></li>
+<li onclick="checkAnswer(this, false)">PSEN1<br><small>PSEN1</small></li>
+<li onclick="checkAnswer(this, false)">SNCA<br><small>SNCA</small></li>
+</ul>
+  <div class="explanation">MECP2 gene is linked to ASD. / جين MECP2 مرتبط بالتوحد.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q109">
+  <h2>Question 109</h2>
+  <p>Which histopathological finding is sometimes seen in autism?<br><small>أي مظهر نسيجي يُرى أحيانًا في التوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Increased number of neurons in prefrontal cortex<br><small>زيادة عدد الخلايا العصبية في القشرة الجبهية الأمامية</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Lewy neurites<br><small>نُبيبات ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Spongiform changes<br><small>تغيرات إسفنجية</small></li>
+</ul>
+  <div class="explanation">Increased neurons in prefrontal cortex. / زيادة الخلايا العصبية في القشرة الجبهية الأمامية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q110">
+  <h2>Question 110</h2>
+  <p>In autism, Purkinje cell loss is often reported in which brain structure?<br><small>في التوحد، غالبًا ما يُبلّغ عن فقدان خلايا بوركنجي في أي جزء دماغي؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+<li onclick="checkAnswer(this, false)">Thalamus<br><small>المهاد</small></li>
+</ul>
+  <div class="explanation">Purkinje cell loss is seen in cerebellum. / فقدان خلايا بوركنجي يظهر في المخيخ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q111">
+  <h2>Question 111</h2>
+  <p>Which protein is implicated in Creutzfeldt-Jakob disease?<br><small>أي بروتين متورط في مرض كروتزفيلد جاكوب؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Prion protein (PrP)<br><small>بروتين البريون (PrP)</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid<br><small>بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Alpha-synuclein<br><small>ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Tau<br><small>تاو</small></li>
+</ul>
+  <div class="explanation">CJD involves prion protein. / مرض CJD يتضمن بروتين البريون.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q112">
+  <h2>Question 112</h2>
+  <p>Which type of dementia is most commonly associated with visual hallucinations?<br><small>أي نوع من الخرف يرتبط غالبًا بالهلوسة البصرية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Lewy body dementia<br><small>خرف أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Alzheimer’s disease<br><small>مرض الزهايمر</small></li>
+<li onclick="checkAnswer(this, false)">Vascular dementia<br><small>الخرف الوعائي</small></li>
+<li onclick="checkAnswer(this, false)">Frontotemporal dementia<br><small>الخرف الجبهي الصدغي</small></li>
+</ul>
+  <div class="explanation">DLB is strongly associated with visual hallucinations. / خرف أجسام ليوي يرتبط بالهلوسة البصرية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q113">
+  <h2>Question 113</h2>
+  <p>Which is a key feature of synucleinopathies?<br><small>ما هي السمة الأساسية للاعتلالات السينوكلينية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Alpha-synuclein deposits<br><small>ترسيب ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Tau tangles<br><small>تشابكات تاو</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Hirano bodies<br><small>أجسام هيرانو</small></li>
+</ul>
+  <div class="explanation">Synucleinopathies have alpha-synuclein deposits. / تحتوي الاعتلالات السينوكلينية على ترسيب ألفا-سينوكلين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q114">
+  <h2>Question 114</h2>
+  <p>In Alzheimer’s disease, which type of plaques are counted in neuropathological tests?<br><small>في مرض الزهايمر، أي نوع من اللويحات يتم عده في الاختبارات النسيجية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Neuritic plaques<br><small>اللويحات العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Diffuse plaques<br><small>اللويحات المنتشرة</small></li>
+<li onclick="checkAnswer(this, false)">Senile plaques<br><small>اللويحات الشيخوخية</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid angiopathy<br><small>الاعتلال الأميلويدي الوعائي</small></li>
+</ul>
+  <div class="explanation">Neuritic plaques are counted. / يتم عد اللويحات العصبية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q115">
+  <h2>Question 115</h2>
+  <p>Which region is involved early in Alzheimer’s disease?<br><small>أي منطقة تتأثر مبكرًا في مرض الزهايمر؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Entorhinal cortex<br><small>القشرة الشمية الداخلية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem<br><small>جذع الدماغ</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+</ul>
+  <div class="explanation">The entorhinal cortex is involved early. / القشرة الشمية الداخلية تتأثر مبكرًا.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q116">
+  <h2>Question 116</h2>
+  <p>What is the main pathological change in Huntington’s dementia?<br><small>ما هو التغير المرضي الرئيسي في خرف هنتنغتون؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Severe neuronal loss in caudate and putamen<br><small>فقدان شديد للخلايا العصبية في النواة المذنبة والبطامة</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Alpha-synuclein deposits<br><small>ترسيب ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Ubiquitin-positive inclusions<br><small>شذوذات موجبة لأوبيكويتين</small></li>
+</ul>
+  <div class="explanation">Huntington’s shows caudate/putamen loss. / يظهر هنتنغتون فقدان في النواة المذنبة والبطامة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q117">
+  <h2>Question 117</h2>
+  <p>Which infection is strongly associated with multinucleated giant cells in the brain?<br><small>أي عدوى ترتبط بشدة بوجود خلايا عملاقة متعددة الأنوية في الدماغ؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">HIV<br><small>فيروس نقص المناعة البشرية (HIV)</small></li>
+<li onclick="checkAnswer(this, false)">CMV<br><small>فيروس CMV</small></li>
+<li onclick="checkAnswer(this, false)">HSV<br><small>فيروس الهربس</small></li>
+<li onclick="checkAnswer(this, false)">TB<br><small>السل</small></li>
+</ul>
+  <div class="explanation">HIV shows multinucleated giant cells. / فيروس HIV يُظهر خلايا عملاقة متعددة الأنوية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q118">
+  <h2>Question 118</h2>
+  <p>Which abnormality is typically found in schizophrenia brains?<br><small>ما هو الشذوذ الشائع في أدمغة مرضى الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Reduced dendritic arborization<br><small>انخفاض تشعبات التغصنات</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Spongiform change<br><small>تغيرات إسفنجية</small></li>
+</ul>
+  <div class="explanation">Dendritic arborization is reduced. / تشعبات التغصنات منخفضة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q119">
+  <h2>Question 119</h2>
+  <p>The “Trojan Horse” mechanism describes:<br><small>آلية “الحصان الطروادة” تصف:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Entry of HIV into brain via monocytes<br><small>دخول فيروس HIV إلى الدماغ عبر الخلايا الوحيدة</small></li>
+<li onclick="checkAnswer(this, false)">Tau propagation between neurons<br><small>انتقال تاو بين الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Prion spread via contaminated instruments<br><small>انتقال البريون عبر الأدوات الملوثة</small></li>
+<li onclick="checkAnswer(this, false)">Synaptic pruning in schizophrenia<br><small>تشذيب التشابكات في الفصام</small></li>
+</ul>
+  <div class="explanation">It describes HIV entry into brain. / تصف دخول HIV إلى الدماغ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q120">
+  <h2>Question 120</h2>
+  <p>What is the pathological hallmark of Progressive Supranuclear Palsy (PSP)?<br><small>ما هو العلامة المرضية المميزة للشلل فوق النووي التدريجي (PSP)؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Tau-positive globose tangles<br><small>تشابكات كروية موجبة تاو</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Prion protein<br><small>بروتين البريون</small></li>
+</ul>
+  <div class="explanation">PSP has tau-positive tangles. / PSP يتميز بتشابكات كروية موجبة تاو.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q121">
+  <h2>Question 121</h2>
+  <p>What are the main receptors used by HIV-1 to enter cells?<br><small>ما هي المستقبلات الرئيسية التي يستخدمها HIV-1 لدخول الخلايا؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">CD4 and CD8<br><small>CD4 و CD8</small></li>
+<li onclick="checkAnswer(this, false)">CXCL9 and CXCL10<br><small>CXCL9 و CXCL10</small></li>
+<li onclick="checkAnswer(this, false)">MHC-I and MHC-II<br><small>MHC-I و MHC-II</small></li>
+<li onclick="checkAnswer(this, false)">TLR3 and TLR7<br><small>TLR3 و TLR7</small></li>
+</ul>
+  <div class="explanation">HIV-1 uses CD4 and co-receptors for entry. / يستخدم HIV-1 مستقبلات CD4 و CD8 للدخول.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q122">
+  <h2>Question 122</h2>
+  <p>HIV-1 shows a tropism in the brain that primarily infects:<br><small>يُظهر HIV-1 اتجاهًا انتقائيًا في الدماغ ليصيب بشكل رئيسي:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Macrophages and microglia<br><small>الضامة والخلايا الدبقية الصغيرة</small></li>
+<li onclick="checkAnswer(this, false)">Neurons only<br><small>الخلايا العصبية فقط</small></li>
+<li onclick="checkAnswer(this, false)">Astrocytes only<br><small>الخلايا النجمية فقط</small></li>
+<li onclick="checkAnswer(this, false)">Oligodendrocytes only<br><small>الخلايا قليلة التغصن فقط</small></li>
+</ul>
+  <div class="explanation">HIV-1 infects mainly macrophages and microglia. / يصيب HIV-1 بشكل رئيسي الضامة والخلايا الدبقية الصغيرة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q123">
+  <h2>Question 123</h2>
+  <p>What is the name of the hypothesis that describes HIV entry into the brain via infected monocytes?<br><small>ما هو اسم الفرضية التي تصف دخول HIV إلى الدماغ عبر الخلايا الوحيدة المصابة؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Trojan Horse hypothesis<br><small>فرضية الحصان الطروادة</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid Cascade hypothesis<br><small>فرضية شلال الأميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Excitotoxicity hypothesis<br><small>فرضية السمية الاستثارية</small></li>
+<li onclick="checkAnswer(this, false)">Microglial Activation hypothesis<br><small>فرضية تنشيط الدبقية الصغيرة</small></li>
+</ul>
+  <div class="explanation">It is called the Trojan Horse hypothesis. / تُسمى فرضية الحصان الطروادة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q124">
+  <h2>Question 124</h2>
+  <p>Which of the following is NOT typically seen in HIV brain biopsy?<br><small>أي مما يلي لا يُرى عادةً في خزعة الدماغ في HIV؟</small></p>
+  <ul><li onclick="checkAnswer(this, false)">Astrocyte activation<br><small>تنشيط الخلايا النجمية</small></li>
+<li onclick="checkAnswer(this, false)">Microglial nodules<br><small>عُقيدات الخلايا الدبقية الصغيرة</small></li>
+<li onclick="checkAnswer(this, false)">Multinucleated giant cells<br><small>الخلايا العملاقة متعددة الأنوية</small></li>
+<li onclick="checkAnswer(this, true)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+</ul>
+  <div class="explanation">Beta-amyloid plaques are not typical in HIV. / لويحات بيتا أميلويد ليست نموذجية في HIV.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q125">
+  <h2>Question 125</h2>
+  <p>Which brain regions are most affected in HIV-associated dementia?<br><small>ما هي المناطق الدماغية الأكثر تأثرًا في الخرف المرتبط بـ HIV؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Hippocampus, basal ganglia, caudate nucleus<br><small>الحُصين والعقد القاعدية والنواة المذنبة</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem only<br><small>جذع الدماغ فقط</small></li>
+</ul>
+  <div class="explanation">Hippocampus & basal ganglia are highly affected. / الحُصين والعقد القاعدية يتأثران بشكل كبير.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q126">
+  <h2>Question 126</h2>
+  <p>What structural brain change is commonly seen in schizophrenia?<br><small>ما هو التغير البنيوي الشائع في الدماغ في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Enlargement of lateral ventricles<br><small>توسع البطينين الجانبيين</small></li>
+<li onclick="checkAnswer(this, false)">Thickening of cortical gray matter<br><small>زيادة سمك المادة الرمادية القشرية</small></li>
+<li onclick="checkAnswer(this, false)">Increased hippocampal volume<br><small>زيادة حجم الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellar hypertrophy<br><small>تضخم المخيخ</small></li>
+</ul>
+  <div class="explanation">Schizophrenia is associated with enlarged lateral ventricles. / يرتبط الفصام بتوسع البطينين الجانبيين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q127">
+  <h2>Question 127</h2>
+  <p>Which region shows white matter reductions in schizophrenia?<br><small>أي منطقة تظهر بها انخفاضات المادة البيضاء في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Parahippocampal gyrus<br><small>التلفيف المجاور للحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem<br><small>جذع الدماغ</small></li>
+</ul>
+  <div class="explanation">White-matter reductions are seen in the parahippocampal region. / تظهر انخفاضات المادة البيضاء في التلفيف المجاور للحُصين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q128">
+  <h2>Question 128</h2>
+  <p>Which of the following is typically absent in schizophrenia?<br><small>أي مما يلي يكون غائبًا عادة في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Astrogliosis<br><small>تليف الخلايا النجمية</small></li>
+<li onclick="checkAnswer(this, false)">Neuronal density changes<br><small>تغيرات كثافة الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia volume changes<br><small>تغيرات حجم العقد القاعدية</small></li>
+<li onclick="checkAnswer(this, false)">Synaptic marker deficits<br><small>نقص علامات التشابك العصبي</small></li>
+</ul>
+  <div class="explanation">No astrogliosis is seen in schizophrenia. / لا يوجد تليف خلايا نجمية في الفصام.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q129">
+  <h2>Question 129</h2>
+  <p>Which structure is highly involved in language processing and shows asymmetry in schizophrenia?<br><small>أي بنية تشارك بقوة في معالجة اللغة وتظهر عدم تناسق في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Planum temporale<br><small>المستوى الصدغي</small></li>
+<li onclick="checkAnswer(this, false)">Amygdala<br><small>اللوزة</small></li>
+<li onclick="checkAnswer(this, false)">Caudate nucleus<br><small>النواة المذنبة</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+</ul>
+  <div class="explanation">The planum temporale is involved in language and shows asymmetry. / المستوى الصدغي يشارك في اللغة ويظهر عدم تناسق.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q130">
+  <h2>Question 130</h2>
+  <p>Which neuronal feature is reduced in schizophrenia?<br><small>أي خاصية عصبية تنخفض في الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Dendritic arborization<br><small>تشعبات التغصنات</small></li>
+<li onclick="checkAnswer(this, false)">Axonal length<br><small>طول المحور العصبي</small></li>
+<li onclick="checkAnswer(this, false)">Neurogenesis<br><small>تكوين الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Myelination<br><small>تغليف المايلين</small></li>
+</ul>
+  <div class="explanation">Reduced dendritic arborization is noted. / يُلاحظ انخفاض تشعبات التغصنات.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q131">
+  <h2>Question 131</h2>
+  <p>Which brain region is most affected in major depressive disorder?<br><small>أي منطقة دماغية تتأثر أكثر في الاضطراب الاكتئابي الكبير؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Subgenual anterior cingulate cortex<br><small>قشرة الحزام الأمامية تحت الركبية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+</ul>
+  <div class="explanation">Subgenual anterior cingulate cortex is most affected. / أكثر المناطق تأثرًا هي قشرة الحزام الأمامية تحت الركبية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q132">
+  <h2>Question 132</h2>
+  <p>What is a common finding in bipolar disorder brains?<br><small>ما هو الاكتشاف الشائع في أدمغة المصابين بالاضطراب ثنائي القطب؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Enlarged ventricles<br><small>توسع البطينين</small></li>
+<li onclick="checkAnswer(this, false)">Cortical hypertrophy<br><small>تضخم القشرة</small></li>
+<li onclick="checkAnswer(this, false)">No detectable changes<br><small>لا تغييرات يمكن اكتشافها</small></li>
+<li onclick="checkAnswer(this, false)">Glioblastoma formation<br><small>تكوّن الورم الأرومي الدبقي</small></li>
+</ul>
+  <div class="explanation">Enlarged ventricles are seen in bipolar disorder. / يُلاحظ توسع البطينين في الاضطراب ثنائي القطب.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q133">
+  <h2>Question 133</h2>
+  <p>Which vitamin deficiency is most associated with Wernicke-Korsakoff syndrome?<br><small>أي نقص فيتامين يرتبط أكثر بمتلازمة فيرنيك كورساكوف؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Thiamine (B1)<br><small>الثيامين (B1)</small></li>
+<li onclick="checkAnswer(this, false)">Niacin (B3)<br><small>النياسين (B3)</small></li>
+<li onclick="checkAnswer(this, false)">Folate (B9)<br><small>حمض الفوليك (B9)</small></li>
+<li onclick="checkAnswer(this, false)">Cobalamin (B12)<br><small>كوبالامين (B12)</small></li>
+</ul>
+  <div class="explanation">Thiamine deficiency is key. / نقص الثيامين هو السبب الرئيسي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q134">
+  <h2>Question 134</h2>
+  <p>Which brain structure is classically damaged in Wernicke’s encephalopathy?<br><small>أي بنية دماغية تتضرر بشكل كلاسيكي في اعتلال دماغي فيرنيك؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Mammillary bodies<br><small>الأجسام الحلمية</small></li>
+<li onclick="checkAnswer(this, false)">Corpus callosum<br><small>الجسم الثفني</small></li>
+<li onclick="checkAnswer(this, false)">Occipital lobes<br><small>الفصوص القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+</ul>
+  <div class="explanation">Mammillary bodies are classically damaged. / تتضرر الأجسام الحلمية بشكل كلاسيكي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q135">
+  <h2>Question 135</h2>
+  <p>Central pontine myelinolysis is typically associated with:<br><small>يُرتبط إزالة الميالين المركزية للجسر عادةً بـ:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Rapid correction of hyponatremia<br><small>التصحيح السريع لنقص صوديوم الدم</small></li>
+<li onclick="checkAnswer(this, false)">Thiamine deficiency<br><small>نقص الثيامين</small></li>
+<li onclick="checkAnswer(this, false)">Alcohol withdrawal<br><small>انسحاب الكحول</small></li>
+<li onclick="checkAnswer(this, false)">Overdose of antidepressants<br><small>جرعة زائدة من مضادات الاكتئاب</small></li>
+</ul>
+  <div class="explanation">Rapid correction of hyponatremia is the main cause. / السبب الرئيسي هو التصحيح السريع لنقص صوديوم الدم.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q136">
+  <h2>Question 136</h2>
+  <p>Autism spectrum disorder (ASD) is most strongly associated with which type of abnormalities?<br><small>يرتبط اضطراب طيف التوحد (ASD) بشكل أقوى بأي نوع من الشذوذات؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Synaptic connectivity abnormalities<br><small>اضطرابات الاتصال التشابكي</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Tau tangles<br><small>تشابكات تاو</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+</ul>
+  <div class="explanation">ASD is linked to synaptic abnormalities. / ASD يرتبط باضطرابات الاتصال التشابكي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q137">
+  <h2>Question 137</h2>
+  <p>Which brain region is often found to be enlarged in young children with ASD?<br><small>أي منطقة دماغية غالبًا ما تكون متضخمة لدى الأطفال الصغار المصابين بالتوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Amygdala<br><small>اللوزة الدماغية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Medulla oblongata<br><small>النخاع المستطيل</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+</ul>
+  <div class="explanation">Amygdala enlargement is seen in ASD. / يُلاحظ تضخم اللوزة الدماغية في ASD.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q138">
+  <h2>Question 138</h2>
+  <p>Which gene is strongly linked to autism spectrum disorder?<br><small>أي جين يرتبط بقوة باضطراب طيف التوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">MECP2<br><small>MECP2</small></li>
+<li onclick="checkAnswer(this, false)">APP<br><small>APP</small></li>
+<li onclick="checkAnswer(this, false)">PSEN1<br><small>PSEN1</small></li>
+<li onclick="checkAnswer(this, false)">SNCA<br><small>SNCA</small></li>
+</ul>
+  <div class="explanation">MECP2 gene is linked to ASD. / جين MECP2 مرتبط بالتوحد.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q139">
+  <h2>Question 139</h2>
+  <p>Which histopathological finding is sometimes seen in autism?<br><small>أي مظهر نسيجي يُرى أحيانًا في التوحد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Increased number of neurons in prefrontal cortex<br><small>زيادة عدد الخلايا العصبية في القشرة الجبهية الأمامية</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Lewy neurites<br><small>نُبيبات ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Spongiform changes<br><small>تغيرات إسفنجية</small></li>
+</ul>
+  <div class="explanation">Increased neurons in prefrontal cortex. / زيادة الخلايا العصبية في القشرة الجبهية الأمامية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q140">
+  <h2>Question 140</h2>
+  <p>In autism, Purkinje cell loss is often reported in which brain structure?<br><small>في التوحد، غالبًا ما يُبلّغ عن فقدان خلايا بوركنجي في أي جزء دماغي؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Cerebellum<br><small>المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampus<br><small>الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Basal ganglia<br><small>العقد القاعدية</small></li>
+<li onclick="checkAnswer(this, false)">Thalamus<br><small>المهاد</small></li>
+</ul>
+  <div class="explanation">Purkinje cell loss is seen in cerebellum. / فقدان خلايا بوركنجي يظهر في المخيخ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q141">
+  <h2>Question 141</h2>
+  <p>Which protein is implicated in Creutzfeldt-Jakob disease?<br><small>أي بروتين متورط في مرض كروتزفيلد جاكوب؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Prion protein (PrP)<br><small>بروتين البريون (PrP)</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid<br><small>بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Alpha-synuclein<br><small>ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Tau<br><small>تاو</small></li>
+</ul>
+  <div class="explanation">CJD involves prion protein. / مرض CJD يتضمن بروتين البريون.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q142">
+  <h2>Question 142</h2>
+  <p>Which type of dementia is most commonly associated with visual hallucinations?<br><small>أي نوع من الخرف يرتبط غالبًا بالهلوسة البصرية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Lewy body dementia<br><small>خرف أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Alzheimer’s disease<br><small>مرض الزهايمر</small></li>
+<li onclick="checkAnswer(this, false)">Vascular dementia<br><small>الخرف الوعائي</small></li>
+<li onclick="checkAnswer(this, false)">Frontotemporal dementia<br><small>الخرف الجبهي الصدغي</small></li>
+</ul>
+  <div class="explanation">DLB is strongly associated with visual hallucinations. / خرف أجسام ليوي يرتبط بالهلوسة البصرية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q143">
+  <h2>Question 143</h2>
+  <p>Which is a key feature of synucleinopathies?<br><small>ما هي السمة الأساسية للاعتلالات السينوكلينية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Alpha-synuclein deposits<br><small>ترسيب ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Tau tangles<br><small>تشابكات تاو</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Hirano bodies<br><small>أجسام هيرانو</small></li>
+</ul>
+  <div class="explanation">Synucleinopathies have alpha-synuclein deposits. / تحتوي الاعتلالات السينوكلينية على ترسيب ألفا-سينوكلين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q144">
+  <h2>Question 144</h2>
+  <p>In Alzheimer’s disease, which type of plaques are counted in neuropathological tests?<br><small>في مرض الزهايمر، أي نوع من اللويحات يتم عده في الاختبارات النسيجية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Neuritic plaques<br><small>اللويحات العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Diffuse plaques<br><small>اللويحات المنتشرة</small></li>
+<li onclick="checkAnswer(this, false)">Senile plaques<br><small>اللويحات الشيخوخية</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid angiopathy<br><small>الاعتلال الأميلويدي الوعائي</small></li>
+</ul>
+  <div class="explanation">Neuritic plaques are counted. / يتم عد اللويحات العصبية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q145">
+  <h2>Question 145</h2>
+  <p>Which region is involved early in Alzheimer’s disease?<br><small>أي منطقة تتأثر مبكرًا في مرض الزهايمر؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Entorhinal cortex<br><small>القشرة الشمية الداخلية</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Brainstem<br><small>جذع الدماغ</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+</ul>
+  <div class="explanation">The entorhinal cortex is involved early. / القشرة الشمية الداخلية تتأثر مبكرًا.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q146">
+  <h2>Question 146</h2>
+  <p>What is the main pathological change in Huntington’s dementia?<br><small>ما هو التغير المرضي الرئيسي في خرف هنتنغتون؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Severe neuronal loss in caudate and putamen<br><small>فقدان شديد للخلايا العصبية في النواة المذنبة والبطامة</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Alpha-synuclein deposits<br><small>ترسيب ألفا-سينوكلين</small></li>
+<li onclick="checkAnswer(this, false)">Ubiquitin-positive inclusions<br><small>شذوذات موجبة لأوبيكويتين</small></li>
+</ul>
+  <div class="explanation">Huntington’s shows caudate/putamen loss. / يظهر هنتنغتون فقدان في النواة المذنبة والبطامة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q147">
+  <h2>Question 147</h2>
+  <p>Which infection is strongly associated with multinucleated giant cells in the brain?<br><small>أي عدوى ترتبط بشدة بوجود خلايا عملاقة متعددة الأنوية في الدماغ؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">HIV<br><small>فيروس نقص المناعة البشرية (HIV)</small></li>
+<li onclick="checkAnswer(this, false)">CMV<br><small>فيروس CMV</small></li>
+<li onclick="checkAnswer(this, false)">HSV<br><small>فيروس الهربس</small></li>
+<li onclick="checkAnswer(this, false)">TB<br><small>السل</small></li>
+</ul>
+  <div class="explanation">HIV shows multinucleated giant cells. / فيروس HIV يُظهر خلايا عملاقة متعددة الأنوية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q148">
+  <h2>Question 148</h2>
+  <p>Which abnormality is typically found in schizophrenia brains?<br><small>ما هو الشذوذ الشائع في أدمغة مرضى الفصام؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Reduced dendritic arborization<br><small>انخفاض تشعبات التغصنات</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Spongiform change<br><small>تغيرات إسفنجية</small></li>
+</ul>
+  <div class="explanation">Dendritic arborization is reduced. / تشعبات التغصنات منخفضة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q149">
+  <h2>Question 149</h2>
+  <p>The “Trojan Horse” mechanism describes:<br><small>آلية “الحصان الطروادة” تصف:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Entry of HIV into brain via monocytes<br><small>دخول فيروس HIV إلى الدماغ عبر الخلايا الوحيدة</small></li>
+<li onclick="checkAnswer(this, false)">Tau propagation between neurons<br><small>انتقال تاو بين الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Prion spread via contaminated instruments<br><small>انتقال البريون عبر الأدوات الملوثة</small></li>
+<li onclick="checkAnswer(this, false)">Synaptic pruning in schizophrenia<br><small>تشذيب التشابكات في الفصام</small></li>
+</ul>
+  <div class="explanation">It describes HIV entry into brain. / تصف دخول HIV إلى الدماغ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q150">
+  <h2>Question 150</h2>
+  <p>What is the pathological hallmark of Progressive Supranuclear Palsy (PSP)?<br><small>ما هو العلامة المرضية المميزة للشلل فوق النووي التدريجي (PSP)؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Tau-positive globose tangles<br><small>تشابكات كروية موجبة تاو</small></li>
+<li onclick="checkAnswer(this, false)">Lewy bodies<br><small>أجسام ليوي</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid plaques<br><small>لويحات أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Prion protein<br><small>بروتين البريون</small></li>
+</ul>
+  <div class="explanation">PSP has tau-positive tangles. / PSP يتميز بتشابكات كروية موجبة تاو.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q151">
+  <h2>All Done</h2>
+  <p>All 150 questions are complete. Incredible work!</p>
+</section>
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = 149; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.innerHTML.includes('correct') || opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

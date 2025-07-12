@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethics in Psychiatry - Questions 1–10</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .question-box { background: #fff; padding: 20px; margin: 50px auto; border-radius: 10px; max-width: 750px; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 20px; }
+    .option { background: #eee; padding: 10px; margin: 8px 0; border-radius: 5px; cursor: pointer; }
+    .option.correct { background: #d4edda !important; pointer-events: none; }
+    .option.incorrect { background: #f8d7da !important; pointer-events: none; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 5px solid gold; padding: 10px; display: none; margin-top: 15px; }
+    .next-btn { display: none; margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    .counter { position: fixed; top: 10px; right: 20px; background: white; padding: 5px 10px; border-radius: 10px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px;
+      font-style: italic;
+      color: rgba(128,128,128,0.1);
+      pointer-events: none;
+    }
+    #lastQ { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+<body>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<div class="counter">Total Questions: 10</div>
+<div id="quiz"></div>
+<div id="lastQ"><button onclick="goToLast()">Last Q</button></div>
+<script>
+const questions = [{"q": "Which model sees the doctor as a dispenser of information?", "qt": "أي نموذج يرى الطبيب كموزعًا للمعلومات؟", "options": [["Informative model", "النموذج الإعلامي"], ["Interpretive model", "النموذج التفسيري"], ["Deliberative model", "النموذج التداولي"], ["Directive model", "النموذج التوجيهي"]], "answer": 0, "exp": "The Informative model treats the doctor as a dispenser of information where the choice is left to the patient. | النموذج الإعلامي يعتبر الطبيب مصدرًا للمعلومات ويُترك القرار للمريض."}, {"q": "What ethical code was established after WWII for human experimentation?", "qt": "ما هو القانون الأخلاقي الذي تم وضعه بعد الحرب العالمية الثانية للتجارب البشرية؟", "options": [["Declaration of Helsinki", "إعلان هلسنكي"], ["Belmont Report", "تقرير بيلمونت"], ["Nuremberg Code", "مدونة نورمبرغ"], ["Willowbrook Code", "مدونة ويلو بروك"]], "answer": 2, "exp": "The Nuremberg Code focused on voluntary consent and minimizing harm. | مدونة نورمبرغ ركزت على الموافقة الطوعية وتقليل الضرر."}, {"q": "Which model emphasizes beneficence and doctor-knows-best?", "qt": "أي نموذج يركز على الإحسان وافتراض أن الطبيب يعرف الأفضل؟", "options": [["Informative model", "النموذج الإعلامي"], ["Interpretive model", "النموذج التفسيري"], ["Deliberative model", "النموذج التداولي"], ["Paternalistic model", "النموذج الأبوي"]], "answer": 3, "exp": "The paternalistic model emphasizes beneficence where the doctor decides what’s best. | النموذج الأبوي يُفترض فيه أن الطبيب يختار ما هو أفضل للمريض."}, {"q": "Which ethical theory focuses on outcomes and consequences?", "qt": "أي نظرية أخلاقية تركز على النتائج والعواقب؟", "options": [["Deontology", "الواجبية"], ["Virtue ethics", "أخلاق الفضيلة"], ["Utilitarianism", "النفعية"], ["Teleology", "الغاية"]], "answer": 2, "exp": "Utilitarianism seeks the greatest good for the greatest number. | تسعى النفعية لتحقيق أكبر قدر من الخير لأكبر عدد من الناس."}, {"q": "According to the Belmont Report, which is one key principle?", "qt": "وفقًا لتقرير بيلمونت، ما هو أحد المبادئ الأساسية؟", "options": [["Privacy", "الخصوصية"], ["Justice", "العدالة"], ["Confidentiality", "السرية"], ["Risk minimization", "تقليل المخاطر"]], "answer": 1, "exp": "Justice ensures fairness in the distribution of benefits and burdens. | العدالة تضمن التوزيع العادل للفوائد والأعباء."}, {"q": "Which principle means 'do no harm'?", "qt": "أي مبدأ يعني 'عدم الإضرار'؟", "options": [["Beneficence", "الإحسان"], ["Autonomy", "الاستقلالية"], ["Justice", "العدالة"], ["Non-maleficence", "عدم الإضرار"]], "answer": 3, "exp": "Non-maleficence is the obligation to avoid causing harm. | عدم الإضرار هو الالتزام بعدم إحداث ضرر للمريض."}, {"q": "What is the main focus of the deliberative model?", "qt": "ما هو التركيز الأساسي في النموذج التداولي؟", "options": [["Doctor decides alone", "الطبيب يقرر بمفرده"], ["Patient decides alone", "المريض يقرر بمفرده"], ["Shared moral discussion", "نقاش أخلاقي مشترك"], ["Data presentation only", "عرض البيانات فقط"]], "answer": 2, "exp": "The deliberative model includes moral dialogue to reach best decision. | يشمل النموذج التداولي حوارًا أخلاقيًا للوصول لأفضل قرار."}, {"q": "Which model is most autonomy-respecting?", "qt": "أي نموذج هو الأكثر احترامًا للاستقلالية؟", "options": [["Paternalistic", "الأبوي"], ["Deliberative", "التداولي"], ["Informative", "الإعلامي"], ["Interpretive", "التفسيري"]], "answer": 2, "exp": "The informative model respects patient’s autonomy to make decisions. | النموذج الإعلامي يحترم استقلالية المريض لاتخاذ قراراته."}, {"q": "What is the difference between confidentiality and privacy?", "qt": "ما الفرق بين السرية والخصوصية؟", "options": [["Same thing", "نفس الشيء"], ["Confidentiality = info, Privacy = space", "السرية = المعلومات، الخصوصية = المساحة"], ["Confidentiality = room, Privacy = law", "السرية = الغرفة، الخصوصية = القانون"], ["No difference", "لا يوجد فرق"]], "answer": 1, "exp": "Confidentiality protects info; privacy refers to person’s space and control. | السرية تحمي المعلومات، والخصوصية تتعلق بمساحة الشخص والتحكم."}, {"q": "What principle supports full patient information?", "qt": "أي مبدأ يدعم توفير المعلومات الكاملة للمريض؟", "options": [["Justice", "العدالة"], ["Autonomy", "الاستقلالية"], ["Beneficence", "الإحسان"], ["Non-maleficence", "عدم الإضرار"]], "answer": 1, "exp": "Autonomy includes the right to full information to make informed decisions. | الاستقلالية تعني حق المريض في المعرفة الكاملة لاتخاذ القرار."}];
+
+let current = 0, score = 0;
+const quiz = document.getElementById("quiz");
+
+function loadQ() {
+  const q = questions[current];
+  let html = `<div class='question-box' id='qbox'>
+    <div class='question'>Q${current + 1}. ${q.q}</div>
+    <div class='translation'>${q.qt}</div>`;
+  q.options.forEach((opt, i) => {
+    html += `<div class='option' data-index='${i}' onclick='selectAnswer(this, ${i}, ${q.answer})'>${opt[0]}<br><small>${opt[1]}</small></div>`;
+  });
+  html += `<div class='explanation'><b>Explanation:</b> ${q.exp}</div>
+    <button class='next-btn' onclick='nextQ()'>Next</button>
+  </div>`;
+  quiz.innerHTML = html;
+}
+
+function selectAnswer(el, selected, correct) {
+  const opts = document.querySelectorAll('.option');
+  opts.forEach((opt, i) => {
+    opt.style.pointerEvents = 'none';
+    if (i === correct) opt.classList.add('correct');
+    else if (i === selected) opt.classList.add('incorrect');
+  });
+  if (selected === correct) score++;
+  document.querySelector('.explanation').style.display = 'block';
+  document.querySelector('.next-btn').style.display = 'inline-block';
+}
+
+function nextQ() {
+  current++;
+  if (current < questions.length) loadQ();
+  else {
+    quiz.innerHTML = `<div class='question-box'><div class='question'>انتهت الأسئلة</div><div class='question'>Your score: <span style='color:green'>${score}</span> / <span style='color:red'>${questions.length}</span></div></div>`;
+  }
+}
+
+function goToLast() {
+  current = questions.length - 1;
+  loadQ();
+}
+
+loadQ();
+</script>
+</body>
+</html>

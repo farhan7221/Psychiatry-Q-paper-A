@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Theory of Mind – Scenario Quiz</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); color: rgba(0,0,0,0.07); font-size: 24px; font-style: italic; }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. A 3-year-old sees Sally leave chocolate on a table. Anne hides it. When asked where Sally will look, the child says: 'In the new place.'<br><span style='color:gray'>طفل عمره 3 سنوات يرى سالي تترك الشوكولاتة، ثم تُنقل. عندما يُسأل أين ستبحث سالي، يجيب الطفل: في المكان الجديد.</span>", "o": ["Correct understanding of Sally’s belief", "First-order false belief failure", "Second-order success", "Empathy disorder"], "a": 1, "e": "3-year-olds often fail first-order false belief tasks, like Sally-Anne Test.<br><span style='color:gray'>عادة ما يفشل الأطفال بعمر 3 سنوات في فهم المعتقد الخاطئ من المستوى الأول.</span>"}, {"q": "2. A 4.5-year-old sees a candy box, guesses 'candy', finds a pencil inside. When asked what she thought was inside before, she says 'candy'.<br><span style='color:gray'>طفلة تتوقع وجود حلوى، وتجد قلمًا. وعندما تُسأل ماذا كانت تعتقد، تقول: حلوى.</span>", "o": ["Fails theory of mind", "Shows false consensus bias", "Passes deceptive container task", "Lacks empathy"], "a": 2, "e": "Answering 'candy' shows understanding others can hold false beliefs = ToM.<br><span style='color:gray'>الإجابة الصحيحة تدل على تطور نظرية العقل وقدرة على الفصل بين الواقع والمعتقد.</span>"}, {"q": "3. A 6-year-old says, “Jim thinks that Varun thinks the toy is under the bed.”<br><span style='color:gray'>طفل عمره 6 سنوات يقول: جيم يعتقد أن فارون يعتقد أن اللعبة تحت السرير.</span>", "o": ["First-order belief", "Second-order belief", "Egocentrism", "Delayed language development"], "a": 1, "e": "Understanding another’s thoughts about someone else’s thoughts = second-order ToM.<br><span style='color:gray'>هذا اختبار لمستوى ثاني من نظرية العقل: فهم ما يعتقده شخص عن شخص آخر.</span>"}, {"q": "4. A child with autism passes first-order ToM at age 5.5 years. This is:<br><span style='color:gray'>طفل توحدي ينجح في اختبار معتقد خاطئ عند عمر 5.5 سنوات.</span>", "o": ["Unusual", "Normal", "Late but possible", "Impossible"], "a": 2, "e": "Children with autism may develop ToM later, typically around 5.5 years.<br><span style='color:gray'>أطفال التوحد قد ينجحون باختبارات ToM ولكن بعمر أكبر من الطبيعي.</span>"}, {"q": "5. A 15-month-old seems to expect someone to act on false belief if tasks are simplified.<br><span style='color:gray'>رضيع عمره 15 شهرًا يتوقع سلوكًا مبنيًا على معتقد خاطئ عندما تُبسّط المهمة.</span>", "o": ["Impossible", "Evidence of early ToM", "Delayed cognition", "Object permanence"], "a": 1, "e": "Reduced task demands may show early ToM signs even in infants.<br><span style='color:gray'>عند تبسيط المهمة، قد تظهر دلائل مبكرة على فهم الآخرين لدى الرضع.</span>"}, {"q": "6. A child says, 'It looks like an apple, but it’s really a ball.' This shows:<br><span style='color:gray'>طفل يقول: يبدو تفاحة لكنه كرة فعلًا.</span>", "o": ["Appearance-reality distinction", "Empathy", "Object permanence", "Egocentrism"], "a": 0, "e": "Distinguishing between how things look and what they are is part of ToM.<br><span style='color:gray'>الفصل بين المظهر والحقيقة جزء مهم من نظرية العقل المتطورة.</span>"}, {"q": "7. A child believes everyone knows what he knows. This reflects:<br><span style='color:gray'>طفل يعتقد أن كل شخص يعرف ما يعرفه هو.</span>", "o": ["Theory of mind", "Egocentrism", "Second-order belief", "Hyperempathy"], "a": 1, "e": "Egocentrism is the inability to distinguish one’s knowledge from others'.<br><span style='color:gray'>التمركز حول الذات يعني الفشل في تصور أن الآخرين قد يجهلون ما أعرفه.</span>"}, {"q": "8. Which brain region is involved in ToM?<br><span style='color:gray'>ما المنطقة الدماغية المرتبطة بنظرية العقل؟</span>", "o": ["Amygdala", "Occipital lobe", "Hippocampus", "Cerebellum"], "a": 0, "e": "Amygdala + medial prefrontal cortex + temporal-parietal junction are key in ToM.<br><span style='color:gray'>اللوزة الدماغية، والفص الجبهي الإنسي من أهم المناطق المرتبطة بنظرية العقل.</span>"}, {"q": "9. In psychosis, ToM deficits are:<br><span style='color:gray'>في الذهان، يكون ضعف نظرية العقل:</span>", "o": ["Permanent", "Progressive", "State-related", "Non-existent"], "a": 2, "e": "ToM issues in psychosis often relate to current mental state.<br><span style='color:gray'>ضعف ToM في الذهان يكون مؤقتًا ويظهر عند الانتكاس.</span>"}, {"q": "10. Which disorder is most associated with ToM failure due to trait problem?<br><span style='color:gray'>أي اضطراب يرتبط غالبًا بضعف ToM كصفة ثابتة؟</span>", "o": ["Bipolar disorder", "Autism spectrum disorder", "Conduct disorder", "Phobia"], "a": 1, "e": "In autism, ToM difficulties are trait-related, not just state-based.<br><span style='color:gray'>في التوحد، ضعف ToM جزء من تكوين الشخص، وليس مؤقتًا.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة 🧠🎯<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

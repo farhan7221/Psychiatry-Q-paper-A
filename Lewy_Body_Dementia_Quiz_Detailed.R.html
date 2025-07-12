@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lewy Body Dementia Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Lewy Body Dementia Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What protein is the primary component of Lewy bodies?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Tau</li>
+<li onclick="checkAnswer(this, false)">Ubiquitin</li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid</li>
+<li onclick="checkAnswer(this, true)">Alpha-synuclein</li>
+</ul>
+<div class="explanation">Lewy bodies are eosinophilic, round, intracytoplasmic inclusions composed mainly of misfolded alpha-synuclein. This protein aggregates abnormally in neurons and is implicated in the pathogenesis of several neurodegenerative diseases known as synucleinopathies, including Parkinson's disease and Dementia with Lewy bodies (DLB).</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Where are Lewy bodies located in the brain in DLB compared to Parkinson’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Only in substantia nigra</li>
+<li onclick="checkAnswer(this, false)">Only in cerebellum</li>
+<li onclick="checkAnswer(this, true)">Widespread including neocortex</li>
+<li onclick="checkAnswer(this, false)">Confined to frontal lobe</li>
+</ul>
+<div class="explanation">In DLB, unlike Parkinson’s disease, Lewy bodies are found diffusely throughout the cerebral cortex, including the temporal lobes, cingulate gyrus, and frontal lobes. This widespread distribution explains the prominent cognitive and neuropsychiatric symptoms seen in DLB, including hallucinations and fluctuating cognition.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which immunostain is used to detect Lewy bodies?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Tau</li>
+<li onclick="checkAnswer(this, false)">Silver stain</li>
+<li onclick="checkAnswer(this, true)">Alpha-synuclein antibody</li>
+<li onclick="checkAnswer(this, false)">PAS stain</li>
+</ul>
+<div class="explanation">The most specific way to identify Lewy bodies is through immunohistochemical staining using antibodies against alpha-synuclein. This staining highlights abnormal aggregates in neurons, distinguishing DLB and other synucleinopathies from tauopathies and Alzheimer’s disease.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>What is the correlation between the number of Lewy bodies and cognitive decline?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Direct correlation</li>
+<li onclick="checkAnswer(this, false)">Simple correlation</li>
+<li onclick="checkAnswer(this, false)">Strong correlation</li>
+<li onclick="checkAnswer(this, true)">No simple correlation</li>
+</ul>
+<div class="explanation">Although Lewy bodies are a hallmark of DLB, there is no simple correlation between their number and the severity of dementia. Cognitive symptoms in DLB result from a combination of factors including alpha-synuclein spread, cholinergic deficits, and coexisting Alzheimer-type pathology.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>What additional pathology is found in up to 75% of DLB cases?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">TDP-43 pathology</li>
+<li onclick="checkAnswer(this, false)">MSA inclusions</li>
+<li onclick="checkAnswer(this, true)">AD-type plaque/tangle changes</li>
+<li onclick="checkAnswer(this, false)">Vascular dementia</li>
+</ul>
+<div class="explanation">Over 75% of patients with DLB also have coexisting Alzheimer’s pathology, including beta-amyloid plaques and neurofibrillary tangles. This mixed pathology often complicates clinical diagnosis and may explain variability in symptom presentation, particularly the degree of memory impairment.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>What cytoplasmic inclusion is weakly eosinophilic and spherical in DLB?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Pick bodies</li>
+<li onclick="checkAnswer(this, false)">Hirano bodies</li>
+<li onclick="checkAnswer(this, true)">Lewy bodies</li>
+<li onclick="checkAnswer(this, false)">Negri bodies</li>
+</ul>
+<div class="explanation">Lewy bodies in cortical neurons are weakly eosinophilic spherical inclusions that displace the nucleus peripherally. These inclusions differ from the classic brainstem Lewy bodies found in Parkinson’s disease by being less dense and lacking the peripheral halo.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>What structure in DLB shows peripheral displacement of the nucleus due to Lewy body accumulation?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Cortical neuron</li>
+<li onclick="checkAnswer(this, false)">Glial cell</li>
+<li onclick="checkAnswer(this, false)">Astrocyte</li>
+<li onclick="checkAnswer(this, false)">Ependymal cell</li>
+</ul>
+<div class="explanation">In DLB, the cortical neurons affected by Lewy body formation exhibit eccentric displacement of the nucleus, often due to the accumulation of the inclusion body in the perikaryon (cytoplasm around the nucleus). This is visible on routine H&E and immunostaining.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>What is a Lewy neurite?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Glial projection with tau</li>
+<li onclick="checkAnswer(this, false)">Synaptic vesicle</li>
+<li onclick="checkAnswer(this, true)">Axonal process with alpha-synuclein</li>
+<li onclick="checkAnswer(this, false)">Neuronal vacuole</li>
+</ul>
+<div class="explanation">Lewy neurites are abnormal axonal or dendritic processes containing aggregated alpha-synuclein. They are often seen in the hippocampus and brainstem and represent the extension of Lewy pathology beyond the soma into neuronal projections, contributing to network dysfunction.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which region is most associated with Lewy neurites in DLB?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">CA1 hippocampus</li>
+<li onclick="checkAnswer(this, true)">CA2/3 hippocampus and substantia nigra</li>
+<li onclick="checkAnswer(this, false)">Thalamus</li>
+<li onclick="checkAnswer(this, false)">Occipital lobe</li>
+</ul>
+<div class="explanation">The CA2/3 regions of the hippocampus and the substantia nigra are commonly involved with Lewy neurites in DLB. These changes reflect both cognitive and motor symptoms, as these regions are critical in memory encoding and movement regulation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>What histological feature in DLB may mimic prion disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Neuronal loss</li>
+<li onclick="checkAnswer(this, false)">Spongiform change</li>
+<li onclick="checkAnswer(this, true)">Microvacuolation of the cortex</li>
+<li onclick="checkAnswer(this, false)">Perivascular cuffing</li>
+</ul>
+<div class="explanation">Microvacuolation, or spongiform change, in the medial temporal cortex is a histopathological feature seen in DLB that may resemble prion disease on microscopy. However, it lacks the transmissibility and rapid progression typical of prion disorders.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

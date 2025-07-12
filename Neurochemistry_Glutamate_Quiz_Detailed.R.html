@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurochemistry of Glutamate Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurochemistry of Glutamate Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What is the primary role of glutamate in the CNS?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Inhibitory neurotransmitter</li>
+<li onclick="checkAnswer(this, true)">Excitatory neurotransmitter</li>
+<li onclick="checkAnswer(this, false)">Neuromodulator only</li>
+<li onclick="checkAnswer(this, false)">Hormone</li>
+</ul>
+<div class="explanation">Glutamate is the main excitatory neurotransmitter in the CNS, mediating most fast synaptic transmission and critical for learning and memory.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which precursor molecule is essential for glutamate synthesis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Aspartate</li>
+<li onclick="checkAnswer(this, true)">Alpha-ketoglutarate</li>
+<li onclick="checkAnswer(this, false)">Tyrosine</li>
+<li onclick="checkAnswer(this, false)">GABA</li>
+</ul>
+<div class="explanation">Glutamate is synthesized from alpha-ketoglutarate, a Krebs cycle intermediate, by transamination reactions in neurons.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which enzyme converts glutamate to GABA?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Glutamine synthetase</li>
+<li onclick="checkAnswer(this, true)">Glutamate decarboxylase (GAD)</li>
+<li onclick="checkAnswer(this, false)">Glutamate dehydrogenase</li>
+<li onclick="checkAnswer(this, false)">Aspartate transaminase</li>
+</ul>
+<div class="explanation">Glutamate decarboxylase (GAD) converts glutamate to GABA, linking excitatory and inhibitory neurotransmission pathways.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Which receptor subtype is a ligand-gated ion channel for glutamate?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">AMPA</li>
+<li onclick="checkAnswer(this, false)">mGluR1</li>
+<li onclick="checkAnswer(this, false)">GABA-A</li>
+<li onclick="checkAnswer(this, false)">Muscarinic</li>
+</ul>
+<div class="explanation">AMPA receptors are ionotropic glutamate receptors that mediate fast excitatory postsynaptic currents by allowing sodium influx.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Which receptor subtype is G-protein-coupled for glutamate?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">AMPA</li>
+<li onclick="checkAnswer(this, false)">NMDA</li>
+<li onclick="checkAnswer(this, false)">Kainate</li>
+<li onclick="checkAnswer(this, true)">mGluR (metabotropic)</li>
+</ul>
+<div class="explanation">Metabotropic glutamate receptors (mGluRs) are G-protein-coupled and modulate neuronal excitability and synaptic plasticity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>What ion is essential for NMDA receptor activation?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Sodium</li>
+<li onclick="checkAnswer(this, false)">Potassium</li>
+<li onclick="checkAnswer(this, true)">Calcium</li>
+<li onclick="checkAnswer(this, false)">Chloride</li>
+</ul>
+<div class="explanation">NMDA receptors are permeable to calcium and require both ligand binding and membrane depolarization to remove magnesium block and allow calcium influx.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which brain function is heavily dependent on glutamatergic neurotransmission?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Hormone secretion</li>
+<li onclick="checkAnswer(this, false)">Visual processing</li>
+<li onclick="checkAnswer(this, true)">Memory and learning</li>
+<li onclick="checkAnswer(this, false)">Autonomic control</li>
+</ul>
+<div class="explanation">Glutamate is crucial for synaptic plasticity mechanisms like long-term potentiation (LTP), underlying learning and memory processes.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which transporter clears glutamate from the synaptic cleft?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Vesicular glutamate transporter (VGLUT)</li>
+<li onclick="checkAnswer(this, true)">Excitatory amino acid transporter (EAAT)</li>
+<li onclick="checkAnswer(this, false)">Glycine transporter</li>
+<li onclick="checkAnswer(this, false)">Dopamine transporter</li>
+</ul>
+<div class="explanation">Excitatory amino acid transporters (EAATs), located on neurons and glial cells, clear glutamate from the synapse to prevent excitotoxicity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Excessive glutamate activity can cause what pathological effect?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Hypoexcitability</li>
+<li onclick="checkAnswer(this, true)">Excitotoxicity</li>
+<li onclick="checkAnswer(this, false)">Demyelination</li>
+<li onclick="checkAnswer(this, false)">Neuroprotection</li>
+</ul>
+<div class="explanation">Overactivation of glutamate receptors leads to excitotoxicity, causing calcium overload and neuronal injury, implicated in stroke and neurodegenerative diseases.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which drug blocks NMDA receptors and is used in Alzheimer's disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Donepezil</li>
+<li onclick="checkAnswer(this, true)">Memantine</li>
+<li onclick="checkAnswer(this, false)">Haloperidol</li>
+<li onclick="checkAnswer(this, false)">Valproate</li>
+</ul>
+<div class="explanation">Memantine is an NMDA receptor antagonist that reduces excitotoxicity and is approved for moderate-to-severe Alzheimer’s disease.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

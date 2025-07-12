@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leadership & Obedience – Scenario Quiz</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      bottom: 40%;
+      right: 10%;
+      color: rgba(0,0,0,0.1);
+      font-size: 32px;
+      font-style: italic;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. A person changes their behavior to match a group, even though no one asked them to.<br><span style='color:gray'>شخص يغيّر سلوكه ليطابق المجموعة، رغم أن أحدًا لم يطلب منه ذلك.</span>", "o": ["Obedience", "Autonomy", "Conformity", "Leadership"], "a": 2, "e": "Conformity is driven by peer influence and desire for acceptance.<br><span style='color:gray'>الامتثال ناتج عن تأثير الأقران وحاجة القبول.</span>"}, {"q": "2. A soldier follows a direct command from a superior to perform an action.<br><span style='color:gray'>جندي يطيع أمرًا مباشرًا من قائده لتنفيذ عمل ما.</span>", "o": ["Leadership", "Obedience", "Groupthink", "Compliance"], "a": 1, "e": "Obedience is following explicit instructions from authority.<br><span style='color:gray'>الطاعة تعني تنفيذ أوامر من سلطة عليا.</span>"}, {"q": "3. A group of friends gives similar answers to a question even though they’re unsure.<br><span style='color:gray'>مجموعة من الأصدقاء يُعطون إجابات متشابهة رغم عدم يقينهم.</span>", "o": ["Individual norm", "Obedience", "Conformity", "Autonomy"], "a": 2, "e": "They conform due to group pressure or shared uncertainty.<br><span style='color:gray'>الضغط الاجتماعي يدفع الأفراد لمجاراة البقية.</span>"}, {"q": "4. Participants see a moving light in a dark room even when it's stationary.<br><span style='color:gray'>المشاركون يرون ضوءًا يتحرك في غرفة مظلمة رغم أنه ثابت.</span>", "o": ["Autokinetic effect", "Milgram effect", "Asch bias", "Compliance loop"], "a": 0, "e": "This is a visual illusion used to study conformity.<br><span style='color:gray'>الخداع البصري (Autokinetic) يُستخدم لقياس الامتثال.</span>"}, {"q": "5. When people answer privately instead of publicly, their conformity decreases.<br><span style='color:gray'>عندما يُجيب الأشخاص بشكل خاص وليس علنيًا، يقل امتثالهم.</span>", "o": ["Obedience", "Collectivist behavior", "Group norms", "Reduced conformity"], "a": 3, "e": "Public pressure is a strong driver of conformity.<br><span style='color:gray'>كلما زاد العلن، زاد الضغط الاجتماعي.</span>"}, {"q": "6. A group of 5 people gives the same wrong answer, and a new person agrees with them.<br><span style='color:gray'>خمسة أشخاص يختارون إجابة خاطئة، وشخص جديد يوافقهم.</span>", "o": ["Leadership", "Peer influence", "Authority compliance", "Asch conformity"], "a": 3, "e": "Asch’s experiment showed group majority affects judgment.<br><span style='color:gray'>تجربة آش توضح تأثير الأغلبية على الفرد.</span>"}, {"q": "7. A minority group influences the majority because they are firm and consistent.<br><span style='color:gray'>أقلية تؤثر على الأغلبية بسبب ثباتها واتساقها.</span>", "o": ["Obedience", "Minority influence", "Autonomy", "Submission"], "a": 1, "e": "Minorities gain influence when consistent and credible.<br><span style='color:gray'>الاتساق والاستقلالية يعززان تأثير الأقلية.</span>"}, {"q": "8. A subject administers an electric shock under instruction despite hearing screams.<br><span style='color:gray'>شخص يُعطي صدمة كهربائية بأمر، رغم سماعه لصراخ المتلقي.</span>", "o": ["Milgram obedience", "Social validation", "Compliance", "Empathy failure"], "a": 0, "e": "Milgram’s experiment showed power of authority over morality.<br><span style='color:gray'>التجربة تُبرز قوة السلطة على سلوك الفرد الأخلاقي.</span>"}, {"q": "9. A leader is obeyed more due to their strong, commanding personality.<br><span style='color:gray'>يُطاع القائد أكثر بسبب شخصيته السلطوية القوية.</span>", "o": ["Charisma", "Groupthink", "Authoritarian trait", "Agentic shift"], "a": 2, "e": "Authoritarian personality is linked to higher obedience.<br><span style='color:gray'>الشخصية السلطوية ترفع معدلات الطاعة.</span>"}, {"q": "10. Obedience increases when the authority figure relieves the person of responsibility.<br><span style='color:gray'>تزداد الطاعة عندما تُرفع المسؤولية عن الشخص من قِبل السلطة.</span>", "o": ["Compliance overload", "Group polarization", "Obedience by proxy", "Agentic state"], "a": 3, "e": "Agentic state = individual feels they are just a tool for authority.<br><span style='color:gray'>الحالة الوكيلة تجعل الفرد يتخلى عن ضميره ويُطيع فقط.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة 🧠⚖️<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

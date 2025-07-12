@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurophysiology of Sleep Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurophysiology of Sleep Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 30</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>Which tool is used to objectively assess sleep-wake cycles via motion detection?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Polysomnography</li>
+<li onclick="checkAnswer(this, false)">EEG</li>
+<li onclick="checkAnswer(this, true)">Actigraphy</li>
+<li onclick="checkAnswer(this, false)">EOG</li>
+</ul>
+<div class="explanation">Actigraphy uses a wrist-worn motion sensor to monitor activity and estimate sleep-wake cycles, especially useful for circadian rhythm disorders.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>What does polysomnography (PSG) typically measure?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Body temperature</li>
+<li onclick="checkAnswer(this, true)">EEG, EOG, EMG, ECG, and respiratory function</li>
+<li onclick="checkAnswer(this, false)">Blood glucose</li>
+<li onclick="checkAnswer(this, false)">Light exposure</li>
+</ul>
+<div class="explanation">PSG is the gold standard for sleep studies and includes EEG, EMG, EOG, ECG, oxygen saturation, and respiration to assess sleep stages and disorders.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>What does 'sleep latency' refer to in PSG analysis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Time between two REM episodes</li>
+<li onclick="checkAnswer(this, true)">Time from lights out to sleep onset</li>
+<li onclick="checkAnswer(this, false)">Duration of stage 2 sleep</li>
+<li onclick="checkAnswer(this, false)">Time between REM and waking</li>
+</ul>
+<div class="explanation">Sleep latency is the time it takes for a person to transition from full wakefulness to sleep after lying down.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Which test is used to evaluate daytime sleepiness in narcolepsy?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Multiple Sleep Latency Test (MSLT)</li>
+<li onclick="checkAnswer(this, false)">Dexamethasone suppression test</li>
+<li onclick="checkAnswer(this, false)">Tilt table test</li>
+<li onclick="checkAnswer(this, false)">Melatonin assay</li>
+</ul>
+<div class="explanation">MSLT measures how quickly a person falls asleep in a quiet environment during the day, and checks for REM onset within naps.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>What percentage of adult sleep is spent in NREM stages?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">25%</li>
+<li onclick="checkAnswer(this, false)">60%</li>
+<li onclick="checkAnswer(this, true)">75%</li>
+<li onclick="checkAnswer(this, false)">90%</li>
+</ul>
+<div class="explanation">Approximately 75% of adult sleep is non-REM, characterized by physiological slowing and reduced brain activity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>Which NREM stage accounts for the highest proportion of sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Stage 1</li>
+<li onclick="checkAnswer(this, false)">Stage 3</li>
+<li onclick="checkAnswer(this, true)">Stage 2</li>
+<li onclick="checkAnswer(this, false)">REM</li>
+</ul>
+<div class="explanation">Stage 2 NREM sleep occupies about 45% of the night and features sleep spindles and K complexes.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>What defines Stage 3 NREM sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">High-frequency beta waves</li>
+<li onclick="checkAnswer(this, false)">REM episodes</li>
+<li onclick="checkAnswer(this, true)">Delta waves <50% of EEG activity</li>
+<li onclick="checkAnswer(this, false)">Increased muscle tone</li>
+</ul>
+<div class="explanation">Stage 3 is characterized by slow-wave sleep with less than 50% delta activity, deepening sleep and supporting memory consolidation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which stage of NREM sleep has the lowest physiological activity?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Stage 1</li>
+<li onclick="checkAnswer(this, false)">Stage 2</li>
+<li onclick="checkAnswer(this, false)">Stage 3</li>
+<li onclick="checkAnswer(this, true)">Stage 4</li>
+</ul>
+<div class="explanation">Stage 4 is the deepest NREM sleep with more than 50% delta waves and minimum physiological activity (HR, BP, RR).</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>What is a key EEG pattern of REM sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Alpha rhythm</li>
+<li onclick="checkAnswer(this, false)">High amplitude delta waves</li>
+<li onclick="checkAnswer(this, true)">Low-voltage mixed frequency waves (theta and alpha)</li>
+<li onclick="checkAnswer(this, false)">Sleep spindles</li>
+</ul>
+<div class="explanation">REM sleep mimics wakefulness with mixed frequency low-voltage EEG activity, reflecting high cortical arousal.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>How many sleep cycles typically occur during a full night’s sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">1–2</li>
+<li onclick="checkAnswer(this, true)">4–5</li>
+<li onclick="checkAnswer(this, false)">7–8</li>
+<li onclick="checkAnswer(this, false)">10–12</li>
+</ul>
+<div class="explanation">A typical adult has 4–5 sleep cycles per night, alternating between NREM and REM phases with increasing REM duration in later cycles.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q11">
+<h2>Question 11</h2>
+<p>What are sleep spindles associated with?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">REM sleep</li>
+<li onclick="checkAnswer(this, true)">Stage 2 NREM sleep</li>
+<li onclick="checkAnswer(this, false)">Stage 4</li>
+<li onclick="checkAnswer(this, false)">Wakefulness</li>
+</ul>
+<div class="explanation">Sleep spindles are bursts of 12–14 Hz activity seen in stage 2 NREM sleep, thought to protect sleep and aid in memory.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q12">
+<h2>Question 12</h2>
+<p>What are K-complexes?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Fast EEG waves in REM</li>
+<li onclick="checkAnswer(this, false)">Muscle twitches during sleep</li>
+<li onclick="checkAnswer(this, true)">High amplitude slow EEG waves in stage 2 NREM</li>
+<li onclick="checkAnswer(this, false)">Autonomic spikes</li>
+</ul>
+<div class="explanation">K-complexes are sharp negative deflections followed by a positive wave, usually triggered by external stimuli during stage 2.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q13">
+<h2>Question 13</h2>
+<p>What defines V waves in sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Alpha spikes in REM</li>
+<li onclick="checkAnswer(this, true)">Sharp, symmetrical slow waves in stage 2 sleep</li>
+<li onclick="checkAnswer(this, false)">EMG bursts</li>
+<li onclick="checkAnswer(this, false)">Theta suppression waves</li>
+</ul>
+<div class="explanation">V waves are sharp slow-wave patterns noted during NREM, particularly stage 2, and are symmetrical across hemispheres.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q14">
+<h2>Question 14</h2>
+<p>Which circuitry mediates K-complex formation?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Hippocampo-thalamic loop</li>
+<li onclick="checkAnswer(this, false)">Cortico-striatal loop</li>
+<li onclick="checkAnswer(this, true)">Thalamocortical circuitry</li>
+<li onclick="checkAnswer(this, false)">Reticular activating system</li>
+</ul>
+<div class="explanation">K-complexes are believed to arise from thalamocortical interactions, representing sensory filtering and memory consolidation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q15">
+<h2>Question 15</h2>
+<p>Which nucleus is the master regulator of circadian rhythms?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">VLPO</li>
+<li onclick="checkAnswer(this, true)">Suprachiasmatic nucleus (SCN)</li>
+<li onclick="checkAnswer(this, false)">Arcuate nucleus</li>
+<li onclick="checkAnswer(this, false)">Paraventricular nucleus</li>
+</ul>
+<div class="explanation">SCN, located in the anterior hypothalamus, receives light input and synchronizes the biological clock with the environment.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q16">
+<h2>Question 16</h2>
+<p>Which nucleus promotes sleep initiation?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">SCN</li>
+<li onclick="checkAnswer(this, false)">Paraventricular nucleus</li>
+<li onclick="checkAnswer(this, true)">VLPO (ventrolateral preoptic nucleus)</li>
+<li onclick="checkAnswer(this, false)">Subthalamic nucleus</li>
+</ul>
+<div class="explanation">VLPO sends inhibitory signals to wake-promoting centers, acting as a 'sleep switch' for initiating and maintaining sleep.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q17">
+<h2>Question 17</h2>
+<p>Which neurotransmitter system is active during wakefulness and suppressed in narcolepsy?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Melatonin</li>
+<li onclick="checkAnswer(this, true)">Orexin (hypocretin)</li>
+<li onclick="checkAnswer(this, false)">Serotonin</li>
+<li onclick="checkAnswer(this, false)">GABA</li>
+</ul>
+<div class="explanation">Orexin neurons stabilize wakefulness; their loss is central to narcolepsy pathophysiology.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q18">
+<h2>Question 18</h2>
+<p>In the absence of light cues, what is the natural length of the human sleep-wake cycle?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">20 hours</li>
+<li onclick="checkAnswer(this, false)">22 hours</li>
+<li onclick="checkAnswer(this, false)">24 hours</li>
+<li onclick="checkAnswer(this, true)">26 hours</li>
+</ul>
+<div class="explanation">Without external cues, the circadian rhythm shifts to a longer cycle (~26 hours), referred to as “free-running.”</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q19">
+<h2>Question 19</h2>
+<p>Which hormone increases during slow-wave sleep and aids tissue growth?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Melatonin</li>
+<li onclick="checkAnswer(this, true)">Growth hormone (GH)</li>
+<li onclick="checkAnswer(this, false)">Cortisol</li>
+<li onclick="checkAnswer(this, false)">Prolactin</li>
+</ul>
+<div class="explanation">GH release peaks during deep sleep (especially stages 3 & 4), supporting growth and cellular repair.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q20">
+<h2>Question 20</h2>
+<p>How does sleep structure change with aging?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">More REM sleep</li>
+<li onclick="checkAnswer(this, false)">Longer deep sleep</li>
+<li onclick="checkAnswer(this, true)">Increased awakenings, reduced slow-wave and REM sleep</li>
+<li onclick="checkAnswer(this, false)">No change in structure</li>
+</ul>
+<div class="explanation">Aging leads to fragmented sleep with reduced stage 3 & 4 (slow-wave) and REM sleep, and more frequent night awakenings.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q21">
+<h2>Question 21</h2>
+<p>Which structure mediates K-complex generation?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Amygdala</li>
+<li onclick="checkAnswer(this, false)">Brainstem</li>
+<li onclick="checkAnswer(this, true)">Thalamocortical circuitry</li>
+<li onclick="checkAnswer(this, false)">Cerebellum</li>
+</ul>
+<div class="explanation">Thalamus and cortex interact rhythmically to produce K-complexes, reflecting sensory gating during sleep.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q22">
+<h2>Question 22</h2>
+<p>Which nucleus in the hypothalamus synchronizes the circadian rhythm?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">VLPO</li>
+<li onclick="checkAnswer(this, false)">Mammillary body</li>
+<li onclick="checkAnswer(this, true)">Suprachiasmatic nucleus (SCN)</li>
+<li onclick="checkAnswer(this, false)">Lateral hypothalamus</li>
+</ul>
+<div class="explanation">The SCN receives retinal input and regulates melatonin secretion and sleep-wake cycles.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q23">
+<h2>Question 23</h2>
+<p>Which nucleus initiates and maintains sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">SCN</li>
+<li onclick="checkAnswer(this, false)">Paraventricular nucleus</li>
+<li onclick="checkAnswer(this, true)">VLPO (ventrolateral preoptic nucleus)</li>
+<li onclick="checkAnswer(this, false)">Nucleus accumbens</li>
+</ul>
+<div class="explanation">VLPO sends GABAergic inhibitory signals to wake-promoting centers, acting as a 'sleep switch'.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q24">
+<h2>Question 24</h2>
+<p>Which neurotransmitter is deficient in narcolepsy?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">GABA</li>
+<li onclick="checkAnswer(this, false)">Serotonin</li>
+<li onclick="checkAnswer(this, true)">Orexin (hypocretin)</li>
+<li onclick="checkAnswer(this, false)">Melatonin</li>
+</ul>
+<div class="explanation">Loss of orexin-producing neurons disrupts wakefulness stability and causes REM intrusions into wake states.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q25">
+<h2>Question 25</h2>
+<p>What happens to circadian rhythm in absence of light cues?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Disappears</li>
+<li onclick="checkAnswer(this, false)">Resets to 12 hours</li>
+<li onclick="checkAnswer(this, true)">Lengthens to 26 hours (free-running)</li>
+<li onclick="checkAnswer(this, false)">Reverses</li>
+</ul>
+<div class="explanation">Without environmental time cues, the sleep-wake cycle shifts to its intrinsic rhythm of ~26 hours.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q26">
+<h2>Question 26</h2>
+<p>What role does melatonin play in circadian regulation?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Blocks REM</li>
+<li onclick="checkAnswer(this, true)">Synchronizes SCN signals with darkness</li>
+<li onclick="checkAnswer(this, false)">Stimulates orexin</li>
+<li onclick="checkAnswer(this, false)">Enhances muscle tone</li>
+</ul>
+<div class="explanation">Melatonin is secreted in darkness and helps align internal rhythms with night, reinforcing sleep onset.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q27">
+<h2>Question 27</h2>
+<p>What is the effect of REM sleep on melatonin levels?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Melatonin decreases</li>
+<li onclick="checkAnswer(this, false)">Melatonin surges</li>
+<li onclick="checkAnswer(this, false)">No change</li>
+<li onclick="checkAnswer(this, false)">Only in elderly</li>
+</ul>
+<div class="explanation">Melatonin drops during REM, particularly later in the night as the body prepares for morning arousal.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q28">
+<h2>Question 28</h2>
+<p>Which hormone peaks during early morning sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">GH</li>
+<li onclick="checkAnswer(this, true)">Prolactin</li>
+<li onclick="checkAnswer(this, false)">Cortisol</li>
+<li onclick="checkAnswer(this, false)">TSH</li>
+</ul>
+<div class="explanation">Prolactin levels peak in early morning, regulated by circadian signals and sleep structure.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q29">
+<h2>Question 29</h2>
+<p>How does sleep in elderly adults differ from younger adults?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Longer REM</li>
+<li onclick="checkAnswer(this, true)">Reduced slow-wave and REM sleep, increased awakenings</li>
+<li onclick="checkAnswer(this, false)">More sleep spindles</li>
+<li onclick="checkAnswer(this, false)">Constant structure</li>
+</ul>
+<div class="explanation">Aging brings fragmentation, reduced deep sleep, and frequent awakenings, often requiring less sleep overall.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q30">
+<h2>Question 30</h2>
+<p>What is the sleep pattern in neonates?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Predominantly NREM</li>
+<li onclick="checkAnswer(this, true)">Over 50% REM with sleep-onset REM</li>
+<li onclick="checkAnswer(this, false)">Fully circadian</li>
+<li onclick="checkAnswer(this, false)">Dominated by wake episodes</li>
+</ul>
+<div class="explanation">Infants spend most sleep in REM and may enter sleep through REM rather than NREM, unlike adults.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

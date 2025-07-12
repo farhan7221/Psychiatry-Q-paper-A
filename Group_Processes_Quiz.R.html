@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Group Processes & Power – Scenario Quiz</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      bottom: 40%;
+      right: 10%;
+      color: rgba(0,0,0,0.1);
+      font-size: 32px;
+      font-style: italic;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. A group of friends takes a riskier decision together than any of them would individually.<br><span style='color:gray'>مجموعة من الأصدقاء يتخذون قرارًا أكثر خطورة جماعيًا مما قد يتخذه أي منهم بمفرده.</span>", "o": ["Groupthink", "Risky shift", "Social identity", "Legitimate power"], "a": 1, "e": "Risky shift happens when group discussion pushes for bolder decisions.<br><span style='color:gray'>التحول نحو المخاطرة يحدث بسبب تأثير الجماعة.</span>"}, {"q": "2. A person agrees with a group’s extreme opinion just to avoid conflict and fit in.<br><span style='color:gray'>شخص يوافق على رأي متطرف للمجموعة فقط لتجنب الخلاف والاندماج.</span>", "o": ["Reward power", "Group polarization", "Groupthink", "Expert power"], "a": 2, "e": "Groupthink suppresses rational judgment to maintain harmony.<br><span style='color:gray'>تفكير الجماعة يُضحي بالحكم المنطقي من أجل الانسجام.</span>"}, {"q": "3. Group discussion causes individuals to adopt stronger versions of their initial views.<br><span style='color:gray'>نقاش المجموعة يجعل الأفراد يتبنون نسخًا أقوى من آرائهم الأصلية.</span>", "o": ["Groupthink", "Risky shift", "Group polarization", "Informational influence"], "a": 2, "e": "Group polarization pushes views further in the original direction.<br><span style='color:gray'>الاستقطاب الجماعي يُضخم الميل السابق للفرد.</span>"}, {"q": "4. A person says 'yes' in a group to avoid looking weird or different.<br><span style='color:gray'>شخص يقول 'نعم' في مجموعة لتجنب الظهور بمظهر مختلف أو غريب.</span>", "o": ["Informational influence", "Reward power", "Normative influence", "Referent power"], "a": 2, "e": "Normative influence is driven by need to fit in.<br><span style='color:gray'>التأثير المعياري ينبع من الرغبة في القبول الاجتماعي.</span>"}, {"q": "5. After group discussion, a person changes opinion based on new facts they learned.<br><span style='color:gray'>بعد النقاش الجماعي، يغيّر شخص رأيه بناءً على معلومات جديدة تعلمها.</span>", "o": ["Coercive power", "Informational influence", "Legitimate power", "Normative influence"], "a": 1, "e": "Informational influence comes from gaining new knowledge.<br><span style='color:gray'>التأثير المعلوماتي يعتمد على فهم أفضل من خلال النقاش.</span>"}, {"q": "6. A group member dominates 50% of the discussion while others barely talk.<br><span style='color:gray'>أحد أعضاء المجموعة يهيمن على 50٪ من النقاش بينما بالكاد يتحدث الآخرون.</span>", "o": ["Reward power", "Group polarization", "Communication bias", "Talkativeness effect"], "a": 3, "e": "Talkativeness can skew group outcomes and silence others.<br><span style='color:gray'>الهيمنة بالكلام تؤثر على جودة القرار الجماعي.</span>"}, {"q": "7. A person follows a leader because they believe the leader has legal authority.<br><span style='color:gray'>شخص يطيع القائد لأنه يعتقد أن لديه سلطة قانونية.</span>", "o": ["Coercive power", "Referent power", "Legitimate power", "Expert power"], "a": 2, "e": "Legitimate power is based on recognized position or election.<br><span style='color:gray'>السلطة الشرعية تنبع من موقع معترف به.</span>"}, {"q": "8. A teacher is respected because of their advanced knowledge and expertise.<br><span style='color:gray'>يحظى معلم باحترام بسبب معرفته المتقدمة وخبرته.</span>", "o": ["Legitimate power", "Expert power", "Information power", "Reward power"], "a": 1, "e": "Expert power arises from specialized knowledge or skills.<br><span style='color:gray'>الخبرة والمعرفة تمنح الشخص تأثيرًا واحترامًا تلقائيًا.</span>"}, {"q": "9. A parent influences a child by threatening punishment.<br><span style='color:gray'>يؤثر أحد الوالدين على الطفل من خلال التهديد بالعقاب.</span>", "o": ["Reward power", "Information power", "Coercive power", "Normative influence"], "a": 2, "e": "Coercive power is based on ability to apply negative consequences.<br><span style='color:gray'>السلطة القسرية تعتمد على التهديد أو العقوبة.</span>"}, {"q": "10. A group makes decisions by quickly switching between task and relevance discussion.<br><span style='color:gray'>تتخذ مجموعة قراراتها من خلال التبديل السريع بين المهمة والنقاش المتعلق بها.</span>", "o": ["Polarization", "Task switching", "Groupthink", "Small group dynamics"], "a": 3, "e": "Observed in small group communication as described by Robert Bales.<br><span style='color:gray'>هذا السلوك شائع في المجموعات الصغيرة حسب ملاحظات Bales.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة 💡🤝<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

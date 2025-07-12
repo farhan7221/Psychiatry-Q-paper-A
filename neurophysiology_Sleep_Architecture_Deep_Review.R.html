@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>neurophysiology – Sleep Architecture and Cycles (Deep Clinical Review)</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>neurophysiology – Sleep Architecture and Cycles (Deep Clinical Review)</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>Which stage of sleep is characterized by sleep spindles and K-complexes?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Stage 1</li>
+<li onclick="checkAnswer(this, true)">Stage 2</li>
+<li onclick="checkAnswer(this, false)">Stage 3</li>
+<li onclick="checkAnswer(this, false)">REM</li>
+</ul>
+<div class="explanation">Stage 2 of NREM sleep is defined by the presence of sleep spindles (short bursts of 12–14 Hz activity) and K-complexes (sharp negative deflection followed by a positive component). These features originate from thalamocortical interactions and help maintain sleep by blocking external stimuli. Stage 2 accounts for about 45–50% of total sleep in adults and is considered the 'light sleep' phase.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>What percentage of total sleep time is typically spent in REM sleep in a healthy adult?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">10–15%</li>
+<li onclick="checkAnswer(this, true)">20–25%</li>
+<li onclick="checkAnswer(this, false)">30–40%</li>
+<li onclick="checkAnswer(this, false)">50–60%</li>
+</ul>
+<div class="explanation">REM sleep typically occupies 20–25% of total sleep in healthy adults. It usually starts about 90 minutes after sleep onset and recurs cyclically every 90–120 minutes. REM is associated with vivid dreams, rapid eye movements, muscle atonia, and cortical activation. This phase plays a key role in memory consolidation and emotional regulation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which sleep stage is also known as slow-wave sleep (SWS)?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Stage 1</li>
+<li onclick="checkAnswer(this, false)">Stage 2</li>
+<li onclick="checkAnswer(this, true)">Stage 3–4</li>
+<li onclick="checkAnswer(this, false)">REM</li>
+</ul>
+<div class="explanation">Stages 3 and 4 of NREM sleep (often grouped as 'Stage N3') are known as slow-wave sleep. They are dominated by high-amplitude delta waves (<4 Hz), representing synchronized cortical activity. SWS is critical for physical recovery, immune function, and growth hormone secretion. It typically dominates the first third of the night and decreases with age.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>What happens to REM duration across successive sleep cycles through the night?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">It shortens</li>
+<li onclick="checkAnswer(this, false)">It disappears</li>
+<li onclick="checkAnswer(this, true)">It increases</li>
+<li onclick="checkAnswer(this, false)">It stays constant</li>
+</ul>
+<div class="explanation">REM periods become progressively longer across the night. The first REM cycle may last only a few minutes, while later cycles can extend up to 45–60 minutes. This temporal distribution is important for dream intensity and emotional memory processing.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Which stage of sleep shows the lowest muscle tone and active cortical patterns on EEG?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Stage 1</li>
+<li onclick="checkAnswer(this, false)">Stage 2</li>
+<li onclick="checkAnswer(this, false)">Stage 3</li>
+<li onclick="checkAnswer(this, true)">REM</li>
+</ul>
+<div class="explanation">REM sleep is paradoxical: the EEG resembles wakefulness (low-voltage, mixed-frequency activity), but skeletal muscle tone is nearly absent (atonia). This muscle paralysis is mediated by brainstem structures and prevents dream enactment. REM also involves irregular respiration, heart rate fluctuations, and increased brain oxygen consumption.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>What EEG finding is most typical of Stage 1 NREM sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Delta waves</li>
+<li onclick="checkAnswer(this, true)">Vertex sharp transients and slowing</li>
+<li onclick="checkAnswer(this, false)">Sleep spindles</li>
+<li onclick="checkAnswer(this, false)">K-complexes</li>
+</ul>
+<div class="explanation">Stage 1 NREM is a transitional phase between wakefulness and sleep. EEG features include low-amplitude mixed-frequency waves and vertex sharp transients (V waves). It lasts a few minutes and accounts for about 5% of sleep. People awakened during Stage 1 often deny being asleep.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>During which sleep stage does sleepwalking (somnambulism) typically occur?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Stage 1</li>
+<li onclick="checkAnswer(this, false)">Stage 2</li>
+<li onclick="checkAnswer(this, true)">Stage 3–4</li>
+<li onclick="checkAnswer(this, false)">REM</li>
+</ul>
+<div class="explanation">Sleepwalking and other parasomnias like night terrors commonly occur during slow-wave sleep (Stage 3–4). These stages occur predominantly in the first third of the night. The person may perform complex behaviors but have no memory upon awakening. This condition is more common in children and tends to decrease with age.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>How many full sleep cycles typically occur during a 7–8 hour night of sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">2–3</li>
+<li onclick="checkAnswer(this, true)">4–5</li>
+<li onclick="checkAnswer(this, false)">6–8</li>
+<li onclick="checkAnswer(this, false)">9–10</li>
+</ul>
+<div class="explanation">Most adults complete 4 to 5 sleep cycles per night, each lasting approximately 90–120 minutes. Each cycle contains both NREM and REM components, with the proportion of REM increasing in later cycles. Disruption of these cycles may impair memory consolidation and recovery.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which hormone shows peak secretion during slow-wave sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Melatonin</li>
+<li onclick="checkAnswer(this, true)">Growth hormone</li>
+<li onclick="checkAnswer(this, false)">Cortisol</li>
+<li onclick="checkAnswer(this, false)">Dopamine</li>
+</ul>
+<div class="explanation">Growth hormone is secreted in pulses during slow-wave sleep (especially Stage 3–4). Its release is linked to physical restoration, muscle repair, and metabolic regulation. In children and adolescents, SWS is crucial for normal growth.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>What is the defining EEG feature of REM sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">High amplitude delta waves</li>
+<li onclick="checkAnswer(this, false)">Sleep spindles and K-complexes</li>
+<li onclick="checkAnswer(this, true)">Low voltage, mixed frequency activity</li>
+<li onclick="checkAnswer(this, false)">Frontal spikes</li>
+</ul>
+<div class="explanation">REM sleep is marked by low-voltage, mixed-frequency EEG activity similar to wakefulness. Despite the cortical activation, the person remains unconscious due to active inhibition of muscle tone and external input. This phase is most associated with vivid dreaming and memory integration.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

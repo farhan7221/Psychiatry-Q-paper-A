@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Culture and Mental Health - Topics 5 & 6</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .container { max-width: 700px; margin: auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-top: 40px; position: relative; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 15px; }
+    ul { list-style: none; padding: 0; }
+    li { background: #eee; margin: 10px 0; padding: 10px; border-radius: 8px; cursor: pointer; }
+    li.correct { background: #a8e6a1; }
+    li.incorrect { background: #f6a6a6; }
+    li.disabled { pointer-events: none; opacity: 0.6; }
+    .explanation { background: #fff8d3; border-left: 5px solid #f1c40f; padding: 10px; margin-top: 15px; display: none; }
+    .btn { margin-top: 20px; padding: 10px 20px; border: none; background: #007bff; color: white; border-radius: 5px; font-size: 16px; cursor: pointer; display: none; }
+    .last-btn { position: fixed; bottom: 20px; right: 20px; background: #28a745; color: white; padding: 10px 15px; border: none; border-radius: 6px; cursor: pointer; }
+    .counter { position: absolute; top: 10px; right: 20px; font-weight: bold; }
+    .watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); font-size: 30px; color: rgba(128, 128, 128, 0.1); font-style: italic; z-index: 0; }
+  </style>
+</head>
+<body>
+  <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  <div class="container">
+    <div class="counter" id="counter">1 / 10</div>
+    <div class="question" id="question"></div>
+    <div class="translation" id="translation"></div>
+    <ul id="options"></ul>
+    <div class="explanation" id="explanation"></div>
+    <button class="btn" id="nextBtn" onclick="nextQuestion()">التالي</button>
+  </div>
+  <button class="last-btn" onclick="goToLast()">Last Q</button>
+
+  <script>
+    const questions = [{"question": "Tajin kyofusho is a culture-bound syndrome primarily associated with:", "translation": "Tajin kyofusho \u0647\u064a \u0645\u062a\u0644\u0627\u0632\u0645\u0629 \u062b\u0642\u0627\u0641\u064a\u0629 \u062a\u0631\u062a\u0628\u0637 \u0623\u0633\u0627\u0633\u064b\u0627 \u0628\u0640:", "options": ["Fear of offending others", "Fear of dying", "Fear of demons", "Fear of losing semen"], "answer": "Fear of offending others", "explanation": "Tajin kyofusho is a Japanese syndrome marked by fear of embarrassing others through eye contact or body odor.<br>\u062a\u062a\u0645\u064a\u0632 \u0628\u062e\u0648\u0641 \u0645\u0641\u0631\u0637 \u0645\u0646 \u0625\u064a\u0630\u0627\u0621 \u0627\u0644\u0622\u062e\u0631\u064a\u0646 \u0628\u0645\u0638\u0647\u0631 \u0623\u0648 \u0631\u0627\u0626\u062d\u0629 \u0627\u0644\u062c\u0633\u0645."}, {"question": "Mal de ojo is commonly believed to be caused by:", "translation": "\u064a\u064f\u0639\u062a\u0642\u062f \u0623\u0646 Mal de ojo \u0646\u0627\u062a\u062c\u0629 \u0639\u0646:", "options": ["The evil eye", "Bad spirits", "Inherited trauma", "Seasonal changes"], "answer": "The evil eye", "explanation": "This syndrome is believed to occur due to envy or gaze of others, especially towards children.<br>\u064a\u064f\u0639\u062a\u0642\u062f \u0623\u0646\u0647\u0627 \u062a\u062d\u062f\u062b \u0646\u062a\u064a\u062c\u0629 \u0644\u0644\u062d\u0633\u062f \u0623\u0648 \u0646\u0638\u0631\u0627\u062a \u0627\u0644\u063a\u064a\u0631\u0629\u060c \u062e\u0635\u0648\u0635\u064b\u0627 \u0644\u0644\u0623\u0637\u0641\u0627\u0644."}, {"question": "Ufufuyane is a syndrome documented mainly in:", "translation": "\u062a\u064f\u0648\u062b\u0642 \u0645\u062a\u0644\u0627\u0632\u0645\u0629 Ufufuyane \u0628\u0634\u0643\u0644 \u0623\u0633\u0627\u0633\u064a \u0641\u064a:", "options": ["East Africa", "Japan", "Andes region", "Alaska"], "answer": "East Africa", "explanation": "It presents with anxiety, dissociation, and culturally bound possession beliefs.<br>\u062a\u062a\u0645\u064a\u0632 \u0628\u0623\u0639\u0631\u0627\u0636 \u0642\u0644\u0642 \u0648\u0627\u0636\u0637\u0631\u0627\u0628 \u0648\u062a\u0641\u0633\u064a\u0631\u0627\u062a \u0645\u0631\u062a\u0628\u0637\u0629 \u0628\u0627\u0644\u0645\u0633 \u0648\u0627\u0644\u0631\u0648\u062d."}, {"question": "Windigo syndrome includes fear of:", "translation": "\u062a\u062a\u0636\u0645\u0646 \u0645\u062a\u0644\u0627\u0632\u0645\u0629 Windigo \u0627\u0644\u062e\u0648\u0641 \u0645\u0646:", "options": ["Becoming a cannibal", "Falling from heights", "Being cursed", "Becoming blind"], "answer": "Becoming a cannibal", "explanation": "Windigo is a disorder from Algonquian cultures involving a desire or fear of cannibalism.<br>\u064a\u062a\u0645\u064a\u0632 \u0628\u062e\u0648\u0641 \u0623\u0648 \u0631\u063a\u0628\u0629 \u0645\u0631\u0636\u064a\u0629 \u0641\u064a \u0623\u0643\u0644 \u0644\u062d\u0648\u0645 \u0627\u0644\u0628\u0634\u0631."}, {"question": "Shinkeishitsu is typically characterized by:", "translation": "\u062a\u062a\u0645\u064a\u0632 \u0645\u062a\u0644\u0627\u0632\u0645\u0629 Shinkeishitsu \u0628\u0640:", "options": ["Obsessive perfectionism", "Chronic headaches", "Hearing voices", "Memory loss"], "answer": "Obsessive perfectionism", "explanation": "Common in Japan, it shows traits similar to OCD with strong social concerns.<br>\u062a\u0638\u0647\u0631 \u0643\u0633\u0645\u0627\u062a \u0648\u0633\u0648\u0627\u0633 \u0642\u0647\u0631\u064a \u0645\u0642\u062a\u0631\u0646\u0629 \u0628\u0647\u0645\u0648\u0645 \u0627\u062c\u062a\u0645\u0627\u0639\u064a\u0629 \u0634\u062f\u064a\u062f\u0629."}, {"question": "Hiblokto is primarily observed in:", "translation": "\u062a\u064f\u0644\u0627\u062d\u0638 \u0645\u062a\u0644\u0627\u0632\u0645\u0629 Hiblokto \u0628\u0634\u0643\u0644 \u0631\u0626\u064a\u0633\u064a \u0641\u064a:", "options": ["Eskimo populations", "Sub-Saharan Africa", "Indian subcontinent", "Eastern Europe"], "answer": "Eskimo populations", "explanation": "Seen in Inuit communities, it includes dissociation and trance-like states.<br>\u062a\u062a\u0645\u064a\u0632 \u0628\u0646\u0648\u0628\u0627\u062a \u0627\u0646\u0641\u0635\u0627\u0644 \u0634\u0628\u064a\u0647\u0629 \u0628\u0627\u0644\u062d\u0627\u0644\u0629 \u0627\u0644\u063a\u064a\u0628\u0648\u0628\u064a\u0629."}, {"question": "Which syndrome involves panic and genital symptoms in a culturally specific form?", "translation": "\u0623\u064a \u0645\u062a\u0644\u0627\u0632\u0645\u0629 \u062a\u062a\u0636\u0645\u0646 \u0646\u0648\u0628\u0629 \u0630\u0639\u0631 \u0648\u0623\u0639\u0631\u0627\u0636 \u062a\u0646\u0627\u0633\u0644\u064a\u0629 \u0628\u0635\u064a\u063a\u0629 \u062b\u0642\u0627\u0641\u064a\u0629\u061f", "options": ["Koro", "Susto", "Tajin kyofusho", "Brain fag"], "answer": "Koro", "explanation": "It features panic that the genitals are retracting into the body.<br>\u062a\u0633\u0628\u0628 \u0630\u0639\u0631\u064b\u0627 \u0628\u0633\u0628\u0628 \u0627\u0646\u0643\u0645\u0627\u0634 \u0627\u0644\u0623\u0639\u0636\u0627\u0621 \u0627\u0644\u062a\u0646\u0627\u0633\u0644\u064a\u0629 \u0627\u0644\u0645\u062a\u062e\u064a\u0651\u0644."}, {"question": "A key characteristic of Susto is:", "translation": "\u0645\u0646 \u0627\u0644\u062e\u0635\u0627\u0626\u0635 \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629 \u0644\u0645\u062a\u0644\u0627\u0632\u0645\u0629 Susto:", "options": ["Soul loss", "Mania", "Compulsive rituals", "Food avoidance"], "answer": "Soul loss", "explanation": "Susto is associated with trauma-induced soul departure.<br>\u064a\u0631\u062a\u0628\u0637 \u0628\u0641\u0642\u062f\u0627\u0646 \u0627\u0644\u0631\u0648\u062d \u0628\u0639\u062f \u0627\u0644\u062a\u0639\u0631\u0636 \u0644\u0635\u062f\u0645\u0629 \u0634\u062f\u064a\u062f\u0629."}, {"question": "Ataque de nervios differs from panic disorder by its:", "translation": "\u062a\u062e\u062a\u0644\u0641 \u0645\u062a\u0644\u0627\u0632\u0645\u0629 Ataque de nervios \u0639\u0646 \u0627\u0636\u0637\u0631\u0627\u0628 \u0627\u0644\u0647\u0644\u0639 \u0645\u0646 \u062d\u064a\u062b:", "options": ["Cultural context and expression", "Duration of symptoms", "Heart rate changes", "Medication resistance"], "answer": "Cultural context and expression", "explanation": "It is deeply rooted in Latin culture with expressive behavior.<br>\u062c\u0630\u0648\u0631\u0647\u0627 \u062b\u0642\u0627\u0641\u064a\u0629 \u0648\u062a\u0634\u0645\u0644 \u0633\u0644\u0648\u0643\u064a\u0627\u062a \u062a\u0639\u0628\u064a\u0631\u064a\u0629 \u0634\u062f\u064a\u062f\u0629."}, {"question": "Latah is often triggered by:", "translation": "\u064a\u062a\u0645 \u062a\u062d\u0641\u064a\u0632 \u0645\u062a\u0644\u0627\u0632\u0645\u0629 Latah \u063a\u0627\u0644\u0628\u064b\u0627 \u0628\u0648\u0627\u0633\u0637\u0629:", "options": ["Startle or shock", "Spiritual chanting", "Overwork", "Fever"], "answer": "Startle or shock", "explanation": "It follows an unexpected fright leading to exaggerated mimicry or obedience.<br>\u062a\u062d\u062f\u062b \u0628\u0639\u062f \u0635\u062f\u0645\u0629 \u0645\u0641\u0627\u062c\u0626\u0629 \u0648\u062a\u0624\u062f\u064a \u0625\u0644\u0649 \u062a\u0643\u0631\u0627\u0631 \u0623\u0648 \u0637\u0627\u0639\u0629 \u062a\u0644\u0642\u0627\u0626\u064a\u0629."}];
+    let current = 0;
+    let score = 0;
+
+    function renderQuestion() {
+      const q = questions[current];
+      document.getElementById("question").textContent = q.question;
+      document.getElementById("translation").textContent = q.translation;
+      document.getElementById("counter").textContent = (current + 1) + " / " + questions.length;
+      const optionsList = document.getElementById("options");
+      optionsList.innerHTML = "";
+      q.options.forEach((opt, i) => {
+        const li = document.createElement("li");
+        li.textContent = opt;
+        li.onclick = () => selectAnswer(li, opt, q.answer, q.explanation);
+        optionsList.appendChild(li);
+      });
+      document.getElementById("explanation").style.display = "none";
+      document.getElementById("nextBtn").style.display = "none";
+    }
+
+    function selectAnswer(selected, chosen, correct, explanation) {
+      const options = document.querySelectorAll("#options li");
+      options.forEach(li => {
+        li.classList.add("disabled");
+        if (li.textContent === correct) li.classList.add("correct");
+        if (li === selected && li.textContent !== correct) li.classList.add("incorrect");
+      });
+      if (chosen === correct) score++;
+      const expl = document.getElementById("explanation");
+      expl.innerHTML = explanation;
+      expl.style.display = "block";
+      document.getElementById("nextBtn").style.display = "inline-block";
+    }
+
+    function nextQuestion() {
+      current++;
+      if (current < questions.length) {
+        renderQuestion();
+      } else {
+        showScore();
+      }
+    }
+
+    function goToLast() {
+      current = questions.length - 1;
+      renderQuestion();
+    }
+
+    function showScore() {
+      document.querySelector(".container").innerHTML = `
+        <div class="question">انتهت الأسئلة</div>
+        <div class="translation">Your score: <span style="color:green;">${score}</span> / <span style="color:red;">${questions.length}</span></div>
+      `;
+    }
+
+    renderQuestion();
+  </script>
+</body>
+</html>

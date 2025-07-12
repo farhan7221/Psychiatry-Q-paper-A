@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attitude Scenario Quiz – All Questions</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; flex-direction: column; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { margin-top: 15px; background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; display: none; }
+    .next-btn { margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); color: rgba(0,0,0,0.07); font-size: 24px; font-style: italic; pointer-events: none; user-select: none; }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options" class="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align: right; margin-top: 10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+
+<script>
+const questions = [{"q": "1. What improves the accuracy of attitude measurement?<br><span style='color:gray'>ما الذي يحسن دقة قياس المواقف؟</span>", "o": ["Measuring in general terms<br><span style='color:gray'>القياس بعبارات عامة</span>", "Including target, action, context, and time<br><span style='color:gray'>تحديد الهدف، الفعل، السياق، والوقت</span>", "Asking personal questions<br><span style='color:gray'>طرح أسئلة شخصية</span>", "Focusing on behavior only<br><span style='color:gray'>التركيز على السلوك فقط</span>"], "a": 1, "e": "When attitudes are measured with clear specification of target, action, context, and time, they become much more predictive of real behavior.<br><span style='color:gray'>عند تحديد الهدف والسلوك والسياق والوقت بدقة أثناء القياس، يصبح الموقف أكثر دقة وقدرة على التنبؤ بالسلوك الفعلي.</span>"}, {"q": "2. Measuring attitudes using only general statements is:<br><span style='color:gray'>قياس المواقف باستخدام عبارات عامة فقط هو:</span>", "o": ["Precise<br><span style='color:gray'>دقيق</span>", "Risk-free<br><span style='color:gray'>خالٍ من المخاطر</span>", "Potentially inaccurate<br><span style='color:gray'>غير دقيق محتمل</span>", "Required<br><span style='color:gray'>مطلوب</span>"], "a": 2, "e": "General statements often fail to account for specific situations, making the measured attitude less reflective of actual behavior.<br><span style='color:gray'>الأسئلة العامة لا تراعي الحالات الخاصة أو المواقف الواقعية، لذا لا تمثل السلوك الحقيقي بدقة.</span>"}, {"q": "3. Specifying the context of attitude measurement means:<br><span style='color:gray'>ماذا يعني تحديد سياق قياس الموقف؟</span>", "o": ["Ignoring personal relevance<br><span style='color:gray'>تجاهل الصلة الشخصية</span>", "Making the question abstract<br><span style='color:gray'>جعل السؤال مجردًا</span>", "Anchoring the attitude to real-life situations<br><span style='color:gray'>ربط الموقف بمواقف الحياة الواقعية</span>", "Reducing time required<br><span style='color:gray'>تقليل الوقت المطلوب</span>"], "a": 2, "e": "By specifying context, we make the attitude question more relevant and meaningful to real-world applications.<br><span style='color:gray'>تحديد السياق يجعل السؤال أكثر واقعية وصلـة بتصرفات الشخص في الحياة الفعلية.</span>"}, {"q": "4. Which of the following is an example of specific measurement?<br><span style='color:gray'>أي من التالي يُعد مثالاً على قياس محدد؟</span>", "o": ["What is your view on abortion?<br><span style='color:gray'>ما رأيك في الإجهاض؟</span>", "Do you support medical care?<br><span style='color:gray'>هل تدعم الرعاية الطبية؟</span>", "Is legal abortion acceptable in married women after 3 months?<br><span style='color:gray'>هل الإجهاض القانوني مقبول لامرأة متزوجة بعد 3 أشهر؟</span>", "Should people vote?<br><span style='color:gray'>هل يجب أن يصوت الناس؟</span>"], "a": 2, "e": "This question includes details of who, when, and what – which makes it a specific, context-based measurement.<br><span style='color:gray'>السؤال يحدد من المعنية، والوقت، والفعل، مما يجعله قياسًا دقيقًا قائمًا على سياق واقعي.</span>"}, {"q": "5. The phrase 'actual behavior' implies:<br><span style='color:gray'>مصطلح 'السلوك الفعلي' يعني:</span>", "o": ["Imagined response<br><span style='color:gray'>رد متخيل</span>", "Predicted attitude<br><span style='color:gray'>موقف متوقع</span>", "Real-world action<br><span style='color:gray'>سلوك واقعي في الحياة</span>", "General feeling<br><span style='color:gray'>شعور عام</span>"], "a": 2, "e": "Actual behavior refers to how a person acts in real-life situations, not just what they say or believe.<br><span style='color:gray'>السلوك الفعلي هو ما يفعله الإنسان فعلاً في حياته اليومية، وليس مجرد آرائه أو نواياه.</span>"}, {"q": "6. One limitation of measuring only general attitudes is:<br><span style='color:gray'>ما أحد عيوب قياس المواقف العامة فقط؟</span>", "o": ["Too specific<br><span style='color:gray'>محدد جدًا</span>", "Lacks emotional impact<br><span style='color:gray'>يفتقر للتأثير العاطفي</span>", "Fails to predict behavior accurately<br><span style='color:gray'>لا يتنبأ بالسلوك بدقة</span>", "Too long to answer<br><span style='color:gray'>طويل جدًا للإجابة</span>"], "a": 2, "e": "General attitudes may not lead to accurate behavioral predictions.<br><span style='color:gray'>المواقف العامة قد لا تؤدي إلى تنبؤ دقيق بالسلوك.</span>"}, {"q": "7. Attitudes toward legal abortion in a precise scenario help:<br><span style='color:gray'>المواقف من الإجهاض القانوني في سيناريو دقيق تساعد على:</span>", "o": ["Confusing the respondent<br><span style='color:gray'>إرباك المجيب</span>", "Avoiding behavior change<br><span style='color:gray'>تجنب تغير السلوك</span>", "Getting accurate behavioral predictions<br><span style='color:gray'>الحصول على تنبؤات دقيقة بالسلوك</span>", "Hiding the topic<br><span style='color:gray'>إخفاء الموضوع</span>"], "a": 2, "e": "Detailed scenarios provide a clear frame that mirrors real decisions, increasing reliability.<br><span style='color:gray'>السيناريوهات المفصلة تشبه مواقف الحياة الواقعية، مما يجعل التنبؤ بالسلوك أكثر مصداقية.</span>"}, {"q": "8. When an attitude is measured without a time element, it becomes:<br><span style='color:gray'>عندما يُقاس الموقف بدون عنصر زمني، يصبح:</span>", "o": ["More scientific<br><span style='color:gray'>أكثر علمية</span>", "Less meaningful<br><span style='color:gray'>أقل دلالة ومعنى</span>", "Irrelevant<br><span style='color:gray'>غير ذي صلة</span>", "More reliable<br><span style='color:gray'>أكثر موثوقية</span>"], "a": 1, "e": "Time anchors behavior; without it, the measurement is vague and less predictive.<br><span style='color:gray'>الزمن عنصر ضروري لتحديد متى يظهر السلوك. بدونه يصبح القياس غامضًا وغير دقيق.</span>"}, {"q": "9. Which element is NOT part of a good attitude measurement?<br><span style='color:gray'>أي مما يلي لا يُعد جزءًا من قياس جيد للمواقف؟</span>", "o": ["Target<br><span style='color:gray'>الهدف</span>", "Action<br><span style='color:gray'>الفعل</span>", "Context<br><span style='color:gray'>السياق</span>", "Personality traits<br><span style='color:gray'>السمات الشخصية</span>"], "a": 3, "e": "Traits like introversion or openness are not components of attitude measurement; focus should be on behavior-related elements.<br><span style='color:gray'>القياس الجيد يركز على السلوك، وليس على صفات الشخصية التي قد لا تعكس الموقف تجاه موضوع معين.</span>"}, {"q": "10. People’s responses are more accurate when:<br><span style='color:gray'>تكون استجابات الناس أكثر دقة عندما:</span>", "o": ["Questions are vague<br><span style='color:gray'>الأسئلة غامضة</span>", "Scenario is relevant and detailed<br><span style='color:gray'>السيناريو مرتبط ومفصل</span>", "Topic is controversial<br><span style='color:gray'>الموضوع مثير للجدل</span>", "They are surveyed anonymously<br><span style='color:gray'>يتم استطلاعهم دون أسماء</span>"], "a": 1, "e": "Relevant and detailed questions simulate real decisions, allowing more realistic and honest responses.<br><span style='color:gray'>الأسئلة المفصلة تجعل المستجيب يتخيل موقفًا حقيقيًا، مما يدفعه للإجابة بطريقة صادقة أقرب إلى الواقع.</span>"}];
+let current = 0;
+let score = 0;
+
+function load() {
+  let q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  q.o.forEach((t, i) => {
+    let btn = document.createElement("div");
+    btn.className = "option";
+    btn.innerHTML = t;
+    btn.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if(i === q.a) {
+        btn.classList.add("correct");
+        score++;
+      } else {
+        btn.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(btn);
+  });
+}
+
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    document.getElementById("explanation").style.display = "none";
+    document.getElementById("next-btn").style.display = "none";
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+};
+
+load();
+</script>
+</body>
+</html>

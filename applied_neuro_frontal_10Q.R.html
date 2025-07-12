@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Applied Neuroscience - Frontal Lobe Full Test's</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: sans-serif; margin: 0; padding: 0; }
+    .container {
+      max-width: 800px; margin: 40px auto; background: white; padding: 20px;
+      border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 { text-align: center; font-size: 24px; color: #222; }
+    .question-box { margin-bottom: 20px; }
+    .question-text { font-size: 18px; font-weight: bold; }
+    .question-arabic { margin-bottom: 10px; font-size: 15px; color: #555; }
+    .option {
+      background: #f8f9fa; padding: 10px; border-radius: 5px; margin-bottom: 8px;
+      cursor: pointer; border: 1px solid #ccc;
+    }
+    .option.correct { background-color: #28a745 !important; color: white; }
+    .option.wrong { background-color: #dc3545 !important; color: white; }
+    .explanation {
+      margin-top: 10px; background: rgba(255, 255, 0, 0.2);
+      border-left: 5px solid #ffc107; padding: 10px; display: none;
+    }
+    .next-btn, .last-btn {
+      margin-top: 15px; padding: 10px 20px; border: none;
+      border-radius: 5px; color: white; font-size: 16px; cursor: pointer;
+    }
+    .next-btn { background-color: #007bff; }
+    .last-btn { background-color: #28a745; float: right; }
+    .watermark {
+      position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px; color: rgba(0,0,0,0.05); pointer-events: none;
+    }
+    .result { text-align: center; font-size: 18px; margin-top: 30px; }
+    .green { color: green; font-weight: bold; }
+    .red { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  <div class="container">
+    <h1>Applied Neuroscience – Frontal Lobe Full Test's</h1>
+    <div id="quiz"></div>
+    <button class="next-btn" onclick="nextQuestion()" style="display:none;">التالي</button>
+    <button class="last-btn" onclick="goLast()" style="display:none;">Last Q</button>
+  </div>
+  <script>
+    const questions = [{"q": "What does the ‘Similarities’ test primarily assess in frontal lobe function?", "qt": "ما الوظيفة التي يقيسها اختبار \"التشابهات\" بشكل أساسي في الفص الجبهي؟", "options": [["Semantic fluency", "الطلاقة الدلالية"], ["Visual memory", "الذاكرة البصرية"], ["Abstract categorisation ability", "القدرة على التصنيف المجرد"], ["Vocabulary recall", "استرجاع المفردات"]], "answer": 2, "exp": "This test requires comparing two objects to assess the ability to abstractly group them under a common category.<br>يقيس هذا الاختبار القدرة على التصنيف المجرد من خلال مقارنة كائنين وربطهما بفئة مشتركة، وليس مجرد وصف لأجزائهما."}, {"q": "Which of the following tasks best represents a lexical fluency test?", "qt": "أي من المهام التالية تمثل اختبار الطلاقة اللفظية؟", "options": [["Naming animals starting with “S”", "تسمية حيوانات تبدأ بحرف S"], ["Following a sequence of lights", "اتباع تسلسل أضواء"], ["Drawing shapes", "رسم الأشكال"], ["Repeating numbers", "تكرار الأرقام"]], "answer": 0, "exp": "Lexical fluency involves generating as many words as possible within a category or starting with a specific letter.<br>يعتمد اختبار الطلاقة اللفظية على إنتاج كلمات عديدة ضمن فئة معينة أو تبدأ بحرف معين."}, {"q": "The Luria motor test is used to assess which of the following?", "qt": "ما الذي يقيسه اختبار لوريا الحركي؟", "options": [["Coordination only", "التنسيق فقط"], ["Motor planning and error correction", "تخطيط الحركة وتصحيح الخطأ"], ["Hand strength", "قوة اليد"], ["Reflexes", "المنعكسات"]], "answer": 1, "exp": "This test (fist-edge-palm movements) evaluates the brain’s ability to plan and execute sequences of movement.<br>يقيس اختبار لوريا قدرة الدماغ على تخطيط وتنفيذ سلسلة من الحركات."}, {"q": "What is the cognitive domain primarily tested in Go/No-go tasks?", "qt": "ما المجال المعرفي الأساسي الذي يُقاس باختبار Go/No-go؟", "options": [["Motor strength", "قوة الحركة"], ["Response inhibition", "كف الاستجابة"], ["Spatial orientation", "الاتجاه المكاني"], ["Verbal memory", "الذاكرة اللفظية"]], "answer": 1, "exp": "Go/No-go tasks test the ability to suppress a prepotent response.<br>تقيس اختبارات Go/No-go القدرة على كبح الاستجابات التلقائية."}, {"q": "The ‘Cognitive estimates’ test evaluates what kind of cognitive processing?", "qt": "ما نوع المعالجة المعرفية التي يقيسها اختبار \"التقديرات المعرفية\"؟", "options": [["Language fluency", "الطلاقة اللغوية"], ["Abstract reasoning", "الاستدلال المجرد"], ["Simple recall", "الاستدعاء البسيط"], ["Factual knowledge", "المعرفة الواقعية"]], "answer": 1, "exp": "Questions like 'How tall is an average English woman?' require abstract estimation, not factual recall.<br>أسئلة مثل 'كم طول المرأة الإنجليزية العادية؟' تعتمد على التقدير المجرد وليس على حقائق ثابتة."}, {"q": "Which function is best assessed by the Trail Making Test (TMT)?", "qt": "أي وظيفة تُقاس بشكل أفضل عبر اختبار تتبع المسار؟", "options": [["Visual attention and set-shifting", "الانتباه البصري وتبديل المهام"], ["Language processing", "معالجة اللغة"], ["Spatial orientation", "التوجه المكاني"], ["Memory encoding", "ترميز الذاكرة"]], "answer": 0, "exp": "TMT part B measures the ability to switch tasks and maintain visual attention.<br>يقيس TMT الجزء B القدرة على تبديل المهام مع الحفاظ على الانتباه البصري."}, {"q": "Proverb interpretation is used to assess which frontal function?", "qt": "ما الوظيفة التي يقيسها تفسير الأمثال؟", "options": [["Abstract reasoning", "الاستدلال المجرد"], ["Visual recall", "الاستدعاء البصري"], ["Literal thinking", "التفكير الحرفي"], ["Motor sequencing", "تسلسل الحركات"]], "answer": 0, "exp": "Understanding proverbs requires abstract and symbolic thinking.<br>يتطلب تفسير الأمثال تفكيرًا رمزيًا ومجردًا، مما يُعد من وظائف الفص الجبهي العليا."}, {"q": "Which task best assesses sequencing and motor planning in frontal lobe function?", "qt": "أي مهمة تقيس بشكل أفضل التسلسل وتخطيط الحركة في وظائف الفص الجبهي؟", "options": [["Digit span forward", "مدى الأرقام الأمامي"], ["Luria hand movement test", "اختبار حركات يد لوريا"], ["Visual field testing", "اختبار المجال البصري"], ["Tactile localization", "تحديد اللمس"]], "answer": 1, "exp": "The Luria hand sequence test requires planning and executing a set sequence of hand movements.<br>يتطلب اختبار لوريا تنفيذ تسلسل من الحركات المعقدة، وهو ما يتأثر في إصابات الفص الجبهي."}, {"q": "Which of the following is commonly impaired in frontal lobe dysfunction and reflects perseveration?", "qt": "أي مما يلي يتأثر شائعًا في خلل الفص الجبهي ويعكس التكرار اللاإرادي؟", "options": [["Tactile sensation", "الإحساس اللمسي"], ["Color recognition", "تمييز الألوان"], ["Set shifting", "تغيير المجموعة الذهنية"], ["Object naming", "تسمية الأشياء"]], "answer": 2, "exp": "Inability to switch between tasks or mental sets (set shifting) is a sign of frontal perseveration.<br>العجز عن تبديل المهمة أو الاستراتيجية الذهنية يُعرف بالتكرار (perseveration) وغالبًا ما يظهر في اضطرابات الفص الجبهي."}, {"q": "Which cognitive ability is most associated with dorsolateral prefrontal cortex function?", "qt": "أي قدرة معرفية ترتبط أكثر بوظيفة القشرة الجبهية الظهرية الجانبية؟", "options": [["Touch localization", "تحديد موضع اللمس"], ["Visual acuity", "حدة البصر"], ["Basic language output", "الإنتاج اللغوي الأساسي"], ["Working memory", "الذاكرة العاملة"]], "answer": 3, "exp": "The dorsolateral prefrontal cortex is crucial for working memory and executive control.<br>تُعد القشرة الجبهية الظهرية الجانبية أساسية للذاكرة العاملة والتحكم التنفيذي."}];
+    let current = 0;
+    let score = 0;
+    let answered = false;
+
+    function renderQuestion(i) {
+      const q = questions[i];
+      const container = document.getElementById('quiz');
+      let html = `<div class='question-box'>
+        <div class='question-text'>Q${i+1}. ${q.q}</div>
+        <div class='question-arabic'>${q.qt}</div>`;
+      q.options.forEach((opt, index) => {
+        html += `<div class='option' onclick='checkAnswer(this, ${i}, ${index})'>${opt[0]} - ${opt[1]}</div>`;
+      });
+      html += `<div class='explanation'>${q.exp}</div></div>`;
+      container.innerHTML = html;
+      document.querySelector(".next-btn").style.display = "none";
+      document.querySelector(".last-btn").style.display = i < questions.length - 1 ? "inline-block" : "none";
+      answered = false;
+    }
+
+    function checkAnswer(elem, qIndex, optIndex) {
+      if (answered) return;
+      answered = true;
+      const correct = questions[qIndex].answer;
+      const options = document.querySelectorAll(".option");
+      options.forEach((el, i) => {
+        el.onclick = null;
+        if (i === correct) el.classList.add("correct");
+        else if (i === optIndex) el.classList.add("wrong");
+      });
+      if (optIndex === correct) score++;
+      document.querySelector(".explanation").style.display = "block";
+      document.querySelector(".next-btn").style.display = "inline-block";
+    }
+
+    function nextQuestion() {
+      current++;
+      if (current >= questions.length) {
+        showResult();
+      } else {
+        renderQuestion(current);
+      }
+    }
+
+    function goLast() {
+      current = questions.length - 1;
+      renderQuestion(current);
+    }
+
+    function showResult() {
+      const container = document.getElementById('quiz');
+      container.innerHTML = `<div class='result'>
+        <h3>انتهت الأسئلة</h3>
+        <p><span class='green'>${score}</span> / <span class='red'>10</span></p>
+        <p><span class='green'>درجة الامتحان</span>: <span class='green'>${score}</span> من <span class='red'>10</span></p>
+      </div>`;
+      document.querySelector(".next-btn").style.display = "none";
+      document.querySelector(".last-btn").style.display = "none";
+    }
+
+    renderQuestion(current);
+  </script>
+</body>
+</html>

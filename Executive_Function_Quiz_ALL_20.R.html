@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Executive Function Quiz</title>
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: Arial;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin: auto;
+      position: relative;
+    }
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 36px;
+      color: rgba(128,128,128,0.2);
+      font-style: italic;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .question-number {
+      text-align: right;
+      font-weight: bold;
+    }
+    .question, .translation {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    .question {
+      font-weight: bold;
+    }
+    .option {
+      background: #eee;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .option.correct {
+      background-color: #c8f7c5;
+    }
+    .option.incorrect {
+      background-color: #f7c5c5;
+    }
+    .option.disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .explanation {
+      background-color: rgba(255,255,150,0.4);
+      border-left: 6px solid gold;
+      padding: 10px;
+      margin-top: 20px;
+      display: none;
+    }
+    #nextBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: none;
+    }
+    #lastQBtn {
+      margin-top: 10px;
+      float: right;
+      background-color: #555;
+      color: #fff;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 4px;
+    }
+    #question-end {
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+    <h2 style="text-align:center;">Executive Function | الوظيفة التنفيذية</h2>
+    <div class="question-number" id="qNumber"></div>
+    <div class="question" id="questionText"></div>
+    <div class="translation" id="questionAr"></div>
+    <div id="options"></div>
+    <div class="explanation" id="explanationBox"></div>
+    <button id="nextBtn" onclick="nextQuestion()">التالي</button>
+    <div id="question-end">
+      <h2>انتهت الأسئلة</h2>
+      <p>Your Score: <span id="score" style="color:#007bff; font-weight:bold;"></span> / 20</p>
+      <p>درجتك: <span id="scoreAr" style="color:#007bff; font-weight:bold;"></span> من 20</p>
+    </div>
+    <button id="lastQBtn" onclick="goToLast()">last Q</button>
+  </div>
+
+  <script>
+    const questions = [{"q": "Which of the following is NOT part of executive function?", "q_ar": "أي مما يلي لا يُعد جزءاً من الوظيفة التنفيذية؟", "choices": [["Planning", "التخطيط", false], ["Set shifting", "تبديل المهام", false], ["Impulse control", "التحكم في الاندفاع", false], ["Hearing ability", "القدرة السمعية", true]], "explanation": "Executive functions include planning, shifting, impulse control, and reasoning, which are cognitive processes. Hearing ability is a sensory function.", "explanation_ar": "الوظائف التنفيذية تشمل التخطيط، وتبديل المهام، والتحكم في الاندفاع، وهي عمليات معرفية. القدرة السمعية وظيفة حسية."}, {"q": "What task is commonly used to assess response inhibition in executive function?", "q_ar": "ما هو الاختبار المستخدم عادة لتقييم تثبيط الاستجابة ضمن الوظيفة التنفيذية؟", "choices": [["Go-No-Go task", "اختبار Go-No-Go", true], ["Trail Making Test", "اختبار تتبع المسار", false], ["Digit Span", "اختبار تكرار الأرقام", false], ["Visual field test", "اختبار المجال البصري", false]], "explanation": "The Go-No-Go task is commonly used to assess response inhibition by requiring patients to tap for one cue and withhold for another.", "explanation_ar": "يُستخدم اختبار Go-No-Go لتقييم تثبيط الاستجابة من خلال تعليم المريض الاستجابة لإشارة واحدة وعدم الاستجابة لأخرى."}, {"q": "Impulsivity is linked to dysfunction in which brain region?", "q_ar": "الاندفاعية مرتبطة بخلل في أي منطقة دماغية؟", "choices": [["Inferior frontal lobe", "الفص الجبهي السفلي", true], ["Occipital lobe", "الفص القذالي", false], ["Temporal lobe", "الفص الصدغي", false], ["Parietal lobe", "الفص الجداري", false]], "explanation": "Impulsivity reflects failure of response inhibition and is seen in inferior frontal pathology.", "explanation_ar": "الاندفاعية تعكس فشلًا في تثبيط الاستجابة وتُلاحظ في أمراض الفص الجبهي السفلي."}, {"q": "What shapes are typically used in tests of perseveration?", "q_ar": "ما الأشكال المستخدمة عادة في اختبارات الاستمرار (Perseveration)؟", "choices": [["Alternating squares and triangles", "تناوب بين المربعات والمثلثات", true], ["Circles and rectangles", "دوائر ومستطيلات", false], ["Lines and dots", "خطوط ونقاط", false], ["Stars and crosses", "نجوم وصلبان", false]], "explanation": "Patients are asked to copy alternating squares and triangles. Perseveration may cause repeating one shape.", "explanation_ar": "يُطلب من المريض نسخ تسلسل من مربعات ومثلثات بالتناوب، وقد يؤدي الاستمرار إلى تكرار أحد الأشكال فقط."}, {"q": "Which test may yield bizarre answers and assesses estimation ability?", "q_ar": "أي اختبار قد ينتج إجابات غريبة ويقيس القدرة على التقدير؟", "choices": [["Cognitive estimates test", "اختبار التقديرات المعرفية", true], ["Wisconsin Card Sorting Test", "اختبار فرز بطاقات ويسكونسن", false], ["Stroop Test", "اختبار ستروب", false], ["Mini-Mental State Examination", "الاختبار العقلي المصغر", false]], "explanation": "The cognitive estimates test assesses estimation by asking about things like population or object height, and may prompt bizarre responses.", "explanation_ar": "اختبار التقديرات المعرفية يقيس مهارة التقدير من خلال أسئلة عن أعداد السكان أو ارتفاع الأشياء، وقد ينتج عنه إجابات غير منطقية."}, {"q": "Which brain region is mainly involved in executive function?", "q_ar": "ما المنطقة الدماغية الرئيسية المرتبطة بالوظيفة التنفيذية؟", "choices": [["Dorsolateral prefrontal cortex", "قشرة الجبهة الجانبية الظهرية", true], ["Cerebellum", "المخيخ", false], ["Brainstem", "جذع الدماغ", false], ["Hippocampus", "الحُصين", false]], "explanation": "Executive function is primarily governed by the dorsolateral prefrontal cortex, which handles planning and reasoning.", "explanation_ar": "الوظيفة التنفيذية تُدار أساساً بواسطة قشرة الجبهة الجانبية الظهرية، المسؤولة عن التخطيط والاستنتاج."}, {"q": "In the Go-No-Go task, failure to inhibit tapping indicates what?", "q_ar": "في اختبار Go-No-Go، فشل المريض في التوقف عن النقر يدل على ماذا؟", "choices": [["Good executive control", "تحكم تنفيذي جيد", false], ["Auditory dysfunction", "خلل سمعي", false], ["Response inhibition deficit", "خلل في تثبيط الاستجابة", true], ["Memory problem", "مشكلة في الذاكرة", false]], "explanation": "Failing to inhibit tapping suggests difficulty with response inhibition, a key part of executive function.", "explanation_ar": "عدم التوقف عن النقر يشير إلى صعوبة في تثبيط الاستجابة، وهو جزء أساسي من الوظيفة التنفيذية."}, {"q": "Which of the following is a feature of impaired executive function?", "q_ar": "أي من التالي يُعد من مظاهر ضعف الوظيفة التنفيذية؟", "choices": [["Perseveration", "التكرار المرضي", true], ["Increased attention span", "زيادة فترة الانتباه", false], ["Enhanced reflexes", "زيادة ردود الفعل", false], ["Perfect recall", "تذكّر مثالي", false]], "explanation": "Perseveration, or repeated actions despite changes, is a classic sign of executive dysfunction.", "explanation_ar": "التكرار المرضي (Perseveration) هو تكرار نفس التصرف رغم تغيّر الموقف، ويُعد علامة شهيرة على ضعف الوظيفة التنفيذية."}, {"q": "Which of the following best describes the “Cognitive Estimates Test”?", "q_ar": "أي من التالي يصف بشكل أفضل “اختبار التقديرات المعرفية”؟", "choices": [["Assesses working memory", "يقيس الذاكرة العاملة", false], ["Requires abstract reasoning", "يتطلب استنتاجًا تجريديًا", false], ["Involves real-life estimations", "يتضمن تقديرات من الحياة الواقعية", true], ["Tests motor coordination", "يختبر التنسيق الحركي", false]], "explanation": "The test asks about practical estimations (e.g., height of a horse), and is used to identify bizarre or impaired judgment.", "explanation_ar": "يتضمن الاختبار تقديرات عملية مثل \"ما ارتفاع الحصان؟\" وهو يساعد في كشف الأحكام الخاطئة أو غير المنطقية."}, {"q": "Which test involves identifying similarities between objects?", "q_ar": "أي اختبار يتضمن تحديد أوجه التشابه بين الأشياء؟", "choices": [["Similarities test", "اختبار أوجه التشابه", true], ["Stroop test", "اختبار ستروب", false], ["Go-No-Go task", "مهمة Go-No-Go", false], ["Digit span test", "اختبار مدى الأرقام", false]], "explanation": "The similarities test assesses abstract thinking by asking how two objects are similar (e.g., apple and orange).", "explanation_ar": "اختبار أوجه التشابه يقيس التفكير المجرد من خلال سؤال المريض كيف يتشابه شيئان (مثل التفاحة والبرتقالة)."}, {"q": "Which of the following responses in the Similarities test indicates impaired abstract thinking?", "q_ar": "أي من الردود التالية في اختبار أوجه التشابه تدل على ضعف في التفكير المجرد؟", "choices": [["Both are fruits", "كلاهما فواكه", false], ["They are different colors", "لهما ألوان مختلفة", true], ["You can eat both", "يمكنك أكل كليهما", false], ["They grow on trees", "ينموان على الأشجار", false]], "explanation": "Focusing on concrete differences like color instead of abstract categories shows impaired reasoning.", "explanation_ar": "التركيز على فروق سطحية مثل اللون بدلاً من المفهوم المشترك يدل على ضعف في التفكير المجرد."}, {"q": "What kind of proverb interpretation suggests poor executive function?", "q_ar": "أي نوع من تفسير الأمثال يدل على ضعف في الوظيفة التنفيذية؟", "choices": [["Literal interpretation", "التفسير الحرفي", true], ["Cultural reference", "إشارة ثقافية", false], ["Creative analogy", "تشبيه إبداعي", false], ["Social application", "تطبيق اجتماعي", false]], "explanation": "Literal interpretations show difficulty in abstract reasoning, which is part of executive function.", "explanation_ar": "التفسير الحرفي يدل على صعوبة في التفكير المجرد، وهو جزء من الوظيفة التنفيذية."}, {"q": "What does perseveration typically indicate in cognitive testing?", "q_ar": "ما الذي يشير إليه التكرار المرضي في الاختبارات المعرفية؟", "choices": [["Memory loss", "فقدان الذاكرة", false], ["Executive dysfunction", "خلل في الوظيفة التنفيذية", true], ["Visual neglect", "إهمال بصري", false], ["Agnosia", "فقدان التعرف", false]], "explanation": "Perseveration is a failure to shift behavior when needed, showing executive dysfunction.", "explanation_ar": "يشير التكرار المرضي إلى خلل في تبديل السلوك، مما يدل على ضعف في الوظيفة التنفيذية."}, {"q": "Which test may reflect cultural or educational background more than cognition?", "q_ar": "أي اختبار قد يعكس الخلفية الثقافية أو التعليمية أكثر من القدرات المعرفية؟", "choices": [["Go-No-Go", "Go-No-Go", false], ["Similarities", "أوجه التشابه", false], ["Proverbs interpretation", "تفسير الأمثال", true], ["Task switching", "تبديل المهام", false]], "explanation": "Understanding proverbs is influenced by cultural and educational factors.", "explanation_ar": "فهم الأمثال يتأثر بالعوامل الثقافية والتعليمية."}, {"q": "What is a typical response of a patient with executive dysfunction during shape alternation tasks?", "q_ar": "ما هو الرد الشائع لمريض يعاني من خلل تنفيذي عند أداء مهام تبديل الأشكال؟", "choices": [["Alternates correctly", "يبدل الأشكال بشكل صحيح", false], ["Stops drawing", "يتوقف عن الرسم", false], ["Repeats the same shape", "يكرر نفس الشكل", true], ["Mixes random symbols", "يخلط رموزًا عشوائية", false]], "explanation": "Repetition of one shape suggests perseveration and poor task switching.", "explanation_ar": "تكرار نفس الشكل يدل على التكرار المرضي وضعف التبديل بين المهام."}, {"q": "What does the 'Go' part in the Go-No-Go task require the subject to do?", "q_ar": "ماذا يُطلب من المريض فعله في الجزء 'Go' من اختبار Go-No-Go؟", "choices": [["Stay silent", "أن يبقى صامتًا", false], ["Tap once", "أن ينقر مرة واحدة", true], ["Answer a question", "أن يجيب عن سؤال", false], ["Ignore the stimulus", "أن يتجاهل المنبه", false]], "explanation": "The subject must respond (e.g., tap), which tests following instructions.", "explanation_ar": "يجب على المريض الاستجابة (مثل النقر) لاختبار قدرته على اتباع التعليمات."}, {"q": "Which of the following is most affected in frontal lobe damage?", "q_ar": "أي مما يلي يتأثر غالبًا في حالات تلف الفص الجبهي؟", "choices": [["Color vision", "الرؤية اللونية", false], ["Motor coordination", "التنسيق الحركي", false], ["Executive function", "الوظيفة التنفيذية", true], ["Auditory perception", "الإدراك السمعي", false]], "explanation": "Executive function is primarily affected in frontal lobe damage.", "explanation_ar": "الوظيفة التنفيذية تتأثر بشكل رئيسي في حالات تلف الفص الجبهي."}, {"q": "What is the primary purpose of the Similarities test?", "q_ar": "ما الهدف الأساسي من اختبار أوجه التشابه؟", "choices": [["Measure intelligence", "قياس الذكاء", false], ["Test memory span", "اختبار مدى الذاكرة", false], ["Assess abstract reasoning", "تقييم التفكير المجرد", true], ["Check visual recognition", "التحقق من التعرف البصري", false]], "explanation": "This test assesses the ability to identify abstract relationships.", "explanation_ar": "هذا الاختبار يقيس القدرة على تحديد العلاقات المجردة."}, {"q": "Which of the following is an example of a bizarre response in the Cognitive Estimates Test?", "q_ar": "أي مما يلي يُعد مثالاً لإجابة غريبة في اختبار التقديرات المعرفية؟", "choices": [["There are 8 million people in London", "يوجد 8 مليون نسمة في لندن", false], ["A giraffe is 200 meters tall", "ارتفاع الزرافة 200 متر", true], ["A horse runs 60 km/h", "الحصان يجري بسرعة 60 كم/س", false], ["The Eiffel Tower is in Paris", "برج إيفل في باريس", false]], "explanation": "Overestimations like 200 meters for a giraffe are considered bizarre.", "explanation_ar": "المبالغات مثل 200 متر لارتفاع زرافة تُعتبر إجابات غير منطقية."}, {"q": "What does failure to alternate shapes in a drawing task reflect?", "q_ar": "ماذا يعكس الفشل في التناوب بين الأشكال في مهمة الرسم؟", "choices": [["Visual neglect", "إهمال بصري", false], ["Memory loss", "فقدان الذاكرة", false], ["Perseveration", "التكرار المرضي", true], ["Disinterest", "عدم اهتمام", false]], "explanation": "It suggests inability to shift response, a form of perseveration.", "explanation_ar": "يدل على ضعف في تبديل الاستجابة، ويُعد من التكرار المرضي."}];
+
+    let current = 0;
+    let score = 0;
+
+    function loadQuestion(index) {
+      const q = questions[index];
+      document.getElementById("qNumber").innerText = `${index + 1} / ${questions.length}`;
+      document.getElementById("questionText").innerText = q.q;
+      document.getElementById("questionAr").innerText = q.q_ar;
+      const container = document.getElementById("options");
+      container.innerHTML = "";
+      q.choices.forEach((c, i) => {
+        const div = document.createElement("div");
+        div.className = "option";
+        div.innerHTML = `${c[0]}<br><small>${c[1]}</small>`;
+        div.onclick = () => select(div, c[2]);
+        container.appendChild(div);
+      });
+      document.getElementById("explanationBox").style.display = "none";
+      document.getElementById("nextBtn").style.display = "none";
+    }
+
+    function select(el, isCorrect) {
+      document.querySelectorAll('.option').forEach(opt => {
+        opt.classList.add("disabled");
+      });
+      if (isCorrect) {
+        el.classList.add("correct");
+        score++;
+      } else {
+        el.classList.add("incorrect");
+        const correct = [...document.querySelectorAll('.option')].find(opt =>
+          questions[current].choices.find(c => c[2] && opt.innerText.includes(c[0]))
+        );
+        correct.classList.add("correct");
+      }
+      document.getElementById("explanationBox").innerHTML =
+        `<strong>Explanation | الشرح:</strong><br>${questions[current].explanation}<br>${questions[current].explanation_ar}`;
+      document.getElementById("explanationBox").style.display = "block";
+      document.getElementById("nextBtn").style.display = "inline-block";
+    }
+
+    function nextQuestion() {
+      current++;
+      if (current >= questions.length) {
+        document.querySelector(".question-number").style.display = "none";
+        document.getElementById("questionText").style.display = "none";
+        document.getElementById("questionAr").style.display = "none";
+        document.getElementById("options").style.display = "none";
+        document.getElementById("explanationBox").style.display = "none";
+        document.getElementById("nextBtn").style.display = "none";
+        document.getElementById("question-end").style.display = "block";
+        document.getElementById("score").innerText = score;
+        document.getElementById("scoreAr").innerText = score;
+      } else {
+        loadQuestion(current);
+      }
+    }
+
+    function goToLast() {
+      current = questions.length - 1;
+      loadQuestion(current);
+    }
+
+    loadQuestion(current);
+  </script>
+</body>
+</html>

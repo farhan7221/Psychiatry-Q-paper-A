@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alzheimer’s Dementia - Q1 to Q20 Full Fresh</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f9f9f9; }
+.question-block { display: none; padding: 20px; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: #fff3cd; padding: 10px; margin-top: 15px; border-left: 5px solid #ffeeba; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="total-counter">Total Questions: 20</div>
+
+<section class="question-block" id="q1">
+  <h2>Question 1</h2>
+  <p>What is the main peptide component of senile plaques in Alzheimer’s disease?<br><small>ما هو المكون الأساسي من الببتيد في اللويحات الشيخوخية في مرض الزهايمر؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Aβ (beta A4) peptide<br><small>بيتا أميلويد (Aβ)</small></li>
+<li onclick="checkAnswer(this, false)">Tau protein<br><small>بروتين تاو</small></li>
+<li onclick="checkAnswer(this, false)">Synaptophysin<br><small>سينابتوفيسين</small></li>
+<li onclick="checkAnswer(this, false)">Hirano body<br><small>جسم هيرانو</small></li>
+</ul>
+  <div class="explanation">The main peptide is Aβ (beta A4). / المكون الأساسي هو بيتا أميلويد (Aβ).</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+  <h2>Question 2</h2>
+  <p>Where are amyloid plaques typically deposited?<br><small>أين تترسب عادةً لويحات الأميلويد؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Extracellularly<br><small>خارج الخلية</small></li>
+<li onclick="checkAnswer(this, false)">Intracellularly<br><small>داخل الخلية</small></li>
+<li onclick="checkAnswer(this, false)">In the nucleus<br><small>في النواة</small></li>
+<li onclick="checkAnswer(this, false)">In the mitochondria<br><small>في الميتوكوندريا</small></li>
+</ul>
+  <div class="explanation">Amyloid plaques are deposited extracellularly. / تترسب لويحات الأميلويد خارج الخلية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+  <h2>Question 3</h2>
+  <p>What staining technique demonstrates the “apple green” birefringence in senile plaques?<br><small>ما تقنية الصبغ التي تُظهر التلألؤ الأخضر التفاحي في اللويحات الشيخوخية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Congo red<br><small>صبغة الكونغو الحمراء</small></li>
+<li onclick="checkAnswer(this, false)">Silver stain<br><small>الصبغة الفضية</small></li>
+<li onclick="checkAnswer(this, false)">Hematoxylin & eosin<br><small>الهيماتوكسيلين والإيوزين</small></li>
+<li onclick="checkAnswer(this, false)">Bielschowsky stain<br><small>صبغة بيلشوسكي</small></li>
+</ul>
+  <div class="explanation">Congo red stain shows apple green birefringence. / صبغة الكونغو الحمراء تُظهر التلألؤ الأخضر التفاحي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+  <h2>Question 4</h2>
+  <p>Which type of plaque is associated with dystrophic neurites and a dense amyloid core?<br><small>أي نوع من اللويحات يرتبط بالنُبيبات المشوهة ونواة أميلويد كثيفة؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Neuritic plaques<br><small>اللويحات العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Diffuse plaques<br><small>اللويحات المنتشرة</small></li>
+<li onclick="checkAnswer(this, false)">Hirano bodies<br><small>أجسام هيرانو</small></li>
+<li onclick="checkAnswer(this, false)">NFT (Neurofibrillary tangles)<br><small>تشابكات الألياف العصبية</small></li>
+</ul>
+  <div class="explanation">Neuritic plaques have dystrophic neurites and dense core. / اللويحات العصبية تحتوي على نبيبات مشوهة ونواة كثيفة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+  <h2>Question 5</h2>
+  <p>Which of the following is true about diffuse plaques?<br><small>أي مما يلي صحيح بخصوص اللويحات المنتشرة؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">They are largely non-fibrillar<br><small>تكون غير ليفية إلى حد كبير</small></li>
+<li onclick="checkAnswer(this, false)">They contain dystrophic neurites<br><small>تحتوي على نبيبات مشوهة</small></li>
+<li onclick="checkAnswer(this, false)">They have a dense amyloid core<br><small>لديها نواة أميلويد كثيفة</small></li>
+<li onclick="checkAnswer(this, false)">They are visualized with silver stain only<br><small>تُرى فقط بالصبغة الفضية</small></li>
+</ul>
+  <div class="explanation">Diffuse plaques are non-fibrillar. / اللويحات المنتشرة غير ليفية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+  <h2>Question 6</h2>
+  <p>What are Neurofibrillary Tangles (NFT) primarily composed of?<br><small>ممّ تتكون تشابكات الألياف العصبية (NFT) بشكل أساسي؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Abnormally phosphorylated tau protein<br><small>بروتين تاو مفسفر بشكل غير طبيعي</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid<br><small>بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Synaptophysin<br><small>سينابتوفيسين</small></li>
+<li onclick="checkAnswer(this, false)">Hirano bodies<br><small>أجسام هيرانو</small></li>
+</ul>
+  <div class="explanation">NFT are composed of abnormally phosphorylated tau. / تتكون NFT من بروتين تاو مفسفر بشكل غير طبيعي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+  <h2>Question 7</h2>
+  <p>What is the main role of tau protein under normal conditions?<br><small>ما هو الدور الرئيسي لبروتين تاو في الظروف الطبيعية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Microtubule assembly<br><small>تجميع الأنابيب الدقيقة</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid deposition<br><small>ترسيب الأميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Neurotransmitter release<br><small>إفراز النواقل العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Formation of Hirano bodies<br><small>تكوين أجسام هيرانو</small></li>
+</ul>
+  <div class="explanation">Tau helps in microtubule assembly. / تاو يساعد في تجميع الأنابيب الدقيقة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+  <h2>Question 8</h2>
+  <p>Which brain region shows the earliest involvement of tangles in Alzheimer’s dementia?<br><small>أي منطقة دماغية تظهر فيها التشابكات أولاً في مرض الزهايمر؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Entorhinal cortex and CA1 of hippocampus<br><small>القشرة الشمية و CA1 من الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Frontal cortex<br><small>القشرة الجبهية</small></li>
+<li onclick="checkAnswer(this, false)">Medulla oblongata<br><small>النخاع المستطيل</small></li>
+</ul>
+  <div class="explanation">Earliest involvement is in entorhinal cortex & CA1. / تظهر التشابكات أولاً في القشرة الشمية و CA1.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+  <h2>Question 9</h2>
+  <p>Which staining method is commonly used to detect tau protein in NFTs?<br><small>ما طريقة الصبغ الشائعة لاكتشاف بروتين تاو في التشابكات العصبية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Silver stain<br><small>الصبغة الفضية</small></li>
+<li onclick="checkAnswer(this, false)">Hematoxylin & eosin<br><small>الهيماتوكسيلين والإيوزين</small></li>
+<li onclick="checkAnswer(this, false)">Congo red<br><small>صبغة الكونغو الحمراء</small></li>
+<li onclick="checkAnswer(this, false)">Oil red O<br><small>زيت أحمر O</small></li>
+</ul>
+  <div class="explanation">Silver stain is commonly used. / الصبغة الفضية هي الشائعة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+  <h2>Question 10</h2>
+  <p>In Alzheimer’s disease, tangles are most often found in which location within neurons?<br><small>في مرض الزهايمر، أين توجد التشابكات العصبية غالبًا داخل الخلايا العصبية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Intraneuronal<br><small>داخل الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Extracellular<br><small>خارج الخلايا العصبية</small></li>
+<li onclick="checkAnswer(this, false)">In the synaptic cleft<br><small>في الشق التشابكي</small></li>
+<li onclick="checkAnswer(this, false)">In the nucleus<br><small>في النواة</small></li>
+</ul>
+  <div class="explanation">Tangles are mostly intraneuronal. / التشابكات العصبية توجد غالبًا داخل الخلايا العصبية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q11">
+  <h2>Question 11</h2>
+  <p>What are Hirano bodies composed of?<br><small>ممّ تتكون أجسام هيرانو؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Actin filaments<br><small>خيوط الأكتين</small></li>
+<li onclick="checkAnswer(this, false)">Tau protein<br><small>بروتين تاو</small></li>
+<li onclick="checkAnswer(this, false)">Amyloid beta<br><small>بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Synaptophysin<br><small>سينابتوفيسين</small></li>
+</ul>
+  <div class="explanation">Hirano bodies are composed of actin filaments. / أجسام هيرانو تتكون من خيوط الأكتين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q12">
+  <h2>Question 12</h2>
+  <p>In which brain region are Hirano bodies most commonly found?<br><small>في أي منطقة دماغية توجد أجسام هيرانو غالبًا؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">CA1 region of hippocampus<br><small>منطقة CA1 من الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Occipital cortex<br><small>القشرة القذالية</small></li>
+<li onclick="checkAnswer(this, false)">Frontal cortex<br><small>القشرة الجبهية</small></li>
+<li onclick="checkAnswer(this, false)">Medulla oblongata<br><small>النخاع المستطيل</small></li>
+</ul>
+  <div class="explanation">Hirano bodies are found in CA1 region of hippocampus. / أجسام هيرانو توجد في منطقة CA1 من الحُصين.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q13">
+  <h2>Question 13</h2>
+  <p>What is Cerebral Amyloid Angiopathy (CAA) characterized by?<br><small>بماذا يتميز اعتلال الأوعية الأميلويدية الدماغية (CAA)؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Amyloid deposition in blood vessel walls<br><small>ترسيب الأميلويد في جدران الأوعية الدموية</small></li>
+<li onclick="checkAnswer(this, false)">Tau protein accumulation<br><small>تراكم بروتين تاو</small></li>
+<li onclick="checkAnswer(this, false)">Hirano body formation<br><small>تكوين أجسام هيرانو</small></li>
+<li onclick="checkAnswer(this, false)">Glial scar formation<br><small>تكوين الندبة الدبقية</small></li>
+</ul>
+  <div class="explanation">CAA is characterized by amyloid in vessel walls. / يتميز CAA بترسيب الأميلويد في جدران الأوعية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q14">
+  <h2>Question 14</h2>
+  <p>CAA is a common cause of which type of hemorrhage?<br><small>ما هو النوع الشائع للنزيف المرتبط بـ CAA؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Lobar intracerebral hemorrhage<br><small>النزيف الدماغي داخل الفصوص</small></li>
+<li onclick="checkAnswer(this, false)">Subdural hemorrhage<br><small>النزيف تحت الجافية</small></li>
+<li onclick="checkAnswer(this, false)">Epidural hemorrhage<br><small>النزيف فوق الجافية</small></li>
+<li onclick="checkAnswer(this, false)">Pontine hemorrhage<br><small>النزيف في جسر الدماغ</small></li>
+</ul>
+  <div class="explanation">CAA can cause lobar intracerebral hemorrhage. / يمكن أن يسبب CAA نزيفًا داخل الفصوص.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q15">
+  <h2>Question 15</h2>
+  <p>What is a hallmark finding in the hippocampus in Alzheimer’s dementia?<br><small>ما هو أبرز تغير مرضي في الحُصين في مرض الزهايمر؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Severe neuronal loss and gliosis<br><small>فقدان شديد للخلايا العصبية وتليّف دبقي</small></li>
+<li onclick="checkAnswer(this, false)">Presence of Hirano bodies only<br><small>وجود أجسام هيرانو فقط</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques only<br><small>وجود لويحات بيتا أميلويد فقط</small></li>
+<li onclick="checkAnswer(this, false)">Vascular malformations<br><small>تشوهات وعائية</small></li>
+</ul>
+  <div class="explanation">Severe neuronal loss & gliosis is key in hippocampus. / فقدان شديد للخلايا العصبية وتليّف دبقي هو السمة المميزة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q16">
+  <h2>Question 16</h2>
+  <p>What is Binswanger’s disease a subtype of?<br><small>ما هو نوع مرض بنسوانجر؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Subcortical vascular dementia<br><small>الخرف الوعائي تحت القشري</small></li>
+<li onclick="checkAnswer(this, false)">Alzheimer’s type dementia<br><small>خرف نوع الزهايمر</small></li>
+<li onclick="checkAnswer(this, false)">Frontotemporal dementia<br><small>الخرف الجبهي الصدغي</small></li>
+<li onclick="checkAnswer(this, false)">Lewy body dementia<br><small>خرف أجسام ليوي</small></li>
+</ul>
+  <div class="explanation">Binswanger’s disease is a form of subcortical vascular dementia. / مرض بنسوانجر هو نوع من الخرف الوعائي تحت القشري.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q17">
+  <h2>Question 17</h2>
+  <p>Binswanger’s disease is characterized by:<br><small>يتميز مرض بنسوانجر بـ:</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Diffuse white matter demyelination<br><small>إزالة الميلين المنتشرة في المادة البيضاء</small></li>
+<li onclick="checkAnswer(this, false)">Pure cortical neuronal loss<br><small>فقدان الخلايا العصبية القشرية فقط</small></li>
+<li onclick="checkAnswer(this, false)">Beta-amyloid plaques<br><small>لويحات بيتا أميلويد</small></li>
+<li onclick="checkAnswer(this, false)">Hirano bodies<br><small>أجسام هيرانو</small></li>
+</ul>
+  <div class="explanation">It is characterized by diffuse demyelination. / يتميز بإزالة الميلين المنتشرة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q18">
+  <h2>Question 18</h2>
+  <p>Which imaging finding is common in Binswanger’s disease?<br><small>ما هو المظهر الشائع في التصوير لمرض بنسوانجر؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Leukoaraiosis (white matter rarefaction)<br><small>نقص كثافة المادة البيضاء (ليوكوارايسيس)</small></li>
+<li onclick="checkAnswer(this, false)">Hippocampal atrophy<br><small>ضمور الحُصين</small></li>
+<li onclick="checkAnswer(this, false)">Microbleeds<br><small>نزيفات دقيقة</small></li>
+<li onclick="checkAnswer(this, false)">Enlarged ventricles only<br><small>توسع البطينين فقط</small></li>
+</ul>
+  <div class="explanation">Leukoaraiosis is a hallmark. / نقص كثافة المادة البيضاء هو السمة المميزة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q19">
+  <h2>Question 19</h2>
+  <p>CAA most commonly affects which type of vessels?<br><small>اعتلال الأوعية الأميلويدية الدماغية يؤثر غالبًا على أي نوع من الأوعية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Small to medium-sized cortical and leptomeningeal arteries<br><small>الشرايين القشرية والسحائية الصغيرة إلى المتوسطة</small></li>
+<li onclick="checkAnswer(this, false)">Large intracranial arteries<br><small>الشرايين الدماغية الكبيرة</small></li>
+<li onclick="checkAnswer(this, false)">Veins<br><small>الأوردة</small></li>
+<li onclick="checkAnswer(this, false)">Capillaries only<br><small>الشعيرات الدموية فقط</small></li>
+</ul>
+  <div class="explanation">CAA affects small to medium cortical/leptomeningeal arteries. / يؤثر CAA على الشرايين القشرية والسحائية الصغيرة والمتوسطة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q20">
+  <h2>Question 20</h2>
+  <p>In Alzheimer’s dementia, which pathological feature correlates best with dementia severity?<br><small>في مرض الزهايمر، أي علامة مرضية ترتبط بشكل أفضل مع شدة الخرف؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Neurofibrillary tangles<br><small>تشابكات الألياف العصبية</small></li>
+<li onclick="checkAnswer(this, false)">Senile plaques<br><small>اللويحات الشيخوخية</small></li>
+<li onclick="checkAnswer(this, false)">Hirano bodies<br><small>أجسام هيرانو</small></li>
+<li onclick="checkAnswer(this, false)">CAA severity<br><small>شدة CAA</small></li>
+</ul>
+  <div class="explanation">NFT correlates best with severity. / تشابكات الألياف العصبية ترتبط بشكل أفضل مع شدة الخرف.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q21">
+  <h2>All Done</h2>
+  <p>All questions are complete.</p>
+</section>
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = 19; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.innerHTML.includes('correct') || opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>neurophysiology – Sleep Disorders and EEG Findings (Deep Clinical Review)</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>neurophysiology – Sleep Disorders and EEG Findings (Deep Clinical Review)</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What EEG feature is characteristic during narcoleptic sleep onset?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Prolonged sleep latency</li>
+<li onclick="checkAnswer(this, false)">High voltage delta waves</li>
+<li onclick="checkAnswer(this, true)">Sleep-onset REM</li>
+<li onclick="checkAnswer(this, false)">Increased sleep spindles</li>
+</ul>
+<div class="explanation">A hallmark of narcolepsy is rapid transition into REM sleep within 15 minutes of sleep onset, known as sleep-onset REM periods (SOREMPs). This is abnormal in healthy individuals and is best captured during Multiple Sleep Latency Tests (MSLT). The presence of SOREMPs supports the diagnosis of narcolepsy along with excessive daytime sleepiness and cataplexy.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which sleep disorder is most associated with loss of muscle atonia during REM sleep?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Insomnia</li>
+<li onclick="checkAnswer(this, false)">Sleep apnea</li>
+<li onclick="checkAnswer(this, true)">REM sleep behavior disorder</li>
+<li onclick="checkAnswer(this, false)">Night terrors</li>
+</ul>
+<div class="explanation">REM sleep behavior disorder (RBD) is characterized by loss of physiological muscle atonia during REM, leading to physical enactment of dreams. It is common in older males and is often associated with neurodegenerative diseases like Parkinson’s disease and Lewy body dementia. Polysomnography shows increased muscle tone and complex motor activity during REM periods.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>What EEG pattern is often seen in patients with chronic insomnia?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Increased beta activity during sleep</li>
+<li onclick="checkAnswer(this, false)">Diffuse delta slowing</li>
+<li onclick="checkAnswer(this, false)">Burst suppression</li>
+<li onclick="checkAnswer(this, false)">Spindle loss in Stage 2</li>
+</ul>
+<div class="explanation">Chronic insomnia is associated with cortical hyperarousal, reflected as increased beta activity during NREM sleep. This high-frequency activity suggests failure to fully disengage wakefulness-promoting circuits. It may persist throughout the night and is considered an objective marker of sleep maintenance insomnia.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Which parasomnia is associated with arousals from slow-wave sleep and autonomic activation?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">REM behavior disorder</li>
+<li onclick="checkAnswer(this, false)">Sleep paralysis</li>
+<li onclick="checkAnswer(this, true)">Night terrors</li>
+<li onclick="checkAnswer(this, false)">Insomnia</li>
+</ul>
+<div class="explanation">Night terrors are non-REM parasomnias characterized by sudden arousals from deep sleep (Stage 3–4), typically accompanied by screaming, tachycardia, and confusion. EEG shows abrupt arousals without REM characteristics. The patient often has amnesia of the event and returns to sleep quickly. Most common in children.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>In obstructive sleep apnea, what EEG pattern accompanies respiratory events?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Continuous delta rhythm</li>
+<li onclick="checkAnswer(this, false)">REM intrusion</li>
+<li onclick="checkAnswer(this, true)">Repetitive arousals and micro-awakenings</li>
+<li onclick="checkAnswer(this, false)">Sleep spindles</li>
+</ul>
+<div class="explanation">Obstructive sleep apnea (OSA) is marked by intermittent upper airway obstruction, causing oxygen desaturation and EEG arousals. These arousals appear as brief shifts to alpha or high-frequency activity, leading to fragmented sleep architecture. These interruptions explain excessive daytime sleepiness despite sufficient sleep time.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>Which disorder shows REM-onset sleep accompanied by hallucinations and cataplexy?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Narcolepsy</li>
+<li onclick="checkAnswer(this, false)">RBD</li>
+<li onclick="checkAnswer(this, false)">Insomnia</li>
+<li onclick="checkAnswer(this, false)">Restless legs syndrome</li>
+</ul>
+<div class="explanation">Narcolepsy often presents with sleep-onset REM episodes, vivid hypnagogic hallucinations, and cataplexy (sudden loss of muscle tone with consciousness). EEG confirms early REM and MSLT supports diagnosis. The disorder is due to orexin deficiency, and treatment includes wake-promoting agents and REM suppressants.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>What is the EEG finding during sleep paralysis episodes?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Burst suppression</li>
+<li onclick="checkAnswer(this, true)">REM atonia with waking EEG pattern</li>
+<li onclick="checkAnswer(this, false)">Generalized delta activity</li>
+<li onclick="checkAnswer(this, false)">Alpha rhythm blockade</li>
+</ul>
+<div class="explanation">During sleep paralysis, the EEG shows a waking (alpha or beta) pattern while muscle atonia persists from REM. It represents a dissociation between motor recovery and EEG arousal. This leads to transient inability to move despite awareness, often accompanied by hallucinations.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>What EEG feature may be seen in restless legs syndrome (RLS)?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Spike-wave discharges</li>
+<li onclick="checkAnswer(this, false)">Sleep spindles in excess</li>
+<li onclick="checkAnswer(this, true)">Periodic limb movements during sleep (PLMS)</li>
+<li onclick="checkAnswer(this, false)">REM-onset atonia loss</li>
+</ul>
+<div class="explanation">RLS is often accompanied by PLMS — repetitive limb jerks occurring every 20–40 seconds during sleep. EEG shows associated microarousals or transitions to lighter sleep stages. These movements can significantly disrupt sleep continuity and contribute to daytime fatigue.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>What is the EEG hallmark of Kleine-Levin syndrome episodes?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Normal wake EEG</li>
+<li onclick="checkAnswer(this, false)">Generalized epileptiform discharges</li>
+<li onclick="checkAnswer(this, true)">Diffuse slowing during hypersomnia episodes</li>
+<li onclick="checkAnswer(this, false)">FIRDA</li>
+</ul>
+<div class="explanation">Kleine-Levin syndrome is a rare condition marked by recurrent episodes of hypersomnia, cognitive changes, and hyperphagia. EEG during episodes often shows generalized slowing (theta or delta), reflecting altered cortical function. Interictally, the EEG may normalize. Diagnosis is clinical but EEG supports brain dysfunction.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which condition is best assessed using the Multiple Sleep Latency Test (MSLT)?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">REM behavior disorder</li>
+<li onclick="checkAnswer(this, false)">Sleep apnea</li>
+<li onclick="checkAnswer(this, true)">Narcolepsy</li>
+<li onclick="checkAnswer(this, false)">Restless legs syndrome</li>
+</ul>
+<div class="explanation">MSLT is the gold standard for diagnosing narcolepsy. It measures sleep onset latency and number of REM-onset naps across the day. A diagnosis requires short sleep latency (<8 min) and at least two SOREMPs. This test distinguishes narcolepsy from other hypersomnia causes.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

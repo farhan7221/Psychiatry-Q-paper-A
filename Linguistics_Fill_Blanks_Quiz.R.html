@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Linguistics – Fill in the Blanks</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      bottom: 40%;
+      right: 10%;
+      color: rgba(0,0,0,0.1);
+      font-size: 32px;
+      font-style: italic;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. The ______ function of language helps people think and interpret their experiences.<br><span style='color:gray'>وظيفة اللغة ______ تساعد الناس على التفكير وتفسير تجاربهم.</span>", "o": ["Interpersonal", "Ideational", "Textual", "Semantic"], "a": 1, "e": "Ideational function relates language to thought and experience.<br><span style='color:gray'>الوظيفة التصورية تربط اللغة بالتفكير وتفسير العالم.</span>"}, {"q": "2. The interpersonal function allows people to ______ using language.<br><span style='color:gray'>الوظيفة التفاعلية تُمكن الناس من ______ باستخدام اللغة.</span>", "o": ["organize structure", "memorize facts", "interact and express thoughts", "study grammar"], "a": 2, "e": "It allows people to use language in social interactions.<br><span style='color:gray'>تُستخدم للتواصل الاجتماعي ونقل الخبرات والمشاعر.</span>"}, {"q": "3. The textual function organizes ______ with language.<br><span style='color:gray'>الوظيفة النصية تنظم ______ باستخدام اللغة.</span>", "o": ["experiences", "messages", "emotions", "contexts"], "a": 1, "e": "Textual = how language is structured into cohesive messages.<br><span style='color:gray'>تُنظم الرسائل ليتم التعبير عنها بوضوح لغويًا.</span>"}, {"q": "4. Phonology is the study of ______.<br><span style='color:gray'>علم الفونولوجي يدرس ______.</span>", "o": ["sentence meanings", "social uses of words", "sound structure", "grammar rules"], "a": 2, "e": "Phonology focuses on patterns of sounds in language.<br><span style='color:gray'>يدرس بنية وتركيب الأصوات الصوتية داخل اللغة.</span>"}, {"q": "5. Syntax refers to ______ structure.<br><span style='color:gray'>علم النحو (Syntax) يتعلق ببنية ______.</span>", "o": ["words", "sentences", "sounds", "contexts"], "a": 1, "e": "Syntax = structure and rules for forming sentences.<br><span style='color:gray'>السينتاكس يحدد كيفية ترتيب الجمل وقواعدها.</span>"}, {"q": "6. Semantics is the study of how language connects to ______.<br><span style='color:gray'>السمانتكس هو دراسة كيفية ارتباط اللغة بــــ ______.</span>", "o": ["sounds", "meaning", "context", "symbols"], "a": 1, "e": "Semantics studies how words and sentences carry meaning.<br><span style='color:gray'>يدرس العلاقة بين اللغة والمعنى.</span>"}, {"q": "7. Pragmatics studies the connection of ______ to meanings.<br><span style='color:gray'>البراغماتكس يدرس العلاقة بين ______ والمعاني.</span>", "o": ["syntax", "culture", "sound", "context"], "a": 3, "e": "Meaning varies depending on context → pragmatics.<br><span style='color:gray'>المعنى يتغير حسب السياق وليس الجملة فقط.</span>"}, {"q": "8. The Sapir-Whorf hypothesis says language influences ______.<br><span style='color:gray'>فرضية سابير-وورف تقول أن اللغة تؤثر على ______.</span>", "o": ["memory", "learning", "thinking", "hearing"], "a": 2, "e": "Language shapes how we perceive and conceptualize the world.<br><span style='color:gray'>اللغة تشكل طريقة التفكير وفهم الواقع.</span>"}, {"q": "9. Linguistic determinism is the extreme view of ______.<br><span style='color:gray'>الحتمية اللغوية هي الرأي المتطرف لــــ ______.</span>", "o": ["semanticism", "linguistic relativity", "pragmatics", "language development"], "a": 1, "e": "It claims language completely determines thought.<br><span style='color:gray'>يرى أن اللغة تسيطر بالكامل على التفكير.</span>"}, {"q": "10. Noam Chomsky argued ______ linguistic determinism.<br><span style='color:gray'>نعوم تشومسكي جادل ______ الحتمية اللغوية.</span>", "o": ["in favor of", "against", "supporting", "defining"], "a": 1, "e": "Chomsky believes language is innate and independent from cultural limitation.<br><span style='color:gray'>رفض فكرة أن اللغة تقيد التفكير، ورأى أنها فطرية.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة ✍️💬<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethics in Psychiatry - Questions 1–10</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .question-box { background: #fff; padding: 20px; margin: 50px auto; border-radius: 10px; max-width: 750px; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 20px; }
+    .option { background: #eee; padding: 10px; margin: 8px 0; border-radius: 5px; cursor: pointer; }
+    .option.correct { background: #d4edda !important; pointer-events: none; }
+    .option.incorrect { background: #f8d7da !important; pointer-events: none; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 5px solid gold; padding: 10px; display: none; margin-top: 15px; }
+    .next-btn { display: none; margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    .counter { position: fixed; top: 10px; right: 20px; background: white; padding: 5px 10px; border-radius: 10px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px;
+      font-style: italic;
+      color: rgba(128,128,128,0.35); text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+    #lastQ { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+<body>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<div class="counter">Total Questions: 40</div>
+<div id="quiz"></div>
+<div id="lastQ"><button onclick="goToLast()">Last Q</button></div>
+<script>
+const questions = [
+  {
+    "q": "What is the main clinical use of the CAGE questionnaire? (v1)",
+    "qt": "ما هو الاستخدام السريري الرئيسي لاستبيان CAGE؟ (نسخة 1)",
+    "options": [
+      [
+        "To assess liver function",
+        "لتقييم وظائف الكبد"
+      ],
+      [
+        "To detect alcohol dependence severity",
+        "لكشف شدة الاعتماد على الكحول"
+      ],
+      [
+        "To screen for potential alcohol-related problems",
+        "للكشف الأولي عن مشاكل محتملة تتعلق بالكحول"
+      ],
+      [
+        "To measure withdrawal symptoms",
+        "لقياس أعراض الانسحاب"
+      ]
+    ],
+    "answer": 2,
+    "exp": "CAGE is a brief and widely used screening tool designed to detect individuals who may have alcohol-related problems. A score of 2 or more suggests a significant possibility of problematic alcohol use. It does not quantify severity, but flags the need for further evaluation.<br>استبيان CAGE هو أداة فحص سريعة تُستخدم للكشف عن الأفراد المحتمل أن لديهم مشكلة مع الكحول. الحصول على درجتين أو أكثر يشير إلى احتمالية قوية لوجود اضطراب، مما يستدعي إجراء تقييم إضافي."
+  },
+  {
+    "q": "Which of the following is NOT a CAGE question? (v2)",
+    "qt": "أي من التالي لا يُعد من أسئلة استبيان CAGE؟ (نسخة 2)",
+    "options": [
+      [
+        "Have you ever felt the need to cut down on your drinking?",
+        "هل شعرت يومًا أنك بحاجة لتقليل الشرب؟"
+      ],
+      [
+        "Have you ever had a drink to calm your nerves in the morning?",
+        "هل شربت في الصباح لتهدئة أعصابك؟"
+      ],
+      [
+        "Have you ever experienced memory loss after drinking?",
+        "هل فقدت ذاكرتك بعد الشرب؟"
+      ],
+      [
+        "Have people annoyed you by criticizing your drinking?",
+        "هل أزعجك الآخرون بانتقادهم لشربك؟"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Memory loss is not part of the CAGE questionnaire. The four questions focus on cutting down, annoyance by others, guilt, and morning drinking (eye-opener).<br>فقدان الذاكرة ليس جزءًا من CAGE. الأسئلة الأربعة تركز على: الرغبة في التقليل، الانتقاد من الآخرين، الشعور بالذنب، والشرب في الصباح."
+  },
+  {
+    "q": "What is the main clinical use of the CAGE questionnaire? (v3)",
+    "qt": "ما هو الاستخدام السريري الرئيسي لاستبيان CAGE؟ (نسخة 3)",
+    "options": [
+      [
+        "To assess liver function",
+        "لتقييم وظائف الكبد"
+      ],
+      [
+        "To detect alcohol dependence severity",
+        "لكشف شدة الاعتماد على الكحول"
+      ],
+      [
+        "To screen for potential alcohol-related problems",
+        "للكشف الأولي عن مشاكل محتملة تتعلق بالكحول"
+      ],
+      [
+        "To measure withdrawal symptoms",
+        "لقياس أعراض الانسحاب"
+      ]
+    ],
+    "answer": 2,
+    "exp": "CAGE is a brief and widely used screening tool designed to detect individuals who may have alcohol-related problems. A score of 2 or more suggests a significant possibility of problematic alcohol use. It does not quantify severity, but flags the need for further evaluation.<br>استبيان CAGE هو أداة فحص سريعة تُستخدم للكشف عن الأفراد المحتمل أن لديهم مشكلة مع الكحول. الحصول على درجتين أو أكثر يشير إلى احتمالية قوية لوجود اضطراب، مما يستدعي إجراء تقييم إضافي."
+  },
+  {
+    "q": "Which of the following is NOT a CAGE question? (v4)",
+    "qt": "أي من التالي لا يُعد من أسئلة استبيان CAGE؟ (نسخة 4)",
+    "options": [
+      [
+        "Have you ever felt the need to cut down on your drinking?",
+        "هل شعرت يومًا أنك بحاجة لتقليل الشرب؟"
+      ],
+      [
+        "Have you ever had a drink to calm your nerves in the morning?",
+        "هل شربت في الصباح لتهدئة أعصابك؟"
+      ],
+      [
+        "Have you ever experienced memory loss after drinking?",
+        "هل فقدت ذاكرتك بعد الشرب؟"
+      ],
+      [
+        "Have people annoyed you by criticizing your drinking?",
+        "هل أزعجك الآخرون بانتقادهم لشربك؟"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Memory loss is not part of the CAGE questionnaire. The four questions focus on cutting down, annoyance by others, guilt, and morning drinking (eye-opener).<br>فقدان الذاكرة ليس جزءًا من CAGE. الأسئلة الأربعة تركز على: الرغبة في التقليل، الانتقاد من الآخرين، الشعور بالذنب، والشرب في الصباح."
+  },
+  {
+    "q": "What is the main clinical use of the CAGE questionnaire? (v5)",
+    "qt": "ما هو الاستخدام السريري الرئيسي لاستبيان CAGE؟ (نسخة 5)",
+    "options": [
+      [
+        "To assess liver function",
+        "لتقييم وظائف الكبد"
+      ],
+      [
+        "To detect alcohol dependence severity",
+        "لكشف شدة الاعتماد على الكحول"
+      ],
+      [
+        "To screen for potential alcohol-related problems",
+        "للكشف الأولي عن مشاكل محتملة تتعلق بالكحول"
+      ],
+      [
+        "To measure withdrawal symptoms",
+        "لقياس أعراض الانسحاب"
+      ]
+    ],
+    "answer": 2,
+    "exp": "CAGE is a brief and widely used screening tool designed to detect individuals who may have alcohol-related problems. A score of 2 or more suggests a significant possibility of problematic alcohol use. It does not quantify severity, but flags the need for further evaluation.<br>استبيان CAGE هو أداة فحص سريعة تُستخدم للكشف عن الأفراد المحتمل أن لديهم مشكلة مع الكحول. الحصول على درجتين أو أكثر يشير إلى احتمالية قوية لوجود اضطراب، مما يستدعي إجراء تقييم إضافي."
+  },
+  {
+    "q": "Which of the following is NOT a CAGE question? (v6)",
+    "qt": "أي من التالي لا يُعد من أسئلة استبيان CAGE؟ (نسخة 6)",
+    "options": [
+      [
+        "Have you ever felt the need to cut down on your drinking?",
+        "هل شعرت يومًا أنك بحاجة لتقليل الشرب؟"
+      ],
+      [
+        "Have you ever had a drink to calm your nerves in the morning?",
+        "هل شربت في الصباح لتهدئة أعصابك؟"
+      ],
+      [
+        "Have you ever experienced memory loss after drinking?",
+        "هل فقدت ذاكرتك بعد الشرب؟"
+      ],
+      [
+        "Have people annoyed you by criticizing your drinking?",
+        "هل أزعجك الآخرون بانتقادهم لشربك؟"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Memory loss is not part of the CAGE questionnaire. The four questions focus on cutting down, annoyance by others, guilt, and morning drinking (eye-opener).<br>فقدان الذاكرة ليس جزءًا من CAGE. الأسئلة الأربعة تركز على: الرغبة في التقليل، الانتقاد من الآخرين، الشعور بالذنب، والشرب في الصباح."
+  },
+  {
+    "q": "What is the main clinical use of the CAGE questionnaire? (v7)",
+    "qt": "ما هو الاستخدام السريري الرئيسي لاستبيان CAGE؟ (نسخة 7)",
+    "options": [
+      [
+        "To assess liver function",
+        "لتقييم وظائف الكبد"
+      ],
+      [
+        "To detect alcohol dependence severity",
+        "لكشف شدة الاعتماد على الكحول"
+      ],
+      [
+        "To screen for potential alcohol-related problems",
+        "للكشف الأولي عن مشاكل محتملة تتعلق بالكحول"
+      ],
+      [
+        "To measure withdrawal symptoms",
+        "لقياس أعراض الانسحاب"
+      ]
+    ],
+    "answer": 2,
+    "exp": "CAGE is a brief and widely used screening tool designed to detect individuals who may have alcohol-related problems. A score of 2 or more suggests a significant possibility of problematic alcohol use. It does not quantify severity, but flags the need for further evaluation.<br>استبيان CAGE هو أداة فحص سريعة تُستخدم للكشف عن الأفراد المحتمل أن لديهم مشكلة مع الكحول. الحصول على درجتين أو أكثر يشير إلى احتمالية قوية لوجود اضطراب، مما يستدعي إجراء تقييم إضافي."
+  },
+  {
+    "q": "Which of the following is NOT a CAGE question? (v8)",
+    "qt": "أي من التالي لا يُعد من أسئلة استبيان CAGE؟ (نسخة 8)",
+    "options": [
+      [
+        "Have you ever felt the need to cut down on your drinking?",
+        "هل شعرت يومًا أنك بحاجة لتقليل الشرب؟"
+      ],
+      [
+        "Have you ever had a drink to calm your nerves in the morning?",
+        "هل شربت في الصباح لتهدئة أعصابك؟"
+      ],
+      [
+        "Have you ever experienced memory loss after drinking?",
+        "هل فقدت ذاكرتك بعد الشرب؟"
+      ],
+      [
+        "Have people annoyed you by criticizing your drinking?",
+        "هل أزعجك الآخرون بانتقادهم لشربك؟"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Memory loss is not part of the CAGE questionnaire. The four questions focus on cutting down, annoyance by others, guilt, and morning drinking (eye-opener).<br>فقدان الذاكرة ليس جزءًا من CAGE. الأسئلة الأربعة تركز على: الرغبة في التقليل، الانتقاد من الآخرين، الشعور بالذنب، والشرب في الصباح."
+  },
+  {
+    "q": "What is the main clinical use of the CAGE questionnaire? (v9)",
+    "qt": "ما هو الاستخدام السريري الرئيسي لاستبيان CAGE؟ (نسخة 9)",
+    "options": [
+      [
+        "To assess liver function",
+        "لتقييم وظائف الكبد"
+      ],
+      [
+        "To detect alcohol dependence severity",
+        "لكشف شدة الاعتماد على الكحول"
+      ],
+      [
+        "To screen for potential alcohol-related problems",
+        "للكشف الأولي عن مشاكل محتملة تتعلق بالكحول"
+      ],
+      [
+        "To measure withdrawal symptoms",
+        "لقياس أعراض الانسحاب"
+      ]
+    ],
+    "answer": 2,
+    "exp": "CAGE is a brief and widely used screening tool designed to detect individuals who may have alcohol-related problems. A score of 2 or more suggests a significant possibility of problematic alcohol use. It does not quantify severity, but flags the need for further evaluation.<br>استبيان CAGE هو أداة فحص سريعة تُستخدم للكشف عن الأفراد المحتمل أن لديهم مشكلة مع الكحول. الحصول على درجتين أو أكثر يشير إلى احتمالية قوية لوجود اضطراب، مما يستدعي إجراء تقييم إضافي."
+  },
+  {
+    "q": "Which of the following is NOT a CAGE question? (v10)",
+    "qt": "أي من التالي لا يُعد من أسئلة استبيان CAGE؟ (نسخة 10)",
+    "options": [
+      [
+        "Have you ever felt the need to cut down on your drinking?",
+        "هل شعرت يومًا أنك بحاجة لتقليل الشرب؟"
+      ],
+      [
+        "Have you ever had a drink to calm your nerves in the morning?",
+        "هل شربت في الصباح لتهدئة أعصابك؟"
+      ],
+      [
+        "Have you ever experienced memory loss after drinking?",
+        "هل فقدت ذاكرتك بعد الشرب؟"
+      ],
+      [
+        "Have people annoyed you by criticizing your drinking?",
+        "هل أزعجك الآخرون بانتقادهم لشربك؟"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Memory loss is not part of the CAGE questionnaire. The four questions focus on cutting down, annoyance by others, guilt, and morning drinking (eye-opener).<br>فقدان الذاكرة ليس جزءًا من CAGE. الأسئلة الأربعة تركز على: الرغبة في التقليل، الانتقاد من الآخرين، الشعور بالذنب، والشرب في الصباح."
+  },
+  {
+    "q": "What score on the AUDIT indicates a harmful or hazardous pattern of drinking? (v11)",
+    "qt": "ما الدرجة التي تشير إلى نمط شرب ضار أو خطير في اختبار AUDIT؟ (نسخة 11)",
+    "options": [
+      [
+        "4",
+        "٤"
+      ],
+      [
+        "6",
+        "٦"
+      ],
+      [
+        "8",
+        "٨"
+      ],
+      [
+        "12",
+        "١٢"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The Alcohol Use Disorders Identification Test (AUDIT) defines a score of 8 or more as indicating harmful or hazardous drinking. This suggests the person is drinking at levels that pose health risks or social problems.<br>تشير الدرجة 8 أو أكثر في اختبار AUDIT إلى أن نمط الشرب قد يكون ضارًا صحيًا أو اجتماعيًا، ويستدعي التدخل."
+  },
+  {
+    "q": "Which international body recommends the AUDIT for primary care use? (v12)",
+    "qt": "أي جهة دولية توصي باستخدام AUDIT في الرعاية الأولية؟ (نسخة 12)",
+    "options": [
+      [
+        "UNODC",
+        "مكتب الأمم المتحدة المعني بالمخدرات والجريمة"
+      ],
+      [
+        "WHO",
+        "منظمة الصحة العالمية"
+      ],
+      [
+        "CDC",
+        "مراكز مكافحة الأمراض الأمريكية"
+      ],
+      [
+        "APA",
+        "الجمعية الأمريكية للطب النفسي"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The World Health Organization (WHO) recommends the AUDIT as a screening tool for use in primary care settings to identify risky alcohol consumption.<br>توصي منظمة الصحة العالمية باستخدام AUDIT في مراكز الرعاية الأولية للكشف المبكر عن استخدام الكحول الذي قد يكون ضارًا."
+  },
+  {
+    "q": "What score on the AUDIT indicates a harmful or hazardous pattern of drinking? (v13)",
+    "qt": "ما الدرجة التي تشير إلى نمط شرب ضار أو خطير في اختبار AUDIT؟ (نسخة 13)",
+    "options": [
+      [
+        "4",
+        "٤"
+      ],
+      [
+        "6",
+        "٦"
+      ],
+      [
+        "8",
+        "٨"
+      ],
+      [
+        "12",
+        "١٢"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The Alcohol Use Disorders Identification Test (AUDIT) defines a score of 8 or more as indicating harmful or hazardous drinking. This suggests the person is drinking at levels that pose health risks or social problems.<br>تشير الدرجة 8 أو أكثر في اختبار AUDIT إلى أن نمط الشرب قد يكون ضارًا صحيًا أو اجتماعيًا، ويستدعي التدخل."
+  },
+  {
+    "q": "Which international body recommends the AUDIT for primary care use? (v14)",
+    "qt": "أي جهة دولية توصي باستخدام AUDIT في الرعاية الأولية؟ (نسخة 14)",
+    "options": [
+      [
+        "UNODC",
+        "مكتب الأمم المتحدة المعني بالمخدرات والجريمة"
+      ],
+      [
+        "WHO",
+        "منظمة الصحة العالمية"
+      ],
+      [
+        "CDC",
+        "مراكز مكافحة الأمراض الأمريكية"
+      ],
+      [
+        "APA",
+        "الجمعية الأمريكية للطب النفسي"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The World Health Organization (WHO) recommends the AUDIT as a screening tool for use in primary care settings to identify risky alcohol consumption.<br>توصي منظمة الصحة العالمية باستخدام AUDIT في مراكز الرعاية الأولية للكشف المبكر عن استخدام الكحول الذي قد يكون ضارًا."
+  },
+  {
+    "q": "What score on the AUDIT indicates a harmful or hazardous pattern of drinking? (v15)",
+    "qt": "ما الدرجة التي تشير إلى نمط شرب ضار أو خطير في اختبار AUDIT؟ (نسخة 15)",
+    "options": [
+      [
+        "4",
+        "٤"
+      ],
+      [
+        "6",
+        "٦"
+      ],
+      [
+        "8",
+        "٨"
+      ],
+      [
+        "12",
+        "١٢"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The Alcohol Use Disorders Identification Test (AUDIT) defines a score of 8 or more as indicating harmful or hazardous drinking. This suggests the person is drinking at levels that pose health risks or social problems.<br>تشير الدرجة 8 أو أكثر في اختبار AUDIT إلى أن نمط الشرب قد يكون ضارًا صحيًا أو اجتماعيًا، ويستدعي التدخل."
+  },
+  {
+    "q": "Which international body recommends the AUDIT for primary care use? (v16)",
+    "qt": "أي جهة دولية توصي باستخدام AUDIT في الرعاية الأولية؟ (نسخة 16)",
+    "options": [
+      [
+        "UNODC",
+        "مكتب الأمم المتحدة المعني بالمخدرات والجريمة"
+      ],
+      [
+        "WHO",
+        "منظمة الصحة العالمية"
+      ],
+      [
+        "CDC",
+        "مراكز مكافحة الأمراض الأمريكية"
+      ],
+      [
+        "APA",
+        "الجمعية الأمريكية للطب النفسي"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The World Health Organization (WHO) recommends the AUDIT as a screening tool for use in primary care settings to identify risky alcohol consumption.<br>توصي منظمة الصحة العالمية باستخدام AUDIT في مراكز الرعاية الأولية للكشف المبكر عن استخدام الكحول الذي قد يكون ضارًا."
+  },
+  {
+    "q": "What score on the AUDIT indicates a harmful or hazardous pattern of drinking? (v17)",
+    "qt": "ما الدرجة التي تشير إلى نمط شرب ضار أو خطير في اختبار AUDIT؟ (نسخة 17)",
+    "options": [
+      [
+        "4",
+        "٤"
+      ],
+      [
+        "6",
+        "٦"
+      ],
+      [
+        "8",
+        "٨"
+      ],
+      [
+        "12",
+        "١٢"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The Alcohol Use Disorders Identification Test (AUDIT) defines a score of 8 or more as indicating harmful or hazardous drinking. This suggests the person is drinking at levels that pose health risks or social problems.<br>تشير الدرجة 8 أو أكثر في اختبار AUDIT إلى أن نمط الشرب قد يكون ضارًا صحيًا أو اجتماعيًا، ويستدعي التدخل."
+  },
+  {
+    "q": "Which international body recommends the AUDIT for primary care use? (v18)",
+    "qt": "أي جهة دولية توصي باستخدام AUDIT في الرعاية الأولية؟ (نسخة 18)",
+    "options": [
+      [
+        "UNODC",
+        "مكتب الأمم المتحدة المعني بالمخدرات والجريمة"
+      ],
+      [
+        "WHO",
+        "منظمة الصحة العالمية"
+      ],
+      [
+        "CDC",
+        "مراكز مكافحة الأمراض الأمريكية"
+      ],
+      [
+        "APA",
+        "الجمعية الأمريكية للطب النفسي"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The World Health Organization (WHO) recommends the AUDIT as a screening tool for use in primary care settings to identify risky alcohol consumption.<br>توصي منظمة الصحة العالمية باستخدام AUDIT في مراكز الرعاية الأولية للكشف المبكر عن استخدام الكحول الذي قد يكون ضارًا."
+  },
+  {
+    "q": "What score on the AUDIT indicates a harmful or hazardous pattern of drinking? (v19)",
+    "qt": "ما الدرجة التي تشير إلى نمط شرب ضار أو خطير في اختبار AUDIT؟ (نسخة 19)",
+    "options": [
+      [
+        "4",
+        "٤"
+      ],
+      [
+        "6",
+        "٦"
+      ],
+      [
+        "8",
+        "٨"
+      ],
+      [
+        "12",
+        "١٢"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The Alcohol Use Disorders Identification Test (AUDIT) defines a score of 8 or more as indicating harmful or hazardous drinking. This suggests the person is drinking at levels that pose health risks or social problems.<br>تشير الدرجة 8 أو أكثر في اختبار AUDIT إلى أن نمط الشرب قد يكون ضارًا صحيًا أو اجتماعيًا، ويستدعي التدخل."
+  },
+  {
+    "q": "Which international body recommends the AUDIT for primary care use? (v20)",
+    "qt": "أي جهة دولية توصي باستخدام AUDIT في الرعاية الأولية؟ (نسخة 20)",
+    "options": [
+      [
+        "UNODC",
+        "مكتب الأمم المتحدة المعني بالمخدرات والجريمة"
+      ],
+      [
+        "WHO",
+        "منظمة الصحة العالمية"
+      ],
+      [
+        "CDC",
+        "مراكز مكافحة الأمراض الأمريكية"
+      ],
+      [
+        "APA",
+        "الجمعية الأمريكية للطب النفسي"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The World Health Organization (WHO) recommends the AUDIT as a screening tool for use in primary care settings to identify risky alcohol consumption.<br>توصي منظمة الصحة العالمية باستخدام AUDIT في مراكز الرعاية الأولية للكشف المبكر عن استخدام الكحول الذي قد يكون ضارًا."
+  },
+  {
+    "q": "What is a core difference between the MAST and the AUDIT? (v21)",
+    "qt": "ما الفرق الجوهري بين MAST و AUDIT؟ (نسخة 21)",
+    "options": [
+      [
+        "MAST is used only in hospitals",
+        "يُستخدم MAST فقط في المستشفيات"
+      ],
+      [
+        "AUDIT measures liver damage",
+        "AUDIT يقيس تلف الكبد"
+      ],
+      [
+        "MAST is a self-report with yes/no format, AUDIT uses frequency-based scaling",
+        "MAST يعتمد على إجابات نعم/لا، بينما AUDIT يستخدم مقياس تكراري"
+      ],
+      [
+        "AUDIT is for adolescents, MAST for elderly",
+        "AUDIT للمراهقين وMAST لكبار السن"
+      ]
+    ],
+    "answer": 2,
+    "exp": "MAST consists of yes/no questions and is more historical and diagnostic, while AUDIT uses a Likert-type scale (e.g. 0–4) to measure frequency and recency of drinking behaviors.<br>يعتمد MAST على أسئلة بنعم/لا ويُستخدم للكشف التاريخي، بينما يستخدم AUDIT مقياسًا يعتمد على التكرار لتقييم السلوك الحالي."
+  },
+  {
+    "q": "Which MAST variant is specifically designed for elderly populations? (v22)",
+    "qt": "أي نسخة من اختبار MAST صُممت خصيصًا لكبار السن؟ (نسخة 22)",
+    "options": [
+      [
+        "G-MAST",
+        "G-MAST"
+      ],
+      [
+        "FAST-MAST",
+        "FAST-MAST"
+      ],
+      [
+        "Brief AUDIT",
+        "AUDIT المختصر"
+      ],
+      [
+        "Elder-CAGE",
+        "CAGE لكبار السن"
+      ]
+    ],
+    "answer": 0,
+    "exp": "G-MAST and Brief G-MAST are tailored to older individuals, taking into account the different phrasing and drinking patterns often seen in geriatric populations.<br>صُممت G-MAST لكبار السن، وتراعي نمط الشرب الخاص بهم وصياغة الأسئلة المناسبة لعمرهم."
+  },
+  {
+    "q": "What is a core difference between the MAST and the AUDIT? (v23)",
+    "qt": "ما الفرق الجوهري بين MAST و AUDIT؟ (نسخة 23)",
+    "options": [
+      [
+        "MAST is used only in hospitals",
+        "يُستخدم MAST فقط في المستشفيات"
+      ],
+      [
+        "AUDIT measures liver damage",
+        "AUDIT يقيس تلف الكبد"
+      ],
+      [
+        "MAST is a self-report with yes/no format, AUDIT uses frequency-based scaling",
+        "MAST يعتمد على إجابات نعم/لا، بينما AUDIT يستخدم مقياس تكراري"
+      ],
+      [
+        "AUDIT is for adolescents, MAST for elderly",
+        "AUDIT للمراهقين وMAST لكبار السن"
+      ]
+    ],
+    "answer": 2,
+    "exp": "MAST consists of yes/no questions and is more historical and diagnostic, while AUDIT uses a Likert-type scale (e.g. 0–4) to measure frequency and recency of drinking behaviors.<br>يعتمد MAST على أسئلة بنعم/لا ويُستخدم للكشف التاريخي، بينما يستخدم AUDIT مقياسًا يعتمد على التكرار لتقييم السلوك الحالي."
+  },
+  {
+    "q": "Which MAST variant is specifically designed for elderly populations? (v24)",
+    "qt": "أي نسخة من اختبار MAST صُممت خصيصًا لكبار السن؟ (نسخة 24)",
+    "options": [
+      [
+        "G-MAST",
+        "G-MAST"
+      ],
+      [
+        "FAST-MAST",
+        "FAST-MAST"
+      ],
+      [
+        "Brief AUDIT",
+        "AUDIT المختصر"
+      ],
+      [
+        "Elder-CAGE",
+        "CAGE لكبار السن"
+      ]
+    ],
+    "answer": 0,
+    "exp": "G-MAST and Brief G-MAST are tailored to older individuals, taking into account the different phrasing and drinking patterns often seen in geriatric populations.<br>صُممت G-MAST لكبار السن، وتراعي نمط الشرب الخاص بهم وصياغة الأسئلة المناسبة لعمرهم."
+  },
+  {
+    "q": "What is a core difference between the MAST and the AUDIT? (v25)",
+    "qt": "ما الفرق الجوهري بين MAST و AUDIT؟ (نسخة 25)",
+    "options": [
+      [
+        "MAST is used only in hospitals",
+        "يُستخدم MAST فقط في المستشفيات"
+      ],
+      [
+        "AUDIT measures liver damage",
+        "AUDIT يقيس تلف الكبد"
+      ],
+      [
+        "MAST is a self-report with yes/no format, AUDIT uses frequency-based scaling",
+        "MAST يعتمد على إجابات نعم/لا، بينما AUDIT يستخدم مقياس تكراري"
+      ],
+      [
+        "AUDIT is for adolescents, MAST for elderly",
+        "AUDIT للمراهقين وMAST لكبار السن"
+      ]
+    ],
+    "answer": 2,
+    "exp": "MAST consists of yes/no questions and is more historical and diagnostic, while AUDIT uses a Likert-type scale (e.g. 0–4) to measure frequency and recency of drinking behaviors.<br>يعتمد MAST على أسئلة بنعم/لا ويُستخدم للكشف التاريخي، بينما يستخدم AUDIT مقياسًا يعتمد على التكرار لتقييم السلوك الحالي."
+  },
+  {
+    "q": "Which MAST variant is specifically designed for elderly populations? (v26)",
+    "qt": "أي نسخة من اختبار MAST صُممت خصيصًا لكبار السن؟ (نسخة 26)",
+    "options": [
+      [
+        "G-MAST",
+        "G-MAST"
+      ],
+      [
+        "FAST-MAST",
+        "FAST-MAST"
+      ],
+      [
+        "Brief AUDIT",
+        "AUDIT المختصر"
+      ],
+      [
+        "Elder-CAGE",
+        "CAGE لكبار السن"
+      ]
+    ],
+    "answer": 0,
+    "exp": "G-MAST and Brief G-MAST are tailored to older individuals, taking into account the different phrasing and drinking patterns often seen in geriatric populations.<br>صُممت G-MAST لكبار السن، وتراعي نمط الشرب الخاص بهم وصياغة الأسئلة المناسبة لعمرهم."
+  },
+  {
+    "q": "What is a core difference between the MAST and the AUDIT? (v27)",
+    "qt": "ما الفرق الجوهري بين MAST و AUDIT؟ (نسخة 27)",
+    "options": [
+      [
+        "MAST is used only in hospitals",
+        "يُستخدم MAST فقط في المستشفيات"
+      ],
+      [
+        "AUDIT measures liver damage",
+        "AUDIT يقيس تلف الكبد"
+      ],
+      [
+        "MAST is a self-report with yes/no format, AUDIT uses frequency-based scaling",
+        "MAST يعتمد على إجابات نعم/لا، بينما AUDIT يستخدم مقياس تكراري"
+      ],
+      [
+        "AUDIT is for adolescents, MAST for elderly",
+        "AUDIT للمراهقين وMAST لكبار السن"
+      ]
+    ],
+    "answer": 2,
+    "exp": "MAST consists of yes/no questions and is more historical and diagnostic, while AUDIT uses a Likert-type scale (e.g. 0–4) to measure frequency and recency of drinking behaviors.<br>يعتمد MAST على أسئلة بنعم/لا ويُستخدم للكشف التاريخي، بينما يستخدم AUDIT مقياسًا يعتمد على التكرار لتقييم السلوك الحالي."
+  },
+  {
+    "q": "Which MAST variant is specifically designed for elderly populations? (v28)",
+    "qt": "أي نسخة من اختبار MAST صُممت خصيصًا لكبار السن؟ (نسخة 28)",
+    "options": [
+      [
+        "G-MAST",
+        "G-MAST"
+      ],
+      [
+        "FAST-MAST",
+        "FAST-MAST"
+      ],
+      [
+        "Brief AUDIT",
+        "AUDIT المختصر"
+      ],
+      [
+        "Elder-CAGE",
+        "CAGE لكبار السن"
+      ]
+    ],
+    "answer": 0,
+    "exp": "G-MAST and Brief G-MAST are tailored to older individuals, taking into account the different phrasing and drinking patterns often seen in geriatric populations.<br>صُممت G-MAST لكبار السن، وتراعي نمط الشرب الخاص بهم وصياغة الأسئلة المناسبة لعمرهم."
+  },
+  {
+    "q": "What is a core difference between the MAST and the AUDIT? (v29)",
+    "qt": "ما الفرق الجوهري بين MAST و AUDIT؟ (نسخة 29)",
+    "options": [
+      [
+        "MAST is used only in hospitals",
+        "يُستخدم MAST فقط في المستشفيات"
+      ],
+      [
+        "AUDIT measures liver damage",
+        "AUDIT يقيس تلف الكبد"
+      ],
+      [
+        "MAST is a self-report with yes/no format, AUDIT uses frequency-based scaling",
+        "MAST يعتمد على إجابات نعم/لا، بينما AUDIT يستخدم مقياس تكراري"
+      ],
+      [
+        "AUDIT is for adolescents, MAST for elderly",
+        "AUDIT للمراهقين وMAST لكبار السن"
+      ]
+    ],
+    "answer": 2,
+    "exp": "MAST consists of yes/no questions and is more historical and diagnostic, while AUDIT uses a Likert-type scale (e.g. 0–4) to measure frequency and recency of drinking behaviors.<br>يعتمد MAST على أسئلة بنعم/لا ويُستخدم للكشف التاريخي، بينما يستخدم AUDIT مقياسًا يعتمد على التكرار لتقييم السلوك الحالي."
+  },
+  {
+    "q": "Which MAST variant is specifically designed for elderly populations? (v30)",
+    "qt": "أي نسخة من اختبار MAST صُممت خصيصًا لكبار السن؟ (نسخة 30)",
+    "options": [
+      [
+        "G-MAST",
+        "G-MAST"
+      ],
+      [
+        "FAST-MAST",
+        "FAST-MAST"
+      ],
+      [
+        "Brief AUDIT",
+        "AUDIT المختصر"
+      ],
+      [
+        "Elder-CAGE",
+        "CAGE لكبار السن"
+      ]
+    ],
+    "answer": 0,
+    "exp": "G-MAST and Brief G-MAST are tailored to older individuals, taking into account the different phrasing and drinking patterns often seen in geriatric populations.<br>صُممت G-MAST لكبار السن، وتراعي نمط الشرب الخاص بهم وصياغة الأسئلة المناسبة لعمرهم."
+  },
+  {
+    "q": "What is the primary purpose of the CIWA scale? (v31)",
+    "qt": "ما الهدف الأساسي من مقياس CIWA؟ (نسخة 31)",
+    "options": [
+      [
+        "Detect liver cirrhosis",
+        "كشف تليّف الكبد"
+      ],
+      [
+        "Screen for alcohol dependency",
+        "الكشف عن الاعتماد الكحولي"
+      ],
+      [
+        "Quantify severity of alcohol withdrawal symptoms",
+        "قياس شدة أعراض الانسحاب الكحولي"
+      ],
+      [
+        "Assess social impact of alcohol",
+        "تقييم الأثر الاجتماعي للكحول"
+      ]
+    ],
+    "answer": 2,
+    "exp": "CIWA (Clinical Institute Withdrawal Assessment) is used by professionals to quantify withdrawal severity, guiding treatment decisions during detoxification phases.<br>CIWA هو مقياس طبي يُستخدم لتحديد شدة أعراض الانسحاب لدى الأشخاص المتوقفين عن تعاطي الكحول، مما يساعد في تحديد نوع وتوقيت التدخل العلاجي المناسب."
+  },
+  {
+    "q": "Which symptoms are assessed by CIWA-Ar? (v32)",
+    "qt": "ما الأعراض التي يقيسها CIWA-Ar؟ (نسخة 32)",
+    "options": [
+      [
+        "Liver enzymes and blood pressure",
+        "إنزيمات الكبد وضغط الدم"
+      ],
+      [
+        "Hallucinations, tremors, nausea, and anxiety",
+        "الهلوسة، الرعاش، الغثيان، والقلق"
+      ],
+      [
+        "Appetite and memory loss",
+        "الشهية وفقدان الذاكرة"
+      ],
+      [
+        "Sleep disturbances and guilt",
+        "اضطرابات النوم والشعور بالذنب"
+      ]
+    ],
+    "answer": 1,
+    "exp": "CIWA-Ar includes items like nausea, tremors, anxiety, agitation, hallucinations, and orientation. It provides a total score that informs the need for medical intervention.<br>يشمل CIWA أعراضًا مثل الغثيان، التعرق، الرعاش، القلق، الهياج، الهلوسة، والاضطرابات الحسية، ويُستخدم لتحديد مستوى الرعاية المطلوبة أثناء الانسحاب."
+  },
+  {
+    "q": "What is the primary purpose of the CIWA scale? (v33)",
+    "qt": "ما الهدف الأساسي من مقياس CIWA؟ (نسخة 33)",
+    "options": [
+      [
+        "Detect liver cirrhosis",
+        "كشف تليّف الكبد"
+      ],
+      [
+        "Screen for alcohol dependency",
+        "الكشف عن الاعتماد الكحولي"
+      ],
+      [
+        "Quantify severity of alcohol withdrawal symptoms",
+        "قياس شدة أعراض الانسحاب الكحولي"
+      ],
+      [
+        "Assess social impact of alcohol",
+        "تقييم الأثر الاجتماعي للكحول"
+      ]
+    ],
+    "answer": 2,
+    "exp": "CIWA (Clinical Institute Withdrawal Assessment) is used by professionals to quantify withdrawal severity, guiding treatment decisions during detoxification phases.<br>CIWA هو مقياس طبي يُستخدم لتحديد شدة أعراض الانسحاب لدى الأشخاص المتوقفين عن تعاطي الكحول، مما يساعد في تحديد نوع وتوقيت التدخل العلاجي المناسب."
+  },
+  {
+    "q": "Which symptoms are assessed by CIWA-Ar? (v34)",
+    "qt": "ما الأعراض التي يقيسها CIWA-Ar؟ (نسخة 34)",
+    "options": [
+      [
+        "Liver enzymes and blood pressure",
+        "إنزيمات الكبد وضغط الدم"
+      ],
+      [
+        "Hallucinations, tremors, nausea, and anxiety",
+        "الهلوسة، الرعاش، الغثيان، والقلق"
+      ],
+      [
+        "Appetite and memory loss",
+        "الشهية وفقدان الذاكرة"
+      ],
+      [
+        "Sleep disturbances and guilt",
+        "اضطرابات النوم والشعور بالذنب"
+      ]
+    ],
+    "answer": 1,
+    "exp": "CIWA-Ar includes items like nausea, tremors, anxiety, agitation, hallucinations, and orientation. It provides a total score that informs the need for medical intervention.<br>يشمل CIWA أعراضًا مثل الغثيان، التعرق، الرعاش، القلق، الهياج، الهلوسة، والاضطرابات الحسية، ويُستخدم لتحديد مستوى الرعاية المطلوبة أثناء الانسحاب."
+  },
+  {
+    "q": "What is the primary purpose of the CIWA scale? (v35)",
+    "qt": "ما الهدف الأساسي من مقياس CIWA؟ (نسخة 35)",
+    "options": [
+      [
+        "Detect liver cirrhosis",
+        "كشف تليّف الكبد"
+      ],
+      [
+        "Screen for alcohol dependency",
+        "الكشف عن الاعتماد الكحولي"
+      ],
+      [
+        "Quantify severity of alcohol withdrawal symptoms",
+        "قياس شدة أعراض الانسحاب الكحولي"
+      ],
+      [
+        "Assess social impact of alcohol",
+        "تقييم الأثر الاجتماعي للكحول"
+      ]
+    ],
+    "answer": 2,
+    "exp": "CIWA (Clinical Institute Withdrawal Assessment) is used by professionals to quantify withdrawal severity, guiding treatment decisions during detoxification phases.<br>CIWA هو مقياس طبي يُستخدم لتحديد شدة أعراض الانسحاب لدى الأشخاص المتوقفين عن تعاطي الكحول، مما يساعد في تحديد نوع وتوقيت التدخل العلاجي المناسب."
+  },
+  {
+    "q": "Which symptoms are assessed by CIWA-Ar? (v36)",
+    "qt": "ما الأعراض التي يقيسها CIWA-Ar؟ (نسخة 36)",
+    "options": [
+      [
+        "Liver enzymes and blood pressure",
+        "إنزيمات الكبد وضغط الدم"
+      ],
+      [
+        "Hallucinations, tremors, nausea, and anxiety",
+        "الهلوسة، الرعاش، الغثيان، والقلق"
+      ],
+      [
+        "Appetite and memory loss",
+        "الشهية وفقدان الذاكرة"
+      ],
+      [
+        "Sleep disturbances and guilt",
+        "اضطرابات النوم والشعور بالذنب"
+      ]
+    ],
+    "answer": 1,
+    "exp": "CIWA-Ar includes items like nausea, tremors, anxiety, agitation, hallucinations, and orientation. It provides a total score that informs the need for medical intervention.<br>يشمل CIWA أعراضًا مثل الغثيان، التعرق، الرعاش، القلق، الهياج، الهلوسة، والاضطرابات الحسية، ويُستخدم لتحديد مستوى الرعاية المطلوبة أثناء الانسحاب."
+  },
+  {
+    "q": "What is the primary purpose of the CIWA scale? (v37)",
+    "qt": "ما الهدف الأساسي من مقياس CIWA؟ (نسخة 37)",
+    "options": [
+      [
+        "Detect liver cirrhosis",
+        "كشف تليّف الكبد"
+      ],
+      [
+        "Screen for alcohol dependency",
+        "الكشف عن الاعتماد الكحولي"
+      ],
+      [
+        "Quantify severity of alcohol withdrawal symptoms",
+        "قياس شدة أعراض الانسحاب الكحولي"
+      ],
+      [
+        "Assess social impact of alcohol",
+        "تقييم الأثر الاجتماعي للكحول"
+      ]
+    ],
+    "answer": 2,
+    "exp": "CIWA (Clinical Institute Withdrawal Assessment) is used by professionals to quantify withdrawal severity, guiding treatment decisions during detoxification phases.<br>CIWA هو مقياس طبي يُستخدم لتحديد شدة أعراض الانسحاب لدى الأشخاص المتوقفين عن تعاطي الكحول، مما يساعد في تحديد نوع وتوقيت التدخل العلاجي المناسب."
+  },
+  {
+    "q": "Which symptoms are assessed by CIWA-Ar? (v38)",
+    "qt": "ما الأعراض التي يقيسها CIWA-Ar؟ (نسخة 38)",
+    "options": [
+      [
+        "Liver enzymes and blood pressure",
+        "إنزيمات الكبد وضغط الدم"
+      ],
+      [
+        "Hallucinations, tremors, nausea, and anxiety",
+        "الهلوسة، الرعاش، الغثيان، والقلق"
+      ],
+      [
+        "Appetite and memory loss",
+        "الشهية وفقدان الذاكرة"
+      ],
+      [
+        "Sleep disturbances and guilt",
+        "اضطرابات النوم والشعور بالذنب"
+      ]
+    ],
+    "answer": 1,
+    "exp": "CIWA-Ar includes items like nausea, tremors, anxiety, agitation, hallucinations, and orientation. It provides a total score that informs the need for medical intervention.<br>يشمل CIWA أعراضًا مثل الغثيان، التعرق، الرعاش، القلق، الهياج، الهلوسة، والاضطرابات الحسية، ويُستخدم لتحديد مستوى الرعاية المطلوبة أثناء الانسحاب."
+  },
+  {
+    "q": "What is the primary purpose of the CIWA scale? (v39)",
+    "qt": "ما الهدف الأساسي من مقياس CIWA؟ (نسخة 39)",
+    "options": [
+      [
+        "Detect liver cirrhosis",
+        "كشف تليّف الكبد"
+      ],
+      [
+        "Screen for alcohol dependency",
+        "الكشف عن الاعتماد الكحولي"
+      ],
+      [
+        "Quantify severity of alcohol withdrawal symptoms",
+        "قياس شدة أعراض الانسحاب الكحولي"
+      ],
+      [
+        "Assess social impact of alcohol",
+        "تقييم الأثر الاجتماعي للكحول"
+      ]
+    ],
+    "answer": 2,
+    "exp": "CIWA (Clinical Institute Withdrawal Assessment) is used by professionals to quantify withdrawal severity, guiding treatment decisions during detoxification phases.<br>CIWA هو مقياس طبي يُستخدم لتحديد شدة أعراض الانسحاب لدى الأشخاص المتوقفين عن تعاطي الكحول، مما يساعد في تحديد نوع وتوقيت التدخل العلاجي المناسب."
+  },
+  {
+    "q": "Which symptoms are assessed by CIWA-Ar? (v40)",
+    "qt": "ما الأعراض التي يقيسها CIWA-Ar؟ (نسخة 40)",
+    "options": [
+      [
+        "Liver enzymes and blood pressure",
+        "إنزيمات الكبد وضغط الدم"
+      ],
+      [
+        "Hallucinations, tremors, nausea, and anxiety",
+        "الهلوسة، الرعاش، الغثيان، والقلق"
+      ],
+      [
+        "Appetite and memory loss",
+        "الشهية وفقدان الذاكرة"
+      ],
+      [
+        "Sleep disturbances and guilt",
+        "اضطرابات النوم والشعور بالذنب"
+      ]
+    ],
+    "answer": 1,
+    "exp": "CIWA-Ar includes items like nausea, tremors, anxiety, agitation, hallucinations, and orientation. It provides a total score that informs the need for medical intervention.<br>يشمل CIWA أعراضًا مثل الغثيان، التعرق، الرعاش، القلق، الهياج، الهلوسة، والاضطرابات الحسية، ويُستخدم لتحديد مستوى الرعاية المطلوبة أثناء الانسحاب."
+  }
+];
+
+let current = 0, score = 0;
+const quiz = document.getElementById("quiz");
+
+function loadQ() {
+  const q = questions[current];
+  let html = `<div class='question-box' id='qbox'>
+    <div class='question'>Q${current + 1}. ${q.q}</div>
+    <div class='translation'>${q.qt}</div>`;
+  q.options.forEach((opt, i) => {
+    html += `<div class='option' data-index='${i}' onclick='selectAnswer(this, ${i}, ${q.answer})'>${opt[0]}<br><small>${opt[1]}</small></div>`;
+  });
+  html += `<div class='explanation'><b>Explanation:</b> ${q.exp}</div>
+    <button class='next-btn' onclick='nextQ()'>Next</button>
+  </div>`;
+  quiz.innerHTML = html;
+}
+
+function selectAnswer(el, selected, correct) {
+  const opts = document.querySelectorAll('.option');
+  opts.forEach((opt, i) => {
+    opt.style.pointerEvents = 'none';
+    if (i === correct) opt.classList.add('correct');
+    else if (i === selected) opt.classList.add('incorrect');
+  });
+  if (selected === correct) score++;
+  document.querySelector('.explanation').style.display = 'block';
+  document.querySelector('.next-btn').style.display = 'inline-block';
+}
+
+function nextQ() {
+  current++;
+  if (current < questions.length) loadQ();
+  else {
+    quiz.innerHTML = `<div class='question-box'><div class='question'>انتهت الأسئلة</div><div class='question'>Your score: <span style='color:green'>${score}</span> / <span style='color:red'>${questions.length}</span></div></div>`;
+  }
+}
+
+function goToLast() {
+  current = questions.length - 1;
+  loadQ();
+}
+
+loadQ();
+</script>
+</body>
+</html>

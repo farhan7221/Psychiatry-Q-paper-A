@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huntington’s Dementia Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Huntington’s Dementia Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What is the primary brain region affected in Huntington’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Cerebellum</li>
+<li onclick="checkAnswer(this, false)">Frontal cortex</li>
+<li onclick="checkAnswer(this, true)">Caudate and putamen</li>
+<li onclick="checkAnswer(this, false)">Thalamus</li>
+</ul>
+<div class="explanation">Huntington’s disease primarily affects the caudate nucleus and putamen, structures within the basal ganglia responsible for motor coordination and cognition. Neuronal loss here causes the characteristic chorea and dementia.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>What type of dementia is associated with Huntington’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Vascular dementia</li>
+<li onclick="checkAnswer(this, false)">Frontotemporal dementia</li>
+<li onclick="checkAnswer(this, true)">Subcortical dementia</li>
+<li onclick="checkAnswer(this, false)">Cortical dementia</li>
+</ul>
+<div class="explanation">Huntington’s dementia is classified as a subcortical dementia, which presents with slowed cognition, impaired executive function, and emotional dysregulation, often without early memory loss.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which genetic mutation causes Huntington’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Trisomy 21</li>
+<li onclick="checkAnswer(this, true)">CAG repeat expansion on chromosome 4</li>
+<li onclick="checkAnswer(this, false)">Tau gene mutation</li>
+<li onclick="checkAnswer(this, false)">TDP-43 mutation</li>
+</ul>
+<div class="explanation">Huntington’s is caused by a CAG trinucleotide repeat expansion in the HTT gene on chromosome 4. This leads to production of a toxic mutant huntingtin protein.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>What pathological finding is characteristic of Huntington’s disease on gross brain examination?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Cortical thinning</li>
+<li onclick="checkAnswer(this, false)">Hippocampal sclerosis</li>
+<li onclick="checkAnswer(this, true)">Dilation of lateral ventricles</li>
+<li onclick="checkAnswer(this, false)">Cerebellar atrophy</li>
+</ul>
+<div class="explanation">Grossly, there is atrophy of the caudate nuclei and compensatory dilation of the lateral ventricles, creating the classic 'ex vacuo' hydrocephalus appearance.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>What type of neuronal inclusion is found in Huntington’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Lewy bodies</li>
+<li onclick="checkAnswer(this, false)">Pick bodies</li>
+<li onclick="checkAnswer(this, false)">Tau tangles</li>
+<li onclick="checkAnswer(this, true)">Intranuclear inclusions with huntingtin</li>
+</ul>
+<div class="explanation">Mutant huntingtin protein accumulates in the nuclei of neurons, forming characteristic intranuclear inclusions which are toxic and interfere with normal cell function.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>What is the normal function of huntingtin protein?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Myelin synthesis</li>
+<li onclick="checkAnswer(this, false)">Synaptic pruning</li>
+<li onclick="checkAnswer(this, true)">Axonal transport and vesicle trafficking</li>
+<li onclick="checkAnswer(this, false)">Tau stabilization</li>
+</ul>
+<div class="explanation">The normal huntingtin protein is involved in vesicle transport, endocytosis, and regulation of transcription. Mutation disrupts these functions and leads to neurotoxicity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which brain imaging feature supports a diagnosis of Huntington’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">White matter demyelination</li>
+<li onclick="checkAnswer(this, false)">Ventricular narrowing</li>
+<li onclick="checkAnswer(this, false)">Frontal lobe hyperintensity</li>
+<li onclick="checkAnswer(this, true)">Caudate atrophy with ventricular enlargement</li>
+</ul>
+<div class="explanation">Neuroimaging often shows atrophy of the caudate nuclei and putamen, leading to enlargement of the frontal horns of the lateral ventricles.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which motor symptom is most characteristic of Huntington’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Tremor</li>
+<li onclick="checkAnswer(this, true)">Chorea</li>
+<li onclick="checkAnswer(this, false)">Rigidity</li>
+<li onclick="checkAnswer(this, false)">Ataxia</li>
+</ul>
+<div class="explanation">Chorea, a form of involuntary, irregular movement, is a hallmark of Huntington’s disease, reflecting basal ganglia dysfunction.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>What psychiatric symptom commonly precedes cognitive or motor changes in Huntington’s?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Delusions</li>
+<li onclick="checkAnswer(this, false)">Anxiety</li>
+<li onclick="checkAnswer(this, true)">Depression</li>
+<li onclick="checkAnswer(this, false)">Hallucinations</li>
+</ul>
+<div class="explanation">Depression and mood disturbances are often early manifestations in Huntington’s, sometimes occurring years before motor symptoms.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>What inheritance pattern does Huntington’s disease follow?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Autosomal recessive</li>
+<li onclick="checkAnswer(this, false)">Mitochondrial</li>
+<li onclick="checkAnswer(this, true)">Autosomal dominant</li>
+<li onclick="checkAnswer(this, false)">X-linked dominant</li>
+</ul>
+<div class="explanation">Huntington’s disease follows an autosomal dominant inheritance pattern. Each child of an affected individual has a 50% chance of inheriting the mutation.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

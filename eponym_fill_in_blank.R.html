@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethics in Psychiatry - Questions 1–10</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .question-box { background: #fff; padding: 20px; margin: 50px auto; border-radius: 10px; max-width: 750px; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 20px; }
+    .option { background: #eee; padding: 10px; margin: 8px 0; border-radius: 5px; cursor: pointer; }
+    .option.correct { background: #d4edda !important; pointer-events: none; }
+    .option.incorrect { background: #f8d7da !important; pointer-events: none; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 5px solid gold; padding: 10px; display: none; margin-top: 15px; }
+    .next-btn { display: none; margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    .counter { position: fixed; top: 10px; right: 20px; background: white; padding: 5px 10px; border-radius: 10px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px;
+      font-style: italic;
+      color: rgba(128,128,128,0.35); text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+    #lastQ { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+<body>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<div class="counter">Total Questions: 10</div>
+<div id="quiz"></div>
+<div id="lastQ"><button onclick="goToLast()">Last Q</button></div>
+<script>
+const questions = [{"q": "Anton syndrome is a condition of blindness in which the patient _____.", "qt": "متلازمة أنطون هي حالة من العمى ينكر فيها المريض _____.", "options": [["denies blindness", "ينكر العمى"], ["loses balance", "يفقد التوازن"], ["hears voices", "يسمع أصواتًا"], ["laughs randomly", "يضحك بشكل عشوائي"]], "answer": 0, "exp": "Anton syndrome involves denial of blindness and confabulation, often due to occipital lesions. | تتضمن متلازمة أنطون إنكار المريض لكونه أعمى واختلاقه للمواقف، وغالبًا ما تنتج عن تلف في الفص القذالي."}, {"q": "Capgras syndrome is the belief that familiar people have been _____.", "qt": "متلازمة كابغراس هي اعتقاد أن الأشخاص المألوفين قد تم _____.", "options": [["replaced by imposters", "استبدالهم بانتحال شخصية"], ["kidnapped", "اختطافهم"], ["erased from memory", "محوهم من الذاكرة"], ["turned into animals", "تحولهم إلى حيوانات"]], "answer": 0, "exp": "Capgras syndrome is a delusional misidentification where the patient believes familiar people are replaced by identical-looking imposters. | هي وهْم يُعتقد فيه أن الأشخاص المعروفين تم استبدالهم بانتحال شخصية شبيه."}, {"q": "Charles Bonnet syndrome involves visual hallucinations in patients with _____.", "qt": "تتضمن متلازمة تشارلز بونيه هلوسات بصرية في مرضى يعانون من _____.", "options": [["visual impairment", "ضعف في البصر"], ["bipolar disorder", "اضطراب ثنائي القطب"], ["seizures", "نوبات صرع"], ["stroke", "جلطة دماغية"]], "answer": 0, "exp": "Charles Bonnet syndrome features complex visual hallucinations in patients with impaired vision but preserved cognition. | تظهر الهلوسات لدى مرضى يعانون من ضعف بصري دون وجود خلل إدراكي."}, {"q": "Cotard syndrome is marked by the patient's belief that they _____.", "qt": "تتميز متلازمة كوتار باعتقاد المريض أنه _____.", "options": [["are dead", "ميت"], ["are a king", "ملك"], ["can fly", "يستطيع الطيران"], ["are being watched", "يُراقَب"]], "answer": 0, "exp": "Cotard syndrome is a nihilistic delusion where the patient believes they are dead or nonexistent. | متلازمة كوتار تتسم بوهم عدمي يعتقد فيه المريض أنه ميت أو غير موجود."}, {"q": "Fregoli delusion is the belief that strangers are _____.", "qt": "وهم فريغولي هو اعتقاد أن الغرباء هم _____.", "options": [["disguised known individuals", "أشخاص معروفون متنكرون"], ["aliens", "كائنات فضائية"], ["dead", "أموات"], ["robotic duplicates", "نسخ روبوتية"]], "answer": 0, "exp": "Fregoli delusion is a misidentification where unfamiliar people are believed to be familiar individuals in disguise. | وهم يُعتقد فيه أن الغرباء هم أشخاص معروفون متنكرون."}, {"q": "Korsakoff syndrome is characterized by _____.", "qt": "تتميز متلازمة كورساكوف بـ _____.", "options": [["anterograde amnesia", "فقدان الذاكرة التقدمي"], ["panic attacks", "نوبات هلع"], ["motor tics", "حركات لا إرادية"], ["obsessive thoughts", "أفكار وسواسية"]], "answer": 0, "exp": "Korsakoff syndrome involves chronic memory loss, especially in forming new memories, often due to thiamine deficiency. | تتميز بفقدان الذاكرة التقدمي، وغالبًا ما تنتج عن نقص في الثيامين."}, {"q": "Ganser syndrome involves answering questions _____.", "qt": "تتضمن متلازمة غانزر الإجابة على الأسئلة _____.", "options": [["approximately", "بشكل تقريبي"], ["repetitively", "بشكل متكرر"], ["with anger", "بغضب"], ["in foreign language", "بلغة أجنبية"]], "answer": 0, "exp": "Ganser syndrome is a rare dissociative disorder where individuals give approximate answers (e.g., 2+2=5). | تتميز بإجابات غير دقيقة تدل على اضطراب انشقاقي."}, {"q": "Klüver-Bucy syndrome includes hypersexuality and _____.", "qt": "تتضمن متلازمة كلوفر-بوسي فرط النشاط الجنسي و _____.", "options": [["hyperorality", "فرط الفموية"], ["hallucinations", "هلوسات"], ["mutism", "خرس"], ["sleep attacks", "نوبات نوم"]], "answer": 0, "exp": "Klüver-Bucy syndrome results from temporal lobe lesions and includes hypersexuality and hyperorality. | تحدث نتيجة تلف الفص الصدغي وتتضمن فرط الفموية وفرط النشاط الجنسي."}, {"q": "Wernicke encephalopathy is associated with _____.", "qt": "يرتبط اعتلال الدماغ فيرنكي بـ _____.", "options": [["thiamine deficiency", "نقص الثيامين"], ["vitamin C overdose", "جرعة زائدة من فيتامين C"], ["magnesium toxicity", "تسمم المغنيسيوم"], ["low dopamine", "انخفاض الدوبامين"]], "answer": 0, "exp": "Wernicke encephalopathy is caused by thiamine deficiency, seen in alcoholism and malnutrition. | يسببه نقص الثيامين، ويظهر غالبًا لدى مرضى الإدمان وسوء التغذية."}, {"q": "Pick disease is a type of dementia involving _____.", "qt": "مرض بيك هو نوع من الخرف يتضمن _____.", "options": [["frontal and temporal atrophy", "ضمور الفصين الجبهي والصدغي"], ["parietal lesions", "آفات في الفص الجداري"], ["brainstem damage", "تلف جذع الدماغ"], ["subdural hematoma", "نزيف تحت الجافية"]], "answer": 0, "exp": "Pick disease causes early-onset dementia with prominent personality change due to frontal and temporal degeneration. | يسبب خرفًا مبكرًا مع تغيّرات في الشخصية نتيجة ضمور الفصين الجبهي والصدغي."}];
+
+let current = 0, score = 0;
+const quiz = document.getElementById("quiz");
+
+function loadQ() {
+  const q = questions[current];
+  let html = `<div class='question-box' id='qbox'>
+    <div class='question'>Q${current + 1}. ${q.q}</div>
+    <div class='translation'>${q.qt}</div>`;
+  q.options.forEach((opt, i) => {
+    html += `<div class='option' data-index='${i}' onclick='selectAnswer(this, ${i}, ${q.answer})'>${opt[0]}<br><small>${opt[1]}</small></div>`;
+  });
+  html += `<div class='explanation'><b>Explanation:</b> ${q.exp}</div>
+    <button class='next-btn' onclick='nextQ()'>Next</button>
+  </div>`;
+  quiz.innerHTML = html;
+}
+
+function selectAnswer(el, selected, correct) {
+  const opts = document.querySelectorAll('.option');
+  opts.forEach((opt, i) => {
+    opt.style.pointerEvents = 'none';
+    if (i === correct) opt.classList.add('correct');
+    else if (i === selected) opt.classList.add('incorrect');
+  });
+  if (selected === correct) score++;
+  document.querySelector('.explanation').style.display = 'block';
+  document.querySelector('.next-btn').style.display = 'inline-block';
+}
+
+function nextQ() {
+  current++;
+  if (current < questions.length) loadQ();
+  else {
+    quiz.innerHTML = `<div class='question-box'><div class='question'>انتهت الأسئلة</div><div class='question'>Your score: <span style='color:green'>${score}</span> / <span style='color:red'>${questions.length}</span></div></div>`;
+  }
+}
+
+function goToLast() {
+  current = questions.length - 1;
+  loadQ();
+}
+
+loadQ();
+</script>
+</body>
+</html>

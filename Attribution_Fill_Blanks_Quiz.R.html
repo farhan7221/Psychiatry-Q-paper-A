@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attribution Fill-in-the-Blank Quiz</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); color: rgba(0,0,0,0.07); font-size: 24px; font-style: italic; }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. Attribution is the process by which we make ______ about the causes of behavior.<br><span style='color:gray'>الإسناد هو العملية التي نُصدر من خلالها ______ حول أسباب السلوك.</span>", "o": ["predictions", "assumptions", "judgments", "expectations"], "a": 2, "e": "Attribution involves making judgments about why a behavior occurred.<br><span style='color:gray'>الإسناد هو حكم على سبب حدوث السلوك، وليس مجرد تخمين أو تنبؤ.</span>"}, {"q": "2. Heider described attribution as ______ or “commonsense” psychology.<br><span style='color:gray'>وصف هايدر الإسناد بأنه علم نفس ______ أو “شائع”.</span>", "o": ["intuitive", "scientific", "naive", "general"], "a": 2, "e": "Heider called it “naive psychology” to reflect everyday reasoning.<br><span style='color:gray'>وصف هايدر الإسناد بأنه 'ساذج' لأنه يشبه تفكير الناس العادي.</span>"}, {"q": "3. People act like amateur ______ when interpreting others’ behavior.<br><span style='color:gray'>يتصرف الناس كمحترفين مبتدئين في مجال ______ عندما يفسرون سلوك الآخرين.</span>", "o": ["psychologists", "critics", "detectives", "scientists"], "a": 3, "e": "People try to find causes like scientists but without formal method.<br><span style='color:gray'>يحاول الناس تحليل السلوك مثل العلماء ولكن بطريقة غير منهجية.</span>"}, {"q": "4. We distinguish between ______ and unintentional behavior.<br><span style='color:gray'>نفرق بين السلوك المتعمد و السلوك ______.</span>", "o": ["conscious", "emotional", "planned", "unintentional"], "a": 3, "e": "Attribution includes judging if a behavior was done on purpose.<br><span style='color:gray'>الإسناد يتضمن تحديد ما إذا كان السلوك متعمدًا أم لا.</span>"}, {"q": "5. We also distinguish between internal vs. ______ attribution.<br><span style='color:gray'>كما نميز بين الإسناد الداخلي و ______.</span>", "o": ["permanent", "irrational", "external", "emotional"], "a": 2, "e": "Internal = within the person; external = due to situation.<br><span style='color:gray'>داخلي = من الشخص نفسه، خارجي = من البيئة أو الظروف.</span>"}, {"q": "6. In Kelly’s model, we look for three elements: consensus, distinctiveness, and ______.<br><span style='color:gray'>في نموذج كيلي، نبحث عن ثلاثة عناصر: الاتفاق، التميز، و ______.</span>", "o": ["accuracy", "consistency", "frequency", "reason"], "a": 1, "e": "These help determine cause of behavior across situations and time.<br><span style='color:gray'>العناصر الثلاثة تحدد ما إذا كان السبب داخليًا أم خارجيًا.</span>"}, {"q": "7. Low consensus and high consistency usually lead to ______ attribution.<br><span style='color:gray'>الاتفاق المنخفض والاتساق العالي يؤديان غالبًا إلى إسناد ______.</span>", "o": ["situational", "external", "dispositional", "cultural"], "a": 2, "e": "This pattern suggests the person is the cause.<br><span style='color:gray'>يدل هذا النمط على أن الشخص نفسه هو السبب.</span>"}, {"q": "8. Weiner’s theory introduced three dimensions: locus, stability, and ______.<br><span style='color:gray'>نظرية وينر طرحت ثلاث أبعاد: الموضع، الثبات، و ______.</span>", "o": ["flexibility", "controllability", "emotionality", "responsibility"], "a": 1, "e": "Controllability refers to whether the cause can be changed.<br><span style='color:gray'>تشير القابلية للتحكم إلى إمكانية تغيير السبب.</span>"}, {"q": "9. A cause that is external, stable, and uncontrollable often leads to ______.<br><span style='color:gray'>السبب الخارجي، الثابت، غير القابل للتحكم غالبًا ما يؤدي إلى ______.</span>", "o": ["pride", "sadness", "anger", "guilt"], "a": 2, "e": "We feel anger when a negative event is beyond our control.<br><span style='color:gray'>نغضب إذا حصل شيء سيء لا يمكننا تغييره.</span>"}, {"q": "10. Consensus is defined as whether ______ behave the same way.<br><span style='color:gray'>يُقصد بالاتفاق: هل ______ يتصرفون بنفس الطريقة.</span>", "o": ["we", "others", "the teacher", "the person themselves"], "a": 1, "e": "High consensus means many people behave similarly.<br><span style='color:gray'>الاتفاق المرتفع يعني أن كثيرًا من الناس يتصرفون بنفس الطريقة.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

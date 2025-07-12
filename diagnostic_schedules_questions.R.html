@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethics in Psychiatry - Questions 1–10</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .question-box { background: #fff; padding: 20px; margin: 50px auto; border-radius: 10px; max-width: 750px; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 20px; }
+    .option { background: #eee; padding: 10px; margin: 8px 0; border-radius: 5px; cursor: pointer; }
+    .option.correct { background: #d4edda !important; pointer-events: none; }
+    .option.incorrect { background: #f8d7da !important; pointer-events: none; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 5px solid gold; padding: 10px; display: none; margin-top: 15px; }
+    .next-btn { display: none; margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    .counter { position: fixed; top: 10px; right: 20px; background: white; padding: 5px 10px; border-radius: 10px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px;
+      font-style: italic;
+      color: rgba(128,128,128,0.35); text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+    #lastQ { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+<body>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<div class="counter">Total Questions: 10</div>
+<div id="quiz"></div>
+<div id="lastQ"><button onclick="goToLast()">Last Q</button></div>
+<script>
+const questions = [
+  {
+    "q": "What is the main purpose of diagnostic schedules in psychiatry?",
+    "qt": "ما الهدف الرئيسي من جداول التشخيص في الطب النفسي؟",
+    "options": [
+      [
+        "To replace psychotherapy",
+        "لاستبدال العلاج النفسي"
+      ],
+      [
+        "To assign medications",
+        "لوصف الأدوية"
+      ],
+      [
+        "To structure clinical assessment for diagnosis",
+        "لتنظيم التقييم السريري للتشخيص"
+      ],
+      [
+        "To collect insurance data",
+        "لجمع بيانات التأمين"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Diagnostic schedules are designed to structure psychiatric evaluations and aid in diagnosis.<br>تهدف جداول التشخيص إلى تنظيم التقييم النفسي للمريض وتسهيل التشخيص الدقيق."
+  },
+  {
+    "q": "Which schedule is clinician-administered and fully structured, used in UK surveys for neurotic conditions?",
+    "qt": "أي جدول يُدار من قبل الطبيب ويُستخدم في مسوح بريطانيا النفسية للحالات العصابية؟",
+    "options": [
+      [
+        "PHQ",
+        "استبيان الصحة العامة"
+      ],
+      [
+        "SCID",
+        "المقابلة السريرية المهيكلة لـ DSM"
+      ],
+      [
+        "CIS",
+        "جدول المقابلة السريرية"
+      ],
+      [
+        "DIS",
+        "جدول المقابلة التشخيصية"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The Clinical Interview Schedule (CIS) is fully structured and used in UK psychiatric morbidity surveys.<br>يُستخدم جدول CIS في بريطانيا لتقييم الحالات العصابية من خلال مقابلات مهيكلة."
+  },
+  {
+    "q": "Which schedule was developed by WHO and includes both ICD and DSM systems?",
+    "qt": "أي جدول طُور بواسطة منظمة الصحة العالمية ويشمل تصنيفي ICD وDSM؟",
+    "options": [
+      [
+        "DIS",
+        "جدول المقابلة التشخيصية"
+      ],
+      [
+        "CIDI",
+        "المقابلة التشخيصية الدولية المركبة"
+      ],
+      [
+        "PHQ",
+        "استبيان الصحة العامة"
+      ],
+      [
+        "SCAN",
+        "الجدول التقييمي العصبي النفسي"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The Composite International Diagnostic Interview (CIDI) incorporates both DSM and ICD principles and was developed by WHO.<br>طُورت المقابلة CIDI بواسطة منظمة الصحة العالمية وتشمل مبادئ كل من DSM وICD."
+  },
+  {
+    "q": "Which diagnostic schedule is non-clinician administered and fully structured?",
+    "qt": "أي من الجداول التالية يُدار دون تدخل طبيب وهو مُهيكل بالكامل؟",
+    "options": [
+      [
+        "DIS",
+        "جدول المقابلة التشخيصية"
+      ],
+      [
+        "PSE",
+        "الاختبار الحالي للحالة"
+      ],
+      [
+        "SCID",
+        "المقابلة السريرية المهيكلة لـ DSM"
+      ],
+      [
+        "CIS",
+        "جدول المقابلة السريرية"
+      ]
+    ],
+    "answer": 0,
+    "exp": "The Diagnostic Interview Schedule (DIS) is designed for lay interviewers and does not require a clinician.<br>يُستخدم جدول DIS من قبل غير الأطباء، وهو مهيكل بالكامل لتقييم التشخيصات."
+  },
+  {
+    "q": "Which diagnostic tool uses self-report and is derived from PRIME-MD based on DSM-III?",
+    "qt": "أي أداة تشخيصية تعتمد على التقرير الذاتي ومشتقة من PRIME-MD؟",
+    "options": [
+      [
+        "SCID",
+        "المقابلة السريرية المهيكلة لـ DSM"
+      ],
+      [
+        "PHQ",
+        "استبيان الصحة العامة"
+      ],
+      [
+        "HSCL",
+        "قائمة أعراض هوبكنز"
+      ],
+      [
+        "CIDI",
+        "المقابلة التشخيصية الدولية المركبة"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The Patient Health Questionnaire (PHQ) is a self-report tool based on DSM-III and derived from PRIME-MD.<br>PHQ هو استبيان يعتمد على التقرير الذاتي ومشتق من PRIME-MD ويستند إلى DSM-III."
+  },
+  {
+    "q": "Which tool includes both self-report and trained primary care workers and measures anxiety and depression?",
+    "qt": "أي أداة تشمل التقييم الذاتي والعاملين في الرعاية الأولية وتقيس القلق والاكتئاب؟",
+    "options": [
+      [
+        "SCID",
+        "المقابلة السريرية المهيكلة لـ DSM"
+      ],
+      [
+        "DIS",
+        "جدول المقابلة التشخيصية"
+      ],
+      [
+        "HSCL",
+        "قائمة أعراض هوبكنز"
+      ],
+      [
+        "SADS",
+        "جدول الاضطرابات العاطفية والفصام"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The Hopkins Symptom Checklist (HSCL) includes various versions for anxiety and depression used by both patients and trained staff.<br>HSCL يقيس أعراض القلق والاكتئاب ويستخدم من قبل المرضى والعاملين المدربين."
+  },
+  {
+    "q": "Which diagnostic schedule focuses on psychotic and mood disorders and includes a children’s version?",
+    "qt": "أي جدول يركز على الاضطرابات الذهانية والمزاجية ويشمل نسخة للأطفال؟",
+    "options": [
+      [
+        "SCAN",
+        "الجدول التقييمي العصبي النفسي"
+      ],
+      [
+        "SADS",
+        "جدول الاضطرابات العاطفية والفصام"
+      ],
+      [
+        "HSCL",
+        "قائمة أعراض هوبكنز"
+      ],
+      [
+        "PHQ",
+        "استبيان الصحة العامة"
+      ]
+    ],
+    "answer": 1,
+    "exp": "SADS covers major mental disorders including a version for children (Kiddie-SADS).<br>يغطي SADS اضطرابات عقلية كبرى، ويشمل نسخة مخصصة للأطفال."
+  },
+  {
+    "q": "Which schedule replaced PSE and uses 28 sections and over 1800 items?",
+    "qt": "أي جدول استبدل PSE ويحتوي على 28 قسمًا وأكثر من 1800 بند؟",
+    "options": [
+      [
+        "SCID",
+        "المقابلة السريرية المهيكلة لـ DSM"
+      ],
+      [
+        "DIS",
+        "جدول المقابلة التشخيصية"
+      ],
+      [
+        "SCAN",
+        "الجدول التقييمي العصبي النفسي"
+      ],
+      [
+        "CIDI",
+        "المقابلة التشخيصية الدولية المركبة"
+      ]
+    ],
+    "answer": 2,
+    "exp": "SCAN was developed based on PSE and is more extensive and comprehensive.<br>تُعد SCAN امتدادًا وتطويرًا لـ PSE وتضم أقسامًا متعددة وعناصر تشخيصية كثيرة."
+  },
+  {
+    "q": "Which of the following is true about most diagnostic schedules?",
+    "qt": "أي مما يلي صحيح بخصوص معظم جداول التشخيص؟",
+    "options": [
+      [
+        "They are always self-administered",
+        "يتم دائمًا تعبئتها ذاتيًا"
+      ],
+      [
+        "They only use ICD",
+        "تستخدم ICD فقط"
+      ],
+      [
+        "They are time-saving and easy",
+        "توفر الوقت وسهلة دائمًا"
+      ],
+      [
+        "Most are clinician-administered and DSM/ICD based",
+        "معظمها يُدار من قبل الأطباء وتعتمد على DSM أو ICD"
+      ]
+    ],
+    "answer": 3,
+    "exp": "The majority of diagnostic schedules are DSM or ICD-based and require clinical administration.<br>تعتمد أغلب الجداول على تصنيفي DSM أو ICD ويقوم بتطبيقها الأطباء."
+  },
+  {
+    "q": "One limitation of many diagnostic schedules is:",
+    "qt": "أحد قيود العديد من جداول التشخيص هو:",
+    "options": [
+      [
+        "They ignore comorbidity",
+        "تتجاهل الأمراض المشتركة"
+      ],
+      [
+        "They are not based on evidence",
+        "غير مبنية على الأدلة"
+      ],
+      [
+        "They are time-consuming during clinical visits",
+        "تستهلك وقتًا طويلًا خلال الزيارات السريرية"
+      ],
+      [
+        "They cannot be computerized",
+        "لا يمكن تحويلها إلى نسخ رقمية"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Many schedules are lengthy and not always practical during brief consultations.<br>بعض الجداول طويلة ومعقدة مما يصعب استخدامها أثناء الزيارات القصيرة."
+  }
+];
+
+let current = 0, score = 0;
+const quiz = document.getElementById("quiz");
+
+function loadQ() {
+  const q = questions[current];
+  let html = `<div class='question-box' id='qbox'>
+    <div class='question'>Q${current + 1}. ${q.q}</div>
+    <div class='translation'>${q.qt}</div>`;
+  q.options.forEach((opt, i) => {
+    html += `<div class='option' data-index='${i}' onclick='selectAnswer(this, ${i}, ${q.answer})'>${opt[0]}<br><small>${opt[1]}</small></div>`;
+  });
+  html += `<div class='explanation'><b>Explanation:</b> ${q.exp}</div>
+    <button class='next-btn' onclick='nextQ()'>Next</button>
+  </div>`;
+  quiz.innerHTML = html;
+}
+
+function selectAnswer(el, selected, correct) {
+  const opts = document.querySelectorAll('.option');
+  opts.forEach((opt, i) => {
+    opt.style.pointerEvents = 'none';
+    if (i === correct) opt.classList.add('correct');
+    else if (i === selected) opt.classList.add('incorrect');
+  });
+  if (selected === correct) score++;
+  document.querySelector('.explanation').style.display = 'block';
+  document.querySelector('.next-btn').style.display = 'inline-block';
+}
+
+function nextQ() {
+  current++;
+  if (current < questions.length) loadQ();
+  else {
+    quiz.innerHTML = `<div class='question-box'><div class='question'>انتهت الأسئلة</div><div class='question'>Your score: <span style='color:green'>${score}</span> / <span style='color:red'>${questions.length}</span></div></div>`;
+  }
+}
+
+function goToLast() {
+  current = questions.length - 1;
+  loadQ();
+}
+
+loadQ();
+</script>
+</body>
+</html>

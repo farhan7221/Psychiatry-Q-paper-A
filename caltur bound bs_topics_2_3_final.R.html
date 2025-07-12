@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Culture and Mental Health - Topics 5 & 6</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .container { max-width: 700px; margin: auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-top: 40px; position: relative; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 15px; }
+    ul { list-style: none; padding: 0; }
+    li { background: #eee; margin: 10px 0; padding: 10px; border-radius: 8px; cursor: pointer; }
+    li.correct { background: #a8e6a1; }
+    li.incorrect { background: #f6a6a6; }
+    li.disabled { pointer-events: none; opacity: 0.6; }
+    .explanation { background: #fff8d3; border-left: 5px solid #f1c40f; padding: 10px; margin-top: 15px; display: none; }
+    .btn { margin-top: 20px; padding: 10px 20px; border: none; background: #007bff; color: white; border-radius: 5px; font-size: 16px; cursor: pointer; display: none; }
+    .last-btn { position: fixed; bottom: 20px; right: 20px; background: #28a745; color: white; padding: 10px 15px; border: none; border-radius: 6px; cursor: pointer; }
+    .counter { position: absolute; top: 10px; right: 20px; font-weight: bold; }
+    .watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); font-size: 30px; color: rgba(128, 128, 128, 0.1); font-style: italic; z-index: 0; }
+  </style>
+</head>
+<body>
+  <div class="watermark">Prepared by Dr Khalid Farhan</div>
+  <div class="container">
+    <div class="counter" id="counter">1 / 10</div>
+    <div class="question" id="question"></div>
+    <div class="translation" id="translation"></div>
+    <ul id="options"></ul>
+    <div class="explanation" id="explanation"></div>
+    <button class="btn" id="nextBtn" onclick="nextQuestion()">التالي</button>
+  </div>
+  <button class="last-btn" onclick="goToLast()">Last Q</button>
+
+  <script>
+    const questions = [{"question": "Which syndrome involves fear of genital retraction?", "translation": "\u0623\u064a \u0645\u062a\u0644\u0627\u0632\u0645\u0629 \u062a\u062a\u0636\u0645\u0646 \u0627\u0644\u062e\u0648\u0641 \u0645\u0646 \u0627\u0646\u0643\u0645\u0627\u0634 \u0627\u0644\u0623\u0639\u0636\u0627\u0621 \u0627\u0644\u062a\u0646\u0627\u0633\u0644\u064a\u0629\u061f", "options": ["Koro", "Amok", "Latah", "Susto"], "answer": "Koro", "explanation": "Koro involves intense fear that genitals are retracting into the body and causing death.<br>\u062a\u062a\u0645\u064a\u0632 \u0645\u062a\u0644\u0627\u0632\u0645\u0629 \u0643\u0648\u0631\u0648 \u0628\u062e\u0648\u0641 \u0634\u062f\u064a\u062f \u0645\u0646 \u0627\u0646\u0643\u0645\u0627\u0634 \u0627\u0644\u0623\u0639\u0636\u0627\u0621 \u0627\u0644\u062a\u0646\u0627\u0633\u0644\u064a\u0629 \u0648\u0627\u0644\u0645\u0648\u062a."}, {"question": "Which culture-bound syndrome includes violent outbursts after brooding silence?", "translation": "\u0623\u064a \u0645\u062a\u0644\u0627\u0632\u0645\u0629 \u062b\u0642\u0627\u0641\u064a\u0629 \u062a\u0634\u0645\u0644 \u0646\u0648\u0628\u0627\u062a \u0639\u0646\u0641 \u0628\u0639\u062f \u0635\u0645\u062a \u0637\u0648\u064a\u0644\u061f", "options": ["Amok", "Ataque de nervios", "Bouff\u00e9e d\u00e9lirante", "Tajin kyofusho"], "answer": "Amok", "explanation": "Amok occurs with sudden violent behavior often after withdrawal.<br>\u062a\u062d\u062f\u062b \u0645\u062a\u0644\u0627\u0632\u0645\u0629 \u0623\u0645\u0648\u0642 \u0628\u0639\u062f \u0627\u0646\u0639\u0632\u0627\u0644 \u062a\u0627\u0645 \u064a\u062a\u0628\u0639\u0647\u0627 \u0627\u0646\u0641\u062c\u0627\u0631 \u0639\u0646\u064a\u0641 \u0645\u0641\u0627\u062c\u0626."}, {"question": "Ataque de nervios is commonly seen in:", "translation": "\u062a\u064f\u0644\u0627\u062d\u0638 \u0645\u062a\u0644\u0627\u0632\u0645\u0629 '\u0647\u062c\u0648\u0645 \u0627\u0644\u0623\u0639\u0635\u0627\u0628' \u0639\u0627\u062f\u0629\u064b \u0641\u064a:", "options": ["Latin America", "Japan", "Malaysia", "Africa"], "answer": "Latin America", "explanation": "It involves crying, screaming, and aggression in response to emotional distress.<br>\u062a\u062a\u0636\u0645\u0646 \u0635\u0631\u0627\u062e \u0648\u0628\u0643\u0627\u0621 \u0648\u0627\u0636\u0637\u0631\u0627\u0628 \u0641\u064a \u0627\u0644\u0633\u0644\u0648\u0643 \u0643\u0631\u062f \u0641\u0639\u0644 \u0639\u0627\u0637\u0641\u064a."}, {"question": "Brain fag syndrome is mostly reported among:", "translation": "\u062a\u064f\u0644\u0627\u062d\u0638 \u0645\u062a\u0644\u0627\u0632\u0645\u0629 '\u0625\u062c\u0647\u0627\u062f \u0627\u0644\u062f\u0645\u0627\u063a' \u063a\u0627\u0644\u0628\u064b\u0627 \u0628\u064a\u0646:", "options": ["African students", "Japanese workers", "Latin American mothers", "European soldiers"], "answer": "African students", "explanation": "Brain fag presents with memory loss, fatigue, and difficulty concentrating.<br>\u062a\u0638\u0647\u0631 \u0645\u0639 \u0623\u0639\u0631\u0627\u0636 \u0645\u062b\u0644 \u0627\u0644\u0625\u0631\u0647\u0627\u0642 \u0648\u0641\u0642\u062f\u0627\u0646 \u0627\u0644\u062a\u0631\u0643\u064a\u0632 \u0644\u062f\u0649 \u0627\u0644\u0637\u0644\u0627\u0628."}, {"question": "Bouff\u00e9e d\u00e9lirante resembles which disorder?", "translation": "\u062a\u0634\u0628\u0647 \u0645\u062a\u0644\u0627\u0632\u0645\u0629 Bouff\u00e9e d\u00e9lirante \u0623\u064a \u0627\u0636\u0637\u0631\u0627\u0628\u061f", "options": ["Brief psychotic disorder", "Generalized anxiety", "OCD", "PTSD"], "answer": "Brief psychotic disorder", "explanation": "It features acute psychotic episodes often short-lived.<br>\u062a\u0634\u0645\u0644 \u0646\u0648\u0628\u0627\u062a \u0630\u0647\u0627\u0646\u064a\u0629 \u0645\u0641\u0627\u062c\u0626\u0629 \u0648\u0645\u0624\u0642\u062a\u0629."}, {"question": "Dhat syndrome is characterized by:", "translation": "\u062a\u062a\u0645\u064a\u0632 \u0645\u062a\u0644\u0627\u0632\u0645\u0629 '\u062f\u0647\u0627\u062a' \u0628\u0640:", "options": ["Fear of semen loss", "Fear of eye contact", "Fear of spirits", "Compulsive checking"], "answer": "Fear of semen loss", "explanation": "Dhat involves anxiety over semen loss considered a vital fluid.<br>\u0627\u0644\u0642\u0644\u0642 \u0645\u0646 \u0641\u0642\u062f\u0627\u0646 \u0627\u0644\u0633\u0627\u0626\u0644 \u0627\u0644\u0645\u0646\u0648\u064a \u0628\u0627\u0639\u062a\u0628\u0627\u0631\u0647 \u0639\u0646\u0635\u0631\u064b\u0627 \u062d\u064a\u0648\u064a\u064b\u0627."}, {"question": "Which syndrome shows exaggerated startle response and echolalia?", "translation": "\u0623\u064a \u0645\u062a\u0644\u0627\u0632\u0645\u0629 \u062a\u064f\u0638\u0647\u0631 \u0627\u0633\u062a\u062c\u0627\u0628\u0629 \u0641\u0632\u0639 \u0645\u0628\u0627\u0644\u063a \u0641\u064a\u0647\u0627 \u0648\u062a\u0643\u0631\u0627\u0631 \u0627\u0644\u0643\u0644\u0627\u0645\u061f", "options": ["Latah", "Koro", "Amok", "Ataque de nervios"], "answer": "Latah", "explanation": "Latah involves mimicry and exaggerated obedience after shock.<br>\u062a\u062a\u0636\u0645\u0646 \u062a\u0643\u0631\u0627\u0631 \u0627\u0644\u0643\u0644\u0627\u0645 \u0648\u0633\u0644\u0648\u0643 \u0637\u0627\u0639\u0629 \u0623\u0648\u062a\u0648\u0645\u0627\u062a\u064a\u0643\u064a\u0629 \u0628\u0639\u062f \u0627\u0644\u0635\u062f\u0645\u0629."}, {"question": "Frigophobia (Pa-leng) involves behavioral response to:", "translation": "\u062a\u062a\u0636\u0645\u0646 Frigophobia (Pa-leng) \u0627\u0633\u062a\u062c\u0627\u0628\u0629 \u0633\u0644\u0648\u0643\u064a\u0629 \u062a\u062c\u0627\u0647:", "options": ["Cold", "Wind", "Heat", "Spirits"], "answer": "Cold", "explanation": "Patients wear layers of clothes fearing cold-induced harm.<br>\u064a\u0631\u062a\u062f\u064a \u0627\u0644\u0645\u0635\u0627\u0628\u0648\u0646 \u0637\u0628\u0642\u0627\u062a \u0643\u062b\u064a\u0631\u0629 \u062e\u0648\u0641\u064b\u0627 \u0645\u0646 \u0627\u0644\u0628\u0631\u062f."}, {"question": "The cultural logic behind Pa-feng is based on:", "translation": "\u0627\u0644\u0645\u0646\u0637\u0642 \u0627\u0644\u062b\u0642\u0627\u0641\u064a \u0648\u0631\u0627\u0621 Pa-feng \u064a\u0639\u062a\u0645\u062f \u0639\u0644\u0649:", "options": ["Imbalance in Yin-Yang", "Genetic vulnerability", "Parental pressure", "Religious hallucinations"], "answer": "Imbalance in Yin-Yang", "explanation": "Chinese medicine attributes illness to imbalance of energies.<br>\u064a\u0631\u062a\u0628\u0637 \u0627\u0644\u0645\u0641\u0647\u0648\u0645 \u0628\u062a\u0648\u0627\u0632\u0646 \u0627\u0644\u0637\u0627\u0642\u0629 \u0627\u0644\u062d\u064a\u0648\u064a\u0629 \u0641\u064a \u0627\u0644\u0637\u0628 \u0627\u0644\u0635\u064a\u0646\u064a."}, {"question": "Which CBS is linked to fear of 'soul loss'?", "translation": "\u0623\u064a \u0645\u062a\u0644\u0627\u0632\u0645\u0629 \u062b\u0642\u0627\u0641\u064a\u0629 \u062a\u0631\u062a\u0628\u0637 \u0628\u0627\u0644\u062e\u0648\u0641 \u0645\u0646 '\u0641\u0642\u062f\u0627\u0646 \u0627\u0644\u0631\u0648\u062d'\u061f", "options": ["Susto", "Latah", "Koro", "Bouff\u00e9e d\u00e9lirante"], "answer": "Susto", "explanation": "Susto is triggered by a sudden shock believed to displace the soul.<br>\u062a\u064f\u0633\u0628\u0628\u0647\u0627 \u0635\u062f\u0645\u0629 \u062d\u0627\u062f\u0629 \u064a\u064f\u0639\u062a\u0642\u062f \u0623\u0646\u0647\u0627 \u062a\u064f\u062e\u0631\u062c \u0627\u0644\u0631\u0648\u062d \u0645\u0646 \u0627\u0644\u062c\u0633\u062f."}];
+    let current = 0;
+    let score = 0;
+
+    function renderQuestion() {
+      const q = questions[current];
+      document.getElementById("question").textContent = q.question;
+      document.getElementById("translation").textContent = q.translation;
+      document.getElementById("counter").textContent = (current + 1) + " / " + questions.length;
+      const optionsList = document.getElementById("options");
+      optionsList.innerHTML = "";
+      q.options.forEach((opt, i) => {
+        const li = document.createElement("li");
+        li.textContent = opt;
+        li.onclick = () => selectAnswer(li, opt, q.answer, q.explanation);
+        optionsList.appendChild(li);
+      });
+      document.getElementById("explanation").style.display = "none";
+      document.getElementById("nextBtn").style.display = "none";
+    }
+
+    function selectAnswer(selected, chosen, correct, explanation) {
+      const options = document.querySelectorAll("#options li");
+      options.forEach(li => {
+        li.classList.add("disabled");
+        if (li.textContent === correct) li.classList.add("correct");
+        if (li === selected && li.textContent !== correct) li.classList.add("incorrect");
+      });
+      if (chosen === correct) score++;
+      const expl = document.getElementById("explanation");
+      expl.innerHTML = explanation;
+      expl.style.display = "block";
+      document.getElementById("nextBtn").style.display = "inline-block";
+    }
+
+    function nextQuestion() {
+      current++;
+      if (current < questions.length) {
+        renderQuestion();
+      } else {
+        showScore();
+      }
+    }
+
+    function goToLast() {
+      current = questions.length - 1;
+      renderQuestion();
+    }
+
+    function showScore() {
+      document.querySelector(".container").innerHTML = `
+        <div class="question">انتهت الأسئلة</div>
+        <div class="translation">Your score: <span style="color:green;">${score}</span> / <span style="color:red;">${questions.length}</span></div>
+      `;
+    }
+
+    renderQuestion();
+  </script>
+</body>
+</html>

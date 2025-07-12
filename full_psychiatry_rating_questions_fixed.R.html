@@ -1,0 +1,1333 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethics in Psychiatry - Questions 1–10</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; margin: 0; padding: 0; }
+    .question-box { background: #fff; padding: 20px; margin: 50px auto; border-radius: 10px; max-width: 750px; }
+    .question { font-size: 20px; font-weight: bold; text-align: center; }
+    .translation { font-size: 16px; color: #555; text-align: center; margin-bottom: 20px; }
+    .option { background: #eee; padding: 10px; margin: 8px 0; border-radius: 5px; cursor: pointer; }
+    .option.correct { background: #d4edda !important; pointer-events: none; }
+    .option.incorrect { background: #f8d7da !important; pointer-events: none; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 5px solid gold; padding: 10px; display: none; margin-top: 15px; }
+    .next-btn { display: none; margin-top: 15px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    .counter { position: fixed; top: 10px; right: 20px; background: white; padding: 5px 10px; border-radius: 10px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 30px;
+      font-style: italic;
+      color: rgba(128,128,128,0.35); text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+    #lastQ { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+<body>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<div class="counter">j</div>
+<div id="quiz"></div>
+<div id="lastQ"><button onclick="goToLast()">Last Q</button></div>
+<script>
+const questions = [
+  {
+    "q": "What is a core feature of the Hamilton Depression Rating Scale (HAMD/HDRS)?",
+    "qt": "ما هي السمة الأساسية لمقياس هاملتون للاكتئاب؟",
+    "options": [
+      [
+        "Self-rated and rapid scoring",
+        "تقييم ذاتي وسريع"
+      ],
+      [
+        "Focuses on social functioning",
+        "يركز على الأداء الاجتماعي"
+      ],
+      [
+        "Observer-rated and emphasizes biological symptoms",
+        "يُقيّم من قبل الطبيب ويركز على الأعراض البيولوجية"
+      ],
+      [
+        "Only used for anxiety disorders",
+        "يُستخدم فقط لاضطرابات القلق"
+      ]
+    ],
+    "answer": 2,
+    "exp": "HAMD is observer-rated and emphasizes somatic/biological aspects of depression.<br>يُقيَّم مقياس هاملتون بواسطة الطبيب ويركز على الأعراض البيولوجية."
+  },
+  {
+    "q": "Which depression scale is known for being most sensitive to clinical changes?",
+    "qt": "أي مقياس للاكتئاب معروف بحساسيته العالية للتغيرات السريرية؟",
+    "options": [
+      [
+        "PHQ-2",
+        "مقياس PHQ-2"
+      ],
+      [
+        "BDI",
+        "مقياس بيك"
+      ],
+      [
+        "MADRS",
+        "مقياس مونتغمري-آسبرغ"
+      ],
+      [
+        "Zung",
+        "مقياس زونغ"
+      ]
+    ],
+    "answer": 2,
+    "exp": "MADRS was designed to detect changes in symptom severity, making it ideal for monitoring progress.<br>صُمم مقياس MADRS لقياس التغيرات في شدة الاكتئاب بدقة."
+  },
+  {
+    "q": "What is the maximum score on the Beck Depression Inventory (BDI)?",
+    "qt": "ما هو الحد الأقصى للدرجات في مقياس بيك للاكتئاب؟",
+    "options": [
+      [
+        "20",
+        "20"
+      ],
+      [
+        "40",
+        "40"
+      ],
+      [
+        "63",
+        "63"
+      ],
+      [
+        "100",
+        "100"
+      ]
+    ],
+    "answer": 2,
+    "exp": "BDI has 21 items, each scored from 0 to 3, totaling a maximum of 63.<br>يحتوي BDI على 21 بندًا، كل منها يُقيّم من 0 إلى 3، ليكون المجموع 63."
+  },
+  {
+    "q": "Which of the following is least sensitive to change in symptom severity?",
+    "qt": "أي من المقاييس التالية هو الأقل حساسية لتغير شدة الأعراض؟",
+    "options": [
+      [
+        "MADRS",
+        "مقياس MADRS"
+      ],
+      [
+        "BDI",
+        "مقياس بيك"
+      ],
+      [
+        "Zung",
+        "مقياس زونغ"
+      ],
+      [
+        "VAS",
+        "المقياس البصري VAS"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Zung scale is known to be relatively insensitive to symptom change over time.<br>مقياس Zung يتميز بحساسية منخفضة تجاه التغيرات السريرية."
+  },
+  {
+    "q": "Which depression rating scale uses a simple 10 cm line for mood indication?",
+    "qt": "أي مقياس للاكتئاب يستخدم خطًا طوله 10 سم لتحديد المزاج؟",
+    "options": [
+      [
+        "Zung",
+        "زونغ"
+      ],
+      [
+        "BDI",
+        "بيك"
+      ],
+      [
+        "VAS",
+        "المقياس البصري VAS"
+      ],
+      [
+        "HAMD",
+        "هاملتون"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The Visual Analogue Scale (VAS) is a quick visual tool where patients mark their mood on a line.<br>VAS أداة بصرية بسيطة يستخدمها المريض لتحديد حالته المزاجية على خط طوله 10 سم."
+  },
+  {
+    "q": "Which self-rated depression scale categorizes scores as minimal, mild, moderate, and severe?",
+    "qt": "أي مقياس اكتئاب ذاتي التصنيف يقسم الدرجات إلى بسيطة، خفيفة، متوسطة، وشديدة؟",
+    "options": [
+      [
+        "MADRS",
+        "MADRS"
+      ],
+      [
+        "HAMD",
+        "HAMD"
+      ],
+      [
+        "BDI",
+        "BDI"
+      ],
+      [
+        "PHQ-2",
+        "PHQ-2"
+      ]
+    ],
+    "answer": 2,
+    "exp": "BDI scores are stratified to reflect severity from minimal to severe, helping guide clinical decisions.<br>BDI يقسم النتائج إلى فئات تساعد في تصنيف شدة الحالة الاكتئابية."
+  },
+  {
+    "q": "At what minimum age is depression screening generally appropriate for children?",
+    "qt": "ما هو الحد الأدنى للسن المناسب لفحص الاكتئاب عند الأطفال؟",
+    "options": [
+      [
+        "5 years",
+        "5 سنوات"
+      ],
+      [
+        "6 years",
+        "6 سنوات"
+      ],
+      [
+        "7 years",
+        "7 سنوات"
+      ],
+      [
+        "9 years",
+        "9 سنوات"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Screening is considered appropriate starting at 7 years of age for children.<br>يُعتبر سن 7 سنوات مناسبًا لبدء فحص الاكتئاب لدى الأطفال."
+  },
+  {
+    "q": "Which tool is specifically designed and simplified for children with lower reading levels?",
+    "qt": "أي أداة صممت خصيصًا للأطفال بمستوى قراءة منخفض؟",
+    "options": [
+      [
+        "BDI",
+        "BDI"
+      ],
+      [
+        "CDI",
+        "CDI"
+      ],
+      [
+        "MADRS",
+        "MADRS"
+      ],
+      [
+        "PHQ-9",
+        "PHQ-9"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The Children's Depression Inventory (CDI) is tailored for children with simplified language.<br>CDI مصمم خصيصًا بلغة مبسطة لتناسب الأطفال."
+  },
+  {
+    "q": "Which scale covers ages 8 to 12 and is designed for child-level depression screening?",
+    "qt": "أي مقياس يغطي الأعمار من 8 إلى 12 لفحص اكتئاب الأطفال؟",
+    "options": [
+      [
+        "Reynolds Child Depression Scale",
+        "مقياس رينولدز للأطفال"
+      ],
+      [
+        "MFQ",
+        "MFQ"
+      ],
+      [
+        "CES-DC",
+        "CES-DC"
+      ],
+      [
+        "CDI",
+        "CDI"
+      ]
+    ],
+    "answer": 0,
+    "exp": "The Reynolds Child Depression Scale is designed for children aged 8 to 12.<br>مقياس رينولدز مخصص للأطفال من 8 إلى 12 سنة."
+  },
+  {
+    "q": "Which self-report tool endorsed by NICE offers both self and parent-rated versions?",
+    "qt": "أي أداة ذاتية معتمدة من NICE وتتوفر بنسختين: تقرير ذاتي وتقرير من الوالدين؟",
+    "options": [
+      [
+        "PHQ",
+        "PHQ"
+      ],
+      [
+        "MFQ",
+        "MFQ"
+      ],
+      [
+        "EPDS",
+        "EPDS"
+      ],
+      [
+        "CDI",
+        "CDI"
+      ]
+    ],
+    "answer": 1,
+    "exp": "MFQ is NICE-endorsed and includes both self and parent-report forms.<br>MFQ معتمد من NICE ويتوفر بنسختين: للمريض وللوالدين."
+  },
+  {
+    "q": "The CES-DC is suitable for which age group?",
+    "qt": "CES-DC مناسب لأي فئة عمرية؟",
+    "options": [
+      [
+        "8–12",
+        "8 إلى 12"
+      ],
+      [
+        "7–17",
+        "7 إلى 17"
+      ],
+      [
+        "12–18",
+        "12 إلى 18"
+      ],
+      [
+        "14 and older",
+        "14 سنة فأكثر"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The CES-DC is validated for ages 12 to 18.<br>CES-DC مخصص للأطفال من 12 إلى 18 سنة."
+  },
+  {
+    "q": "Which scale was specifically developed to assess postpartum depression?",
+    "qt": "أي مقياس صُمم خصيصًا لتقييم اكتئاب ما بعد الولادة؟",
+    "options": [
+      [
+        "BDI",
+        "BDI"
+      ],
+      [
+        "EPDS",
+        "EPDS"
+      ],
+      [
+        "CES-D",
+        "CES-D"
+      ],
+      [
+        "HAM-D",
+        "HAM-D"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The Edinburgh Postnatal Depression Scale (EPDS) is tailored for postpartum evaluation.<br>EPDS مخصص لاكتئاب ما بعد الولادة."
+  },
+  {
+    "q": "Which tool uses a frequency-based format and refers to symptoms over the past 7 days?",
+    "qt": "أي أداة تستخدم نموذج تكراري وتُشير للأعراض خلال 7 أيام سابقة؟",
+    "options": [
+      [
+        "SCID",
+        "SCID"
+      ],
+      [
+        "EPDS",
+        "EPDS"
+      ],
+      [
+        "MADRS",
+        "MADRS"
+      ],
+      [
+        "BDI",
+        "BDI"
+      ]
+    ],
+    "answer": 1,
+    "exp": "EPDS frames questions over the last 7 days using a frequency-based format.<br>أسئلة EPDS تعتمد على التكرار خلال آخر 7 أيام."
+  },
+  {
+    "q": "The EPDS relies less on which type of symptoms compared to other scales?",
+    "qt": "مقياس EPDS يعتمد بدرجة أقل على أي نوع من الأعراض؟",
+    "options": [
+      [
+        "Cognitive",
+        "المعرفية"
+      ],
+      [
+        "Behavioral",
+        "السلوكية"
+      ],
+      [
+        "Somatic",
+        "الجسدية"
+      ],
+      [
+        "Affective",
+        "الوجدانية"
+      ]
+    ],
+    "answer": 2,
+    "exp": "EPDS places less emphasis on somatic symptoms.<br>يركز EPDS بدرجة أقل على الأعراض الجسدية."
+  },
+  {
+    "q": "What has routine use of EPDS during postpartum been shown to improve?",
+    "qt": "ما الذي ثبت أن استخدام EPDS بشكل روتيني بعد الولادة يُحسنه؟",
+    "options": [
+      [
+        "Medication compliance",
+        "الالتزام الدوائي"
+      ],
+      [
+        "Diagnosis of psychosis",
+        "تشخيص الذهان"
+      ],
+      [
+        "Detection of postpartum depression",
+        "كشف اكتئاب ما بعد الولادة"
+      ],
+      [
+        "Treatment of sleep issues",
+        "علاج اضطرابات النوم"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Routine EPDS use improves postpartum depression detection.<br>يُحسن EPDS اكتشاف اكتئاب ما بعد الولادة عند استخدامه بانتظام."
+  },
+  {
+    "q": "Which two scales tend to produce higher scores and more false positives in pregnant women?",
+    "qt": "أي مقياسين ينتجان نتائج أعلى ونسب إيجابية خاطئة أكثر لدى الحوامل؟",
+    "options": [
+      [
+        "BDI and HAM-D",
+        "BDI وHAM-D"
+      ],
+      [
+        "EPDS and SCID",
+        "EPDS وSCID"
+      ],
+      [
+        "BDI and CES-D",
+        "BDI وCES-D"
+      ],
+      [
+        "MADRS and Zung",
+        "MADRS وZung"
+      ]
+    ],
+    "answer": 2,
+    "exp": "BDI and CES-D can overestimate symptoms during pregnancy.<br>قد تعطي BDI وCES-D درجات مرتفعة وزائفة عند الحوامل."
+  },
+  {
+    "q": "Which scale is specifically designed for geriatric patients and uses yes/no responses?",
+    "qt": "أي مقياس صُمم لكبار السن ويعتمد على إجابات نعم/لا؟",
+    "options": [
+      [
+        "MFQ",
+        "MFQ"
+      ],
+      [
+        "GDS",
+        "GDS"
+      ],
+      [
+        "SCID",
+        "SCID"
+      ],
+      [
+        "EPDS",
+        "EPDS"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The Geriatric Depression Scale (GDS) is tailored for older adults.<br>GDS مخصص لتقييم الاكتئاب لدى كبار السن ويعتمد على أسئلة نعم/لا."
+  },
+  {
+    "q": "The GDS includes fewer questions about which symptom category?",
+    "qt": "مقياس GDS يحتوي على عدد أقل من الأسئلة المتعلقة بأي نوع من الأعراض؟",
+    "options": [
+      [
+        "Emotional",
+        "العاطفية"
+      ],
+      [
+        "Behavioral",
+        "السلوكية"
+      ],
+      [
+        "Somatic",
+        "الجسدية"
+      ],
+      [
+        "Sleep",
+        "النوم"
+      ]
+    ],
+    "answer": 2,
+    "exp": "GDS minimizes focus on somatic complaints to suit older adults.<br>يقلل GDS من الأسئلة الجسدية لتناسب كبار السن."
+  },
+  {
+    "q": "For cognitively impaired elderly patients, which tool is recommended?",
+    "qt": "ما الأداة الموصى بها للمسنين المصابين بضعف إدراكي؟",
+    "options": [
+      [
+        "GDS",
+        "GDS"
+      ],
+      [
+        "BDI",
+        "BDI"
+      ],
+      [
+        "SCID",
+        "SCID"
+      ],
+      [
+        "Cornell Scale",
+        "مقياس كورنيل"
+      ]
+    ],
+    "answer": 3,
+    "exp": "The Cornell Scale is ideal for assessing depression in dementia patients.<br>مقياس كورنيل مناسب لتقييم الاكتئاب لدى مرضى الخرف."
+  },
+  {
+    "q": "Which tool is designed for hospitals and avoids patients overhearing questions in wards?",
+    "qt": "أي أداة مصممة للاستخدام في المستشفيات وتمنع سماع المرضى الآخرين للأسئلة؟",
+    "options": [
+      [
+        "SCAN",
+        "SCAN"
+      ],
+      [
+        "BASDEC",
+        "BASDEC"
+      ],
+      [
+        "PHQ-9",
+        "PHQ-9"
+      ],
+      [
+        "MFQ",
+        "MFQ"
+      ]
+    ],
+    "answer": 1,
+    "exp": "BASDEC uses cards to minimize exposure and enhance privacy.<br>تُستخدم BASDEC في المستشفيات لمنع سماع المرضى الآخرين للأسئلة."
+  },
+  {
+    "q": "Which tool is specifically designed to detect depression within schizophrenia?",
+    "qt": "أي مقياس صُمم خصيصًا لاكتشاف الاكتئاب ضمن حالات الفصام؟",
+    "options": [
+      [
+        "HAM-D",
+        "HAM-D"
+      ],
+      [
+        "EPDS",
+        "EPDS"
+      ],
+      [
+        "CDSS",
+        "CDSS"
+      ],
+      [
+        "CES-D",
+        "CES-D"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The Calgary Depression Scale for Schizophrenia (CDSS) is schizophrenia-specific.<br>مقياس CDSS مخصص لتقييم الاكتئاب لدى مرضى الفصام."
+  },
+  {
+    "q": "What is the main purpose of diagnostic schedules in psychiatry?",
+    "qt": "ما الهدف الرئيسي من جداول التشخيص في الطب النفسي؟",
+    "options": [
+      [
+        "To replace psychotherapy",
+        "لاستبدال العلاج النفسي"
+      ],
+      [
+        "To assign medications",
+        "لوصف الأدوية"
+      ],
+      [
+        "To structure clinical assessment for diagnosis",
+        "لتنظيم التقييم السريري للتشخيص"
+      ],
+      [
+        "To collect insurance data",
+        "لجمع بيانات التأمين"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Diagnostic schedules are designed to structure psychiatric evaluations and aid in diagnosis.<br>تهدف جداول التشخيص إلى تنظيم التقييم النفسي للمريض وتسهيل التشخيص الدقيق."
+  },
+  {
+    "q": "Which schedule is clinician-administered and fully structured, used in UK surveys for neurotic conditions?",
+    "qt": "أي جدول يُدار من قبل الطبيب ويُستخدم في مسوح بريطانيا النفسية للحالات العصابية؟",
+    "options": [
+      [
+        "PHQ",
+        "استبيان الصحة العامة"
+      ],
+      [
+        "SCID",
+        "المقابلة السريرية المهيكلة لـ DSM"
+      ],
+      [
+        "CIS",
+        "جدول المقابلة السريرية"
+      ],
+      [
+        "DIS",
+        "جدول المقابلة التشخيصية"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The Clinical Interview Schedule (CIS) is fully structured and used in UK psychiatric morbidity surveys.<br>يُستخدم جدول CIS في بريطانيا لتقييم الحالات العصابية من خلال مقابلات مهيكلة."
+  },
+  {
+    "q": "Which schedule was developed by WHO and includes both ICD and DSM systems?",
+    "qt": "أي جدول طُور بواسطة منظمة الصحة العالمية ويشمل تصنيفي ICD وDSM؟",
+    "options": [
+      [
+        "DIS",
+        "جدول المقابلة التشخيصية"
+      ],
+      [
+        "CIDI",
+        "المقابلة التشخيصية الدولية المركبة"
+      ],
+      [
+        "PHQ",
+        "استبيان الصحة العامة"
+      ],
+      [
+        "SCAN",
+        "الجدول التقييمي العصبي النفسي"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The Composite International Diagnostic Interview (CIDI) incorporates both DSM and ICD principles and was developed by WHO.<br>طُورت المقابلة CIDI بواسطة منظمة الصحة العالمية وتشمل مبادئ كل من DSM وICD."
+  },
+  {
+    "q": "Which diagnostic schedule is non-clinician administered and fully structured?",
+    "qt": "أي من الجداول التالية يُدار دون تدخل طبيب وهو مُهيكل بالكامل؟",
+    "options": [
+      [
+        "DIS",
+        "جدول المقابلة التشخيصية"
+      ],
+      [
+        "PSE",
+        "الاختبار الحالي للحالة"
+      ],
+      [
+        "SCID",
+        "المقابلة السريرية المهيكلة لـ DSM"
+      ],
+      [
+        "CIS",
+        "جدول المقابلة السريرية"
+      ]
+    ],
+    "answer": 0,
+    "exp": "The Diagnostic Interview Schedule (DIS) is designed for lay interviewers and does not require a clinician.<br>يُستخدم جدول DIS من قبل غير الأطباء، وهو مهيكل بالكامل لتقييم التشخيصات."
+  },
+  {
+    "q": "Which diagnostic tool uses self-report and is derived from PRIME-MD based on DSM-III?",
+    "qt": "أي أداة تشخيصية تعتمد على التقرير الذاتي ومشتقة من PRIME-MD؟",
+    "options": [
+      [
+        "SCID",
+        "المقابلة السريرية المهيكلة لـ DSM"
+      ],
+      [
+        "PHQ",
+        "استبيان الصحة العامة"
+      ],
+      [
+        "HSCL",
+        "قائمة أعراض هوبكنز"
+      ],
+      [
+        "CIDI",
+        "المقابلة التشخيصية الدولية المركبة"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The Patient Health Questionnaire (PHQ) is a self-report tool based on DSM-III and derived from PRIME-MD.<br>PHQ هو استبيان يعتمد على التقرير الذاتي ومشتق من PRIME-MD ويستند إلى DSM-III."
+  },
+  {
+    "q": "Which tool includes both self-report and trained primary care workers and measures anxiety and depression?",
+    "qt": "أي أداة تشمل التقييم الذاتي والعاملين في الرعاية الأولية وتقيس القلق والاكتئاب؟",
+    "options": [
+      [
+        "SCID",
+        "المقابلة السريرية المهيكلة لـ DSM"
+      ],
+      [
+        "DIS",
+        "جدول المقابلة التشخيصية"
+      ],
+      [
+        "HSCL",
+        "قائمة أعراض هوبكنز"
+      ],
+      [
+        "SADS",
+        "جدول الاضطرابات العاطفية والفصام"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The Hopkins Symptom Checklist (HSCL) includes various versions for anxiety and depression used by both patients and trained staff.<br>HSCL يقيس أعراض القلق والاكتئاب ويستخدم من قبل المرضى والعاملين المدربين."
+  },
+  {
+    "q": "Which diagnostic schedule focuses on psychotic and mood disorders and includes a children’s version?",
+    "qt": "أي جدول يركز على الاضطرابات الذهانية والمزاجية ويشمل نسخة للأطفال؟",
+    "options": [
+      [
+        "SCAN",
+        "الجدول التقييمي العصبي النفسي"
+      ],
+      [
+        "SADS",
+        "جدول الاضطرابات العاطفية والفصام"
+      ],
+      [
+        "HSCL",
+        "قائمة أعراض هوبكنز"
+      ],
+      [
+        "PHQ",
+        "استبيان الصحة العامة"
+      ]
+    ],
+    "answer": 1,
+    "exp": "SADS covers major mental disorders including a version for children (Kiddie-SADS).<br>يغطي SADS اضطرابات عقلية كبرى، ويشمل نسخة مخصصة للأطفال."
+  },
+  {
+    "q": "Which schedule replaced PSE and uses 28 sections and over 1800 items?",
+    "qt": "أي جدول استبدل PSE ويحتوي على 28 قسمًا وأكثر من 1800 بند؟",
+    "options": [
+      [
+        "SCID",
+        "المقابلة السريرية المهيكلة لـ DSM"
+      ],
+      [
+        "DIS",
+        "جدول المقابلة التشخيصية"
+      ],
+      [
+        "SCAN",
+        "الجدول التقييمي العصبي النفسي"
+      ],
+      [
+        "CIDI",
+        "المقابلة التشخيصية الدولية المركبة"
+      ]
+    ],
+    "answer": 2,
+    "exp": "SCAN was developed based on PSE and is more extensive and comprehensive.<br>تُعد SCAN امتدادًا وتطويرًا لـ PSE وتضم أقسامًا متعددة وعناصر تشخيصية كثيرة."
+  },
+  {
+    "q": "Which of the following is true about most diagnostic schedules?",
+    "qt": "أي مما يلي صحيح بخصوص معظم جداول التشخيص؟",
+    "options": [
+      [
+        "They are always self-administered",
+        "يتم دائمًا تعبئتها ذاتيًا"
+      ],
+      [
+        "They only use ICD",
+        "تستخدم ICD فقط"
+      ],
+      [
+        "They are time-saving and easy",
+        "توفر الوقت وسهلة دائمًا"
+      ],
+      [
+        "Most are clinician-administered and DSM/ICD based",
+        "معظمها يُدار من قبل الأطباء وتعتمد على DSM أو ICD"
+      ]
+    ],
+    "answer": 3,
+    "exp": "The majority of diagnostic schedules are DSM or ICD-based and require clinical administration.<br>تعتمد أغلب الجداول على تصنيفي DSM أو ICD ويقوم بتطبيقها الأطباء."
+  },
+  {
+    "q": "One limitation of many diagnostic schedules is:",
+    "qt": "أحد قيود العديد من جداول التشخيص هو:",
+    "options": [
+      [
+        "They ignore comorbidity",
+        "تتجاهل الأمراض المشتركة"
+      ],
+      [
+        "They are not based on evidence",
+        "غير مبنية على الأدلة"
+      ],
+      [
+        "They are time-consuming during clinical visits",
+        "تستهلك وقتًا طويلًا خلال الزيارات السريرية"
+      ],
+      [
+        "They cannot be computerized",
+        "لا يمكن تحويلها إلى نسخ رقمية"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Many schedules are lengthy and not always practical during brief consultations.<br>بعض الجداول طويلة ومعقدة مما يصعب استخدامها أثناء الزيارات القصيرة."
+  },
+  {
+    "q": "What is the main clinical use of the General Health Questionnaire (GHQ)?",
+    "qt": "ما هو الاستخدام السريري الأساسي لاستبيان الصحة العامة (GHQ)؟",
+    "options": [
+      [
+        "Diagnose specific psychiatric conditions",
+        "تشخيص الاضطرابات النفسية المحددة"
+      ],
+      [
+        "Screen for individuals at risk of psychiatric disorders",
+        "الكشف عن الأفراد المعرضين لخطر الاضطرابات النفسية"
+      ],
+      [
+        "Measure treatment outcomes",
+        "قياس نتائج العلاج"
+      ],
+      [
+        "Predict future episodes",
+        "التنبؤ بالنوبات المستقبلية"
+      ]
+    ],
+    "answer": 1,
+    "exp": "GHQ is primarily used as a screening tool to detect those likely to develop psychiatric disorders.<br>يُستخدم GHQ بشكل أساسي كأداة فحص للكشف عن الأفراد المعرضين لتطور اضطرابات نفسية."
+  },
+  {
+    "q": "Which version of GHQ is most commonly used in clinical practice?",
+    "qt": "أي نسخة من GHQ تُستخدم بشكل أكثر شيوعًا في الممارسة السريرية؟",
+    "options": [
+      [
+        "12-item version",
+        "نسخة 12 بندًا"
+      ],
+      [
+        "30-item version",
+        "نسخة 30 بندًا"
+      ],
+      [
+        "60-item version",
+        "نسخة 60 بندًا"
+      ],
+      [
+        "28-item version",
+        "نسخة 28 بندًا"
+      ]
+    ],
+    "answer": 3,
+    "exp": "Among the multiple versions of GHQ, the 28-item version is most widely used.<br>من بين النسخ المختلفة، تُعد نسخة 28 بندًا هي الأكثر استخدامًا."
+  },
+  {
+    "q": "How are items typically scored in the 28-item GHQ version using the Likert method?",
+    "qt": "كيف يتم عادةً تصنيف البنود في نسخة GHQ ذات الـ 28 بندًا باستخدام طريقة ليكرت؟",
+    "options": [
+      [
+        "0 to 1",
+        "من 0 إلى 1"
+      ],
+      [
+        "1 to 4",
+        "من 1 إلى 4"
+      ],
+      [
+        "0 to 3",
+        "من 0 إلى 3"
+      ],
+      [
+        "1 to 5",
+        "من 1 إلى 5"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Each item in the 28-item GHQ is scored from 0 to 3 using a 4-point Likert scale.<br>يتم تصنيف كل بند من 0 إلى 3 باستخدام مقياس ليكرت رباعي النقاط."
+  },
+  {
+    "q": "What is the threshold score for ‘psychiatric caseness’ in the 12-item GHQ version using binary scoring?",
+    "qt": "ما هي الدرجة الفاصلة لاعتبار وجود حالة نفسية في نسخة GHQ ذات 12 بندًا باستخدام التقييم الثنائي؟",
+    "options": [
+      [
+        "2",
+        "2"
+      ],
+      [
+        "3",
+        "3"
+      ],
+      [
+        "4",
+        "4"
+      ],
+      [
+        "5",
+        "5"
+      ]
+    ],
+    "answer": 1,
+    "exp": "The threshold score for psychiatric caseness is 3 in the 12-item GHQ version when using binary scoring.<br>الدرجة الفاصلة في نسخة GHQ ذات 12 بندًا عند استخدام التقييم الثنائي هي 3."
+  },
+  {
+    "q": "What range of reliability coefficients has been reported for GHQ across various studies?",
+    "qt": "ما هو نطاق معاملات الثبات (الموثوقية) الذي تم الإبلاغ عنه لـ GHQ في دراسات مختلفة؟",
+    "options": [
+      [
+        "0.50 – 0.70",
+        "من 0.50 إلى 0.70"
+      ],
+      [
+        "0.60 – 0.85",
+        "من 0.60 إلى 0.85"
+      ],
+      [
+        "0.78 – 0.95",
+        "من 0.78 إلى 0.95"
+      ],
+      [
+        "0.80 – 1.00",
+        "من 0.80 إلى 1.00"
+      ]
+    ],
+    "answer": 2,
+    "exp": "Studies report GHQ reliability ranging from 0.78 to 0.95.<br>أظهرت الدراسات أن معاملات الثبات لـ GHQ تتراوح بين 0.78 و0.95."
+  },
+  {
+    "q": "What does a score of 2 or more on the CAGE questionnaire suggest?",
+    "qt": "ما الذي يشير إليه الحصول على درجتين أو أكثر في استبيان CAGE؟",
+    "options": [
+      [
+        "Severe liver disease",
+        "مرض كبدي حاد"
+      ],
+      [
+        "High blood alcohol concentration",
+        "تركيز كحول مرتفع في الدم"
+      ],
+      [
+        "Possible alcohol-related problem",
+        "مشكلة محتملة تتعلق بالكحول"
+      ],
+      [
+        "Need for hospitalization",
+        "الحاجة إلى التنويم"
+      ]
+    ],
+    "answer": 2,
+    "exp": "A CAGE score of 2 or more raises suspicion of alcohol problems.<br>الحصول على درجتين أو أكثر في CAGE يوحي بوجود مشكلة في استخدام الكحول."
+  },
+  {
+    "q": "How many questions are included in the CAGE questionnaire?",
+    "qt": "كم عدد الأسئلة في استبيان CAGE؟",
+    "options": [
+      [
+        "2",
+        "2"
+      ],
+      [
+        "4",
+        "4"
+      ],
+      [
+        "5",
+        "5"
+      ],
+      [
+        "10",
+        "10"
+      ]
+    ],
+    "answer": 1,
+    "exp": "CAGE includes 4 short yes/no questions about alcohol use.<br>يتكون استبيان CAGE من 4 أسئلة قصيرة بنعم/لا حول استخدام الكحول."
+  },
+  {
+    "q": "Which item is NOT part of the CAGE questionnaire?",
+    "qt": "أي من التالي لا يُعد جزءًا من استبيان CAGE؟",
+    "options": [
+      [
+        "Cutting down on drinking",
+        "الرغبة في تقليل الشرب"
+      ],
+      [
+        "Feeling guilty about drinking",
+        "الشعور بالذنب حيال الشرب"
+      ],
+      [
+        "Being unable to stop drinking",
+        "عدم القدرة على التوقف عن الشرب"
+      ],
+      [
+        "Morning drinking to steady nerves",
+        "الشرب الصباحي لتهدئة الأعصاب"
+      ]
+    ],
+    "answer": 2,
+    "exp": "The CAGE does not ask about inability to stop drinking, but rather guilt, criticism, and morning drinking.<br>لا يتضمن CAGE سؤالاً عن عدم القدرة على التوقف، بل يتضمن أسئلة عن الذنب، النقد، والتقليل من الشرب."
+  },
+  {
+    "q": "What score on the AUDIT indicates harmful or hazardous drinking?",
+    "qt": "ما الدرجة التي تشير إلى شرب ضار أو خطير في اختبار AUDIT؟",
+    "options": [
+      [
+        "4",
+        "4"
+      ],
+      [
+        "6",
+        "6"
+      ],
+      [
+        "8",
+        "8"
+      ],
+      [
+        "12",
+        "12"
+      ]
+    ],
+    "answer": 2,
+    "exp": "A score of 8 or more on AUDIT suggests harmful or hazardous drinking.<br>الدرجة 8 أو أكثر في اختبار AUDIT تشير إلى شرب ضار أو خطير."
+  },
+  {
+    "q": "What is the total number of items in the AUDIT questionnaire?",
+    "qt": "ما عدد البنود الكلي في استبيان AUDIT؟",
+    "options": [
+      [
+        "5",
+        "5"
+      ],
+      [
+        "8",
+        "8"
+      ],
+      [
+        "10",
+        "10"
+      ],
+      [
+        "15",
+        "15"
+      ]
+    ],
+    "answer": 2,
+    "exp": "AUDIT is a 10-item questionnaire.<br>يتكون اختبار AUDIT من 10 بنود."
+  },
+  {
+    "q": "A score of 13 or more in women on the AUDIT indicates:",
+    "qt": "الدرجة 13 أو أكثر لدى النساء في AUDIT تشير إلى:",
+    "options": [
+      [
+        "Light drinking",
+        "شرب خفيف"
+      ],
+      [
+        "Problematic alcohol use",
+        "استخدام إشكالي للكحول"
+      ],
+      [
+        "Alcohol dependence",
+        "الاعتماد على الكحول"
+      ],
+      [
+        "Risk of withdrawal",
+        "خطر الانسحاب"
+      ]
+    ],
+    "answer": 2,
+    "exp": "A score of 13 or more in women suggests alcohol dependence.<br>تشير الدرجة 13 أو أكثر لدى النساء إلى الاعتماد على الكحول."
+  },
+  {
+    "q": "What does AUDIT stand for?",
+    "qt": "ماذا تعني كلمة AUDIT؟",
+    "options": [
+      [
+        "Alcohol Use Disorder Identification Test",
+        "اختبار تحديد اضطرابات استخدام الكحول"
+      ],
+      [
+        "Alcohol Universal Diagnostic Interview Tool",
+        "أداة المقابلة التشخيصية الشاملة للكحول"
+      ],
+      [
+        "Alcohol Use Detection and Interpretation Tool",
+        "أداة الكشف وتفسير استخدام الكحول"
+      ],
+      [
+        "Alcohol Unification Diagnostic Index Test",
+        "اختبار المؤشر التشخيصي الموحد للكحول"
+      ]
+    ],
+    "answer": 0,
+    "exp": "AUDIT stands for Alcohol Use Disorders Identification Test.<br>تعني AUDIT: اختبار تحديد اضطرابات استخدام الكحول."
+  },
+  {
+    "q": "What is the primary purpose of the MAST?",
+    "qt": "ما الهدف الأساسي من اختبار MAST؟",
+    "options": [
+      [
+        "Detect liver function",
+        "كشف وظائف الكبد"
+      ],
+      [
+        "Assess withdrawal symptoms",
+        "تقييم أعراض الانسحاب"
+      ],
+      [
+        "Identify problem drinking",
+        "تحديد الشرب الإشكالي"
+      ],
+      [
+        "Measure daily alcohol intake",
+        "قياس الاستهلاك اليومي للكحول"
+      ]
+    ],
+    "answer": 2,
+    "exp": "MAST is used to identify individuals with problematic drinking patterns.<br>يُستخدم اختبار MAST لتحديد الأفراد الذين يعانون من نمط شرب إشكالي."
+  },
+  {
+    "q": "What scoring range on the MAST is considered an early indicator of a problem drinker?",
+    "qt": "ما النطاق الذي يُعد مؤشرًا مبكرًا على الشرب الإشكالي في اختبار MAST؟",
+    "options": [
+      [
+        "1–2",
+        "1–2"
+      ],
+      [
+        "3–5",
+        "3–5"
+      ],
+      [
+        "6–10",
+        "6–10"
+      ],
+      [
+        "10+",
+        "أكثر من 10"
+      ]
+    ],
+    "answer": 1,
+    "exp": "Scores of 3–5 on MAST indicate early signs of problematic drinking.<br>الدرجة من 3 إلى 5 تُعد مؤشرًا مبكرًا على الشرب الإشكالي."
+  },
+  {
+    "q": "How many items are in the original MAST?",
+    "qt": "كم عدد البنود في نسخة MAST الأصلية؟",
+    "options": [
+      [
+        "10",
+        "10"
+      ],
+      [
+        "15",
+        "15"
+      ],
+      [
+        "20",
+        "20"
+      ],
+      [
+        "25",
+        "25"
+      ]
+    ],
+    "answer": 3,
+    "exp": "MAST consists of 25 yes/no questions.<br>يتكوّن اختبار MAST الأصلي من 25 سؤالًا بنعم أو لا."
+  },
+  {
+    "q": "What is the Brief MAST designed for?",
+    "qt": "لأي غرض صُممت نسخة MAST المختصرة؟",
+    "options": [
+      [
+        "Diagnosis of withdrawal",
+        "تشخيص الانسحاب"
+      ],
+      [
+        "Distinguishing problem from non-problem drinkers",
+        "تمييز الشاربين الإشكاليين من غيرهم"
+      ],
+      [
+        "Assessing liver damage",
+        "تقييم تلف الكبد"
+      ],
+      [
+        "Detecting anxiety",
+        "كشف القلق"
+      ]
+    ],
+    "answer": 1,
+    "exp": "Brief MAST differentiates problem drinkers from non-problem ones.<br>تُميز نسخة MAST المختصرة بين الشاربين الإشكاليين وغير الإشكاليين."
+  },
+  {
+    "q": "Which version of MAST is tailored for older individuals?",
+    "qt": "أي نسخة من MAST مخصصة لكبار السن؟",
+    "options": [
+      [
+        "Brief MAST",
+        "MAST المختصر"
+      ],
+      [
+        "G-MAST",
+        "G-MAST"
+      ],
+      [
+        "BASDEC",
+        "BASDEC"
+      ],
+      [
+        "CIWA",
+        "CIWA"
+      ]
+    ],
+    "answer": 1,
+    "exp": "G-MAST and Brief G-MAST are adapted for geriatric populations.<br>تُستخدم G-MAST لتقييم كبار السن."
+  },
+  {
+    "q": "What does CIWA assess?",
+    "qt": "ما الذي يقيسه اختبار CIWA؟",
+    "options": [
+      [
+        "Daily alcohol intake",
+        "الكمية اليومية للكحول"
+      ],
+      [
+        "Severity of alcohol withdrawal",
+        "شدة أعراض الانسحاب الكحولي"
+      ],
+      [
+        "Liver function",
+        "وظائف الكبد"
+      ],
+      [
+        "Craving and dependence",
+        "الرغبة والاعتماد"
+      ]
+    ],
+    "answer": 1,
+    "exp": "CIWA assesses the severity of alcohol withdrawal symptoms.<br>يقيس CIWA شدة أعراض الانسحاب الناتج عن التوقف عن الكحول."
+  },
+  {
+    "q": "How many total items are included in the CIWA scale?",
+    "qt": "كم عدد البنود الكلي في اختبار CIWA؟",
+    "options": [
+      [
+        "9",
+        "9"
+      ],
+      [
+        "10",
+        "10"
+      ],
+      [
+        "11",
+        "11"
+      ],
+      [
+        "12",
+        "12"
+      ]
+    ],
+    "answer": 1,
+    "exp": "CIWA has 10 items assessing various withdrawal symptoms.<br>يتكوّن CIWA من 10 بنود تقيس أعراض الانسحاب."
+  },
+  {
+    "q": "What is the scoring range for 9 items in CIWA?",
+    "qt": "ما نطاق الدرجات لتسعة من بنود CIWA؟",
+    "options": [
+      [
+        "0–4",
+        "0–4"
+      ],
+      [
+        "0–5",
+        "0–5"
+      ],
+      [
+        "0–6",
+        "0–6"
+      ],
+      [
+        "0–7",
+        "0–7"
+      ]
+    ],
+    "answer": 3,
+    "exp": "Nine items in CIWA are scored between 0 and 7.<br>تُقيّم تسعة بنود من CIWA بدرجات من 0 إلى 7."
+  },
+  {
+    "q": "What symptom categories are assessed by CIWA?",
+    "qt": "ما هي فئات الأعراض التي يقيسها اختبار CIWA؟",
+    "options": [
+      [
+        "Blood pressure and liver enzymes",
+        "ضغط الدم وإنزيمات الكبد"
+      ],
+      [
+        "Sleep and appetite",
+        "النوم والشهية"
+      ],
+      [
+        "Visual/auditory disturbances, nausea, tremors, etc.",
+        "اضطرابات بصرية وسمعية، غثيان، رعاش، إلخ"
+      ],
+      [
+        "Aggression and violence",
+        "العدوان والعنف"
+      ]
+    ],
+    "answer": 2,
+    "exp": "CIWA evaluates nausea, tremor, sweating, anxiety, agitation, hallucinations, and orientation.<br>يقيس CIWA الغثيان والرعاش والقلق والتهيّج والهلوسة والتوجّه الذهني."
+  }
+];
+
+let current = 0, score = 0;
+const quiz = document.getElementById("quiz");
+
+function loadQ() {
+  const q = questions[current];
+  let html = `<div class='question-box' id='qbox'>
+    <div class='question'>Q${current + 1}. ${q.q}</div>
+    <div class='translation'>${q.qt}</div>`;
+  q.options.forEach((opt, i) => {
+    html += `<div class='option' data-index='${i}' onclick='selectAnswer(this, ${i}, ${q.answer})'>${opt[0]}<br><small>${opt[1]}</small></div>`;
+  });
+  html += `<div class='explanation'><b>Explanation:</b> ${q.exp}</div>
+    <button class='next-btn' onclick='nextQ()'>Next</button>
+  </div>`;
+  quiz.innerHTML = html;
+}
+
+function selectAnswer(el, selected, correct) {
+  const opts = document.querySelectorAll('.option');
+  opts.forEach((opt, i) => {
+    opt.style.pointerEvents = 'none';
+    if (i === correct) opt.classList.add('correct');
+    else if (i === selected) opt.classList.add('incorrect');
+  });
+  if (selected === correct) score++;
+  document.querySelector('.explanation').style.display = 'block';
+  document.querySelector('.next-btn').style.display = 'inline-block';
+}
+
+function nextQ() {
+  current++;
+  if (current < questions.length) loadQ();
+  else {
+    quiz.innerHTML = `<div class='question-box'><div class='question'>انتهت الأسئلة</div><div class='question'>Your score: <span style='color:green'>${score}</span> / <span style='color:red'>${questions.length}</span></div></div>`;
+  }
+}
+
+function goToLast() {
+  current = questions.length - 1;
+  loadQ();
+}
+
+loadQ();
+</script>
+</body>
+</html>

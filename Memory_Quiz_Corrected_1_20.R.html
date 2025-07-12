@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memory | الذاكرة</title>
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin: auto;
+      position: relative;
+    }
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 36px;
+      color: rgba(128,128,128,0.2);
+      font-style: italic;
+      pointer-events: none;
+    }
+    .question-number {
+      text-align: right;
+      font-weight: bold;
+    }
+    .question, .translation {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    .question {
+      font-weight: bold;
+    }
+    .option {
+      background: #eee;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .option.correct {
+      background-color: #c8f7c5;
+    }
+    .option.incorrect {
+      background-color: #f7c5c5;
+    }
+    .option.disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .explanation {
+      background-color: rgba(255,255,150,0.4);
+      border-left: 6px solid gold;
+      padding: 10px;
+      margin-top: 20px;
+      display: none;
+    }
+    #nextBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: none;
+    }
+    #lastQBtn {
+      margin-top: 10px;
+      float: right;
+      background-color: #555;
+      color: #fff;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 4px;
+    }
+    #question-end {
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="watermark">Prepared by Dr Khalid Farhan</div>
+    <h2 style="text-align:center;">Memory | الذاكرة</h2>
+    <div class="question-number" id="qNumber"></div>
+    <div class="question" id="questionText"></div>
+    <div class="translation" id="questionAr"></div>
+    <div id="options"></div>
+    <div class="explanation" id="explanationBox"></div>
+    <button id="nextBtn" onclick="nextQuestion()">التالي</button>
+    <div id="question-end">
+      <h2>انتهت الأسئلة</h2>
+      <p>Your Score: <span id="score" style="color:#007bff; font-weight:bold;"></span> / 20</p>
+      <p>درجتك: <span id="scoreAr" style="color:#007bff; font-weight:bold;"></span> من 20</p>
+    </div>
+    <button id="lastQBtn" onclick="goToLast()">last Q</button>
+  </div>
+
+  <script>
+    const questions = [{"q": "Which type of memory operates over seconds and is closely related to working memory?", "q_ar": "أي نوع من الذاكرة يعمل خلال ثوانٍ ويرتبط ارتباطاً وثيقاً بالذاكرة العاملة؟", "choices": [["Recent memory", "الذاكرة الحديثة", false], ["Remote memory", "الذاكرة البعيدة", false], ["Immediate memory", "الذاكرة الفورية", true], ["Explicit memory", "الذاكرة الصريحة", false]], "explanation": "Immediate memory is short-lived (seconds) and closely linked to working memory.", "explanation_ar": "الذاكرة الفورية تستمر لبضع ثوانٍ وترتبط ارتباطاً وثيقاً بالذاكرة العاملة."}, {"q": "Which type of memory includes skills like driving and is not consciously recalled?", "q_ar": "أي نوع من الذاكرة يتضمن مهارات مثل القيادة ولا يُسترجع بوعي؟", "choices": [["Episodic memory", "الذاكرة الحدثية", false], ["Working memory", "الذاكرة العاملة", false], ["Implicit memory", "الذاكرة الضمنية", true], ["Remote memory", "الذاكرة البعيدة", false]], "explanation": "Implicit (procedural) memory includes learned skills not consciously recalled.", "explanation_ar": "الذاكرة الضمنية تشمل المهارات المكتسبة التي لا تُسترجع بوعي مثل القيادة."}, {"q": "Which brain structure is essential for episodic memory?", "q_ar": "أي بنية دماغية ضرورية للذاكرة الحدثية؟", "choices": [["Amygdala", "اللوزة الدماغية", false], ["Hippocampus", "قرن آمون (الحُصين)", true], ["Cerebellum", "المخيخ", false], ["Striatum", "المخطط", false]], "explanation": "The hippocampus is key for episodic memory (when and where events occurred).", "explanation_ar": "قرن آمون (الحُصين) ضروري للذاكرة الحدثية (متى وأين وقعت الأحداث)."}, {"q": "Semantic memory refers to:", "q_ar": "الذاكرة الدلالية تشير إلى:", "choices": [["Personal events", "أحداث شخصية", false], ["Word meanings and general knowledge", "معاني الكلمات والمعرفة العامة", true], ["Motor skills", "المهارات الحركية", false], ["Emotional face memory", "ذاكرة الوجوه العاطفية", false]], "explanation": "Semantic memory stores factual knowledge and meanings.", "explanation_ar": "الذاكرة الدلالية تختزن المعرفة العامة ومعاني الكلمات."}, {"q": "Working memory includes which of the following components?", "q_ar": "الذاكرة العاملة تشمل أي من المكونات التالية؟", "choices": [["Only visual cortex", "القشرة البصرية فقط", false], ["Phonological loop and visuospatial sketchpad", "الحلقة الصوتية والمخطط البصري المكاني", true], ["Amygdala and hippocampus", "اللوزة والحُصين", false], ["Temporal and occipital poles", "القطبين الصدغي والقذالي", false]], "explanation": "Working memory includes a phonological loop (left) and visuospatial sketchpad (right).", "explanation_ar": "الذاكرة العاملة تشمل الحلقة الصوتية (الفص الأيسر) والمخطط البصري المكاني (الفص الأيمن)."}, {"q": "Which type of memory encompasses years of stored information?", "q_ar": "أي نوع من الذاكرة يشمل معلومات مخزنة لسنوات؟", "choices": [["Immediate memory", "الذاكرة الفورية", false], ["Recent memory", "الذاكرة الحديثة", false], ["Remote memory", "الذاكرة البعيدة", true], ["Episodic memory", "الذاكرة الحدثية", false]], "explanation": "Remote memory includes information stored for months to years.", "explanation_ar": "الذاكرة البعيدة تشمل معلومات مخزنة لعدة أشهر أو سنوات."}, {"q": "Damage to which region may cause Korsakoff syndrome?", "q_ar": "تلف أي منطقة قد يسبب متلازمة كورساكوف؟", "choices": [["Amygdala", "اللوزة الدماغية", false], ["Cerebellum", "المخيخ", false], ["Diencephalic structures", "البنى الدماغية بين الدماغية", true], ["Temporal pole", "القطب الصدغي", false]], "explanation": "Korsakoff syndrome is associated with damage to diencephalic structures such as mammillary bodies.", "explanation_ar": "متلازمة كورساكوف ترتبط بتلف في البنى بين الدماغية مثل الأجسام الحليمية."}, {"q": "The hippocampal place code refers to:", "q_ar": "يشير رمز المكان في الحُصين إلى:", "choices": [["Fear response encoding", "ترميز الاستجابة للخوف", false], ["Motor learning", "تعلم الحركة", false], ["Cellular activity related to spatial location", "نشاط خلوي مرتبط بالموقع المكاني", true], ["Face recognition", "تمييز الوجوه", false]], "explanation": "Hippocampal place code maps spatial location through neuron activity.", "explanation_ar": "رمز المكان في الحُصين يُمثل الموقع المكاني من خلال نشاط الخلايا العصبية."}, {"q": "Which type of memory is mediated by NMDA receptor activity?", "q_ar": "أي نوع من الذاكرة يتوسطه نشاط مستقبلات NMDA؟", "choices": [["Short-term memory", "الذاكرة قصيرة المدى", false], ["Immediate memory", "الذاكرة الفورية", false], ["Long-term potentiation (LTP)", "التقوية طويلة المدى", true], ["Semantic memory", "الذاكرة الدلالية", false]], "explanation": "LTP is associated with NMDA-mediated Ca²⁺ entry and synaptic strengthening.", "explanation_ar": "التقوية طويلة المدى ترتبط بدخول الكالسيوم عبر مستقبلات NMDA وتقوية المشابك العصبية."}, {"q": "Which brain structure is involved in emotional tagging of memories?", "q_ar": "أي بنية دماغية تشارك في الوسم العاطفي للذكريات؟", "choices": [["Cerebellum", "المخيخ", false], ["Amygdala", "اللوزة الدماغية", true], ["Striatum", "المخطط", false], ["Motor cortex", "قشرة الحركة", false]], "explanation": "The amygdala tags memories with emotional significance.", "explanation_ar": "اللوزة الدماغية تُضفي طابعاً عاطفياً على الذكريات."}, {"q": "What memory type is primarily affected in Parkinson’s disease involving nigrostriatal degeneration?", "q_ar": "أي نوع من الذاكرة يتأثر أساسًا في مرض باركنسون المرتبط بتنكس المسار الأسود المخطط؟", "choices": [["Declarative memory", "الذاكرة التصريحية", false], ["Episodic memory", "الذاكرة الحدثية", false], ["Procedural memory", "الذاكرة الإجرائية", true], ["Remote memory", "الذاكرة البعيدة", false]], "explanation": "Procedural memory may be impaired in Parkinson’s disease due to nigrostriatal degeneration.", "explanation_ar": "الذاكرة الإجرائية قد تتأثر في باركنسون بسبب تنكس مسار النيغرواسترياتوم."}, {"q": "Which brain area is associated with memory for spatial navigation?", "q_ar": "أي منطقة دماغية ترتبط بالذاكرة الملاحية المكانية؟", "choices": [["Amygdala", "اللوزة الدماغية", false], ["Temporal pole", "القطب الصدغي", false], ["Hippocampus", "قرن آمون (الحُصين)", true], ["Motor cortex", "القشرة الحركية", false]], "explanation": "The hippocampus is involved in spatial and navigational memory.", "explanation_ar": "الحُصين يشارك في الذاكرة المكانية والملاحة."}, {"q": "What memory system allows temporary storage and manipulation of information?", "q_ar": "أي نظام ذاكرة يسمح بتخزين ومعالجة مؤقتة للمعلومات؟", "choices": [["Semantic memory", "الذاكرة الدلالية", false], ["Working memory", "الذاكرة العاملة", true], ["Remote memory", "الذاكرة البعيدة", false], ["Procedural memory", "الذاكرة الإجرائية", false]], "explanation": "Working memory handles temporary storage and processing of information.", "explanation_ar": "الذاكرة العاملة مسؤولة عن التخزين والمعالجة المؤقتة للمعلومات."}, {"q": "Which component of working memory handles spoken and written language?", "q_ar": "أي مكون من الذاكرة العاملة يتعامل مع اللغة المنطوقة والمكتوبة؟", "choices": [["Central executive", "المدير المركزي", false], ["Visuospatial sketchpad", "المخطط البصري المكاني", false], ["Phonological loop", "الحلقة الصوتية", true], ["Temporal lobe", "الفص الصدغي", false]], "explanation": "The phonological loop deals with speech and language processing in working memory.", "explanation_ar": "الحلقة الصوتية مسؤولة عن معالجة اللغة في الذاكرة العاملة."}, {"q": "Which side of the hippocampus is responsible for verbal memory encoding?", "q_ar": "أي جانب من الحُصين مسؤول عن ترميز الذاكرة اللفظية؟", "choices": [["Right hippocampus", "الحُصين الأيمن", false], ["Left hippocampus", "الحُصين الأيسر", true], ["Anterior hippocampus", "الحُصين الأمامي", false], ["Posterior hippocampus", "الحُصين الخلفي", false]], "explanation": "Left hippocampus encodes verbal memories; right is for non-verbal.", "explanation_ar": "الحُصين الأيسر يرمّز الذكريات اللفظية، بينما الأيمن يختص بغير اللفظية."}, {"q": "Which structure regulates memory consolidation based on emotional input?", "q_ar": "أي بنية تنظم تثبيت الذكريات بناءً على الإدخال العاطفي؟", "choices": [["Cerebellum", "المخيخ", false], ["Diencephalon", "الدماغ البيني", false], ["Amygdala", "اللوزة الدماغية", true], ["Motor cortex", "القشرة الحركية", false]], "explanation": "Amygdala regulates consolidation and emotional tagging of memory.", "explanation_ar": "اللوزة تنظم تثبيت الذكريات وتضفي عليها الطابع العاطفي."}, {"q": "Damage to which area may leave declarative memory intact but impair procedural memory?", "q_ar": "تلف أي منطقة قد يترك الذاكرة التصريحية سليمة لكنه يضعف الذاكرة الإجرائية؟", "choices": [["Cerebellum and striatum", "المخيخ والمخطط", true], ["Hippocampus", "الحُصين", false], ["Temporal cortex", "القشرة الصدغية", false], ["Anterior thalamus", "المهاد الأمامي", false]], "explanation": "Cerebellum and striatum are involved in procedural memory systems.", "explanation_ar": "المخيخ والمخطط يشاركان في أنظمة الذاكرة الإجرائية."}, {"q": "Which brain region is key for semantic memory?", "q_ar": "أي منطقة دماغية رئيسية للذاكرة الدلالية؟", "choices": [["Anterior temporal lobe", "الفص الصدغي الأمامي", true], ["Occipital lobe", "الفص القذالي", false], ["Insular cortex", "القشرة الجزيرية", false], ["Amygdala", "اللوزة الدماغية", false]], "explanation": "The anterior temporal lobe is key for semantic memory storage.", "explanation_ar": "الفص الصدغي الأمامي هو المنطقة الأساسية لتخزين الذاكرة الدلالية."}, {"q": "Which memory type includes remembering personal experiences with time and place?", "q_ar": "أي نوع من الذاكرة يشمل تذكر الأحداث الشخصية مع الزمن والمكان؟", "choices": [["Semantic memory", "الذاكرة الدلالية", false], ["Episodic memory", "الذاكرة الحدثية", true], ["Working memory", "الذاكرة العاملة", false], ["Procedural memory", "الذاكرة الإجرائية", false]], "explanation": "Episodic memory is time-locked and personal, includes when and where events occurred.", "explanation_ar": "الذاكرة الحدثية شخصية ومرتبطة بالزمن والمكان."}, {"q": "Which term describes the strengthening of synaptic connections through learning?", "q_ar": "ما المصطلح الذي يصف تقوية الاتصال بين المشابك العصبية من خلال التعلم؟", "choices": [["Neuroplasticity", "اللدونة العصبية", false], ["Synaptic pruning", "التقليم المشبكي", false], ["Long-term potentiation", "التقوية طويلة المدى", true], ["Retrograde transport", "النقل الرجعي", false]], "explanation": "Long-term potentiation (LTP) is the process of strengthening synapses with activity.", "explanation_ar": "التقوية طويلة المدى هي عملية تقوية المشابك العصبية بالنشاط المتكرر."}];
+
+    let current = 0;
+    let score = 0;
+
+    function loadQuestion(index) {
+      const q = questions[index];
+      document.getElementById("qNumber").innerText = `${index + 1} / ${questions.length}`;
+      document.getElementById("questionText").innerText = q.q;
+      document.getElementById("questionAr").innerText = q.q_ar;
+      const container = document.getElementById("options");
+      container.innerHTML = "";
+      q.choices.forEach((c, i) => {
+        const div = document.createElement("div");
+        div.className = "option";
+        div.innerHTML = `${c[0]}<br><small>${c[1]}</small>`;
+        div.onclick = () => select(div, c[2]);
+        container.appendChild(div);
+      });
+      document.getElementById("explanationBox").style.display = "none";
+      document.getElementById("nextBtn").style.display = "none";
+    }
+
+    function select(el, isCorrect) {
+      document.querySelectorAll('.option').forEach(opt => {
+        opt.classList.add("disabled");
+      });
+      if (isCorrect) {
+        el.classList.add("correct");
+        score++;
+      } else {
+        el.classList.add("incorrect");
+        const correct = [...document.querySelectorAll('.option')].find(opt =>
+          questions[current].choices.find(c => c[2] && opt.innerText.includes(c[0]))
+        );
+        correct.classList.add("correct");
+      }
+      document.getElementById("explanationBox").innerHTML =
+        `<strong>Explanation | الشرح:</strong><br>${questions[current].explanation}<br>${questions[current].explanation_ar}`;
+      document.getElementById("explanationBox").style.display = "block";
+      document.getElementById("nextBtn").style.display = "inline-block";
+    }
+
+    function nextQuestion() {
+      current++;
+      if (current >= questions.length) {
+        document.querySelector(".question-number").style.display = "none";
+        document.getElementById("questionText").style.display = "none";
+        document.getElementById("questionAr").style.display = "none";
+        document.getElementById("options").style.display = "none";
+        document.getElementById("explanationBox").style.display = "none";
+        document.getElementById("nextBtn").style.display = "none";
+        document.getElementById("question-end").style.display = "block";
+        document.getElementById("score").innerText = score;
+        document.getElementById("scoreAr").innerText = score;
+      } else {
+        loadQuestion(current);
+      }
+    }
+
+    function goToLast() {
+      current = questions.length - 1;
+      loadQuestion(current);
+    }
+
+    loadQuestion(current);
+  </script>
+</body>
+</html>

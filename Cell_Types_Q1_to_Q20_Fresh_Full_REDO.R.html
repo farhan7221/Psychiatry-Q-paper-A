@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cell Types - Q1 to Q20 Full Fresh</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f9f9f9; }
+.question-block { display: none; padding: 20px; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; }
+li.correct { background: #d4edda; }
+li.wrong { background: #f8d7da; }
+.explanation { display: none; background: #fff3cd; padding: 10px; margin-top: 15px; border-left: 5px solid #ffeeba; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="total-counter">Total Questions: 20</div>
+
+<section class="question-block" id="q1">
+  <h2>Question 1</h2>
+  <p>Which cortical layer contains the largest pyramidal cells (e.g., Betz cells)?<br><small>أي طبقة قشرية تحتوي على أكبر الخلايا الهرمية مثل خلايا بيتز؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Internal Pyramidal layer<br><small>الطبقة الهرمية الداخلية</small></li>
+<li onclick="checkAnswer(this, false)">Molecular/agranuar layer<br><small>الطبقة الجزيئية / اللاغرانيولية</small></li>
+<li onclick="checkAnswer(this, false)">External Granular layer<br><small>الطبقة الحبيبية الخارجية</small></li>
+<li onclick="checkAnswer(this, false)">Multiform layer<br><small>الطبقة متعددة الأشكال</small></li>
+</ul>
+  <div class="explanation">Betz cells are located in the Internal Pyramidal layer. / خلايا بيتز تقع في الطبقة الهرمية الداخلية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+  <h2>Question 2</h2>
+  <p>Which cortical layer mainly receives thalamocortical inputs?<br><small>أي طبقة قشرية تستقبل بشكل أساسي مدخلات المهاد القشرية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Internal Granular layer<br><small>الطبقة الحبيبية الداخلية</small></li>
+<li onclick="checkAnswer(this, false)">External Pyramidal layer<br><small>الطبقة الهرمية الخارجية</small></li>
+<li onclick="checkAnswer(this, false)">Molecular/agranuar layer<br><small>الطبقة الجزيئية / اللاغرانيولية</small></li>
+<li onclick="checkAnswer(this, false)">Internal Pyramidal layer<br><small>الطبقة الهرمية الداخلية</small></li>
+</ul>
+  <div class="explanation">The Internal Granular layer receives thalamocortical inputs. / الطبقة الحبيبية الداخلية تستقبل مدخلات المهاد القشرية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+  <h2>Question 3</h2>
+  <p>Which cortical layer is composed mostly of glial cells and dendrites?<br><small>أي طبقة قشرية تتكون أساسًا من خلايا دبقية وتفرعات؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Molecular/agranuar layer<br><small>الطبقة الجزيئية / اللاغرانيولية</small></li>
+<li onclick="checkAnswer(this, false)">Internal Pyramidal layer<br><small>الطبقة الهرمية الداخلية</small></li>
+<li onclick="checkAnswer(this, false)">Multiform layer<br><small>الطبقة متعددة الأشكال</small></li>
+<li onclick="checkAnswer(this, false)">External Granular layer<br><small>الطبقة الحبيبية الخارجية</small></li>
+</ul>
+  <div class="explanation">The Molecular layer contains glial cells and dendrites. / الطبقة الجزيئية تحتوي على خلايا دبقية وتفرعات.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+  <h2>Question 4</h2>
+  <p>Which layer contains a mixture of all cell types, including spindle cells and Martinotti cells?<br><small>أي طبقة تحتوي على مزيج من جميع أنواع الخلايا بما فيها الخلايا المغزلية وخلايا مارتينوتي؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Multiform layer<br><small>الطبقة متعددة الأشكال</small></li>
+<li onclick="checkAnswer(this, false)">External Granular layer<br><small>الطبقة الحبيبية الخارجية</small></li>
+<li onclick="checkAnswer(this, false)">Internal Granular layer<br><small>الطبقة الحبيبية الداخلية</small></li>
+<li onclick="checkAnswer(this, false)">Molecular layer<br><small>الطبقة الجزيئية</small></li>
+</ul>
+  <div class="explanation">The Multiform layer contains a mixture of all cell types. / الطبقة متعددة الأشكال تحتوي على مزيج من جميع أنواع الخلايا.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+  <h2>Question 5</h2>
+  <p>Which two cortical layers are mainly afferent (receiving inputs)?<br><small>أي طبقتين قشريتين هما أساسًا واردتان (تستقبلان الإشارات)؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Layers 2 and 4<br><small>الطبقتان 2 و4</small></li>
+<li onclick="checkAnswer(this, false)">Layers 5 and 6<br><small>الطبقتان 5 و6</small></li>
+<li onclick="checkAnswer(this, false)">Layers 1 and 3<br><small>الطبقتان 1 و3</small></li>
+<li onclick="checkAnswer(this, false)">Layers 3 and 5<br><small>الطبقتان 3 و5</small></li>
+</ul>
+  <div class="explanation">Layers 2 and 4 are mainly afferent. / الطبقتان 2 و4 هما واردتان بشكل رئيسي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+  <h2>Question 6</h2>
+  <p>Which cells are the main output cells of the cerebellar cortex?<br><small>أي خلايا هي الخلايا المخرجة الرئيسية لقشرة المخيخ؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Purkinje cells<br><small>خلايا بوركنجي</small></li>
+<li onclick="checkAnswer(this, false)">Granule cells<br><small>الخلايا الحبيبية</small></li>
+<li onclick="checkAnswer(this, false)">Betz cells<br><small>خلايا بيتز</small></li>
+<li onclick="checkAnswer(this, false)">Stellate cells<br><small>خلايا نجمية</small></li>
+</ul>
+  <div class="explanation">Purkinje cells are the main output cells of the cerebellar cortex. / خلايا بوركنجي هي الخلايا المخرجة الرئيسية لقشرة المخيخ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+  <h2>Question 7</h2>
+  <p>Where are Betz cells located?<br><small>أين تقع خلايا بيتز؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Primary motor cortex, layer V<br><small>القشرة الحركية الأولية، الطبقة الخامسة</small></li>
+<li onclick="checkAnswer(this, false)">Sensory cortex, layer IV<br><small>القشرة الحسية، الطبقة الرابعة</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellar cortex<br><small>قشرة المخيخ</small></li>
+<li onclick="checkAnswer(this, false)">Layer I of neocortex<br><small>الطبقة الأولى من القشرة الحديثة</small></li>
+</ul>
+  <div class="explanation">Betz cells are located in the primary motor cortex, layer V. / خلايا بيتز تقع في القشرة الحركية الأولية، الطبقة الخامسة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+  <h2>Question 8</h2>
+  <p>What is the primary neurotransmitter of Purkinje cells?<br><small>ما الناقل العصبي الرئيسي لخلايا بوركنجي؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">GABA<br><small>جابا</small></li>
+<li onclick="checkAnswer(this, false)">Glutamate<br><small>جلوتاميت</small></li>
+<li onclick="checkAnswer(this, false)">Dopamine<br><small>دوبامين</small></li>
+<li onclick="checkAnswer(this, false)">Acetylcholine<br><small>أسيتيل كولين</small></li>
+</ul>
+  <div class="explanation">The primary neurotransmitter of Purkinje cells is GABA. / الناقل العصبي الرئيسي لخلايا بوركنجي هو جابا.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+  <h2>Question 9</h2>
+  <p>Which cells form the granular layer in the cerebellum?<br><small>أي خلايا تشكّل الطبقة الحبيبية في المخيخ؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Granule cells<br><small>الخلايا الحبيبية</small></li>
+<li onclick="checkAnswer(this, false)">Basket cells<br><small>خلايا السلة</small></li>
+<li onclick="checkAnswer(this, false)">Purkinje cells<br><small>خلايا بوركنجي</small></li>
+<li onclick="checkAnswer(this, false)">Golgi cells<br><small>خلايا جولجي</small></li>
+</ul>
+  <div class="explanation">Granule cells form the granular layer in the cerebellum. / الخلايا الحبيبية تشكّل الطبقة الحبيبية في المخيخ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+  <h2>Question 10</h2>
+  <p>Which type of cell is a major output neuron in the neocortex?<br><small>أي نوع من الخلايا هو العصبون المخرج الرئيسي في القشرة الحديثة؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Pyramidal cells<br><small>الخلايا الهرمية</small></li>
+<li onclick="checkAnswer(this, false)">Granule cells<br><small>الخلايا الحبيبية</small></li>
+<li onclick="checkAnswer(this, false)">Purkinje cells<br><small>خلايا بوركنجي</small></li>
+<li onclick="checkAnswer(this, false)">Microglia<br><small>الخلايا الدبقية الصغيرة</small></li>
+</ul>
+  <div class="explanation">Pyramidal cells are the major output neurons of the neocortex. / الخلايا الهرمية هي العصبونات المخرجة الرئيسية في القشرة الحديثة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q11">
+  <h2>Question 11</h2>
+  <p>Which part of the brainstem contains the red nucleus?<br><small>أي جزء من جذع الدماغ يحتوي على النواة الحمراء؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Midbrain<br><small>الدماغ الأوسط</small></li>
+<li onclick="checkAnswer(this, false)">Pons<br><small>الجسر</small></li>
+<li onclick="checkAnswer(this, false)">Medulla oblongata<br><small>النخاع المستطيل</small></li>
+<li onclick="checkAnswer(this, false)">Cerebellum<br><small>المخيخ</small></li>
+</ul>
+  <div class="explanation">The red nucleus is located in the midbrain. / النواة الحمراء موجودة في الدماغ الأوسط.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q12">
+  <h2>Question 12</h2>
+  <p>Which artery supplies the medial aspect of the frontal lobe?<br><small>أي شريان يغذي الجانب الإنسي للفص الجبهي؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Anterior cerebral artery<br><small>الشريان الدماغي الأمامي</small></li>
+<li onclick="checkAnswer(this, false)">Middle cerebral artery<br><small>الشريان الدماغي الأوسط</small></li>
+<li onclick="checkAnswer(this, false)">Posterior cerebral artery<br><small>الشريان الدماغي الخلفي</small></li>
+<li onclick="checkAnswer(this, false)">Basilar artery<br><small>الشريان القاعدي</small></li>
+</ul>
+  <div class="explanation">The anterior cerebral artery supplies the medial aspect of the frontal lobe. / الشريان الدماغي الأمامي يغذي الجانب الإنسي للفص الجبهي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q13">
+  <h2>Question 13</h2>
+  <p>Which layer of the meninges is closely applied to the brain surface?<br><small>أي طبقة من السحايا تلتصق مباشرة بسطح الدماغ؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Pia mater<br><small>الأم الحنون</small></li>
+<li onclick="checkAnswer(this, false)">Arachnoid mater<br><small>الأم العنكبوتية</small></li>
+<li onclick="checkAnswer(this, false)">Dura mater<br><small>الأم الجافية</small></li>
+<li onclick="checkAnswer(this, false)">Falx cerebri<br><small>منجل الدماغ</small></li>
+</ul>
+  <div class="explanation">The pia mater is closely applied to the brain surface. / الأم الحنون تلتصق مباشرة بسطح الدماغ.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q14">
+  <h2>Question 14</h2>
+  <p>Which cranial nerve emerges between the pyramid and olive of the medulla?<br><small>أي عصب قحفي يخرج بين الهرم والزيتونة في النخاع؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Hypoglossal nerve<br><small>العصب تحت اللساني</small></li>
+<li onclick="checkAnswer(this, false)">Vagus nerve<br><small>العصب المبهم</small></li>
+<li onclick="checkAnswer(this, false)">Glossopharyngeal nerve<br><small>العصب اللساني البلعومي</small></li>
+<li onclick="checkAnswer(this, false)">Accessory nerve<br><small>العصب الإضافي</small></li>
+</ul>
+  <div class="explanation">The hypoglossal nerve emerges between the pyramid and olive. / العصب تحت اللساني يخرج بين الهرم والزيتونة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q15">
+  <h2>Question 15</h2>
+  <p>Which structure connects the two cerebral hemispheres?<br><small>ما هو الهيكل الذي يربط نصفي الكرة المخية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Corpus callosum<br><small>الجسم الثفني</small></li>
+<li onclick="checkAnswer(this, false)">Internal capsule<br><small>المحفظة الداخلية</small></li>
+<li onclick="checkAnswer(this, false)">Thalamus<br><small>المهاد</small></li>
+<li onclick="checkAnswer(this, false)">Fornix<br><small>القوس</small></li>
+</ul>
+  <div class="explanation">The corpus callosum connects the two cerebral hemispheres. / الجسم الثفني يربط نصفي الكرة المخية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q16">
+  <h2>Question 16</h2>
+  <p>Which artery is a direct branch of the subclavian artery and ascends through the transverse foramina of cervical vertebrae?<br><small>أي شريان هو فرع مباشر من الشريان تحت الترقوي ويصعد عبر الثقوب المستعرضة للفقرات العنقية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Vertebral artery<br><small>الشريان الفقري</small></li>
+<li onclick="checkAnswer(this, false)">Basilar artery<br><small>الشريان القاعدي</small></li>
+<li onclick="checkAnswer(this, false)">Common carotid artery<br><small>الشريان السباتي العام</small></li>
+<li onclick="checkAnswer(this, false)">Anterior spinal artery<br><small>الشريان الشوكي الأمامي</small></li>
+</ul>
+  <div class="explanation">The vertebral artery is a direct branch of the subclavian artery. / الشريان الفقري هو فرع مباشر من الشريان تحت الترقوي.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q17">
+  <h2>Question 17</h2>
+  <p>Which nerve innervates the diaphragm?<br><small>أي عصب يُعصب الحجاب الحاجز؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Phrenic nerve<br><small>العصب الحجابي</small></li>
+<li onclick="checkAnswer(this, false)">Vagus nerve<br><small>العصب المبهم</small></li>
+<li onclick="checkAnswer(this, false)">Accessory nerve<br><small>العصب الإضافي</small></li>
+<li onclick="checkAnswer(this, false)">Hypoglossal nerve<br><small>العصب تحت اللساني</small></li>
+</ul>
+  <div class="explanation">The phrenic nerve innervates the diaphragm. / العصب الحجابي يُعصب الحجاب الحاجز.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q18">
+  <h2>Question 18</h2>
+  <p>Which meningeal layer contains the dural venous sinuses?<br><small>أي طبقة من السحايا تحتوي على الجيوب الوريدية الجافية؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Dura mater<br><small>الأم الجافية</small></li>
+<li onclick="checkAnswer(this, false)">Arachnoid mater<br><small>الأم العنكبوتية</small></li>
+<li onclick="checkAnswer(this, false)">Pia mater<br><small>الأم الحنون</small></li>
+<li onclick="checkAnswer(this, false)">Falx cerebri<br><small>منجل الدماغ</small></li>
+</ul>
+  <div class="explanation">The dura mater contains the dural venous sinuses. / الأم الجافية تحتوي على الجيوب الوريدية الجافية.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q19">
+  <h2>Question 19</h2>
+  <p>Which artery forms the major part of the Circle of Willis and gives rise to the anterior cerebral artery?<br><small>أي شريان يشكل الجزء الرئيسي من دائرة ويليس ويعطي الشريان الدماغي الأمامي؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Internal carotid artery<br><small>الشريان السباتي الداخلي</small></li>
+<li onclick="checkAnswer(this, false)">Basilar artery<br><small>الشريان القاعدي</small></li>
+<li onclick="checkAnswer(this, false)">Vertebral artery<br><small>الشريان الفقري</small></li>
+<li onclick="checkAnswer(this, false)">Anterior spinal artery<br><small>الشريان الشوكي الأمامي</small></li>
+</ul>
+  <div class="explanation">The internal carotid artery forms the major part of the Circle of Willis. / الشريان السباتي الداخلي يشكل الجزء الرئيسي من دائرة ويليس.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q20">
+  <h2>Question 20</h2>
+  <p>Which structure is part of the limbic system and plays a key role in emotion and memory?<br><small>أي جزء من الجهاز الحوفي يلعب دورًا رئيسيًا في العاطفة والذاكرة؟</small></p>
+  <ul><li onclick="checkAnswer(this, true)">Amygdala<br><small>اللوزة الدماغية</small></li>
+<li onclick="checkAnswer(this, false)">Thalamus<br><small>المهاد</small></li>
+<li onclick="checkAnswer(this, false)">Caudate nucleus<br><small>النواة الذنبية</small></li>
+<li onclick="checkAnswer(this, false)">Globus pallidus<br><small>الكرة الشاحبة</small></li>
+</ul>
+  <div class="explanation">The amygdala is part of the limbic system and is key in emotion and memory. / اللوزة الدماغية جزء من الجهاز الحوفي وتلعب دورًا رئيسيًا في العاطفة والذاكرة.</div>
+  <button onclick="goToNext()">Next</button> <button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q21">
+  <h2>All Done</h2>
+  <p>All questions are complete.</p>
+</section>
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = 19; show(current);
+}
+function checkAnswer(el, correct) {
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  const options = el.parentElement.querySelectorAll('li');
+  options.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

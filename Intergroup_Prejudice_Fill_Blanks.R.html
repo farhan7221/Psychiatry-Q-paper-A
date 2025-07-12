@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intergroup Behaviour & Prejudice – Fill in the Blanks</title>
+  <style>
+    body { background-color: #f0f2f5; font-family: Arial; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; margin: 0; }
+    .question-box { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+    .question { font-size: 18px; font-weight: bold; }
+    .option { padding: 10px; background: #e7e7e7; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .option.correct { background-color: #28a745; color: white; }
+    .option.incorrect { background-color: #dc3545; color: white; }
+    .explanation { background: rgba(255,255,0,0.2); border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px; display: none; }
+    .next-btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; display: none; cursor: pointer; }
+    .counter { position: absolute; top: 15px; right: 20px; font-weight: bold; }
+    .watermark {
+      position: fixed;
+      bottom: 40%;
+      right: 10%;
+      color: rgba(0,0,0,0.1);
+      font-size: 32px;
+      font-style: italic;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="counter">Total Questions: 10</div>
+<div class="question-box">
+  <div id="question" class="question"></div>
+  <div id="options"></div>
+  <div id="explanation" class="explanation"></div>
+  <button id="next-btn" class="next-btn">التالي</button>
+  <div style="text-align:right; margin-top:10px;">
+    <button id="last-btn" class="next-btn" style="background-color:#6c757d;">Last Q</button>
+  </div>
+</div>
+<div class="watermark">Prepared by Dr Khalid Farhan</div>
+<script>
+const questions = [{"q": "1. Prejudice has a cognitive component, which refers to ______.<br><span style='color:gray'>للتحيز مكون معرفي يشير إلى ______.</span>", "o": ["hostility", "stereotypes", "discrimination", "violence"], "a": 1, "e": "Cognitive = mental stereotypes about groups.<br><span style='color:gray'>المكون المعرفي يتضمن الصور النمطية.</span>"}, {"q": "2. According to Allport, discrimination is part of the ______ component.<br><span style='color:gray'>وفقًا لـ Allport، التمييز جزء من المكون ______.</span>", "o": ["affective", "behavioral", "cognitive", "emotional"], "a": 1, "e": "Behavioral component includes actions like discrimination.<br><span style='color:gray'>التمييز جزء من المكون السلوكي.</span>"}, {"q": "3. Authoritarian personality theory links prejudice to ______ upbringing.<br><span style='color:gray'>نظرية الشخصية الاستبدادية تربط التحيز بالتنشئة ______.</span>", "o": ["easy", "warm", "rigid", "supportive"], "a": 2, "e": "Strict, disciplinarian upbringing leads to rigid beliefs.<br><span style='color:gray'>النشأة الصارمة تُنتج تحيزًا وشخصية استبدادية.</span>"}, {"q": "4. Scapegoating theory explains prejudice as redirected ______.<br><span style='color:gray'>نظرية كبش الفداء تفسر التحيز بأنه تحويل لـ ______.</span>", "o": ["empathy", "frustration", "joy", "success"], "a": 1, "e": "Frustration gets displaced onto weaker targets.<br><span style='color:gray'>يتم تحويل الإحباط إلى أهداف أضعف.</span>"}, {"q": "5. Relative deprivation arises from a gap between expectations and ______.<br><span style='color:gray'>ينشأ الحرمان النسبي من فجوة بين التوقعات و ______.</span>", "o": ["knowledge", "income", "attainments", "support"], "a": 2, "e": "Attainments = what is actually achieved.<br><span style='color:gray'>الإنجازات الفعلية عندما لا تطابق التوقعات تولد إحباطًا.</span>"}, {"q": "6. Realistic conflict theory says ______ can trigger prejudice.<br><span style='color:gray'>تقول نظرية الصراع الواقعي إن ______ قد يثير التحيز.</span>", "o": ["friendship", "cooperation", "competition", "protection"], "a": 2, "e": "Even imagined competition sparks conflict.<br><span style='color:gray'>مجرد التنافس يولد صراعًا وتحاملًا.</span>"}, {"q": "7. Social identity theory links prejudice to group-based ______.<br><span style='color:gray'>نظرية الهوية الاجتماعية تربط التحيز بـ ______ قائم على الجماعة.</span>", "o": ["conflict", "pressure", "pride", "loss"], "a": 2, "e": "Group pride drives us vs. them mentality.<br><span style='color:gray'>الفخر بالجماعة يولّد تحاملًا ضد الآخرين.</span>"}, {"q": "8. The Blue Eyes/Brown Eyes experiment shows that ______ can reduce prejudice.<br><span style='color:gray'>تُظهر تجربة العيون الزرقاء/البنية أن ______ قد يقلل التحيز.</span>", "o": ["punishment", "experience of prejudice", "education", "authority"], "a": 1, "e": "Personal experience of discrimination increases empathy.<br><span style='color:gray'>التعرض الشخصي للتمييز يزيد من التعاطف ويقلل التحيز.</span>"}, {"q": "9. Contact hypothesis suggests that ______-status contact helps reduce prejudice.<br><span style='color:gray'>تقترح فرضية الاتصال أن الاتصال بين أطراف ______ يقلل التحيز.</span>", "o": ["low", "equal", "opposite", "dominant"], "a": 1, "e": "Equal status and shared goals are key.<br><span style='color:gray'>التكافؤ في المكانة ضروري لتقليل التحيز.</span>"}, {"q": "10. The illusion of out-group homogeneity assumes that all others are ______.<br><span style='color:gray'>وهم تجانس المجموعة الخارجية يفترض أن جميع الآخرين ______.</span>", "o": ["different", "dangerous", "alike", "respected"], "a": 2, "e": "We see out-groups as less diverse than they really are.<br><span style='color:gray'>نفترض خطأً أن كل أفراد المجموعة الأخرى متشابهون.</span>"}];
+let current = 0;
+let score = 0;
+function load() {
+  const q = questions[current];
+  document.getElementById("question").innerHTML = q.q;
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("explanation").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  q.o.forEach((text, idx) => {
+    const opt = document.createElement("div");
+    opt.className = "option";
+    opt.innerHTML = text;
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(b => b.onclick = null);
+      if (idx === q.a) {
+        opt.classList.add("correct");
+        score++;
+      } else {
+        opt.classList.add("incorrect");
+        document.querySelectorAll(".option")[q.a].classList.add("correct");
+      }
+      document.getElementById("explanation").innerHTML = q.e;
+      document.getElementById("explanation").style.display = "block";
+      document.getElementById("next-btn").style.display = "inline-block";
+    };
+    document.getElementById("options").appendChild(opt);
+  });
+}
+document.getElementById("next-btn").onclick = () => {
+  current++;
+  if(current < questions.length) {
+    load();
+  } else {
+    document.body.innerHTML = `<div class='question-box'>انتهت الأسئلة 🧠🤝<br>Your score: <span style='color:green;'>${score}</span> / <span style='color:red;'>${questions.length}</span></div>`;
+  }
+};
+document.getElementById("last-btn").onclick = () => {
+  current = questions.length - 1;
+  load();
+};
+load();
+</script>
+</body>
+</html>

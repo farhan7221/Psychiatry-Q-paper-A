@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurochemistry of Dopamine Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurochemistry of Dopamine Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What is the immediate precursor of dopamine synthesis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Tyrosine</li>
+<li onclick="checkAnswer(this, true)">DOPA (L-DOPA)</li>
+<li onclick="checkAnswer(this, false)">Tryptophan</li>
+<li onclick="checkAnswer(this, false)">Phenylalanine</li>
+</ul>
+<div class="explanation">Dopamine is synthesized from the amino acid tyrosine, which is first converted to L-DOPA by tyrosine hydroxylase, then decarboxylated to dopamine.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which enzyme catalyzes the rate-limiting step in dopamine synthesis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">DOPA decarboxylase</li>
+<li onclick="checkAnswer(this, false)">Monoamine oxidase</li>
+<li onclick="checkAnswer(this, true)">Tyrosine hydroxylase</li>
+<li onclick="checkAnswer(this, false)">Catechol-O-methyltransferase</li>
+</ul>
+<div class="explanation">Tyrosine hydroxylase is the rate-limiting enzyme, converting tyrosine to L-DOPA. This step is tightly regulated and essential for dopamine production.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>What is the primary method of dopamine inactivation at the synapse?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Reuptake into presynaptic neuron</li>
+<li onclick="checkAnswer(this, false)">Enzymatic degradation only</li>
+<li onclick="checkAnswer(this, false)">Passive diffusion</li>
+<li onclick="checkAnswer(this, false)">Astrocytic uptake</li>
+</ul>
+<div class="explanation">Dopamine is primarily inactivated by reuptake into the presynaptic neuron via the dopamine transporter (DAT), which limits its synaptic action.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Which enzyme is responsible for dopamine breakdown in the synapse?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Monoamine oxidase (MAO)</li>
+<li onclick="checkAnswer(this, false)">Catechol-O-methyltransferase (COMT)</li>
+<li onclick="checkAnswer(this, true)">Both MAO and COMT</li>
+<li onclick="checkAnswer(this, false)">Acetylcholinesterase</li>
+</ul>
+<div class="explanation">Both MAO and COMT metabolize dopamine. MAO deaminates dopamine, while COMT methylates it, working together to clear dopamine from the synapse.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Which dopamine receptor family is linked to Gs protein and stimulates adenylate cyclase?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">D1-like receptors (D1, D5)</li>
+<li onclick="checkAnswer(this, false)">D2-like receptors (D2, D3, D4)</li>
+<li onclick="checkAnswer(this, false)">All dopamine receptors</li>
+<li onclick="checkAnswer(this, false)">None of the above</li>
+</ul>
+<div class="explanation">D1-like receptors (D1, D5) are coupled to Gs proteins, activating adenylate cyclase and increasing cAMP levels.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>Where is the major site of dopamine production in the brain?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Locus coeruleus</li>
+<li onclick="checkAnswer(this, true)">Substantia nigra pars compacta</li>
+<li onclick="checkAnswer(this, false)">Raphe nuclei</li>
+<li onclick="checkAnswer(this, false)">Amygdala</li>
+</ul>
+<div class="explanation">The substantia nigra pars compacta is a key site for dopamine synthesis, particularly for the nigrostriatal pathway involved in motor control.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which dopamine pathway is most implicated in schizophrenia?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Nigrostriatal</li>
+<li onclick="checkAnswer(this, true)">Mesolimbic</li>
+<li onclick="checkAnswer(this, false)">Mesocortical</li>
+<li onclick="checkAnswer(this, false)">Tuberoinfundibular</li>
+</ul>
+<div class="explanation">The mesolimbic pathway, projecting from the ventral tegmental area to limbic regions, is associated with the positive symptoms of schizophrenia due to dopamine overactivity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>What is the role of the tuberoinfundibular dopamine pathway?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Regulates mood</li>
+<li onclick="checkAnswer(this, true)">Inhibits prolactin secretion</li>
+<li onclick="checkAnswer(this, false)">Controls motor activity</li>
+<li onclick="checkAnswer(this, false)">Regulates appetite</li>
+</ul>
+<div class="explanation">The tuberoinfundibular pathway projects from the hypothalamus to the pituitary and inhibits prolactin release, maintaining hormonal balance.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which metabolite is a major end-product of dopamine metabolism?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">5-HIAA</li>
+<li onclick="checkAnswer(this, true)">Homovanillic acid (HVA)</li>
+<li onclick="checkAnswer(this, false)">VMA</li>
+<li onclick="checkAnswer(this, false)">DOPAC only</li>
+</ul>
+<div class="explanation">Homovanillic acid (HVA) is the principal metabolite of dopamine and is measured in CSF or urine as a marker of dopamine turnover.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which enzyme is inhibited by MAO inhibitors to increase dopamine levels?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Tyrosine hydroxylase</li>
+<li onclick="checkAnswer(this, false)">DOPA decarboxylase</li>
+<li onclick="checkAnswer(this, true)">Monoamine oxidase</li>
+<li onclick="checkAnswer(this, false)">COMT</li>
+</ul>
+<div class="explanation">MAO inhibitors block the action of monoamine oxidase, preventing dopamine breakdown and increasing its availability in the synapse.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

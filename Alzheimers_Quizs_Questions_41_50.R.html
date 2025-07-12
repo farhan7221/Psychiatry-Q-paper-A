@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alzheimer’s Quizs - Questions 41 to 50</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Alzheimer’s Quizs</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10 (41–50)</p>
+</div>
+<section class="question-block" id="q41">
+<h2>Question 41</h2>
+<p>Which enzyme prevents the formation of Aβ peptide in the non-amyloidogenic pathway?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Beta-secretase</li>
+<li onclick="checkAnswer(this, false)">Gamma-secretase</li>
+<li onclick="checkAnswer(this, true)">Alpha-secretase</li>
+<li onclick="checkAnswer(this, false)">Caspase</li>
+</ul>
+<div class="explanation">In the non-amyloidogenic pathway, alpha-secretase cleaves APP within the Aβ domain, preventing Aβ peptide formation. This is considered a protective mechanism against Alzheimer’s pathology.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q42">
+<h2>Question 42</h2>
+<p>What is the role of gamma-secretase in Alzheimer’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Forms tau aggregates</li>
+<li onclick="checkAnswer(this, true)">Cleaves APP after beta-secretase to produce Aβ</li>
+<li onclick="checkAnswer(this, false)">Degrades synaptic vesicles</li>
+<li onclick="checkAnswer(this, false)">Synthesizes myelin</li>
+</ul>
+<div class="explanation">Gamma-secretase works with beta-secretase to cleave APP and release Aβ peptides. Mutations in its components (like presenilin 1 and 2) are linked to familial Alzheimer’s.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q43">
+<h2>Question 43</h2>
+<p>What neuropathological change is primarily responsible for early memory loss in Alzheimer’s?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Amyloid in cerebellum</li>
+<li onclick="checkAnswer(this, false)">White matter infarcts</li>
+<li onclick="checkAnswer(this, true)">Hippocampal neurodegeneration</li>
+<li onclick="checkAnswer(this, false)">Ventricular dilation</li>
+</ul>
+<div class="explanation">The hippocampus, essential for memory formation, is affected early in Alzheimer’s with neuronal loss and synaptic dysfunction, leading to memory impairment.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q44">
+<h2>Question 44</h2>
+<p>What does “amyloid cascade hypothesis” propose?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Tau protein triggers amyloid accumulation</li>
+<li onclick="checkAnswer(this, true)">Aβ deposition initiates downstream pathology</li>
+<li onclick="checkAnswer(this, false)">Glial inflammation causes primary damage</li>
+<li onclick="checkAnswer(this, false)">Vascular ischemia starts neurodegeneration</li>
+</ul>
+<div class="explanation">The amyloid cascade hypothesis posits that Aβ accumulation is the primary trigger in Alzheimer’s, leading to tau pathology, inflammation, synaptic failure, and neuronal death.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q45">
+<h2>Question 45</h2>
+<p>What is granulovacuolar degeneration?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Aggregates of myelin debris</li>
+<li onclick="checkAnswer(this, true)">Small vacuoles with granules inside neurons</li>
+<li onclick="checkAnswer(this, false)">Calcium deposits in axons</li>
+<li onclick="checkAnswer(this, false)">Mitochondrial swelling</li>
+</ul>
+<div class="explanation">Granulovacuolar degeneration refers to cytoplasmic vacuoles with granules found in neurons, especially in hippocampal pyramidal cells. It is often seen alongside other Alzheimer’s changes.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q46">
+<h2>Question 46</h2>
+<p>What is the pathological hallmark of advanced Alzheimer’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Mild plaque formation</li>
+<li onclick="checkAnswer(this, false)">Astrocyte hypertrophy</li>
+<li onclick="checkAnswer(this, true)">Extensive neurofibrillary tangles and cortical atrophy</li>
+<li onclick="checkAnswer(this, false)">Vascular thrombosis</li>
+</ul>
+<div class="explanation">In late-stage Alzheimer’s, widespread tangles, severe synapse loss, and cortical thinning dominate, especially in temporal and parietal regions.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q47">
+<h2>Question 47</h2>
+<p>Which protein is found in Hirano bodies?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Tau</li>
+<li onclick="checkAnswer(this, true)">Actin</li>
+<li onclick="checkAnswer(this, false)">Ubiquitin</li>
+<li onclick="checkAnswer(this, false)">TDP-43</li>
+</ul>
+<div class="explanation">Hirano bodies are composed primarily of actin and actin-binding proteins. These rod-shaped inclusions are often observed in neurodegenerative conditions like Alzheimer’s.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q48">
+<h2>Question 48</h2>
+<p>Which structure connects the hippocampus to the neocortex?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Fornix</li>
+<li onclick="checkAnswer(this, false)">Corpus callosum</li>
+<li onclick="checkAnswer(this, true)">Entorhinal cortex</li>
+<li onclick="checkAnswer(this, false)">Caudate nucleus</li>
+</ul>
+<div class="explanation">The entorhinal cortex is a critical relay between the hippocampus and neocortex. Its early degeneration in Alzheimer’s disrupts memory circuits.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q49">
+<h2>Question 49</h2>
+<p>What contributes to synapse loss in Alzheimer’s disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Myelin degeneration</li>
+<li onclick="checkAnswer(this, false)">Axonal transport increase</li>
+<li onclick="checkAnswer(this, true)">Amyloid and tau-induced toxicity</li>
+<li onclick="checkAnswer(this, false)">Cerebellar demyelination</li>
+</ul>
+<div class="explanation">Both Aβ oligomers and hyperphosphorylated tau contribute to synaptic dysfunction and loss by disrupting membrane potential, intracellular transport, and inflammatory signaling.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q50">
+<h2>Question 50</h2>
+<p>Which imaging modality shows early Alzheimer’s changes best?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">CT</li>
+<li onclick="checkAnswer(this, false)">X-ray</li>
+<li onclick="checkAnswer(this, true)">MRI</li>
+<li onclick="checkAnswer(this, false)">PET with FDG</li>
+</ul>
+<div class="explanation">MRI can detect early hippocampal and medial temporal atrophy, making it useful in evaluating early Alzheimer’s before gross clinical decline.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1;
+  show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

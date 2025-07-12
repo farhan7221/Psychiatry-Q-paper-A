@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurochemistry of Endocannabinoids Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurochemistry of Endocannabinoids Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What is the primary role of endocannabinoids in the CNS?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Excitatory neurotransmission</li>
+<li onclick="checkAnswer(this, true)">Retrograde neurotransmission</li>
+<li onclick="checkAnswer(this, false)">Astrocyte modulation</li>
+<li onclick="checkAnswer(this, false)">Hormonal control</li>
+</ul>
+<div class="explanation">Endocannabinoids act as retrograde messengers, released from postsynaptic neurons to modulate presynaptic neurotransmitter release, typically reducing excitation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which are the two main endocannabinoids identified in the brain?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Anandamide and 2-AG</li>
+<li onclick="checkAnswer(this, false)">Dopamine and serotonin</li>
+<li onclick="checkAnswer(this, false)">Norepinephrine and acetylcholine</li>
+<li onclick="checkAnswer(this, false)">GABA and glutamate</li>
+</ul>
+<div class="explanation">Anandamide (AEA) and 2-arachidonoylglycerol (2-AG) are the two primary endogenous cannabinoids that bind to cannabinoid receptors.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which receptor is primarily responsible for the psychoactive effects of cannabis?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">CB1 receptor</li>
+<li onclick="checkAnswer(this, false)">CB2 receptor</li>
+<li onclick="checkAnswer(this, false)">NMDA receptor</li>
+<li onclick="checkAnswer(this, false)">GABA-B receptor</li>
+</ul>
+<div class="explanation">The CB1 receptor, highly expressed in the CNS, mediates the psychoactive effects of THC and modulates synaptic transmission.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Where are CB2 receptors predominantly located?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Brain cortex</li>
+<li onclick="checkAnswer(this, true)">Peripheral immune system</li>
+<li onclick="checkAnswer(this, false)">Cerebellum</li>
+<li onclick="checkAnswer(this, false)">Spinal cord</li>
+</ul>
+<div class="explanation">CB2 receptors are mainly found in immune cells and tissues, playing a role in immune modulation and inflammation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Endocannabinoids are synthesized from which type of molecules?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Amino acids</li>
+<li onclick="checkAnswer(this, false)">Steroids</li>
+<li onclick="checkAnswer(this, true)">Membrane phospholipids</li>
+<li onclick="checkAnswer(this, false)">Peptides</li>
+</ul>
+<div class="explanation">Endocannabinoids are lipid-based molecules synthesized on-demand from membrane phospholipid precursors.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>Which enzyme degrades anandamide?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Monoacylglycerol lipase (MAGL)</li>
+<li onclick="checkAnswer(this, true)">Fatty acid amide hydrolase (FAAH)</li>
+<li onclick="checkAnswer(this, false)">Acetylcholinesterase</li>
+<li onclick="checkAnswer(this, false)">Tyrosine hydroxylase</li>
+</ul>
+<div class="explanation">Anandamide is primarily degraded by FAAH (fatty acid amide hydrolase), terminating its signaling effects.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which physiological function is regulated by endocannabinoids?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Motor coordination</li>
+<li onclick="checkAnswer(this, false)">Pain sensation</li>
+<li onclick="checkAnswer(this, false)">Appetite</li>
+<li onclick="checkAnswer(this, true)">All of the above</li>
+</ul>
+<div class="explanation">Endocannabinoids regulate a wide range of physiological functions, including pain sensation, mood, appetite, and motor control.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which brain region is rich in CB1 receptors and contributes to motor control?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Hippocampus</li>
+<li onclick="checkAnswer(this, true)">Basal ganglia</li>
+<li onclick="checkAnswer(this, false)">Frontal cortex</li>
+<li onclick="checkAnswer(this, false)">Medulla</li>
+</ul>
+<div class="explanation">The basal ganglia are densely populated with CB1 receptors, and endocannabinoid signaling there influences motor activity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>What is a unique feature of endocannabinoid signaling compared to classical neurotransmitters?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Stored in vesicles</li>
+<li onclick="checkAnswer(this, true)">Synthesized on demand</li>
+<li onclick="checkAnswer(this, false)">Fast synaptic transmission</li>
+<li onclick="checkAnswer(this, false)">Inhibitory only</li>
+</ul>
+<div class="explanation">Unlike classical neurotransmitters, endocannabinoids are not stored in vesicles but are synthesized on demand in response to neuronal activity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which therapeutic use is associated with modulation of the endocannabinoid system?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Treatment of epilepsy</li>
+<li onclick="checkAnswer(this, false)">Treatment of Alzheimer’s disease</li>
+<li onclick="checkAnswer(this, false)">Management of glaucoma</li>
+<li onclick="checkAnswer(this, true)">All of the above</li>
+</ul>
+<div class="explanation">Endocannabinoid system modulation is being explored for multiple conditions, including epilepsy, neurodegeneration, pain management, and glaucoma.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

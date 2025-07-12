@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurochemistry of Neurotrophins Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurochemistry of Neurotrophins Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What is the primary function of neurotrophins?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Inhibit synaptic transmission</li>
+<li onclick="checkAnswer(this, true)">Promote neuronal survival and growth</li>
+<li onclick="checkAnswer(this, false)">Regulate blood pressure</li>
+<li onclick="checkAnswer(this, false)">Mediate muscle contraction</li>
+</ul>
+<div class="explanation">Neurotrophins are a family of proteins that promote the survival, development, and function of neurons throughout life.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which neurotrophin is most closely linked to long-term potentiation (LTP) and synaptic plasticity?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">NGF</li>
+<li onclick="checkAnswer(this, true)">BDNF</li>
+<li onclick="checkAnswer(this, false)">NT-3</li>
+<li onclick="checkAnswer(this, false)">NT-4</li>
+</ul>
+<div class="explanation">Brain-Derived Neurotrophic Factor (BDNF) plays a crucial role in synaptic plasticity, learning, and memory through its effects on LTP.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>What receptor family mediates neurotrophin signaling?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Ionotropic receptors</li>
+<li onclick="checkAnswer(this, false)">G-protein coupled receptors</li>
+<li onclick="checkAnswer(this, true)">Trk receptors</li>
+<li onclick="checkAnswer(this, false)">Cytokine receptors</li>
+</ul>
+<div class="explanation">Neurotrophins exert their effects via Trk (tropomyosin receptor kinase) receptors, with each neurotrophin binding to a specific Trk subtype.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Which receptor does NGF primarily bind to?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">TrkA</li>
+<li onclick="checkAnswer(this, false)">TrkB</li>
+<li onclick="checkAnswer(this, false)">TrkC</li>
+<li onclick="checkAnswer(this, false)">p75</li>
+</ul>
+<div class="explanation">Nerve Growth Factor (NGF) binds with high affinity to the TrkA receptor, initiating downstream signaling for neuronal survival and growth.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Which receptor is common to all neurotrophins and can induce apoptosis under certain conditions?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">TrkA</li>
+<li onclick="checkAnswer(this, false)">TrkB</li>
+<li onclick="checkAnswer(this, false)">TrkC</li>
+<li onclick="checkAnswer(this, true)">p75 neurotrophin receptor</li>
+</ul>
+<div class="explanation">The p75 neurotrophin receptor (p75^NTR) binds all neurotrophins and can mediate apoptosis or survival depending on context and co-receptors.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>Which neurotrophin primarily supports the survival of proprioceptive neurons?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">NGF</li>
+<li onclick="checkAnswer(this, false)">BDNF</li>
+<li onclick="checkAnswer(this, true)">NT-3</li>
+<li onclick="checkAnswer(this, false)">NT-4</li>
+</ul>
+<div class="explanation">Neurotrophin-3 (NT-3) is essential for the development and maintenance of proprioceptive sensory neurons.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Where is BDNF most abundantly expressed in the brain?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Cerebellum</li>
+<li onclick="checkAnswer(this, true)">Hippocampus</li>
+<li onclick="checkAnswer(this, false)">Medulla</li>
+<li onclick="checkAnswer(this, false)">Spinal cord</li>
+</ul>
+<div class="explanation">The hippocampus is rich in BDNF, which is critical for memory formation and synaptic plasticity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>What intracellular pathway is activated by Trk receptor activation?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">JAK-STAT pathway</li>
+<li onclick="checkAnswer(this, false)">cAMP pathway</li>
+<li onclick="checkAnswer(this, true)">Ras-MAPK pathway</li>
+<li onclick="checkAnswer(this, false)">NF-kB pathway</li>
+</ul>
+<div class="explanation">Trk receptor activation leads to activation of the Ras-MAPK signaling pathway, promoting neuronal growth and survival.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which condition is associated with decreased BDNF levels?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Schizophrenia</li>
+<li onclick="checkAnswer(this, false)">Huntington’s disease</li>
+<li onclick="checkAnswer(this, true)">Major depressive disorder</li>
+<li onclick="checkAnswer(this, false)">ALS</li>
+</ul>
+<div class="explanation">Major depressive disorder is linked to decreased levels of BDNF, and antidepressants may upregulate BDNF expression.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>What is a key role of NGF in the peripheral nervous system?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Development of motor neurons</li>
+<li onclick="checkAnswer(this, true)">Development of sympathetic and sensory neurons</li>
+<li onclick="checkAnswer(this, false)">Enhancing GABAergic signaling</li>
+<li onclick="checkAnswer(this, false)">Regulating blood-brain barrier</li>
+</ul>
+<div class="explanation">NGF is crucial for the growth, maintenance, and survival of sympathetic and sensory neurons in the peripheral nervous system.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

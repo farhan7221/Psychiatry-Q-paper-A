@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurochemistry of GABA Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Neurochemistry of GABA Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What is the full name of GABA?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Gamma-aminobutyric acid</li>
+<li onclick="checkAnswer(this, false)">Glutamic acid</li>
+<li onclick="checkAnswer(this, false)">Gamma-aminomethyl acid</li>
+<li onclick="checkAnswer(this, false)">Glycine</li>
+</ul>
+<div class="explanation">GABA stands for Gamma-Aminobutyric Acid, the primary inhibitory neurotransmitter in the mammalian central nervous system.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which amino acid is the precursor for GABA synthesis?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Glutamate</li>
+<li onclick="checkAnswer(this, false)">Tyrosine</li>
+<li onclick="checkAnswer(this, false)">Tryptophan</li>
+<li onclick="checkAnswer(this, false)">Aspartate</li>
+</ul>
+<div class="explanation">GABA is synthesized from glutamate via the enzyme glutamate decarboxylase (GAD), with pyridoxal phosphate as a cofactor.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which enzyme catalyzes the synthesis of GABA from glutamate?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Glutamine synthetase</li>
+<li onclick="checkAnswer(this, true)">Glutamate decarboxylase (GAD)</li>
+<li onclick="checkAnswer(this, false)">Monoamine oxidase</li>
+<li onclick="checkAnswer(this, false)">Acetylcholinesterase</li>
+</ul>
+<div class="explanation">Glutamate decarboxylase (GAD) converts glutamate into GABA, a key step in the GABAergic system.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>What is the main function of GABA in the CNS?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Excitatory neurotransmission</li>
+<li onclick="checkAnswer(this, false)">Neurogenesis</li>
+<li onclick="checkAnswer(this, true)">Inhibitory neurotransmission</li>
+<li onclick="checkAnswer(this, false)">Myelination</li>
+</ul>
+<div class="explanation">GABA is the chief inhibitory neurotransmitter, reducing neuronal excitability and preventing overstimulation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Which receptor type mediates fast synaptic inhibition via GABA?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">GABA-B</li>
+<li onclick="checkAnswer(this, false)">GABA-C</li>
+<li onclick="checkAnswer(this, true)">GABA-A</li>
+<li onclick="checkAnswer(this, false)">NMDA</li>
+</ul>
+<div class="explanation">GABA-A receptors are ligand-gated chloride channels that mediate fast inhibitory postsynaptic potentials (IPSPs).</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>Which receptor subtype is a metabotropic GABA receptor?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">GABA-A</li>
+<li onclick="checkAnswer(this, true)">GABA-B</li>
+<li onclick="checkAnswer(this, false)">GABA-C</li>
+<li onclick="checkAnswer(this, false)">Glycine</li>
+</ul>
+<div class="explanation">GABA-B receptors are G-protein-coupled receptors that mediate slower, prolonged inhibitory signals via potassium and calcium channels.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which brain region is rich in GABAergic interneurons?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Cerebellar cortex</li>
+<li onclick="checkAnswer(this, false)">Locus coeruleus</li>
+<li onclick="checkAnswer(this, false)">Raphe nuclei</li>
+<li onclick="checkAnswer(this, false)">Amygdala</li>
+</ul>
+<div class="explanation">The cerebellar cortex contains a dense network of GABAergic interneurons, crucial for motor coordination.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>What is a common clinical use of GABA-A receptor modulators?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Antipsychotics</li>
+<li onclick="checkAnswer(this, true)">Anxiolytics and sedatives</li>
+<li onclick="checkAnswer(this, false)">Antidepressants</li>
+<li onclick="checkAnswer(this, false)">Cognitive enhancers</li>
+</ul>
+<div class="explanation">Benzodiazepines, which enhance GABA-A receptor activity, are widely used as anxiolytics, sedatives, and anticonvulsants.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>Which cofactor is essential for GABA synthesis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Vitamin B1 (thiamine)</li>
+<li onclick="checkAnswer(this, true)">Vitamin B6 (pyridoxal phosphate)</li>
+<li onclick="checkAnswer(this, false)">Folic acid</li>
+<li onclick="checkAnswer(this, false)">Vitamin C</li>
+</ul>
+<div class="explanation">Vitamin B6 (pyridoxal phosphate) is a vital cofactor for glutamate decarboxylase, and deficiency can impair GABA synthesis.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which condition is associated with GABAergic dysfunction?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Huntington’s disease</li>
+<li onclick="checkAnswer(this, false)">Multiple sclerosis</li>
+<li onclick="checkAnswer(this, false)">Myasthenia gravis</li>
+<li onclick="checkAnswer(this, false)">Parkinson’s disease</li>
+</ul>
+<div class="explanation">Huntington’s disease involves the loss of GABAergic medium spiny neurons in the striatum, contributing to chorea and cognitive decline.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

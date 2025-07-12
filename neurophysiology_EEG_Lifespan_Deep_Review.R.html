@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>neurophysiology – EEG Across the Lifespan (Deep Clinical Review)</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>neurophysiology – EEG Across the Lifespan (Deep Clinical Review)</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>Which EEG pattern is most dominant in healthy term newborns?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Alpha rhythm</li>
+<li onclick="checkAnswer(this, false)">Frontal beta activity</li>
+<li onclick="checkAnswer(this, true)">Delta and theta waves</li>
+<li onclick="checkAnswer(this, false)">Sleep spindles</li>
+</ul>
+<div class="explanation">In term newborns, the EEG is dominated by slow-frequency waves, primarily delta (<4 Hz) and theta (4–8 Hz). These waves are high in amplitude and reflect immature but active cortical function. The EEG in this stage is discontinuous and evolves significantly over the first year of life. Presence of alpha rhythm is typically absent or immature during this period.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>At what age does a reactive posterior alpha rhythm typically become prominent?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Neonatal period</li>
+<li onclick="checkAnswer(this, false)">3–6 months</li>
+<li onclick="checkAnswer(this, true)">8–12 months</li>
+<li onclick="checkAnswer(this, false)">2–3 years</li>
+</ul>
+<div class="explanation">A sustained and reactive posterior alpha rhythm (8–13 Hz) begins to emerge around 8–12 months of age. Initially low in amplitude and intermittent, it becomes better defined and more reactive to eye closure over time. Its presence and reactivity are markers of cortical maturation and are used clinically to assess neurodevelopmental progress.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>Which developmental stage is characterized by the appearance of sleep spindles and K-complexes in EEG?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Neonatal</li>
+<li onclick="checkAnswer(this, true)">2–3 months</li>
+<li onclick="checkAnswer(this, false)">6–9 months</li>
+<li onclick="checkAnswer(this, false)">After 1 year</li>
+</ul>
+<div class="explanation">Sleep spindles and K-complexes typically emerge around 2–3 months of age. They are markers of thalamocortical circuit maturation and represent the onset of stage 2 NREM sleep in EEG. Their presence is a crucial milestone in EEG interpretation of infants and reflects healthy sleep architecture development.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>What EEG feature is most useful in detecting developmental delay in infants?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Presence of alpha waves</li>
+<li onclick="checkAnswer(this, true)">Mature sleep spindles</li>
+<li onclick="checkAnswer(this, false)">Visual evoked potentials</li>
+<li onclick="checkAnswer(this, false)">Posterior slow waves</li>
+</ul>
+<div class="explanation">The presence, symmetry, and frequency of sleep spindles are strong indicators of thalamocortical integrity and neurodevelopment. Delayed appearance or absence of spindles may indicate developmental delay or structural anomalies. Alpha waves are not reliable markers in very young infants due to their late onset in development.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>In early childhood (ages 2–6), which EEG feature becomes dominant during relaxed wakefulness?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Frontal delta</li>
+<li onclick="checkAnswer(this, true)">Posterior alpha rhythm</li>
+<li onclick="checkAnswer(this, false)">Beta bursts</li>
+<li onclick="checkAnswer(this, false)">Occipital spikes</li>
+</ul>
+<div class="explanation">In early childhood, the EEG begins to resemble adult patterns. A well-formed posterior dominant rhythm (alpha) appears during relaxed wakefulness with eyes closed, typically between 8–12 Hz. This rhythm becomes more stable and symmetrical by age 6 and is an important developmental benchmark.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>How does EEG typically change in adolescence?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">More delta activity</li>
+<li onclick="checkAnswer(this, false)">Decreased spindle density</li>
+<li onclick="checkAnswer(this, true)">Faster alpha frequency and stable rhythm</li>
+<li onclick="checkAnswer(this, false)">Complete loss of theta waves</li>
+</ul>
+<div class="explanation">During adolescence, the alpha rhythm becomes faster and more stable, often peaking at 10–11 Hz. Spindle frequency and density also reach near-adult levels. Theta may still be present during drowsiness or sleep but reduces in prominence during wakefulness. These changes mark the maturation of cortical synchronization and thalamocortical connectivity.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>What is the characteristic EEG change in normal aging (elderly population)?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Increased alpha amplitude</li>
+<li onclick="checkAnswer(this, false)">Frontal beta bursts</li>
+<li onclick="checkAnswer(this, true)">Global slowing with reduced alpha power</li>
+<li onclick="checkAnswer(this, false)">New appearance of sleep spindles</li>
+</ul>
+<div class="explanation">EEG in elderly individuals typically shows a gradual slowing of background rhythms. Alpha rhythm becomes lower in amplitude and frequency, and theta/delta activity may increase, especially frontally. These changes are normal but must be differentiated from pathologic patterns such as those seen in dementia.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>Which EEG change is commonly seen in early Alzheimer's disease?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Increased sleep spindle density</li>
+<li onclick="checkAnswer(this, true)">Posterior alpha attenuation and increased theta</li>
+<li onclick="checkAnswer(this, false)">Enhanced beta coherence</li>
+<li onclick="checkAnswer(this, false)">3 Hz spike-wave</li>
+</ul>
+<div class="explanation">Early Alzheimer’s disease often presents with reduced alpha rhythm, especially in posterior leads, and an increase in theta activity. These changes reflect early cortical dysfunction and correlate with memory impairment. EEG is not diagnostic but can support clinical suspicion when combined with cognitive testing.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>What developmental EEG milestone is typically expected by age 5?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Continuous alpha rhythm with eye closure</li>
+<li onclick="checkAnswer(this, false)">Triphasic wave presence</li>
+<li onclick="checkAnswer(this, false)">Frontal spike discharges</li>
+<li onclick="checkAnswer(this, false)">Burst suppression pattern</li>
+</ul>
+<div class="explanation">By age 5, a continuous and reactive posterior alpha rhythm should be established during wakefulness. This rhythm should show suppression upon eye opening and reactivity during mental tasks. Its absence or asymmetry at this age can suggest neurologic dysfunction or delayed maturation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which pattern, if seen in an adult EEG, would be considered abnormal and possibly pathologic?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Well-formed posterior alpha rhythm</li>
+<li onclick="checkAnswer(this, true)">Frontal intermittent rhythmic delta activity (FIRDA)</li>
+<li onclick="checkAnswer(this, false)">Low-amplitude fast activity</li>
+<li onclick="checkAnswer(this, false)">Vertex sharp transients</li>
+</ul>
+<div class="explanation">FIRDA consists of intermittent rhythmic delta waves in the frontal regions and is not typically present in healthy adults. Its presence suggests cerebral dysfunction and may be seen in structural lesions, hydrocephalus, or metabolic disturbances. Other patterns like posterior alpha or vertex transients are normal in appropriate contexts.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

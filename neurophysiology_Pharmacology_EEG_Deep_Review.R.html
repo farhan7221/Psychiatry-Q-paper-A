@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>neurophysiology – Pharmacological Effects on EEG (Deep Clinical Review)</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>neurophysiology – Pharmacological Effects on EEG (Deep Clinical Review)</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What is the typical effect of benzodiazepines on EEG patterns?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Increase delta waves</li>
+<li onclick="checkAnswer(this, false)">Decrease alpha rhythm</li>
+<li onclick="checkAnswer(this, true)">Enhance beta activity</li>
+<li onclick="checkAnswer(this, false)">Cause generalized slowing</li>
+</ul>
+<div class="explanation">Benzodiazepines enhance GABA-A receptor activity, which increases fast beta activity (13–30 Hz) on EEG, especially in frontal regions. This reflects cortical sedation with preserved wakefulness. Alpha rhythm may remain unchanged or slightly reduced. Unlike barbiturates, benzodiazepines do not typically cause marked EEG slowing, making them useful for anxiolysis without deep sedation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which EEG pattern is most associated with antipsychotic medication use?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Increased beta and reduced delta</li>
+<li onclick="checkAnswer(this, false)">Generalized beta enhancement</li>
+<li onclick="checkAnswer(this, true)">Diffuse slowing with increased theta and delta</li>
+<li onclick="checkAnswer(this, false)">REM rebound</li>
+</ul>
+<div class="explanation">Antipsychotic drugs, particularly first-generation agents, often cause diffuse EEG slowing. This includes increased theta (4–8 Hz) and delta (<4 Hz) activity, and a decrease in alpha dominance. These changes reflect cortical hypoarousal and are dose-dependent. They are more pronounced with sedating antipsychotics such as chlorpromazine.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>How do SSRIs typically affect REM sleep and EEG?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Increase REM and delta power</li>
+<li onclick="checkAnswer(this, true)">Suppress REM and increase REM latency</li>
+<li onclick="checkAnswer(this, false)">Enhance beta and alpha activity</li>
+<li onclick="checkAnswer(this, false)">Have no EEG effect</li>
+</ul>
+<div class="explanation">Selective serotonin reuptake inhibitors (SSRIs) suppress REM sleep and increase REM latency due to elevated serotonergic tone. On EEG, they may cause mild beta enhancement and decreased REM-related phasic activity. This REM suppression is often associated with clinical improvement in depression but can lead to vivid dreams upon withdrawal (REM rebound).</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>What EEG change is commonly observed with chronic alcohol use?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Increased alpha coherence</li>
+<li onclick="checkAnswer(this, false)">Frontal beta enhancement</li>
+<li onclick="checkAnswer(this, true)">Theta slowing and decreased alpha power</li>
+<li onclick="checkAnswer(this, false)">Burst suppression</li>
+</ul>
+<div class="explanation">Chronic alcohol use leads to cortical slowing, reflected by increased theta and reduced alpha power, especially in frontal and central regions. These changes indicate neurotoxic effects and impaired cortical function. In withdrawal states, beta activity may transiently increase, followed by seizure risk.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>Which drug class is known to cause burst suppression on EEG at high doses?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Stimulants</li>
+<li onclick="checkAnswer(this, false)">Benzodiazepines</li>
+<li onclick="checkAnswer(this, true)">Barbiturates</li>
+<li onclick="checkAnswer(this, false)">Antipsychotics</li>
+</ul>
+<div class="explanation">High-dose barbiturates (e.g., thiopental) can induce burst suppression, a pattern of alternating high-voltage bursts and flat EEG activity. This reflects profound cortical suppression and is used intentionally in refractory status epilepticus. Burst suppression indicates deep anesthesia or severe brain dysfunction and requires intensive monitoring.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>What EEG effect is observed in cannabis users?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Enhanced alpha power</li>
+<li onclick="checkAnswer(this, false)">Suppressed delta waves</li>
+<li onclick="checkAnswer(this, false)">Increased beta activity</li>
+<li onclick="checkAnswer(this, true)">EEG desynchronization with increased theta</li>
+</ul>
+<div class="explanation">Cannabis use is associated with EEG desynchronization, characterized by increased theta and reduced alpha coherence. These findings reflect altered cortical arousal and may correlate with acute cognitive effects. Chronic use may blunt frontal EEG responses and affect working memory networks.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Stimulants like amphetamines are associated with which EEG pattern?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Increased alpha and beta activity</li>
+<li onclick="checkAnswer(this, false)">Suppressed fast activity</li>
+<li onclick="checkAnswer(this, false)">Slowed delta rhythm</li>
+<li onclick="checkAnswer(this, false)">Burst suppression</li>
+</ul>
+<div class="explanation">Stimulants increase cortical excitability and lead to enhanced alpha and especially beta activity, predominantly in frontal leads. This reflects increased attention and arousal. Long-term use can cause hypersynchronous beta or paradoxical slowing in overdose.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>How does lithium therapy influence EEG findings?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Sharp spike discharges</li>
+<li onclick="checkAnswer(this, false)">Generalized beta enhancement</li>
+<li onclick="checkAnswer(this, true)">Diffuse slowing with possible theta activity</li>
+<li onclick="checkAnswer(this, false)">Increased sleep spindles</li>
+</ul>
+<div class="explanation">Lithium, particularly at higher serum levels, can produce diffuse slowing on EEG, including increased theta waves. These changes may resemble encephalopathy and should prompt monitoring for toxicity. EEG normalization typically occurs after dose adjustment or discontinuation.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>What EEG finding may suggest anticonvulsant toxicity (e.g., phenytoin)?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Spindle enhancement</li>
+<li onclick="checkAnswer(this, false)">Beta asymmetry</li>
+<li onclick="checkAnswer(this, false)">Generalized low-voltage fast activity</li>
+<li onclick="checkAnswer(this, true)">Diffuse slowing with triphasic waves</li>
+</ul>
+<div class="explanation">Toxic levels of anticonvulsants can cause diffuse cortical slowing, sometimes accompanied by triphasic waves or burst-suppression depending on the agent. These changes reflect neurotoxicity and require immediate dose review, especially if altered mental status is present.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>What is REM rebound and when does it occur?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Increased REM following withdrawal of REM-suppressing drugs</li>
+<li onclick="checkAnswer(this, false)">REM intrusion during wakefulness</li>
+<li onclick="checkAnswer(this, false)">REM onset at sleep initiation</li>
+<li onclick="checkAnswer(this, false)">REM saturation during daytime naps</li>
+</ul>
+<div class="explanation">REM rebound is a compensatory increase in REM sleep following withdrawal of medications that suppress REM (e.g., SSRIs, TCAs, alcohol). It manifests as shorter REM latency, longer duration, and intensified dreaming. REM rebound is also seen after sleep deprivation and is used as an indicator of REM homeostasis.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>

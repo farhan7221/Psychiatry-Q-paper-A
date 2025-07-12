@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinical Implications Quiz</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+.header { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+.question-block { display: none; padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+.question-block.active { display: block; }
+ul { list-style-type: none; padding: 0; position: relative; z-index: 1; }
+li { padding: 12px; margin: 8px 0; background: #eee; cursor: pointer; border-radius: 5px; transition: all 0.3s ease; }
+li.correct { background-color: #d4edda !important; color: #155724; }
+li.wrong { background-color: #f8d7da !important; color: #721c24; }
+.explanation { display: none; background: rgba(255, 255, 0, 0.2); padding: 10px; margin-top: 15px; border-left: 5px solid #d4b000; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Clinical Implications Quiz</h1>
+    <p style="font-size: 13px; font-style: italic; color: #000; margin-top: 5px;">Prepared by Dr Khalid Farhan</p>
+    <p>Total Questions: 10</p>
+</div>
+<section class="question-block" id="q1">
+<h2>Question 1</h2>
+<p>What is the concept of 'aberrant salience' in psychosis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Misinterpretation of random events</li>
+<li onclick="checkAnswer(this, true)">Assignment of inappropriate importance to irrelevant stimuli</li>
+<li onclick="checkAnswer(this, false)">Increased dopamine receptor density</li>
+<li onclick="checkAnswer(this, false)">NMDA receptor blockade</li>
+</ul>
+<div class="explanation">Kapur’s theory of aberrant salience proposes that excess dopamine activity causes individuals to attribute significance to trivial stimuli, contributing to delusions and hallucinations.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q2">
+<h2>Question 2</h2>
+<p>Which neurotransmitter system is central to the aberrant salience model of psychosis?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Serotonin</li>
+<li onclick="checkAnswer(this, true)">Dopamine</li>
+<li onclick="checkAnswer(this, false)">GABA</li>
+<li onclick="checkAnswer(this, false)">Glutamate</li>
+</ul>
+<div class="explanation">The aberrant salience model emphasizes the hyperdopaminergic state, linking dopamine dysregulation to the emergence of psychotic symptoms.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q3">
+<h2>Question 3</h2>
+<p>How do antipsychotics mitigate aberrant salience?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Decreasing serotonin synthesis</li>
+<li onclick="checkAnswer(this, true)">Blunting dopamine-driven abnormal salience attribution</li>
+<li onclick="checkAnswer(this, false)">Enhancing glutamate signaling</li>
+<li onclick="checkAnswer(this, false)">Increasing GABAergic tone</li>
+</ul>
+<div class="explanation">Antipsychotics dampen the dopamine system, reducing inappropriate tagging of irrelevant stimuli with salience.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q4">
+<h2>Question 4</h2>
+<p>Which neurotransmitter is primarily linked to 5-HT (serotonin) receptor binding changes in depression?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Serotonin</li>
+<li onclick="checkAnswer(this, false)">Dopamine</li>
+<li onclick="checkAnswer(this, false)">Noradrenaline</li>
+<li onclick="checkAnswer(this, false)">Acetylcholine</li>
+</ul>
+<div class="explanation">Serotonin receptors, especially 5-HT1A and 5-HT2A, show alterations in density and function in depressive disorders.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q5">
+<h2>Question 5</h2>
+<p>What is observed in 5-HT1A receptor density in depression?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Increased density</li>
+<li onclick="checkAnswer(this, false)">No change</li>
+<li onclick="checkAnswer(this, true)">Decreased density</li>
+<li onclick="checkAnswer(this, false)">Upregulated affinity only</li>
+</ul>
+<div class="explanation">Depressed individuals often show reduced 5-HT1A receptor density in cortical and limbic regions, correlating with mood symptoms.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q6">
+<h2>Question 6</h2>
+<p>What effect does long-term antidepressant treatment have on 5-HT receptors?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">No change</li>
+<li onclick="checkAnswer(this, true)">Downregulation of post-synaptic 5-HT2 receptors</li>
+<li onclick="checkAnswer(this, false)">Upregulation of dopamine receptors</li>
+<li onclick="checkAnswer(this, false)">Destruction of serotonin neurons</li>
+</ul>
+<div class="explanation">Chronic antidepressant use leads to adaptive downregulation of 5-HT2 receptors, potentially enhancing treatment efficacy.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q7">
+<h2>Question 7</h2>
+<p>Which receptor type is involved in the sympathetic features of anxiety?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Muscarinic</li>
+<li onclick="checkAnswer(this, false)">Dopaminergic</li>
+<li onclick="checkAnswer(this, true)">Beta-adrenergic</li>
+<li onclick="checkAnswer(this, false)">Histaminergic</li>
+</ul>
+<div class="explanation">β-adrenergic receptors mediate many of the physical symptoms of anxiety, such as palpitations and tremors.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q8">
+<h2>Question 8</h2>
+<p>What therapeutic effect do beta-blockers have in anxiety?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Reduce psychosis</li>
+<li onclick="checkAnswer(this, false)">Enhance mood</li>
+<li onclick="checkAnswer(this, true)">Alleviate peripheral autonomic symptoms</li>
+<li onclick="checkAnswer(this, false)">Stimulate serotonin production</li>
+</ul>
+<div class="explanation">β-blockers like propranolol blunt peripheral adrenergic responses, reducing symptoms like tachycardia and shaking in anxiety.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q9">
+<h2>Question 9</h2>
+<p>What is the key cholinergic finding in Dementia with Lewy Bodies (DLB)?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Increased acetylcholine release</li>
+<li onclick="checkAnswer(this, true)">Marked reduction in brain acetylcholine levels</li>
+<li onclick="checkAnswer(this, false)">Elevated dopamine</li>
+<li onclick="checkAnswer(this, false)">Hyperactive cholinergic system</li>
+</ul>
+<div class="explanation">DLB is characterized by a significant loss of cholinergic neurons, contributing to cognitive decline.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q10">
+<h2>Question 10</h2>
+<p>Which treatment is beneficial for cognitive symptoms in DLB?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">MAO inhibitors</li>
+<li onclick="checkAnswer(this, false)">Beta-blockers</li>
+<li onclick="checkAnswer(this, true)">Acetylcholinesterase inhibitors (e.g., rivastigmine)</li>
+<li onclick="checkAnswer(this, false)">Dopamine agonists</li>
+</ul>
+<div class="explanation">AChE inhibitors enhance acetylcholine availability and are standard care for improving cognitive and psychiatric symptoms in DLB.</div>
+<button onclick="goToNext()">Finish</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q11">
+<h2>Question 11</h2>
+<p>What sleep-related issue is common in DLB and responds to AChE inhibitors?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Insomnia</li>
+<li onclick="checkAnswer(this, true)">REM sleep behavior disorder</li>
+<li onclick="checkAnswer(this, false)">Narcolepsy</li>
+<li onclick="checkAnswer(this, false)">Sleep apnea</li>
+</ul>
+<div class="explanation">REM sleep disturbances, including vivid dreams and acting out movements, are hallmark features of DLB and may improve with cholinergic treatment.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q12">
+<h2>Question 12</h2>
+<p>Which antipsychotic side effect may worsen in DLB patients?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Weight loss</li>
+<li onclick="checkAnswer(this, true)">Severe sensitivity and worsening of motor symptoms</li>
+<li onclick="checkAnswer(this, false)">Tachycardia</li>
+<li onclick="checkAnswer(this, false)">Increased sleep</li>
+</ul>
+<div class="explanation">DLB patients are highly sensitive to antipsychotics, which can precipitate severe parkinsonism and worsened neuropsychiatric symptoms.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q13">
+<h2>Question 13</h2>
+<p>What underpins the antipsychotic efficacy in managing aberrant salience?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">NMDA receptor activation</li>
+<li onclick="checkAnswer(this, true)">Dopamine D2 receptor blockade</li>
+<li onclick="checkAnswer(this, false)">Serotonin transporter upregulation</li>
+<li onclick="checkAnswer(this, false)">Acetylcholine receptor stimulation</li>
+</ul>
+<div class="explanation">Antipsychotics reduce psychotic symptoms by blocking D2 receptors, curbing the dopamine-driven aberrant salience mechanism.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q14">
+<h2>Question 14</h2>
+<p>Which neurotransmitter system is targeted by β-blockers in anxiety management?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Noradrenergic system</li>
+<li onclick="checkAnswer(this, false)">Serotonergic system</li>
+<li onclick="checkAnswer(this, false)">Dopaminergic system</li>
+<li onclick="checkAnswer(this, false)">Cholinergic system</li>
+</ul>
+<div class="explanation">β-blockers act on the peripheral noradrenergic system, dampening symptoms like palpitations and tremors.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q15">
+<h2>Question 15</h2>
+<p>Which receptor subtype reduction may relate to antidepressant efficacy?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Dopamine D2</li>
+<li onclick="checkAnswer(this, true)">5-HT2A</li>
+<li onclick="checkAnswer(this, false)">NMDA</li>
+<li onclick="checkAnswer(this, false)">GABA-A</li>
+</ul>
+<div class="explanation">Downregulation of 5-HT2A receptors after chronic antidepressant treatment is associated with symptom improvement.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q16">
+<h2>Question 16</h2>
+<p>What concept explains linking irrelevant stimuli with delusions?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Cognitive bias</li>
+<li onclick="checkAnswer(this, true)">Aberrant salience</li>
+<li onclick="checkAnswer(this, false)">Anhedonia</li>
+<li onclick="checkAnswer(this, false)">Perseveration</li>
+</ul>
+<div class="explanation">Aberrant salience explains how irrelevant stimuli gain undue importance, forming the foundation of delusions.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q17">
+<h2>Question 17</h2>
+<p>Which clinical symptom improves with acetylcholinesterase inhibitors in DLB?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Seizures</li>
+<li onclick="checkAnswer(this, true)">Visual hallucinations</li>
+<li onclick="checkAnswer(this, false)">Tachycardia</li>
+<li onclick="checkAnswer(this, false)">Muscle rigidity</li>
+</ul>
+<div class="explanation">Visual hallucinations, common in DLB, often respond well to acetylcholinesterase inhibitors due to enhanced cholinergic transmission.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q18">
+<h2>Question 18</h2>
+<p>What role does the p75 receptor play in neurodegeneration?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Enhances synaptic plasticity</li>
+<li onclick="checkAnswer(this, true)">Mediates apoptosis under certain conditions</li>
+<li onclick="checkAnswer(this, false)">Promotes myelination</li>
+<li onclick="checkAnswer(this, false)">Blocks serotonin uptake</li>
+</ul>
+<div class="explanation">The p75 receptor can mediate apoptotic signals, contributing to neurodegeneration in some contexts.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q19">
+<h2>Question 19</h2>
+<p>Which neurotransmitter imbalance is central to Parkinson’s but also relevant in DLB?</p>
+<ul>
+<li onclick="checkAnswer(this, true)">Dopamine deficiency</li>
+<li onclick="checkAnswer(this, false)">Excess serotonin</li>
+<li onclick="checkAnswer(this, false)">High acetylcholine</li>
+<li onclick="checkAnswer(this, false)">GABA elevation</li>
+</ul>
+<div class="explanation">Both Parkinson’s and DLB share dopaminergic deficits, contributing to motor and cognitive symptoms.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+<section class="question-block" id="q20">
+<h2>Question 20</h2>
+<p>What is a key risk when using antipsychotics in DLB?</p>
+<ul>
+<li onclick="checkAnswer(this, false)">Weight gain</li>
+<li onclick="checkAnswer(this, true)">Life-threatening sensitivity reactions</li>
+<li onclick="checkAnswer(this, false)">Hypertension</li>
+<li onclick="checkAnswer(this, false)">Euphoria</li>
+</ul>
+<div class="explanation">DLB patients can develop severe reactions to antipsychotics, including worsened parkinsonism and even death in extreme cases.</div>
+<button onclick="goToNext()">Next</button>
+<button onclick="goToLast()">Last Q</button>
+</section>
+
+
+<script>
+let current = 0;
+const blocks = document.querySelectorAll('.question-block');
+function show(index) {
+  blocks.forEach((b, i) => b.classList.toggle('active', i === index));
+}
+function goToNext() {
+  if (current < blocks.length - 1) {
+    current++; show(current);
+  }
+}
+function goToLast() {
+  current = blocks.length - 1; show(current);
+}
+function checkAnswer(el, correct) {
+  if (el.classList.contains('answered')) return;
+  const allOptions = el.parentElement.querySelectorAll('li');
+  allOptions.forEach(opt => {
+    const isCorrect = opt.onclick.toString().includes('true');
+    if (isCorrect) { opt.classList.add('correct'); }
+  });
+  if (correct) { el.classList.add('correct'); }
+  else { el.classList.add('wrong'); }
+  el.classList.add('answered');
+  el.parentElement.parentElement.querySelector('.explanation').style.display = 'block';
+  allOptions.forEach(opt => opt.onclick = null);
+}
+document.addEventListener("DOMContentLoaded", () => show(0));
+</script>
+</body>
+</html>
